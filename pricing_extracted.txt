@@ -1,0 +1,387 @@
+
+SDLClaw
+The AI Agent That Actually Does Things
+
+Your AI&#10;works 24/7
+No technical&#10;skills needed
+One fixed&#10;monthly fee
+Set up in&#10;5–10 days
+
+Service &amp; Pricing Guide
+Prepared for: ________________________     April 2026     CONFIDENTIAL
+
+1. What is SDLClaw?
+SDLClaw is your own AI employee — one that never sleeps, never takes holidays, and handles dozens of repetitive tasks automatically across your business.
+You connect it to the tools you already use — WhatsApp, Telegram, Slack, email, your CRM — and it handles the conversations, tasks, and data work that currently eat your team's time.
+Think of it this way:
+A small restaurant owner spends 2 hours every day answering the same WhatsApp questions: “What time do you open?” “Do you have tables tonight?” “Is there parking?”
+With SDLClaw: those questions are answered instantly, automatically, at 2am if needed, in any language — without the owner touching their phone.
+That same agent can take reservations, send reminders, and flag genuinely urgent messages for the owner to handle personally.
+
+2. What Can SDLClaw Do For Your Business?
+Below are the eight most common ways businesses use SDLClaw. These are real workflows, not features.
+
+Business benefit with real-world example
+01
+Answer customer questions — automatically, any hour
+Your AI agent handles inbound messages on WhatsApp, Telegram, or your website chat. It reads your FAQ, product catalogue, and policies, then answers instantly.
+↳ Real example: A property letting agency receives 40 enquiries a day about available flats. SDLClaw answers all of them, qualifies which are serious, and only forwards hot leads to the agent. Response time drops from 6 hours to 6 seconds.
+02
+Qualify leads before they reach your team
+When someone contacts you, the AI asks the right questions (budget, timeline, what they need), scores the lead, and routes hot prospects to your sales team immediately.
+↳ Real example: A solar panel company was spending 3 hours a day on phone calls with people who couldn't afford their product. SDLClaw now pre-qualifies all inbound enquiries. Their sales team only speaks to ready buyers.
+03
+Book appointments and manage your calendar
+The agent checks your availability, offers times, confirms bookings, and sends reminders — without a receptionist or back-and-forth emails.
+↳ Real example: A physiotherapy clinic eliminated its receptionist role. Patients book via WhatsApp, receive an automated reminder 24 hours before their appointment, and get a follow-up asking how they're feeling. The clinic saves €1,800/month.
+04
+Draft and send proposals automatically
+Give the agent a client brief and it generates a tailored proposal document, pulls the right pricing, and sends it formatted and ready to sign.
+↳ Real example: A freelance web designer used to spend 3 hours on every proposal. SDLClaw generates a first draft in 90 seconds from a short intake form. The designer reviews and sends. Proposal volume tripled.
+05
+Update your CRM and track every customer interaction
+Every conversation, every note, every stage change — the agent logs it automatically so nothing falls through the cracks.
+↳ Real example: A recruitment firm had consultants spending 45 minutes a day updating their CRM. SDLClaw logs every call note and candidate update automatically. That's 3.5 hours/week per consultant returned to billable work.
+06
+Handle Tier 1 support so your team handles Tier 2
+The agent resolves password resets, order status queries, returns requests, and basic troubleshooting automatically. Complex issues get escalated with full context.
+↳ Real example: An e-commerce store was paying two part-time staff to handle support tickets. SDLClaw now resolves 70% of tickets without human involvement. The two staff were reassigned to customer success and upselling.
+07
+Send weekly reports to your team or your inbox
+Every Monday morning, your agent compiles your key numbers — revenue, pipeline, open tasks, what needs your attention — and delivers a summary wherever you want it.
+↳ Real example: A boutique hotel owner now receives a daily 7am briefing via Telegram: last night's revenue, today's check-ins, any pending maintenance requests, and a flag if any review mentions a complaint.
+08
+Translate, summarise, and process documents
+Upload a contract, a supplier invoice, or a research report. The agent reads it, extracts the key points, flags risks, and answers questions about it.
+↳ Real example: An import business receives supplier documents in Chinese. SDLClaw translates, extracts pricing and delivery terms, compares them to previous orders, and flags any price increases — in minutes rather than hours.
+
+
+3. How It Works — Plain and Simple
+Step
+What happens
+What you do
+1
+We set SDLClaw up on a server (cloud or yours)
+Nothing — we handle everything. Takes 5–10 days.
+2
+We connect it to your channels (WhatsApp, Telegram, Slack…)
+Share your account credentials with us. We configure everything.
+3
+We install the automations (“Skills”) your business needs
+Tell us what tasks you want automated. We build them.
+4
+You go live. Your agent starts working.
+Monitor via your phone. Edit instructions in plain English anytime.
+5
+We manage it ongoing — updates, monitoring, support
+Focus on your business. We handle the technical side.
+
+You do not need to know anything about AI, servers, or code.
+If you can send a WhatsApp message, you can manage your SDLClaw agent. All instructions are given in plain conversational language — just like telling a new employee what to do.
+
+4. Pricing — Simple Overview
+There are two costs to understand:
+One-time setup fee
+Pay once. Yours forever.
+From €1,950
+Monthly platform fee
+Keeps it running. Cancel anytime.
+From €29/month
+Like buying and installing a coffee machine for your office.
+Like the service contract that keeps it maintained and updated.
+
+On Solo and Team plans, you also pay Anthropic (the makers of Claude AI) directly — approximately €185/month for one AI account. This is like your phone bill: you pay them, not us. We never mark it up.
+
+Choose your monthly plan
+
+Solo
+Team
+MOST POPULAR
+Business All-In
+Everything managed
+€29/month
+€79/month
+€349/month
++ your own Claude account (~€185/mo)
++ your own Claude account (~€185/mo)
+AI access included — nothing extra
+1 user
+1 messaging channel
+5 automations included
+Server managed 24/7
+Email support
+Best for: Freelancers, consultants, solo traders
+Up to 5 users
+3 messaging channels
+Unlimited automations
+Dedicated server
+Priority support
+Best for: Small teams, agencies, growing SMEs
+Up to 10 users
+5 messaging channels
+Unlimited automations
+Claude AI access included
+99% uptime guarantee
+Monthly usage report
+Best for: SMEs who want zero admin
+
+Not sure which plan? Start here:
+• If you work alone or with 1–2 colleagues: Solo
+• If you have a team of 3–10 and use multiple channels: Team
+• If you want everything handled for you with no technical involvement whatsoever: Business All-In
+
+
+5. Setup Options — One-Time Fee
+Choose how you want SDLClaw installed. All options include full setup, testing, an operations manual, and 7 days of post-launch support.
+Option
+One-time fee
+What this means for you
+Cloud — We host it
+You provide a cloud server (or we include one)
+€1,950&#10;(your server)&#10;&#10;or €2,950&#10;(server included)
+We deploy SDLClaw on a cloud server and configure everything. The €2,950 option includes a dedicated server for the first year — nothing extra to buy or set up.
+Best for: Businesses without their own IT infrastructure.
+On your own server
+Installed on your company’s own infrastructure
+€9,800&#10;(we provide AI)&#10;&#10;or €19,500&#10;(you own everything)
+SDLClaw runs inside your own network. Your data never leaves your servers. The €19,500 option means you also own your own Claude AI account — giving you full independence.
+Best for: Companies with data privacy requirements, legal firms, financial services, regulated industries.
+Enterprise custom
+Tailored to your organisation
+On application
+For organisations with complex requirements: multiple departments, custom AI model routing, integration with existing HR/ERP/CRM systems, or a dedicated support team.
+Contact us to discuss your requirements.
+
+6. Optional Extras
+Once your SDLClaw is running, you can add any of the following at any time.
+Extra
+From
+What it does for your business
+Custom automation (per task)
+€650
+We build a bespoke workflow for any task specific to your business — e.g. an automated rent reminder for landlords, a stock reorder trigger for retailers.
+New messaging channel
+€1,100
+Connect SDLClaw to an additional platform — e.g. add Discord for your community, or LinkedIn for B2B lead handling.
+Single sign-on (SSO)
+€3,200
+Let your team log in with their existing company Google or Microsoft account. No new passwords. Ideal for companies with 20+ staff.
+Migration from OpenClaw
+€2,200
+Already using OpenClaw? We migrate all your settings, skills, and history to SDLClaw with no downtime.
+Annual maintenance plan
+€5,800/yr
+Proactive monitoring, platform updates, and 12 hours of support per year. Recommended for on-premises deployments.
+Emergency support
+€450/incident
+24-hour response for critical failures. We diagnose, fix, and send you a full incident report.
+
+
+7. Full Technical Specification &amp; Price List
+This section is for technical buyers and IT teams. It maps every service to its exact specification, delivery standard, and price.
+A. Deployment Services (one-time)
+Deployment tier
+Price
+Technical specification
+Cloud — client server
+Min. spec: 4-core CPU / 8GB RAM / 20GB SSD / Linux
+€1,950
+SDLClaw system deployment via Docker
+Admin account initialisation + RBAC configuration
+5 pre-built Skills installed (FAQ, scheduler, lead qualifier, document processor, weekly digest)
+1× acceptance test + sign-off
+Operations manual (PDF + walkthrough video)
+7-day post-launch technical support
+Delivery: 5–10 working days
+Cloud — server included
+4-core / 8GB / 40GB SSD / 5Mbps / Linux
+€2,950
+All of the above, plus:
+Dedicated cloud server (1-year included, market rate from Year 2)
+Server initialisation, OS hardening, firewall configuration
+Domain binding + Let’s Encrypt HTTPS certificate
+Basic uptime monitoring + alert notifications
+Server renewal management (Year 2 onwards)
+On-premises — managed API
+Client provides server. SDLClaw provides Claude access.
+€9,800
+Local server environment adaptation (bare metal or VM)
+Docker containerisation + orchestration setup
+Multi-channel IM configuration: Telegram, Slack, WhatsApp, Discord
+Claude API integration with multi-provider load balancing + failover
+Security policy configuration: mount whitelist, permission isolation
+Full operations manual + architecture documentation
+On-premises — client API key
+Client owns server + Claude account. Full independence.
+€19,500
+All on-premises services above, plus:
+Multi-user RBAC customisation (admin / member / read-only roles)
+3× bespoke Skills developed to client specification
+Agent behaviour rules customisation (tone, scope, escalation logic)
+1-month free maintenance included (3 person-days)
+Quarterly best-practice review session
+
+B. Monthly Platform Fee (infrastructure + management)
+AI model subscription costs (Claude, GLM) are separate — see Section C. These fees cover server, maintenance, and support only.
+
+Plan
+Price/mo
+Technical spec
+SLA &amp; support
+Solo
+€29
+1 user account, 1 IM channel
+Shared VPS (4-core/8GB)
+5 pre-installed Skills
+API management Mode A
+Best-effort uptime
+Email support, 48hr response
+Monthly platform updates
+Team
+€79
+5 user accounts, 3 IM channels
+Dedicated VPS (4-core/8GB)
+Unlimited Skills
+WebSocket real-time streaming
+API management Mode A
+99% monthly uptime target
+Priority email + Telegram, 24hr response
+Automated monitoring alerts
+Business&#10;All-In
+€349
+10 user accounts, 5 IM channels
+Dedicated VPS + Claude API included
+Multi-provider load balancing (Claude + GLM failover)
+API management Mode C (full SLA)
+Monthly usage + cost report
+99% uptime SLA (contractual)
+48-hr fault resolution guarantee
+Backup API account switchover
+Dedicated account manager
+
+C. AI Model API Management (per HPC instance / month)
+For on-premises clients who manage their own server. Choose how involved you want SDLClaw to be in managing your Claude AI account.
+
+Mode
+Price/HPC/mo
+What SDLClaw does
+Client responsibility
+Mode A&#10;Self-supply
+€12
+Load balancing configuration, connectivity testing, fault diagnosis on your existing Claude/GLM accounts.
+Own and manage your Anthropic/GLM accounts. Register, renew, and handle account issues directly.
+Mode B&#10;Managed accounts
+€25
+Register Claude/GLM accounts on your behalf, handle monthly renewals, assist with fault diagnosis.
+Provide payment method. Bear fault risk — we assist but do not guarantee availability.
+Mode C&#10;Full SLA
+€45
+48-hr fault resolution + backup account switchover, 99% uptime SLA, monthly usage report, dedicated contact for account issues.
+Nothing — we handle everything.
+Volume discounts
+Auto-applied
+2–3 HPCs: 10% off · 4–10 HPCs: 15% off · 10+ HPCs: 25% off
+Quarterly prepay: +5% off · Annual prepay: +15% off
+
+D. AI Subscriptions (pass-through, zero markup)
+These are the underlying AI costs. We pass them through at exact cost — clients may also purchase these directly from Anthropic and Zhipu AI.
+
+Subscription
+Monthly cost
+Capability summary
+Claude Code Max (1 seat)&#10;Anthropic official plan
+€185/mo&#10;($200 USD)
+Full Claude Opus 4.6 capability. 5× usage limits vs standard plan. Required for production SDLClaw deployments. Clients may purchase directly at claude.ai.
+GLM Coding Pro (1 seat)&#10;Zhipu AI — failover layer
+€19/mo&#10;(¥149 CNY)
+Multi-provider load balancing and failover. ~600 prompts per 5-hour window. Recommended as redundancy for Business/Enterprise. Optional for Solo/Team.
+Starter bundle (1 HPC)&#10;Claude Max + GLM Pro
+€205/mo
+Full AI stack for one instance. Typical cost for Solo/Team clients who self-manage their accounts.
+Team bundle (2–3 HPCs)&#10;10% volume discount
+€371/mo
+Discounted bundle for 2–3-instance deployments. Suitable for 5–15-person teams.
+Business bundle (4–10 HPCs)&#10;15% volume discount
+€691/mo
+Discounted bundle for larger deployments. Per-seat cost ~€173 vs €205 at full price. Suitable for multi-department organisations.
+
+E. Add-On Services (optional, any time)
+Service
+Price
+Technical scope
+Custom Skill development
+€650–€1,200&#10;per Skill
+Single-purpose automation built to specification. Typical deliverable: input handler, logic layer, output formatter, test suite, and documentation. Delivery: 5–10 working days.
+IM channel fine-tuning
+€1,100–€1,800&#10;per channel
+Optimise message routing, response logic, and bot persona for a specific platform (Telegram, Slack, WhatsApp, Discord). Includes load testing.
+RBAC permission template
+€1,800–€2,500
+Custom role hierarchy design: admin, member, read-only, department-scoped. Includes access audit trail configuration.
+SSO integration&#10;(SAML 2.0 / OIDC)
+€3,200–€4,500
+Connect SDLClaw to your identity provider (Okta, Azure AD, Google Workspace, Auth0). Includes provisioning, de-provisioning, and group-based access mapping.
+OpenClaw → SDLClaw migration
+€2,200–€2,800
+Full migration: Skills, configuration, persistent memory (CLAUDE.md), user accounts, and channel settings. Includes validation and 14-day rollback provision.
+Annual maintenance plan
+€5,800–€6,500/yr
+Platform version updates, proactive security patching, 12 support hours (SLA: 24hr for P1, 72hr for P2), quarterly performance review. Recommended for all on-premises deployments.
+Emergency fault response
+€450–€600&#10;per incident
+24-hour response commitment. Scope: fault diagnosis, root cause analysis, fix deployment, incident report. Covers production outages, data access failures, and integration breaks.
+
+8. Typical First-Year Investment
+The table below shows what a typical client pays in Year 1, combining setup and monthly fees.
+Package
+Setup fee
+Monthly fee
+Year 1 total
+Typical client
+Starter&#10;(Solo plan)
+€1,950
+€29/mo
+€2,298&#10;+ AI costs
+Freelancer, consultant, sole trader wanting to automate customer enquiries and scheduling.
+Team&#10;(Team plan)
+€2,950
+€79/mo
+€3,898&#10;+ AI costs
+Marketing agency (5 staff), estate agency, hospitality business with multiple channels.
+Business All-In&#10;(fully managed)
+€9,800
+€349/mo
+€13,988&#10;all-inclusive
+SME (up to 10 staff) wanting full AI automation with zero technical overhead. AI included.
+Enterprise On-Prem&#10;(client API key + Mode C)
+€19,500
+€45/HPC/mo&#10;+ AI costs
+€20,040&#10;+ AI costs
+Financial services, legal, healthcare — any business where data must stay on-site.
+
+
+9. Next Steps
+
+
+Step
+Details
+1
+Free 30-minute discovery call
+We map your current workflows, identify the top 3 automations that would save you the most time, and recommend the right package.
+2
+Live demo (your use case)
+We show SDLClaw handling a task specific to your industry — not a generic demo. You see exactly what your agent would do.
+3
+Proposal with exact pricing
+You receive a written proposal within 24 hours. No obligation, no pressure.
+4
+Setup begins
+Once you confirm, deployment takes 5–10 working days. You go live with a working agent.
+
+Get in touch
+Email: 
+Telegram: 
+Web: 
+OMM Ltd. · Gibraltar · Serving clients internationally
+
+All prices in EUR. Valid for 30 days from date of issue. Prices exclude applicable taxes. AI subscription costs (Claude Code Max, GLM Pro) are pass-through at zero markup on Solo and Team plans — clients pay Anthropic/Zhipu directly. OMM Ltd. is incorporated in Gibraltar. This document is confidential and prepared for the named recipient only.
