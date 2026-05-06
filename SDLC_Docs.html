@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SDL-HappyClaw Documentation — SixDustsLab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0c0e;
+    --bg-card: #141519;
+    --bg-card-hover: #1a1b21;
+    --border: #23252b;
+    --border-hover: #3a3d47;
+    --text: #e9eaec;
+    --text-secondary: #8b8f9a;
+    --accent: #bcd9ff;
+    --accent-dim: rgba(188, 217, 255, 0.08);
+    --accent-border: rgba(188, 217, 255, 0.15);
+    --badge-bg: rgba(188, 217, 255, 0.06);
+    --badge-border: rgba(188, 217, 255, 0.12);
+    --badge-text: #7fa8d4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── Header ── */
+  header {
+    padding: 72px 0 56px;
+    text-align: centre;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+
+  header .brand {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    opacity: 0.7;
+  }
+
+  header h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  header .subtitle {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 540px;
+    margin: 0 auto;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ── Sections ── */
+  .section {
+    padding: 48px 0 16px;
+  }
+
+  .section-title {
+    font-family: 'Geist', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 20px;
+    padding-left: 2px;
+  }
+
+  /* ── Card Grid ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 14px;
+  }
+
+  .card {
+    display: block;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+    position: relative;
+  }
+
+  .card.active-link:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-hover);
+    transform: translateY(-1px);
+  }
+
+  .card.active-link {
+    cursor: pointer;
+  }
+
+  .card.coming-soon {
+    cursor: default;
+  }
+
+  .card.coming-soon:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-hover);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .card-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .card-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .badge {
+    display: inline-block;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: var(--badge-bg);
+    border: 1px solid var(--badge-border);
+    color: var(--badge-text);
+    flex-shrink: 0;
+  }
+
+  .card .arrow {
+    position: absolute;
+    top: 22px;
+    right: 20px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .card.active-link:hover .arrow {
+    opacity: 1;
+    transform: translateX(2px);
+  }
+
+  /* ── Footer ── */
+  footer {
+    margin-top: 56px;
+    padding: 36px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+
+  footer .contact {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+  }
+
+  footer .contact a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  footer .contact a:hover {
+    text-decoration: underline;
+  }
+
+  footer .back-link {
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+  }
+
+  footer .back-link a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  footer .back-link a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+
+  footer .legal {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    opacity: 0.6;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 680px) {
+    header {
+      padding: 48px 0 40px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+    }
+
+    .card-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .section {
+      padding: 36px 0 12px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <header>
+    <div class="brand">SixDustsLab &middot; SDL-HappyClaw</div>
+    <h1>SDL-HappyClaw Documentation</h1>
+    <p class="subtitle">Everything you need to deploy, configure, and manage your AI employee.</p>
+  </header>
+
+  <!-- Getting Started -->
+  <section class="section">
+    <h2 class="section-title">Getting Started</h2>
+    <div class="card-grid">
+
+      <a href="#" class="card coming-soon">
+        <span class="arrow">&rarr;</span>
+        <div class="card-header">
+          <span class="card-title">Quick Start Guide</span>
+          <span class="badge">Coming soon</span>
+        </div>
+        <p class="card-desc">Deploy your first SDL-HappyClaw agent in under 10 minutes. Connect a channel, install a Skill, go live.</p>
+      </a>
+
+      <a href="#" class="card coming-soon">
+        <span class="arrow">&rarr;</span>
+        <div class="card-header">
+          <span class="card-title">How It Works</span>
+          <span class="badge">Coming soon</span>
+        </div>
+        <p class="card-desc">Architecture overview: channels, Skills, AI providers, and how they connect.</p>
+      </a>
+
+      <a href="#" class="card coming-soon">
+        <span class="arrow">&rarr;</span>
+        <div class="card-header">
+          <span class="card-title">System Requirements</span>
+          <span class="badge">Coming soon</span>
+        </div>
+        <p class="card-desc">Server specs, supported platforms, and network requirements.</p>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Channels -->
+  <section class="section">
+    <h2 class="section-title">Channels</h2>
+    <div class="card-grid">
+
+      <a href="#" class="card coming-soon">
+        <span class="arrow">&rarr;</span>
+        <div class="card-header">
+          <span class="card-title">WhatsApp Business</span>
+          <span class="badge">Coming soon</span>
+        </div>
+        <p class="card-desc">Connect your WhatsApp Business account. API setup, webhook config, message templates.</p>
+      </a>
+
+      <a href="#" class="card coming-soon">
+        <span class="arrow">&rarr;</span>
+        <div class="card-header">
+          <span class="card-title">Telegram</span>
+          <span class="badge">Coming soon</span>
+        </div>
+        <p class="card-desc">Bot setup, group integration, inline commands.</p>
+      </a>
+
+      <a href="#" class="card coming-soon">
+        <span class="arrow">&rarr;</span>
+        <div class="card-header">
+          <span class="card-title">Slack</span>
+          <span class="badge">Coming soon</span>
+        </div>
+        <p class="card-desc">Workspace installation, channel permissions, slash commands.</p>
+      </a>
+
+      <a href="#" class="card coming-soon">
+        <span class="arrow">&rarr;</span>
+        <div class="card-header">
+          <span class="card-title">Email (Gmail / M365)</span>
+          <span class="badge">Coming soon</span>
+        </div>
+        <p class="card-desc">IMAP/SMTP or API integration for automated email handling.</p>
+      </a>
+
+      <a href="#" class="card coming-soon">
+        <span class="arrow">&rarr;</span>
+        <div class="card-header">
+          <span class="card-title">More Channels</span>
+          <span class="badge">Coming soon</span>
+        </div>
+        <p class="card-desc">Discord, HubSpot, Salesforce, Google Calendar, Notion, Linear, Stripe, Airtable.</p>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section">
+    <h2 class="section-title">Skills</h2>
+    <div class="card-grid">
+
+      <a href="#" class="card coming-soon">
+        <span class="arrow">&rarr;</span>
+        <div class="card-header">
+          <span class="card-title">Skills Overview</span>
+          <span class="badge">Coming soon</span>
+        </div>
+        <p class="card-desc">What Skills are, how they work, and how to install them.</p>
+      </a>
+
+      <a href="#" class="card coming-soon">
+        <span class="arrow">&rarr;</span>
+        <div class="card-header">
+          <span class="card-title">Built-in Skills</span>
+          <span class="badge">Coming soon</span>
+        </div>
+        <p class="card-desc">FAQ responder, lead qualifier, appointment scheduler, proposal drafter, CRM sync, Tier 1 support, weekly digest, document processor.</p>
+      </a>
+
+      <a href="#" class="card coming-soon">
+        <span class="arrow">&rarr;</span>
+        <div class="card-header">
+          <span class="card-title">Custom Skills</span>
+          <span class="badge">Coming soon</span>
+        </div>
+        <p class="card-desc">Build your own Skills using the SDL-HappyClaw SDK.</p>
+      </a>
+
+      <a href="#" class="card coming-soon">
+        <span class="arrow">&rarr;</span>
+        <div class="card-header">
+          <span class="card-title">Retail Marketing Suite</span>
+          <span class="badge">Coming soon</span>
+        </div>
+        <p class="card-desc">Poster generator, social media suite, campaign broadcaster, catalogue builder, customer expert.</p>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Management -->
+  <section class="section">
+    <h2 class="section-title">Management</h2>
+    <div class="card-grid">
+
+      <a href="#" class="card coming-soon">
+        <span class="arrow">&rarr;</span>
+        <div class="card-header">
+          <span class="card-title">Admin Console</span>
+          <span class="badge">Coming soon</span>
+        </div>
+        <p class="card-desc">User management, RBAC, monitoring dashboard.</p>
+      </a>
+
+      <a href="#" class="card coming-soon">
+        <span class="arrow">&rarr;</span>
+        <div class="card-header">
+          <span class="card-title">AI Provider Config</span>
+          <span class="badge">Coming soon</span>
+        </div>
+        <p class="card-desc">Claude Opus 4.6, GLM failover, API key management, load balancing.</p>
+      </a>
+
+      <a href="#" class="card coming-soon">
+        <span class="arrow">&rarr;</span>
+        <div class="card-header">
+          <span class="card-title">Billing &amp; Plans</span>
+          <span class="badge">Coming soon</span>
+        </div>
+        <p class="card-desc">Solo, Team, Business All-In &mdash; plan management and upgrades.</p>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Reference -->
+  <section class="section">
+    <h2 class="section-title">Reference</h2>
+    <div class="card-grid">
+
+      <a href="#" class="card coming-soon">
+        <span class="arrow">&rarr;</span>
+        <div class="card-header">
+          <span class="card-title">API Reference</span>
+          <span class="badge">Coming soon</span>
+        </div>
+        <p class="card-desc">REST API endpoints for programmatic access.</p>
+      </a>
+
+      <a href="/pricing-guide" class="card active-link">
+        <span class="arrow">&rarr;</span>
+        <div class="card-header">
+          <span class="card-title">Pricing Guide</span>
+        </div>
+        <p class="card-desc">Detailed breakdown of plans, features, and pricing.</p>
+      </a>
+
+      <a href="/privacy" class="card active-link">
+        <span class="arrow">&rarr;</span>
+        <div class="card-header">
+          <span class="card-title">Privacy Policy</span>
+        </div>
+        <p class="card-desc">How we handle your data, GDPR compliance, and your rights.</p>
+      </a>
+
+      <a href="/case-studies" class="card active-link">
+        <span class="arrow">&rarr;</span>
+        <div class="card-header">
+          <span class="card-title">Case Studies</span>
+        </div>
+        <p class="card-desc">Real-world deployments and results from SDL-HappyClaw users.</p>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p class="contact">Need help? Contact us: <a href="mailto:SixDustsLab@gmail.com">SixDustsLab@gmail.com</a> &middot; WhatsApp <a href="https://wa.me/447440060028">+44 7440 060028</a></p>
+    <p class="back-link"><a href="https://sixdustslab.xyz">&larr; Back to sixdustslab.xyz</a></p>
+    <p class="legal">&copy; 2026 OneMore Management Ltd. &middot; Gibraltar</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
