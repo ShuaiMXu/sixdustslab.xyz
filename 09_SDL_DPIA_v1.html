@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DPIA / FRIA Template | SDL-HappyClaw</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+4:wght@0,300;0,400;0,600&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{--gd:#0a2a1f;--gm:#1e3a2f;--amber:#f5b042;--al:#fef6e0;--blue:#1a5276;--bb:#eaf2f8;--red:#7b1a1a;--rb:#fdf0f0;--slate:#1e293b;--muted:#5a6a7e;--rule:#dde3eb;--bg:#f4f6f9;--card:#fff;--r:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);font-family:'Source Serif 4',Georgia,serif;font-size:15px;line-height:1.72;color:var(--slate);padding:2rem 1rem 4rem}
+.wrap{max-width:960px;margin:0 auto;background:var(--card);border-radius:20px;box-shadow:0 12px 40px rgba(0,0,0,.08);overflow:hidden}
+.hdr{background:linear-gradient(108deg,var(--gd),var(--gm));padding:2.4rem 3rem 2rem;position:relative;overflow:hidden}
+.hdr::before{content:'';position:absolute;top:-50px;right:-50px;width:220px;height:220px;border-radius:50%;background:rgba(245,176,66,.07)}
+.badge{display:inline-flex;background:rgba(245,176,66,.18);border:1px solid rgba(245,176,66,.35);border-radius:40px;padding:.25rem .9rem;margin-bottom:.8rem}
+.badge span{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--amber);letter-spacing:.08em;text-transform:uppercase}
+.hdr h1{font-family:'Playfair Display',serif;font-size:2rem;color:#fff;margin-bottom:.3rem}
+.hdr p{color:rgba(255,255,255,.7);font-size:.9rem}
+.meta{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:rgba(255,255,255,.4);margin-top:.8rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+.body{padding:2.4rem 3rem}
+h2{font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--gd);margin:2.5rem 0 .7rem;padding-bottom:.5rem;border-bottom:2px solid var(--rule);display:flex;align-items:baseline;gap:.7rem}
+h2:first-of-type{margin-top:0}
+.sn{font-family:'JetBrains Mono',monospace;font-size:.68rem;background:var(--gd);color:var(--amber);padding:.12rem .5rem;border-radius:4px}
+h3{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gm);margin:1.4rem 0 .4rem}
+h4{font-family:'JetBrains Mono',monospace;font-size:.74rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:1rem 0 .35rem}
+p{margin-bottom:.8rem}
+.box{border:1.5px solid var(--rule);border-radius:var(--r);padding:1.2rem 1.5rem;margin:1rem 0;background:#fafbfd}
+.box.amber{background:var(--al);border-left:5px solid var(--amber)}
+.box.blue{background:var(--bb);border-left:5px solid var(--blue)}
+.box.red{background:var(--rb);border-left:5px solid var(--red)}
+.box.green{background:#edf7f0;border-left:5px solid #27ae60}
+.bt{font-family:'JetBrains Mono',monospace;font-size:.67rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4rem}
+.bt.a{color:#a0620a}.bt.b{color:var(--blue)}.bt.r{color:var(--red)}.bt.g{color:#1a7a40}
+/* FORM FIELDS */
+.field{margin-bottom:1rem}
+.field label{display:block;font-family:'JetBrains Mono',monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:.3rem}
+.field input,.field textarea,.field select{width:100%;border:1.5px solid var(--rule);border-radius:8px;padding:.55rem .8rem;font-family:'Source Serif 4',Georgia,serif;font-size:.93rem;color:var(--slate);background:#fafbfd;resize:vertical}
+.field textarea{min-height:80px}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--gm)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem}
+/* RISK TABLE */
+.rt{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.88rem}
+.rt th{background:var(--gd);color:#fff;padding:.6rem .9rem;font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:.06em;text-align:left}
+.rt td{padding:.55rem .9rem;border-bottom:1px solid var(--rule);vertical-align:top}
+.rt tr:nth-child(even) td{background:#f8fafc}
+.rt .risk-h{color:#7b1a1a;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.78rem}
+.rt .risk-m{color:#a0620a;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.78rem}
+.rt .risk-l{color:#1a7a40;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.78rem}
+/* APPROVAL */
+.sig-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:1rem 0}
+.sig-box{border:1.5px solid var(--rule);border-radius:var(--r);padding:1rem 1.2rem;background:#fafbfd}
+.sig-box .sl{font-family:'JetBrains Mono',monospace;font-size:.66rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:.6rem}
+.sig-box .sf{border-bottom:1px solid var(--slate);height:1.8rem;margin-bottom:.4rem}
+.sig-box .sh{font-size:.78rem;color:var(--muted)}
+/* CHECKBOX LIST */
+.cl{list-style:none;margin:0}
+.cl li{padding:.38rem .7rem .38rem 2rem;position:relative;font-size:.92rem;margin-bottom:.22rem}
+.cl li::before{content:'☐';position:absolute;left:.3rem;top:.38rem;color:var(--blue);font-size:.88rem}
+/* MISC */
+hr{border:none;border-top:1px solid var(--rule);margin:1.8rem 0}
+.thick{border-top:3px solid var(--amber);margin:2rem 0}
+code{font-family:'JetBrains Mono',monospace;font-size:.8em;background:#f0f2f5;padding:.1em .4em;border-radius:3px}
+.ftr{background:#f8fafc;border-top:1px solid var(--rule);padding:1rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;font-size:.68rem;color:var(--muted);font-family:'JetBrains Mono',monospace}
+.ftr strong{color:var(--gm)}
+.doc-id{font-family:'JetBrains Mono',monospace;font-size:.7rem;background:var(--amber);color:var(--gd);font-weight:700;padding:.15rem .6rem;border-radius:10px;margin-left:.5rem}
+@media(max-width:700px){.body,.hdr{padding:1.5rem}.grid-2,.grid-3,.sig-grid{grid-template-columns:1fr}}
+@media print{body{background:#fff;padding:0}.wrap{box-shadow:none;border-radius:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hdr">
+  <div class="badge"><span>SDL-HappyClaw · Internal · Compliance Function</span></div>
+  <h1>Data Protection &amp; Fundamental Rights Impact Assessment</h1>
+  <p>DPIA (Art. 35 GDPR) · FRIA (EU AI Act Art. 27) · PIPIA (PIPL Arts. 55–56) — Combined Template</p>
+  <div class="meta"><span>📄 Template v1.0</span><span>📅 May 2026</span><span>⚖️ Owner: DPO</span><span>🔄 Review: Per deployment / quarterly</span></div>
+</div>
+
+<div class="body">
+
+<div class="box amber">
+  <div class="bt a">📌 How to Use This Template</div>
+  Complete a new instance of this template for every new customer deployment, new high-risk use case, new AI model, or material change to an existing deployment. Save as <code>DPIA-[CustomerID]-[YYYY-MM-DD].pdf</code>. Obtain DPO sign-off in Section 9 before any deployment goes live. For EU Annex III high-risk use cases, also complete the FRIA fields in Section 7. For PRC deployments, also complete the PIPIA fields in Section 8.
+</div>
+
+<!-- S1 -->
+<h2><span class="sn">1</span> Document Identification</h2>
+<div class="grid-2">
+  <div class="field"><label>DPIA Reference Number</label><input type="text" placeholder="DPIA-001-2026-05"></div>
+  <div class="field"><label>Date Initiated</label><input type="text" placeholder="DD/MM/YYYY"></div>
+  <div class="field"><label>Customer / Deployment Name</label><input type="text" placeholder="Customer name or internal project name"></div>
+  <div class="field"><label>Primary Relevant Jurisdiction(s)</label><input type="text" placeholder="e.g. UK, EU-DE, PRC, Nigeria"></div>
+  <div class="field"><label>DPA / AUP Version Applicable</label><input type="text" placeholder="e.g. DPA v2.0, AUP v2.0"></div>
+  <div class="field"><label>Status</label>
+    <select>
+      <option>Draft — under review</option>
+      <option>Approved — deployment permitted</option>
+      <option>Approved with conditions — see Section 6</option>
+      <option>Referred to supervisory authority</option>
+      <option>Rejected — deployment not permitted</option>
+    </select>
+  </div>
+</div>
+<div class="field"><label>Prepared By (name / role)</label><input type="text"></div>
+<div class="field"><label>Linked Documents (RoPA entry, DPIA predecessors, contracts)</label><input type="text" placeholder="e.g. RoPA-Tab-12, DPIA-000-2025-11"></div>
+
+<!-- S2 -->
+<h2><span class="sn">2</span> Description of Processing</h2>
+<div class="field"><label>Nature of Processing — describe what the AI system does with personal data</label><textarea placeholder="e.g. The SDL-HappyClaw AI Bot processes natural-language customer service queries submitted by end-users of [Customer]. Inputs include free-text messages which may contain personal data. Outputs are generated text responses. Conversation logs are retained for [X] days on AWS eu-central-1."></textarea></div>
+<div class="field"><label>Scope — scale, frequency, geographic reach</label><textarea placeholder="e.g. Approximately [X] end-users per month; continuous processing during business hours; EU/UK users only."></textarea></div>
+<div class="field"><label>Context — customer sector, end-user vulnerability, regulatory environment</label><textarea placeholder="e.g. Financial services customer; end-users include members of the public seeking account support; regulated by FCA."></textarea></div>
+<div class="field"><label>Purpose(s) — why is this data being processed?</label><textarea placeholder="e.g. (1) To provide automated customer service responses; (2) To log interactions for quality assurance and audit."></textarea></div>
+
+<h4>Categories of Personal Data Processed</h4>
+<div class="grid-2">
+  <div class="field"><label>Data categories (tick all that apply)</label>
+    <textarea placeholder="☐ Name / contact details&#10;☐ Account / transaction data&#10;☐ Location data&#10;☐ Behavioural / usage data&#10;☐ Special category data (see below)&#10;☐ Children's data (under 18 / 13 for Gibraltar)"></textarea>
+  </div>
+  <div class="field"><label>Special Category Data (Art. 9 / sensitive PI under PIPL)</label>
+    <textarea placeholder="☐ Health / medical&#10;☐ Biometric&#10;☐ Genetic&#10;☐ Race / ethnic origin&#10;☐ Political opinion&#10;☐ Religious / philosophical belief&#10;☐ Trade union membership&#10;☐ Sex life / sexual orientation&#10;N/A — none of the above"></textarea>
+  </div>
+</div>
+<div class="grid-3">
+  <div class="field"><label>Estimated no. of data subjects</label><input type="text" placeholder="e.g. up to 10,000/month"></div>
+  <div class="field"><label>Data retention period</label><input type="text" placeholder="e.g. 30 days conversation logs; 6 months audit logs"></div>
+  <div class="field"><label>Sub-processors involved</label><input type="text" placeholder="e.g. Anthropic, AWS Frankfurt, Mistral AI (if DPA executed)"></div>
+</div>
+
+<!-- S3 -->
+<h2><span class="sn">3</span> Lawful Basis and Necessity</h2>
+<div class="field"><label>Lawful Basis for Processing (tick one per purpose)</label>
+  <textarea placeholder="Purpose 1: ☐ Contract necessity (Art. 6(1)(b))  ☐ Legitimate interests (Art. 6(1)(f))  ☐ Legal obligation  ☐ Consent  ☐ Vital interests  ☐ Public task&#10;Purpose 2: [repeat]&#10;Special category basis (if applicable): ☐ Explicit consent  ☐ Employment law obligation  ☐ Vital interests  ☐ Substantial public interest  ☐ Other:"></textarea>
+</div>
+<div class="field"><label>For legitimate interests: Legitimate Interests Assessment (LIA) reference or summary</label><textarea placeholder="Identify the legitimate interest; confirm processing is necessary; balance test: does the interest override data subject rights? Consider: reasonable expectations, nature of data, impact."></textarea></div>
+<div class="field"><label>Is processing limited to what is strictly necessary for the purpose(s)? (data minimisation)</label><textarea placeholder="Explain what data minimisation measures are in place. e.g. conversation logs purged at 30 days; PII redacted from quality-assurance datasets; prompt inputs filtered to remove unnecessary identifiers."></textarea></div>
+<div class="field"><label>UK GDPR (DUAA) — Automated Decision-Making Basis (if applicable, from 5 Feb 2026)</label>
+  <textarea placeholder="☐ Not applicable — no solely-automated significant decisions&#10;☐ Contract necessity (Art. 22B(2)(a)) — safeguards: [describe]&#10;☐ Legal authorisation (Art. 22B(2)(b))&#10;☐ Explicit consent (Art. 22B(2)(c))&#10;Special category ADM: ☐ Legal obligation  ☐ Explicit consent + substantial public interest"></textarea>
+</div>
+
+<!-- S4 -->
+<h2><span class="sn">4</span> EDPB Nine-Criteria Risk Screening</h2>
+<p style="font-size:.88rem;color:var(--muted)">Tick criteria that apply. Two or more = full DPIA mandatory. For AI deployments of the SDL-HappyClaw Service, DPIA is presumptively mandatory regardless of score.</p>
+<table class="rt">
+  <thead><tr><th>Criterion (EDPB WP248rev01)</th><th>Applies?</th><th>Explanation</th></tr></thead>
+  <tbody>
+    <tr><td>1. Evaluation or scoring (profiling)</td><td><select style="width:80px;font-size:.82rem"><option>Yes</option><option>No</option><option>Partial</option></select></td><td><input type="text" style="width:100%;border:none;background:transparent;font-size:.85rem" placeholder="Describe"></td></tr>
+    <tr><td>2. Automated decision-making with significant effect</td><td><select style="width:80px;font-size:.82rem"><option>Yes</option><option>No</option><option>Partial</option></select></td><td><input type="text" style="width:100%;border:none;background:transparent;font-size:.85rem" placeholder="Describe"></td></tr>
+    <tr><td>3. Systematic monitoring of data subjects</td><td><select style="width:80px;font-size:.82rem"><option>Yes</option><option>No</option><option>Partial</option></select></td><td><input type="text" style="width:100%;border:none;background:transparent;font-size:.85rem" placeholder="Describe"></td></tr>
+    <tr><td>4. Sensitive data or data of a highly personal nature</td><td><select style="width:80px;font-size:.82rem"><option>Yes</option><option>No</option><option>Partial</option></select></td><td><input type="text" style="width:100%;border:none;background:transparent;font-size:.85rem" placeholder="Describe"></td></tr>
+    <tr><td>5. Data processed on a large scale</td><td><select style="width:80px;font-size:.82rem"><option>Yes</option><option>No</option><option>Partial</option></select></td><td><input type="text" style="width:100%;border:none;background:transparent;font-size:.85rem" placeholder="Describe"></td></tr>
+    <tr><td>6. Matching or combining datasets</td><td><select style="width:80px;font-size:.82rem"><option>Yes</option><option>No</option><option>Partial</option></select></td><td><input type="text" style="width:100%;border:none;background:transparent;font-size:.85rem" placeholder="Describe"></td></tr>
+    <tr><td>7. Data concerning vulnerable data subjects</td><td><select style="width:80px;font-size:.82rem"><option>Yes</option><option>No</option><option>Partial</option></select></td><td><input type="text" style="width:100%;border:none;background:transparent;font-size:.85rem" placeholder="Describe"></td></tr>
+    <tr><td>8. Innovative use of technology</td><td><select style="width:80px;font-size:.82rem"><option selected>Yes</option><option>No</option><option>Partial</option></select></td><td><input type="text" style="width:100%;border:none;background:transparent;font-size:.85rem" placeholder="AI system — always yes"></td></tr>
+    <tr><td>9. Data transfer outside EEA / UK</td><td><select style="width:80px;font-size:.82rem"><option>Yes</option><option>No</option><option>Partial</option></select></td><td><input type="text" style="width:100%;border:none;background:transparent;font-size:.85rem" placeholder="Describe transfer mechanism"></td></tr>
+    <tr><td colspan="2"><strong>Criteria met (count):</strong></td><td><input type="text" style="width:60px;border:none;background:transparent;font-weight:700" placeholder="e.g. 4"></td></tr>
+  </tbody>
+</table>
+
+<!-- S5 -->
+<h2><span class="sn">5</span> Risk Identification and Assessment</h2>
+<p style="font-size:.88rem;color:var(--muted)">For each identified risk: Likelihood (1=Remote, 2=Possible, 3=Likely) × Severity (1=Minimal, 2=Significant, 3=Severe) = Risk Score (1–9). Score ≥6 = High; 3–5 = Medium; 1–2 = Low.</p>
+
+<table class="rt">
+  <thead><tr><th>Risk to Data Subjects</th><th>Likelihood (1–3)</th><th>Severity (1–3)</th><th>Score</th><th>Level</th></tr></thead>
+  <tbody>
+    <tr><td>Unauthorised disclosure of personal data via AI model output (data leakage)</td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><select style="width:70px;font-size:.82rem"><option>High</option><option>Medium</option><option>Low</option></select></td></tr>
+    <tr><td>Discriminatory or biased AI output producing unfair treatment</td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><select style="width:70px;font-size:.82rem"><option>High</option><option>Medium</option><option>Low</option></select></td></tr>
+    <tr><td>Automated decision without adequate human oversight or contestation mechanism</td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><select style="width:70px;font-size:.82rem"><option>High</option><option>Medium</option><option>Low</option></select></td></tr>
+    <tr><td>Inaccurate AI output leading to harm (hallucination / incorrect advice)</td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><select style="width:70px;font-size:.82rem"><option>High</option><option>Medium</option><option>Low</option></select></td></tr>
+    <tr><td>Excessive data collection / retention beyond necessity</td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><select style="width:70px;font-size:.82rem"><option>High</option><option>Medium</option><option>Low</option></select></td></tr>
+    <tr><td>Third-country transfer risk (Anthropic US / sub-processors)</td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><select style="width:70px;font-size:.82rem"><option>High</option><option>Medium</option><option>Low</option></select></td></tr>
+    <tr><td>Failure to honour data subject rights (access, erasure, portability)</td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><select style="width:70px;font-size:.82rem"><option>High</option><option>Medium</option><option>Low</option></select></td></tr>
+    <tr><td>Security breach / unauthorised access to conversation logs</td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><select style="width:70px;font-size:.82rem"><option>High</option><option>Medium</option><option>Low</option></select></td></tr>
+    <tr><td>[Additional risk — specify]</td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><input type="text" style="width:40px;border:none;background:transparent;text-align:center"></td><td><select style="width:70px;font-size:.82rem"><option>High</option><option>Medium</option><option>Low</option></select></td></tr>
+  </tbody>
+</table>
+
+<!-- S6 -->
+<h2><span class="sn">6</span> Mitigation Measures and Residual Risk</h2>
+<table class="rt">
+  <thead><tr><th>Risk (from S5)</th><th>Mitigation Measures</th><th>Residual Risk</th><th>Acceptable?</th></tr></thead>
+  <tbody>
+    <tr><td>Data leakage</td><td><textarea style="width:100%;border:none;background:transparent;font-size:.84rem;resize:none;min-height:50px" placeholder="e.g. Prompt sanitisation; output filtering; no training on customer data (Anthropic commercial DPA); 7-day log retention at Anthropic; AWS encryption at rest and in transit."></textarea></td><td><select style="width:70px;font-size:.82rem"><option>Low</option><option>Medium</option><option>High</option></select></td><td><select style="width:60px;font-size:.82rem"><option>Yes</option><option>No</option></select></td></tr>
+    <tr><td>Bias / discrimination</td><td><textarea style="width:100%;border:none;background:transparent;font-size:.84rem;resize:none;min-height:50px" placeholder="e.g. Bias monitoring; prohibited-use AUP clause; human-review requirement for significant decisions; FRIA completed."></textarea></td><td><select style="width:70px;font-size:.82rem"><option>Low</option><option>Medium</option><option>High</option></select></td><td><select style="width:60px;font-size:.82rem"><option>Yes</option><option>No</option></select></td></tr>
+    <tr><td>ADM without human oversight</td><td><textarea style="width:100%;border:none;background:transparent;font-size:.84rem;resize:none;min-height:50px" placeholder="e.g. Mandatory human-review escalation for significant decisions; contestation mechanism in customer product; ADM notification in privacy notice."></textarea></td><td><select style="width:70px;font-size:.82rem"><option>Low</option><option>Medium</option><option>High</option></select></td><td><select style="width:60px;font-size:.82rem"><option>Yes</option><option>No</option></select></td></tr>
+    <tr><td>Inaccurate output</td><td><textarea style="width:100%;border:none;background:transparent;font-size:.84rem;resize:none;min-height:50px" placeholder="e.g. AI transparency statement to end-users; disclaimer in outputs; human-escalation pathway; output accuracy testing prior to deployment."></textarea></td><td><select style="width:70px;font-size:.82rem"><option>Low</option><option>Medium</option><option>High</option></select></td><td><select style="width:60px;font-size:.82rem"><option>Yes</option><option>No</option></select></td></tr>
+    <tr><td>Cross-border transfer</td><td><textarea style="width:100%;border:none;background:transparent;font-size:.84rem;resize:none;min-height:50px" placeholder="e.g. EU SCCs Module 2 with Anthropic; TIA completed; AWS eu-central-1 data residency; no EU/UK data to Alibaba Cloud."></textarea></td><td><select style="width:70px;font-size:.82rem"><option>Low</option><option>Medium</option><option>High</option></select></td><td><select style="width:60px;font-size:.82rem"><option>Yes</option><option>No</option></select></td></tr>
+    <tr><td>[Additional — specify]</td><td><textarea style="width:100%;border:none;background:transparent;font-size:.84rem;resize:none;min-height:40px"></textarea></td><td><select style="width:70px;font-size:.82rem"><option>Low</option><option>Medium</option><option>High</option></select></td><td><select style="width:60px;font-size:.82rem"><option>Yes</option><option>No</option></select></td></tr>
+  </tbody>
+</table>
+
+<div class="field"><label>Overall Residual Risk Assessment</label>
+  <select>
+    <option>Low — all residual risks acceptable; proceed to DPO approval</option>
+    <option>Medium — residual risks acceptable with conditions stated above</option>
+    <option>High — prior consultation with supervisory authority required before deployment</option>
+  </select>
+</div>
+<div class="field"><label>Conditions on approval (if any)</label><textarea placeholder="e.g. Deployment permitted only for customer service use case; prohibited from credit-scoring; human-review escalation must be implemented before go-live; re-DPIA required if use case expands."></textarea></div>
+
+<!-- S7 FRIA -->
+<h2><span class="sn">7</span> Fundamental Rights Impact Assessment (FRIA) — EU AI Act Art. 27</h2>
+<div class="box blue">
+  <div class="bt b">ℹ️ When to Complete This Section</div>
+  Complete Section 7 only for EU Annex III high-risk use cases (employment screening, creditworthiness, insurance pricing, public benefit eligibility, essential services access) from 2 August 2026. This FRIA may be integrated into the DPIA as a combined document. Public-body deployers and Annex III §5 deployers must complete and make available on request.
+</div>
+<div class="field"><label>Annex III Category Applicable</label>
+  <select>
+    <option>Not applicable — not a high-risk Annex III system</option>
+    <option>4 — Employment and worker management (recruitment, performance, promotion, termination)</option>
+    <option>5(a) — Public benefit / social services eligibility</option>
+    <option>5(b) — Creditworthiness assessment / credit scoring</option>
+    <option>5(c) — Life / health insurance risk assessment and pricing</option>
+    <option>5(d) — Emergency services / essential services access</option>
+    <option>Other Annex III category — specify below</option>
+  </select>
+</div>
+<div class="field"><label>Deployer category (Art. 27(1))</label>
+  <select>
+    <option>Public body or body acting on its behalf — FRIA mandatory</option>
+    <option>Private body — category 5(b) creditworthiness — FRIA mandatory</option>
+    <option>Private body — category 5(c) life/health insurance — FRIA mandatory</option>
+    <option>Other private deployer — FRIA recommended</option>
+  </select>
+</div>
+<div class="field"><label>Fundamental rights potentially affected — identify and assess</label>
+  <textarea placeholder="Consider: dignity; non-discrimination; privacy; data protection; fair trial; children's rights; rights of persons with disabilities; consumer rights. For each: (1) Is the right relevant? (2) Could the system interfere with it? (3) What safeguards are in place?"></textarea>
+</div>
+<div class="field"><label>Stakeholder consultation — which groups were consulted?</label>
+  <textarea placeholder="e.g. Relevant worker representative bodies (employment use); consumer advocacy groups; persons with disabilities; DPO; internal AI governance team."></textarea>
+</div>
+<div class="field"><label>FRIA Conclusion</label>
+  <textarea placeholder="Summarise: (1) fundamental rights affected; (2) severity of potential impact; (3) safeguards implemented; (4) residual impact acceptable / not acceptable."></textarea>
+</div>
+
+<!-- S8 PIPIA -->
+<h2><span class="sn">8</span> PI Protection Impact Assessment (PIPIA) — PIPL Arts. 55–56</h2>
+<div class="box amber">
+  <div class="bt a">📌 When to Complete This Section</div>
+  Complete Section 8 for PRC deployments involving: sensitive personal information; automated decision-making with major impact; entrusted processing; cross-border data transfers; public disclosure of PI; or processing of minors' PI. Retain PIPIA for minimum 3 years.
+</div>
+<div class="field"><label>PIPIA Trigger (tick all that apply)</label>
+  <textarea placeholder="☐ Sensitive personal information (PIPL Art. 28)&#10;☐ Automated decision-making with major impact on PI subjects (Art. 24)&#10;☐ Entrusted processing to a third party (Art. 21)&#10;☐ Cross-border transfer of PI outside PRC&#10;☐ Large-scale PI processing (≥1,000,000 individuals)&#10;☐ Minors' PI (under 14 years)&#10;☐ Public disclosure of PI"></textarea>
+</div>
+<div class="field"><label>Cross-border transfer mechanism (if applicable)</label>
+  <select>
+    <option>Not applicable — no cross-border transfer</option>
+    <option>CAC Security Assessment (≥1M individuals or sensitive PI ≥10,000)</option>
+    <option>PRC Standard Contract — filed with provincial CAC within 10 working days</option>
+    <option>PI Protection Certification (GB/T 46068-2025)</option>
+    <option>Art. 5(1) contractual necessity exemption — B2C direct contract</option>
+  </select>
+</div>
+<div class="field"><label>PIPIA Risk Assessment — key risks and mitigations for PRC data subjects</label>
+  <textarea placeholder="Assess: risks to PI subjects' rights and interests; legality and necessity of processing; whether protective measures are adequate. Describe mitigations."></textarea>
+</div>
+<div class="field"><label>PI Protection Officer (PIPL Art. 52) — required if >1M individuals</label><input type="text" placeholder="Name and contact if appointed; N/A if threshold not met"></div>
+
+<!-- S9 APPROVAL -->
+<h2><span class="sn">9</span> DPO Review and Approval</h2>
+<div class="field"><label>DPO Review Notes</label>
+  <textarea placeholder="DPO records any concerns, additional conditions, or reasons for referral to supervisory authority."></textarea>
+</div>
+<div class="field"><label>Prior Consultation Required?</label>
+  <select>
+    <option>No — residual risk acceptable; proceeding to approval</option>
+    <option>Yes — high residual risk identified; referring to GRA / ICO / lead DPA before deployment</option>
+  </select>
+</div>
+<div class="field"><label>If prior consultation: Supervisory Authority and reference number</label><input type="text" placeholder="e.g. GRA — reference GRA/PC/2026/001; ICO — CHO00XXXXX"></div>
+
+<div class="sig-grid">
+  <div class="sig-box">
+    <div class="sl">Prepared by</div>
+    <div class="sf"></div><div class="sh">Name / Role</div>
+    <div class="sf" style="margin-top:.8rem"></div><div class="sh">Date</div>
+  </div>
+  <div class="sig-box">
+    <div class="sl">DPO Sign-Off</div>
+    <div class="sf"></div><div class="sh">DPO Name</div>
+    <div class="sf" style="margin-top:.8rem"></div><div class="sh">Date Approved</div>
+  </div>
+</div>
+
+<div class="box green" style="margin-top:1rem">
+  <div class="bt g">✓ Post-Approval Checklist</div>
+  <ul class="cl">
+    <li>DPIA filed at: <code>[Internal system path]</code> with reference number</li>
+    <li>RoPA entry created / updated to reference this DPIA</li>
+    <li>Customer notified of DPIA outcome (where contractually required)</li>
+    <li>Review trigger set: material change to deployment; annual review; regulatory guidance change</li>
+    <li>FRIA filed and available for regulatory inspection (if Annex III)</li>
+    <li>PIPIA retained: 3-year minimum (if PRC deployment)</li>
+  </ul>
+</div>
+
+<hr>
+<div class="box blue">
+  <div class="bt b">📄 Document Control</div>
+  Template v1.0 · May 2026 · Owner: DPO · Location: <code>[Internal system path]</code> · Completed instances retained 5 years minimum (GDPR Art. 5(2) accountability) · Review quarterly or on regulatory change.
+</div>
+
+</div>
+<div class="ftr">
+  <strong>SDL-HappyClaw · OneMore Management Ltd</strong>
+  <span>DPIA/FRIA/PIPIA Template v1.0 · May 2026 · INTERNAL</span>
+  <span>© 2026 OneMore Management Ltd</span>
+</div>
+</div>
+</body>
+</html>
