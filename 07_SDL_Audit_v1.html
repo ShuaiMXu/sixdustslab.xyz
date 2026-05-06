@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compliance Audit Pack | SDL-HappyClaw</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+4:wght@0,400;0,600&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{--gd:#0a2a1f;--gm:#1e3a2f;--amber:#f5b042;--al:#fef6e0;--blue:#1a5276;--bb:#eaf2f8;--red:#7b1a1a;--rb:#fdf0f0;--slate:#1e293b;--muted:#5a6a7e;--rule:#dde3eb;--bg:#f4f6f9;--card:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);font-family:'Source Serif 4',Georgia,serif;font-size:14.5px;line-height:1.7;color:var(--slate);padding:2rem 1rem 4rem}
+.wrap{max-width:1020px;margin:0 auto;background:var(--card);border-radius:20px;box-shadow:0 12px 40px rgba(0,0,0,.08);overflow:hidden}
+.hdr{background:linear-gradient(108deg,var(--gd),var(--gm));padding:2.4rem 3rem 2rem;position:relative;overflow:hidden}
+.hdr::before{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;border-radius:50%;background:rgba(245,176,66,.07)}
+.badge{display:inline-flex;background:rgba(245,176,66,.18);border:1px solid rgba(245,176,66,.35);border-radius:40px;padding:.22rem .85rem;margin-bottom:.7rem}
+.badge span{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--amber);letter-spacing:.08em;text-transform:uppercase}
+.hdr h1{font-family:'Playfair Display',serif;font-size:1.95rem;color:#fff;margin-bottom:.25rem}
+.hdr p{color:rgba(255,255,255,.68);font-size:.88rem}
+.meta{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:rgba(255,255,255,.4);margin-top:.7rem;display:flex;gap:1.4rem;flex-wrap:wrap}
+.ver-chips{display:flex;gap:.5rem;margin-top:.7rem;flex-wrap:wrap}
+.vc{font-family:'JetBrains Mono',monospace;font-size:.65rem;padding:.2rem .7rem;border-radius:20px;border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.85)}
+.vc.op{background:rgba(39,174,96,.25);border-color:rgba(39,174,96,.4)}
+.vc.reg{background:rgba(41,128,185,.25);border-color:rgba(41,128,185,.4)}
+.body{padding:2.4rem 3rem}
+h2{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gd);margin:2.5rem 0 .7rem;padding-bottom:.48rem;border-bottom:2px solid var(--rule);display:flex;align-items:baseline;gap:.7rem}
+h2:first-of-type{margin-top:0}
+.sn{font-family:'JetBrains Mono',monospace;font-size:.66rem;background:var(--gd);color:var(--amber);padding:.12rem .48rem;border-radius:4px}
+h3{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gm);margin:1.5rem 0 .45rem}
+h4{font-family:'JetBrains Mono',monospace;font-size:.73rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:.9rem 0 .3rem}
+p{margin-bottom:.75rem}
+.box{border-radius:12px;padding:.9rem 1.3rem;margin:.9rem 0;font-size:.92rem}
+.box.amber{background:var(--al);border-left:5px solid var(--amber)}
+.box.blue{background:var(--bb);border-left:5px solid var(--blue)}
+.box.red{background:var(--rb);border-left:5px solid var(--red)}
+.box.green{background:#edf7f0;border-left:5px solid #27ae60}
+.bt{font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.3rem}
+.bt.a{color:#a0620a}.bt.b{color:var(--blue)}.bt.r{color:var(--red)}.bt.g{color:#1a7a40}
+/* AUDIT CHECKLIST */
+.ac{width:100%;border-collapse:collapse;margin:.8rem 0;font-size:.86rem}
+.ac th{background:var(--gd);color:#fff;padding:.5rem .85rem;font-family:'JetBrains Mono',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:.05em;text-align:left}
+.ac td{padding:.48rem .85rem;border-bottom:1px solid var(--rule);vertical-align:top}
+.ac tr:nth-child(even) td{background:#f8fafc}
+.ac td:first-child{font-weight:600;color:var(--gm);white-space:nowrap;font-size:.82rem}
+.ac select{width:120px;border:1px solid var(--rule);border-radius:5px;padding:.22rem .4rem;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--slate)}
+.ac input[type="text"]{width:100%;border:1px solid var(--rule);border-radius:5px;padding:.22rem .5rem;font-family:'Source Serif 4',Georgia,serif;font-size:.83rem}
+/* EVIDENCE TABLE */
+.ev{width:100%;border-collapse:collapse;margin:.8rem 0;font-size:.85rem}
+.ev th{background:var(--gm);color:#fff;padding:.5rem .85rem;font-family:'JetBrains Mono',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:.05em;text-align:left}
+.ev td{padding:.48rem .85rem;border-bottom:1px solid var(--rule);vertical-align:top}
+.ev input{width:100%;border:1px solid var(--rule);border-radius:5px;padding:.2rem .45rem;font-size:.83rem}
+/* SCORE PILL */
+.score{font-family:'JetBrains Mono',monospace;font-size:.7rem;padding:.15rem .6rem;border-radius:10px;display:inline-block;font-weight:700}
+.s-y{background:#edf7f0;color:#1a7a40;border:1px solid #a3d9b8}
+.s-p{background:var(--al);color:#a0620a;border:1px solid #e8c47a}
+.s-n{background:var(--rb);color:var(--red);border:1px solid #e6b4b4}
+.s-na{background:#f0f2f5;color:var(--muted);border:1px solid var(--rule)}
+/* SIG */
+.sig-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:1rem 0}
+.sig-box{border:1.5px solid var(--rule);border-radius:12px;padding:1rem 1.2rem;background:#fafbfd}
+.sig-box .sl{font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:.5rem}
+.sig-box .sf{border-bottom:1px solid var(--slate);height:1.8rem;margin-bottom:.35rem}
+.sig-box .sh{font-size:.77rem;color:var(--muted)}
+hr{border:none;border-top:1px solid var(--rule);margin:1.8rem 0}
+.thick{border-top:3px solid var(--amber);margin:2rem 0}
+code{font-family:'JetBrains Mono',monospace;font-size:.78em;background:#f0f2f5;padding:.1em .38em;border-radius:3px}
+.ftr{background:#f8fafc;border-top:1px solid var(--rule);padding:1rem 3rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:.67rem;color:var(--muted);font-family:'JetBrains Mono',monospace}
+.ftr strong{color:var(--gm)}
+@media(max-width:700px){.body,.hdr{padding:1.5rem}.sig-grid{grid-template-columns:1fr}}
+@media print{body{background:#fff;padding:0}.wrap{box-shadow:none;border-radius:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hdr">
+  <div class="badge"><span>SDL-HappyClaw · Internal · Compliance Function</span></div>
+  <h1>Compliance Audit Pack</h1>
+  <p>Quarterly Self-Assessment (v1/v2) · Regulator-Facing Review (v4)</p>
+  <div class="ver-chips">
+    <span class="vc op">🔧 v1/v2 — Operational Self-Assessment</span>
+    <span class="vc reg">🔍 v4 — Regulator / External Auditor Facing</span>
+  </div>
+  <div class="meta"><span>📄 Template v1.0</span><span>📅 May 2026</span><span>⚖️ Owner: DPO + Compliance Officer</span><span>🔄 Quarterly minimum</span></div>
+</div>
+
+<div class="body">
+
+<!-- AUDIT HEADER -->
+<h2><span class="sn">0</span> Audit Instance Details</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1rem 0">
+  <div><label style="font-family:'JetBrains Mono',monospace;font-size:.66rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);display:block;margin-bottom:.3rem">Audit Reference</label><input type="text" style="width:100%;border:1.5px solid var(--rule);border-radius:8px;padding:.45rem .7rem;font-size:.88rem" placeholder="AUD-Q2-2026"></div>
+  <div><label style="font-family:'JetBrains Mono',monospace;font-size:.66rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);display:block;margin-bottom:.3rem">Quarter / Period</label><select style="width:100%;border:1.5px solid var(--rule);border-radius:8px;padding:.45rem .7rem;font-size:.88rem"><option>Q1 2026 (Jan–Mar)</option><option>Q2 2026 (Apr–Jun)</option><option>Q3 2026 (Jul–Sep)</option><option>Q4 2026 (Oct–Dec)</option><option>Triggered — specify in notes</option></select></div>
+  <div><label style="font-family:'JetBrains Mono',monospace;font-size:.66rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);display:block;margin-bottom:.3rem">Audit Type</label><select style="width:100%;border:1.5px solid var(--rule);border-radius:8px;padding:.45rem .7rem;font-size:.88rem"><option>Scheduled quarterly (v1/v2)</option><option>Triggered — regulatory change</option><option>Triggered — breach / incident</option><option>Triggered — customer / SA request</option><option>Annual deep-dive (v4 format)</option></select></div>
+</div>
+
+<div class="box amber">
+  <div class="bt a">📌 Scoring Key</div>
+  <span class="score s-y">✓ Yes</span> — Compliant, evidence on file &nbsp;
+  <span class="score s-p">~ Partial</span> — In progress / partially met — action required &nbsp;
+  <span class="score s-n">✗ No</span> — Not compliant — immediate action required &nbsp;
+  <span class="score s-na">N/A</span> — Not applicable to current deployment scope
+</div>
+
+<!-- ══ PART A: DATA PROTECTION ══ -->
+<h2><span class="sn">A</span> Data Protection Compliance</h2>
+
+<table class="ac">
+  <thead><tr><th>#</th><th>Control</th><th>Jurisdiction</th><th>Status</th><th>Evidence Reference</th><th>Action Required / Owner</th></tr></thead>
+  <tbody>
+    <tr><td>A1</td><td>RoPA current, DPO-attested, all active customers and controller activities included</td><td>GI / UK / EU</td><td><select class="score-sel"><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option><option>N/A</option></select></td><td><input type="text" placeholder="e.g. RoPA-Master-v8-Q2-2026"></td><td><input type="text"></td></tr>
+    <tr><td>A2</td><td>DPIA completed and DPO-approved for every active customer deployment</td><td>GI / UK / EU</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option><option>N/A</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>A3</td><td>EU SCCs Module 2 in place for all EU/Gibraltar controller customers; TIA current</td><td>EU / GI</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option><option>N/A</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>A4</td><td>UK IDTA or UK Addendum in place for UK controller customers</td><td>UK</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option><option>N/A</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>A5</td><td>EU GDPR Article 27 representative appointed and published</td><td>EU</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option><option>N/A</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>A6</td><td>UK GDPR Article 27 representative appointed and published</td><td>UK</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option><option>N/A</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>A7</td><td>DPO registered with GRA; registration current</td><td>GI</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option><option>N/A</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>A8</td><td>Breach Register current; all incidents logged; notifications documented</td><td>All</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option><option>N/A</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>A9</td><td>DSR Log current; all requests responded to within deadline</td><td>All</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option><option>N/A</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>A10</td><td>Sub-processor list published; 30-day customer notification process in place; all sub-processor DPAs executed</td><td>All</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option><option>N/A</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>A11</td><td>PIPL CBDT mechanism in place for any PRC-origin data transfers; PIPL Art.53 representative appointed (if PRC deployment active)</td><td>CN</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option><option>N/A — no PRC deployment</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>A12</td><td>NDPC registration current (if DCPMI threshold met); CAR filed by 31 March</td><td>NG</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option><option>N/A — threshold not met</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>A13</td><td>Angola APD prior authorisation obtained for cross-border transfers and ADM use cases</td><td>AO</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option><option>N/A — no Angola deployment</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+  </tbody>
+</table>
+
+<!-- ══ PART B: AI GOVERNANCE ══ -->
+<h2><span class="sn">B</span> AI Governance and EU AI Act</h2>
+<table class="ac">
+  <thead><tr><th>#</th><th>Control</th><th>Jurisdiction</th><th>Status</th><th>Evidence Reference</th><th>Action / Owner</th></tr></thead>
+  <tbody>
+    <tr><td>B1</td><td>AI System Register current; all deployments recorded with risk classification</td><td>All</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option><option>N/A</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>B2</td><td>EU AI Act Art. 5 prohibited practices training completed; no prohibited use cases in production</td><td>EU / GI</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option><option>N/A</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>B3</td><td>EU AI Act Art. 4 AI literacy training documented for all relevant staff; records on file</td><td>EU / GI</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option><option>N/A</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>B4</td><td>Art. 50 transparency: chatbot disclosure live for EU end-users (deadline 2 Aug 2026)</td><td>EU</td><td><select><option>✓ Yes — implemented</option><option>~ In progress — due 2 Aug 2026</option><option>✗ Not started — urgent</option><option>N/A — no EU end-users</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>B5</td><td>Synthetic content machine-readable labelling in place (EU Art.50(2); China GB 45438-2025)</td><td>EU / CN</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option><option>N/A</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>B6</td><td>FRIA completed for any Annex III high-risk deployments (due 2 Aug 2026)</td><td>EU</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option><option>N/A — no Annex III deployments</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>B7</td><td>AUP v2.0 accepted by all active customers (click-through or countersignature); acceptance records logged</td><td>All</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option><option>N/A</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>B8</td><td>Anthropic Commercial DPA current; Mistral AI DPA negotiation status confirmed; Alibaba Cloud DPA status (if PRC deployment planned)</td><td>All</td><td><select><option>✓ Yes — all DPAs current</option><option>~ Partial — Mistral DPA in progress</option><option>✗ No — action required</option></select></td><td><input type="text" placeholder="Anthropic DPA ✓; Mistral DPA: in progress; Alibaba: pending"></td><td><input type="text"></td></tr>
+    <tr><td>B9</td><td>China AI Labelling Measures (GB 45438-2025) implemented for PRC-directed outputs (in force 1 Sep 2025)</td><td>CN</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option><option>N/A — no PRC deployment</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>B10</td><td>EU/UK personal data routing to Alibaba Cloud / ByteDance / any PRC provider confirmed BLOCKED at infrastructure level</td><td>EU / UK / GI</td><td><select><option>✓ Yes — routing controls verified</option><option>~ Partial — controls in place, audit pending</option><option>✗ No — immediate remediation required</option><option>N/A — no PRC sub-processors active</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+  </tbody>
+</table>
+
+<!-- ══ PART C: FINANCIAL CRIME ══ -->
+<h2><span class="sn">C</span> Financial Crime Prevention (ABAC · AML · Sanctions)</h2>
+<table class="ac">
+  <thead><tr><th>#</th><th>Control</th><th>Regime</th><th>Status</th><th>Evidence Reference</th><th>Action / Owner</th></tr></thead>
+  <tbody>
+    <tr><td>C1</td><td>ABAC Policy current; board-attested this year; available to all staff</td><td>Bribery Act / ECCTA</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>C2</td><td>All staff completed ABAC + ECCTA training this cycle; records in Training Log</td><td>Bribery Act / ECCTA</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>C3</td><td>Gifts and Hospitality Register current; all entries within approved thresholds or with documented approval</td><td>Bribery Act</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>C4</td><td>All active referral partners screened against: UK Sanctions · EU FSF · UN · OFAC SDN · BIS Entity List; results documented in Partner DD Log</td><td>Sanctions / EAR</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>C5</td><td>Daily automated re-screening active; last run confirmed; no unresolved matches</td><td>Sanctions</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option></select></td><td><input type="text" placeholder="Last run: DD/MM/YYYY · Result: Clear"></td><td><input type="text"></td></tr>
+    <tr><td>C6</td><td>Angola partners on High Enhanced EDD; quarterly refresh completed; EUR thresholds monitored</td><td>FATF / AML</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option><option>N/A — no Angola partners</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>C7</td><td>Business Introduction Agreement v1.0 signed by all active referral partners</td><td>ABAC / Contract</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>C8</td><td>No commission payments made to partners with unresolved sanctions screening concerns</td><td>Sanctions</td><td><select><option>✓ Yes — confirmed clear</option><option>✗ No — escalate immediately</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+  </tbody>
+</table>
+
+<!-- ══ PART D: OPERATIONAL RESILIENCE ══ -->
+<h2><span class="sn">D</span> Operational Resilience and SLA</h2>
+<table class="ac">
+  <thead><tr><th>#</th><th>Control</th><th>Regime</th><th>Status</th><th>Evidence Reference</th><th>Action / Owner</th></tr></thead>
+  <tbody>
+    <tr><td>D1</td><td>Anthropic API uptime monitored; availability metrics logged; last quarter performance documented</td><td>SLA / DORA</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option></select></td><td><input type="text" placeholder="Uptime last quarter: XX%"></td><td><input type="text"></td></tr>
+    <tr><td>D2</td><td>Mistral AI fallback: DPA status confirmed; activation procedure documented in ICP</td><td>SLA / DORA</td><td><select><option>~ DPA in progress — not yet active</option><option>✓ DPA executed — fallback ready</option><option>✗ No progress — escalate</option></select></td><td><input type="text" placeholder="DPA negotiation status: [update]"></td><td><input type="text" placeholder="Compliance Officer to track"></td></tr>
+    <tr><td>D3</td><td>Multi-channel availability: at least one channel operational per customer geography (web widget / API as primary fallback)</td><td>SLA</td><td><select><option>✓ Yes</option><option>~ Partial</option><option>✗ No</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>D4</td><td>DORA-compliant contractual annex offered to EU financial-entity customers</td><td>DORA</td><td><select><option>✓ Yes — annex in all FE contracts</option><option>~ Partial — some FE contracts missing annex</option><option>✗ No</option><option>N/A — no EU financial-entity customers</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>D5</td><td>Incident response plan tested this year (tabletop breach drill); results documented</td><td>DORA / FCA</td><td><select><option>✓ Yes — drill completed Q1</option><option>~ Scheduled but not yet completed</option><option>✗ No — overdue</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+    <tr><td>D6</td><td>Gibraltar GFSC OR Guidance (July 2024): Important Business Services identified; impact tolerances set; scenario testing in scope for July 2026 deadline</td><td>GFSC OR</td><td><select><option>✓ Yes</option><option>~ In progress</option><option>✗ Not started</option><option>N/A — not GFSC-regulated</option></select></td><td><input type="text"></td><td><input type="text"></td></tr>
+  </tbody>
+</table>
+
+<!-- ══ PART E: DOCUMENT CURRENCY ══ -->
+<h2><span class="sn">E</span> Document and Policy Currency</h2>
+<table class="ac">
+  <thead><tr><th>#</th><th>Document</th><th>Current Version</th><th>Last Reviewed</th><th>Next Review Due</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>E1</td><td>Acceptable Use Policy</td><td>v2.0</td><td><input type="text" placeholder="DD/MM/YYYY"></td><td><input type="text" placeholder="DD/MM/YYYY"></td><td><select><option>✓ Current</option><option>~ Update due</option><option>✗ Overdue</option></select></td></tr>
+    <tr><td>E2</td><td>Business Introduction Agreement</td><td>v1.0</td><td><input type="text" placeholder="DD/MM/YYYY"></td><td><input type="text" placeholder="DD/MM/YYYY"></td><td><select><option>✓ Current</option><option>~ Update due</option><option>✗ Overdue</option></select></td></tr>
+    <tr><td>E3</td><td>Internal Compliance Procedures &amp; Workflow</td><td>v1.0</td><td><input type="text" placeholder="DD/MM/YYYY"></td><td><input type="text" placeholder="DD/MM/YYYY"></td><td><select><option>✓ Current</option><option>~ Update due</option><option>✗ Overdue</option></select></td></tr>
+    <tr><td>E4</td><td>Privacy Notice (end-user facing)</td><td><input type="text" placeholder="vX.X"></td><td><input type="text" placeholder="DD/MM/YYYY"></td><td><input type="text" placeholder="DD/MM/YYYY"></td><td><select><option>✓ Current</option><option>~ Update due</option><option>✗ Not yet created — action required</option></select></td></tr>
+    <tr><td>E5</td><td>Sub-Processor List (public)</td><td><input type="text" placeholder="vX.X"></td><td><input type="text" placeholder="DD/MM/YYYY"></td><td><input type="text" placeholder="DD/MM/YYYY"></td><td><select><option>✓ Current</option><option>~ Update due</option><option>✗ Not yet published — action required</option></select></td></tr>
+    <tr><td>E6</td><td>Standard Customer DPA</td><td><input type="text" placeholder="vX.X"></td><td><input type="text" placeholder="DD/MM/YYYY"></td><td><input type="text" placeholder="DD/MM/YYYY"></td><td><select><option>✓ Current</option><option>~ Update due</option><option>✗ Not yet created</option></select></td></tr>
+    <tr><td>E7</td><td>AI Transparency Statement (public)</td><td><input type="text" placeholder="vX.X"></td><td><input type="text" placeholder="DD/MM/YYYY"></td><td><input type="text" placeholder="DD/MM/YYYY"></td><td><select><option>✓ Current</option><option>~ Update due</option><option>✗ Not yet created — due 2 Aug 2026</option></select></td></tr>
+  </tbody>
+</table>
+
+<!-- ══ SCORING SUMMARY ══ -->
+<h2><span class="sn">F</span> Audit Summary and Actions</h2>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1rem 0">
+  <div style="border:1.5px solid #a3d9b8;border-radius:12px;padding:1rem;text-align:center;background:#edf7f0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:#1a7a40;text-transform:uppercase;margin-bottom:.4rem">Compliant ✓</div>
+    <input type="text" style="width:60px;font-size:1.4rem;font-weight:700;color:#1a7a40;text-align:center;border:none;background:transparent" placeholder="0">
+  </div>
+  <div style="border:1.5px solid #e8c47a;border-radius:12px;padding:1rem;text-align:center;background:var(--al)">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:#a0620a;text-transform:uppercase;margin-bottom:.4rem">Partial ~</div>
+    <input type="text" style="width:60px;font-size:1.4rem;font-weight:700;color:#a0620a;text-align:center;border:none;background:transparent" placeholder="0">
+  </div>
+  <div style="border:1.5px solid #e6b4b4;border-radius:12px;padding:1rem;text-align:center;background:var(--rb)">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--red);text-transform:uppercase;margin-bottom:.4rem">Non-Compliant ✗</div>
+    <input type="text" style="width:60px;font-size:1.4rem;font-weight:700;color:var(--red);text-align:center;border:none;background:transparent" placeholder="0">
+  </div>
+  <div style="border:1.5px solid var(--rule);border-radius:12px;padding:1rem;text-align:center;background:#f8fafc">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--muted);text-transform:uppercase;margin-bottom:.4rem">N/A</div>
+    <input type="text" style="width:60px;font-size:1.4rem;font-weight:700;color:var(--muted);text-align:center;border:none;background:transparent" placeholder="0">
+  </div>
+</div>
+
+<h4>Priority Actions (Non-Compliant and Partial items)</h4>
+<table class="ev">
+  <thead><tr><th>Ref</th><th>Issue</th><th>Risk Level</th><th>Owner</th><th>Target Date</th><th>Resolved Date</th></tr></thead>
+  <tbody>
+    <tr><td><input type="text" placeholder="e.g. A5"></td><td><input type="text" placeholder="EU Art.27 representative not yet appointed"></td><td><select style="font-size:.8rem"><option>Critical</option><option>High</option><option>Medium</option><option>Low</option></select></td><td><input type="text"></td><td><input type="text" placeholder="DD/MM/YYYY"></td><td><input type="text" placeholder="DD/MM/YYYY"></td></tr>
+    <tr><td><input type="text" placeholder="e.g. B4"></td><td><input type="text" placeholder="Art.50 chatbot disclosure in progress — due 2 Aug 2026"></td><td><select style="font-size:.8rem"><option>Critical</option><option>High</option><option>Medium</option><option>Low</option></select></td><td><input type="text"></td><td><input type="text" placeholder="DD/MM/YYYY"></td><td><input type="text" placeholder="DD/MM/YYYY"></td></tr>
+    <tr><td><input type="text"></td><td><input type="text"></td><td><select style="font-size:.8rem"><option>Critical</option><option>High</option><option>Medium</option><option>Low</option></select></td><td><input type="text"></td><td><input type="text" placeholder="DD/MM/YYYY"></td><td><input type="text" placeholder="DD/MM/YYYY"></td></tr>
+    <tr><td><input type="text"></td><td><input type="text"></td><td><select style="font-size:.8rem"><option>Critical</option><option>High</option><option>Medium</option><option>Low</option></select></td><td><input type="text"></td><td><input type="text" placeholder="DD/MM/YYYY"></td><td><input type="text" placeholder="DD/MM/YYYY"></td></tr>
+  </tbody>
+</table>
+
+<h4>Overall Audit Conclusion</h4>
+<select style="width:100%;border:1.5px solid var(--rule);border-radius:8px;padding:.55rem .8rem;font-family:'Source Serif 4',Georgia,serif;font-size:.92rem;margin-bottom:1rem">
+  <option>Satisfactory — no material gaps; proceed to next scheduled review</option>
+  <option>Satisfactory with actions — minor gaps; action plan in place; no immediate risk</option>
+  <option>Requires improvement — material gaps identified; management attention required</option>
+  <option>Unsatisfactory — critical gaps; immediate escalation to Board required</option>
+</select>
+
+<h4>Auditor Notes</h4>
+<textarea style="width:100%;border:1.5px solid var(--rule);border-radius:8px;padding:.6rem .85rem;font-family:'Source Serif 4',Georgia,serif;font-size:.9rem;min-height:80px;resize:vertical" placeholder="Additional observations, context, or recommendations not captured above."></textarea>
+
+<div class="sig-grid" style="margin-top:1.5rem">
+  <div class="sig-box">
+    <div class="sl">DPO Sign-Off</div>
+    <div class="sf"></div><div class="sh">Name</div>
+    <div class="sf" style="margin-top:.8rem"></div><div class="sh">Date</div>
+  </div>
+  <div class="sig-box">
+    <div class="sl">Compliance Officer Sign-Off</div>
+    <div class="sf"></div><div class="sh">Name</div>
+    <div class="sf" style="margin-top:.8rem"></div><div class="sh">Date</div>
+  </div>
+</div>
+
+<div class="box green" style="margin-top:1rem">
+  <div class="bt g">✓ Post-Audit Distribution</div>
+  <p style="font-size:.88rem;margin:0"><strong>v1/v2 (operational):</strong> DPO · Compliance Officer · Technical Lead · Board summary<br>
+  <strong>v4 (regulator-facing):</strong> GRA · ICO · Lead EU DPA · NDPC · GFSC (as applicable) — redact commercially sensitive cells before sharing; retain full version internally for 5 years.</p>
+</div>
+
+<hr>
+<div class="box blue">
+  <div class="bt b">📄 Document Control</div>
+  Compliance Audit Pack v1.0 · May 2026 · Owner: DPO + Compliance Officer · Location: <code>[Internal system path]</code> · Completed instances retained 5 years. Next scheduled audit: <input type="text" style="width:120px;border:1px solid var(--rule);border-radius:5px;padding:.15rem .4rem;font-size:.85rem" placeholder="DD/MM/YYYY">
+</div>
+</div>
+
+<div class="ftr">
+  <strong>SDL-HappyClaw · OneMore Management Ltd</strong>
+  <span>Compliance Audit Pack v1.0 · May 2026 · INTERNAL — CONFIDENTIAL</span>
+  <span>© 2026 OneMore Management Ltd</span>
+</div>
+</div>
+</body>
+</html>
