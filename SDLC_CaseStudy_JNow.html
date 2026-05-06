@@ -2,13 +2,12 @@
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SDL-HappyClaw &mdash; JNow Content Creator Case Study | OMM Ltd.</title>
 <meta name="description" content="How SDL-HappyClaw powers daily multilingual video production for JNow, a YouTube channel about Chinese philosophy.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
+:root{--font-body:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--font-heading:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--font-mono:'JetBrains Mono',monospace}body{font-family:var(--font-body)}h1,h2,h3,h4,h5,h6{font-family:var(--font-heading)}code,pre,.mono{font-family:var(--font-mono)}
   /* ===== CSS RESET & BASE ===== */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; font-size: 16px; }
@@ -37,7 +36,7 @@
   }
 
   body {
-    font-family: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-family:var(--font-body);
     background: var(--bg);
     color: var(--text);
     line-height: 1.65;
@@ -73,7 +72,7 @@
   }
   nav.toc .nav-inner::-webkit-scrollbar { display: none; }
   nav.toc .brand {
-    font-family: 'Instrument Serif', Georgia, serif;
+    font-family:var(--font-heading);
     font-weight: 400;
     font-size: 1.05rem;
     color: var(--accent);
@@ -114,7 +113,7 @@
   }
 
   h2 {
-    font-family: 'Instrument Serif', Georgia, serif;
+    font-family:var(--font-heading);
     font-size: 2.2rem;
     font-weight: 400;
     color: var(--text);
@@ -123,7 +122,7 @@
     letter-spacing: -0.02em;
   }
   h3 {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family:var(--font-body);
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--text);
@@ -144,7 +143,7 @@
     margin-bottom: 1.5rem;
   }
   .label-tag {
-    font-family: 'Geist Mono', monospace;
+    font-family:var(--font-mono);
     font-size: 0.72rem;
     font-weight: 500;
     letter-spacing: 0.12em;
@@ -177,7 +176,7 @@
     margin-bottom: 1.5rem;
   }
   .hero h1 {
-    font-family: 'Instrument Serif', Georgia, serif;
+    font-family:var(--font-heading);
     font-size: 3rem;
     font-weight: 400;
     max-width: 820px;
@@ -234,7 +233,7 @@
   .pain-card .num {
     background: var(--red-dim);
     color: var(--red);
-    font-family: 'Geist Mono', monospace;
+    font-family:var(--font-mono);
     font-weight: 600;
     font-size: 0.85rem;
     min-width: 34px;
@@ -284,7 +283,7 @@
     background: var(--bg);
     border: 2px solid var(--accent-border);
     color: var(--accent);
-    font-family: 'Geist Mono', monospace;
+    font-family:var(--font-mono);
     font-weight: 600;
     font-size: 0.85rem;
     width: 44px;
@@ -327,7 +326,7 @@
     margin-left: 1.5rem;
   }
   .chat-label {
-    font-family: 'Geist Mono', monospace;
+    font-family:var(--font-mono);
     font-weight: 600;
     font-size: 0.7rem;
     text-transform: uppercase;
@@ -353,7 +352,7 @@
   table.ba-table thead th {
     padding: 1rem 1.25rem;
     text-align: left;
-    font-family: 'Geist Mono', monospace;
+    font-family:var(--font-mono);
     font-weight: 600;
     font-size: 0.72rem;
     text-transform: uppercase;
@@ -440,7 +439,7 @@
     font-size: 1rem;
   }
   .skill-pack-header .version-badge {
-    font-family: 'Geist Mono', monospace;
+    font-family:var(--font-mono);
     background: var(--accent-dim);
     color: var(--accent);
     font-size: 0.72rem;
@@ -458,7 +457,7 @@
     background: var(--bg-panel-alt);
     padding: 0.8rem 1.25rem;
     text-align: left;
-    font-family: 'Geist Mono', monospace;
+    font-family:var(--font-mono);
     font-weight: 600;
     font-size: 0.7rem;
     text-transform: uppercase;
@@ -484,7 +483,7 @@
     white-space: nowrap;
   }
   table.skill-table .trigger-example {
-    font-family: 'Geist Mono', monospace;
+    font-family:var(--font-mono);
     font-style: normal;
     color: var(--text-dim);
     font-size: 0.8rem;
