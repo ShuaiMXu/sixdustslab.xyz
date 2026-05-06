@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDL-HappyClaw &mdash; Privacy Policy</title>
+    <style>
+        /* ── Reset & Base ─────────────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --colour-text:       #1a1a2e;
+            --colour-heading:    #0f3460;
+            --colour-accent:     #1668a7;
+            --colour-border:     #c8d6e5;
+            --colour-bg:         #ffffff;
+            --colour-bg-alt:     #f4f6f9;
+            --colour-placeholder:#c0392b;
+            --font-body:         "Georgia", "Times New Roman", serif;
+            --font-heading:      "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            --max-width:         860px;
+        }
+
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--colour-text);
+            background: var(--colour-bg);
+            line-height: 1.75;
+            padding: 2rem 1.25rem;
+        }
+
+        /* ── Layout ───────────────────────────────────────────── */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        /* ── Header / Title Block ─────────────────────────────── */
+        .doc-header {
+            border-bottom: 3px solid var(--colour-heading);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .doc-header h1 {
+            font-family: var(--font-heading);
+            font-size: 1.85rem;
+            color: var(--colour-heading);
+            margin-bottom: 0.25rem;
+        }
+
+        .doc-header .subtitle {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 0.75rem;
+        }
+
+        .doc-header .meta {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .doc-header .meta span {
+            display: inline-block;
+            margin-right: 1.5rem;
+        }
+
+        /* ── Table of Contents ────────────────────────────────── */
+        .toc {
+            background: var(--colour-bg-alt);
+            border: 1px solid var(--colour-border);
+            border-radius: 4px;
+            padding: 1.25rem 1.75rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .toc h2 {
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            color: var(--colour-heading);
+            margin-bottom: 0.75rem;
+        }
+
+        .toc ol {
+            padding-left: 1.25rem;
+        }
+
+        .toc li {
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+        }
+
+        .toc a {
+            color: var(--colour-accent);
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── Sections ─────────────────────────────────────────── */
+        section {
+            margin-bottom: 2.25rem;
+        }
+
+        section h2 {
+            font-family: var(--font-heading);
+            font-size: 1.35rem;
+            color: var(--colour-heading);
+            border-bottom: 1px solid var(--colour-border);
+            padding-bottom: 0.4rem;
+            margin-bottom: 1rem;
+        }
+
+        section h3 {
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            color: var(--colour-heading);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p, li {
+            margin-bottom: 0.6rem;
+        }
+
+        ul, ol {
+            padding-left: 1.75rem;
+        }
+
+        ol.alpha {
+            list-style-type: lower-alpha;
+        }
+
+        /* ── Placeholder markers ──────────────────────────────── */
+        .placeholder {
+            color: var(--colour-placeholder);
+            font-weight: bold;
+            background: #fdecea;
+            padding: 0.1em 0.35em;
+            border-radius: 3px;
+            font-family: var(--font-heading);
+            font-size: 0.9em;
+        }
+
+        /* ── Tables ───────────────────────────────────────────── */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            border: 1px solid var(--colour-border);
+            padding: 0.6rem 0.85rem;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: var(--colour-bg-alt);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--colour-heading);
+        }
+
+        /* ── Footer ───────────────────────────────────────────── */
+        .doc-footer {
+            border-top: 2px solid var(--colour-heading);
+            margin-top: 3rem;
+            padding-top: 1.25rem;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .doc-footer p {
+            margin-bottom: 0.3rem;
+        }
+
+        /* ── Print Styles ─────────────────────────────────────── */
+        @media print {
+            body {
+                font-size: 11pt;
+                padding: 0;
+                color: #000;
+            }
+
+            .container {
+                max-width: 100%;
+            }
+
+            .doc-header {
+                border-bottom-color: #000;
+            }
+
+            .toc {
+                background: none;
+                border: 1px solid #999;
+            }
+
+            .toc a {
+                color: #000;
+                text-decoration: none;
+            }
+
+            section {
+                page-break-inside: avoid;
+            }
+
+            section h2 {
+                border-bottom-color: #999;
+                color: #000;
+            }
+
+            .placeholder {
+                border: 1px solid #c0392b;
+                background: none;
+            }
+
+            .doc-footer {
+                border-top-color: #000;
+            }
+
+            a[href]::after {
+                content: none;
+            }
+        }
+
+        /* ── Responsive ───────────────────────────────────────── */
+        @media (max-width: 600px) {
+            html { font-size: 15px; }
+
+            .doc-header h1 { font-size: 1.5rem; }
+
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ════════════════════════════════════════════════════════
+         HEADER
+         ════════════════════════════════════════════════════════ -->
+    <header class="doc-header">
+        <h1>SDL-HappyClaw &mdash; Privacy Policy</h1>
+        <p class="subtitle">AI Employee &amp; Agent Service</p>
+        <p class="meta">
+            <span><strong>Operator:</strong> OMM Ltd., Gibraltar</span>
+            <span><strong>Effective Date:</strong> <span class="placeholder">[TO BE CONFIRMED BY LK]</span></span>
+        </p>
+        <p class="meta">
+            <span><strong>Document Ref:</strong> SDL-HappyClaw-PP-2026-04</span>
+        </p>
+    </header>
+
+    <!-- ════════════════════════════════════════════════════════
+         TABLE OF CONTENTS
+         ════════════════════════════════════════════════════════ -->
+    <nav class="toc">
+        <h2>Contents</h2>
+        <ol>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#data-controller">Data Controller</a></li>
+            <li><a href="#data-we-collect">What Data We Collect</a></li>
+            <li><a href="#how-we-use">How We Use Your Data</a></li>
+            <li><a href="#legal-bases">Legal Bases for Processing (GDPR Article&nbsp;6)</a></li>
+            <li><a href="#data-sharing">Data Sharing &amp; Sub-Processors</a></li>
+            <li><a href="#international-transfers">International Data Transfers</a></li>
+            <li><a href="#data-retention">Data Retention</a></li>
+            <li><a href="#data-security">Data Security</a></li>
+            <li><a href="#your-rights-gdpr">Your Rights (GDPR)</a></li>
+            <li><a href="#china-rights-pipl">China-Specific Rights (PIPL)</a></li>
+            <li><a href="#cookies">Cookies &amp; Tracking</a></li>
+            <li><a href="#childrens-data">Children&rsquo;s Data</a></li>
+            <li><a href="#changes">Changes to This Policy</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ol>
+    </nav>
+
+    <!-- ════════════════════════════════════════════════════════
+         1. INTRODUCTION
+         ════════════════════════════════════════════════════════ -->
+    <section id="introduction">
+        <h2>1. Introduction</h2>
+        <p>
+            OMM Ltd. (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;), a company incorporated in
+            Gibraltar, operates the <strong>SDL-HappyClaw</strong> AI employee and agent service. SDL-HappyClaw
+            enables businesses to deploy AI-powered agents across messaging channels to automate customer
+            communications and operational workflows.
+        </p>
+        <p>
+            This Privacy Policy explains how we collect, use, store, and protect personal data when you interact
+            with our service&mdash;whether as a customer, end user, distributor, or website visitor.
+        </p>
+        <p>
+            By using SDL-HappyClaw, you acknowledge that you have read and understood this Privacy Policy. If you
+            do not agree with our practices, please do not use the service.
+        </p>
+        <p>
+            <strong>Effective date:</strong> <span class="placeholder">[TO BE CONFIRMED BY LK]</span>
+        </p>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         2. DATA CONTROLLER
+         ════════════════════════════════════════════════════════ -->
+    <section id="data-controller">
+        <h2>2. Data Controller</h2>
+        <p>The data controller for the purposes of the General Data Protection Regulation (GDPR) and applicable Gibraltar data protection legislation is:</p>
+        <p>
+            <strong>OMM Ltd.</strong><br>
+            Gibraltar
+        </p>
+        <p>
+            <strong>Contact:</strong><br>
+            WhatsApp: +44 7440 060028<br>
+            Email: <span class="placeholder">[PLACEHOLDER &mdash; email address to be confirmed]</span>
+        </p>
+        <p>
+            <strong>Data Protection Officer:</strong> <span class="placeholder">[TO BE APPOINTED &mdash; DPO details to be confirmed]</span>
+        </p>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         3. WHAT DATA WE COLLECT
+         ════════════════════════════════════════════════════════ -->
+    <section id="data-we-collect">
+        <h2>3. What Data We Collect</h2>
+        <p>We collect and process the following categories of personal data:</p>
+
+        <ol class="alpha">
+            <li>
+                <strong>Account &amp; Contact Data</strong> &mdash;
+                name, email address, telephone number, company name, and billing address.
+            </li>
+            <li>
+                <strong>Service Configuration Data</strong> &mdash;
+                messaging channel credentials (WhatsApp, Telegram, Slack), automation preferences, and
+                business rules you define within the platform.
+            </li>
+            <li>
+                <strong>Conversation Data</strong> &mdash;
+                messages processed by the AI agent on behalf of the customer. For this category of data,
+                the <em>customer</em> is the data controller and OMM Ltd. acts as a <em>data processor</em>
+                in accordance with a Data Processing Agreement.
+            </li>
+            <li>
+                <strong>Usage &amp; Analytics Data</strong> &mdash;
+                service usage statistics, API call volumes, performance metrics, and error logs.
+            </li>
+            <li>
+                <strong>Payment Data</strong> &mdash;
+                processed by our third-party payment providers (Stripe and/or PayPal). We do <strong>not</strong>
+                store full payment card details on our systems.
+            </li>
+            <li>
+                <strong>Distributor / Referral Data</strong> &mdash;
+                distributor name, contact details, referral codes, and commission records.
+            </li>
+        </ol>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         4. HOW WE USE YOUR DATA
+         ════════════════════════════════════════════════════════ -->
+    <section id="how-we-use">
+        <h2>4. How We Use Your Data</h2>
+        <p>We use the personal data we collect for the following purposes:</p>
+        <ul>
+            <li>To provide, maintain, and improve the SDL-HappyClaw service;</li>
+            <li>To process payments and manage subscriptions;</li>
+            <li>To communicate service updates, security alerts, and support information;</li>
+            <li>To calculate and pay distributor commissions;</li>
+            <li>To comply with legal obligations under Gibraltar, EU, and, where applicable, PRC law;</li>
+            <li>To detect, prevent, and address fraud, abuse, and security incidents.</li>
+        </ul>
+        <p><strong>Important commitments:</strong></p>
+        <ul>
+            <li>We do <strong>not</strong> sell personal data to third parties.</li>
+            <li>We do <strong>not</strong> use customer conversation data to train AI models.</li>
+        </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         5. LEGAL BASES FOR PROCESSING
+         ════════════════════════════════════════════════════════ -->
+    <section id="legal-bases">
+        <h2>5. Legal Bases for Processing (GDPR Article&nbsp;6)</h2>
+        <p>We rely on the following legal bases when processing your personal data:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width:35%;">Legal Basis</th>
+                    <th>Application</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Contract performance</strong><br>(Art.&nbsp;6(1)(b))</td>
+                    <td>Processing necessary to deliver the SDL-HappyClaw service, manage your account, and fulfil our contractual obligations.</td>
+                </tr>
+                <tr>
+                    <td><strong>Legitimate interests</strong><br>(Art.&nbsp;6(1)(f))</td>
+                    <td>Security monitoring, fraud prevention, service improvement, and internal analytics&mdash;balanced against your rights and freedoms.</td>
+                </tr>
+                <tr>
+                    <td><strong>Legal obligation</strong><br>(Art.&nbsp;6(1)(c))</td>
+                    <td>Tax reporting, regulatory compliance, and responding to lawful requests from competent authorities.</td>
+                </tr>
+                <tr>
+                    <td><strong>Consent</strong><br>(Art.&nbsp;6(1)(a))</td>
+                    <td>Marketing communications&mdash;opt-in only. You may withdraw consent at any time.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         6. DATA SHARING & SUB-PROCESSORS
+         ════════════════════════════════════════════════════════ -->
+    <section id="data-sharing">
+        <h2>6. Data Sharing &amp; Sub-Processors</h2>
+        <p>We share personal data only as necessary with the following categories of recipient:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width:30%;">Sub-Processor</th>
+                    <th style="width:30%;">Purpose</th>
+                    <th>Location &amp; Safeguards</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Anthropic</strong> (Claude AI)</td>
+                    <td>AI model provider</td>
+                    <td>United States &mdash; EU Standard Contractual Clauses (SCCs) in place</td>
+                </tr>
+                <tr>
+                    <td><strong>Zhipu AI</strong> (GLM)</td>
+                    <td>AI model provider</td>
+                    <td>China (PRC) &mdash; see <a href="#international-transfers">Section&nbsp;7</a> and <a href="#china-rights-pipl">Section&nbsp;11</a></td>
+                </tr>
+                <tr>
+                    <td><strong>Cloud infrastructure</strong> (AWS / GCP)</td>
+                    <td>Hosting and data storage</td>
+                    <td>EEA / appropriate regions &mdash; SCCs and supplementary measures</td>
+                </tr>
+                <tr>
+                    <td><strong>Stripe / PayPal</strong></td>
+                    <td>Payment processing</td>
+                    <td>US / EEA &mdash; SCCs in place; PCI-DSS compliant</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>We do not share personal data with any other third party without your prior consent, unless required by law.</p>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         7. INTERNATIONAL DATA TRANSFERS
+         ════════════════════════════════════════════════════════ -->
+    <section id="international-transfers">
+        <h2>7. International Data Transfers</h2>
+        <p>
+            Our primary data processing takes place in <strong>Gibraltar</strong>, which is recognised as providing
+            an adequate level of data protection by the European Commission.
+        </p>
+        <p>Where personal data is transferred outside Gibraltar or the EEA, we rely on the following safeguard mechanisms:</p>
+        <ul>
+            <li>
+                <strong>EEA transfers:</strong> EU Standard Contractual Clauses (Module&nbsp;2 &mdash;
+                Controller to Processor), as referenced in the Service Agreement Annex&nbsp;I Part&nbsp;2.
+            </li>
+            <li>
+                <strong>China (PRC) transfers:</strong> China CAC Standard Contract, executed separately and filed
+                with the relevant Chinese authority in accordance with PIPL requirements (Articles&nbsp;38&ndash;39).
+            </li>
+            <li>
+                <strong>UK transfers:</strong> UK International Data Transfer Agreement (IDTA), executed separately
+                when applicable.
+            </li>
+        </ul>
+        <p>We do not transfer personal data to any jurisdiction without an appropriate safeguard mechanism in place.</p>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         8. DATA RETENTION
+         ════════════════════════════════════════════════════════ -->
+    <section id="data-retention">
+        <h2>8. Data Retention</h2>
+        <p>We retain personal data only for as long as necessary to fulfil the purposes described in this policy, or as required by law:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width:35%;">Data Category</th>
+                    <th>Retention Period</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Account &amp; contact data</td>
+                    <td>Duration of service <strong>+ 12 months</strong> post-termination</td>
+                </tr>
+                <tr>
+                    <td>Conversation data</td>
+                    <td>Per customer&rsquo;s configured retention policy; <strong>default 90 days</strong>. Customers may request earlier deletion.</td>
+                </tr>
+                <tr>
+                    <td>Payment records</td>
+                    <td><strong>7 years</strong> (Gibraltar tax and audit requirements)</td>
+                </tr>
+                <tr>
+                    <td>Usage &amp; analytics logs</td>
+                    <td><strong>12 months</strong></td>
+                </tr>
+                <tr>
+                    <td>Distributor / referral records</td>
+                    <td>Duration of agreement <strong>+ 24 months</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         9. DATA SECURITY
+         ════════════════════════════════════════════════════════ -->
+    <section id="data-security">
+        <h2>9. Data Security</h2>
+        <p>We implement appropriate technical and organisational measures to protect personal data, including:</p>
+        <ul>
+            <li><strong>Encryption in transit:</strong> TLS&nbsp;1.3 for all data transmitted between clients and our services.</li>
+            <li><strong>Encryption at rest:</strong> AES-256 encryption for stored data.</li>
+            <li><strong>Access control:</strong> Role-based access control (RBAC) ensuring data is accessible only to authorised personnel.</li>
+            <li><strong>Security audits:</strong> Regular security assessments and penetration testing.</li>
+            <li><strong>Incident response:</strong> Documented incident response procedures (see Operations Manual, Chapter&nbsp;4). In the event of a personal data breach, we will notify the relevant supervisory authority and affected individuals in accordance with GDPR Articles&nbsp;33&ndash;34.</li>
+        </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         10. YOUR RIGHTS (GDPR)
+         ════════════════════════════════════════════════════════ -->
+    <section id="your-rights-gdpr">
+        <h2>10. Your Rights (GDPR)</h2>
+        <p>Under the General Data Protection Regulation, you have the following rights in relation to your personal data:</p>
+        <ul>
+            <li><strong>Right of access</strong> &mdash; obtain confirmation of whether we process your data and request a copy.</li>
+            <li><strong>Right to rectification</strong> &mdash; request correction of inaccurate or incomplete data.</li>
+            <li><strong>Right to erasure</strong> (&ldquo;right to be forgotten&rdquo;) &mdash; request deletion of your data where there is no compelling reason for its continued processing.</li>
+            <li><strong>Right to restriction of processing</strong> &mdash; request that we limit how we use your data.</li>
+            <li><strong>Right to data portability</strong> &mdash; receive your data in a structured, commonly used, machine-readable format.</li>
+            <li><strong>Right to object</strong> &mdash; object to processing based on legitimate interests or for direct marketing.</li>
+            <li><strong>Right to withdraw consent</strong> &mdash; where processing is based on consent, withdraw it at any time without affecting the lawfulness of prior processing.</li>
+            <li><strong>Right to lodge a complaint</strong> &mdash; with the <strong>Gibraltar Regulatory Authority</strong> or your local supervisory authority.</li>
+        </ul>
+        <p>
+            To exercise any of these rights, please contact us at:
+            WhatsApp +44 7440 060028 or email
+            <span class="placeholder">[PLACEHOLDER &mdash; email address to be confirmed]</span>.
+        </p>
+        <p>We will respond to your request within one month. In complex cases, this period may be extended by a further two months, and we will inform you accordingly.</p>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         11. CHINA-SPECIFIC RIGHTS (PIPL)
+         ════════════════════════════════════════════════════════ -->
+    <section id="china-rights-pipl">
+        <h2>11. China-Specific Rights (PIPL)</h2>
+        <p>Where the Personal Information Protection Law of the People&rsquo;s Republic of China (PIPL) applies to the processing of your personal information, you have the following additional rights:</p>
+        <ul>
+            <li><strong>Right to know and decide</strong> &mdash; be informed about and make decisions regarding the processing of your personal information.</li>
+            <li><strong>Right to restrict or refuse processing</strong> &mdash; restrict or refuse the processing of your personal information, except where laws or administrative regulations provide otherwise.</li>
+            <li><strong>Right to access, copy, correct, and delete</strong> &mdash; access, obtain copies of, correct, and request deletion of your personal information.</li>
+            <li><strong>Right to request explanation</strong> &mdash; request an explanation of the rules governing the processing of your personal information.</li>
+        </ul>
+        <p>
+            Cross-border transfers of personal information originating in the PRC are subject to the protections set
+            out in PIPL Articles&nbsp;38&ndash;39. We execute the China CAC Standard Contract for such transfers
+            and ensure that overseas recipients provide a level of protection not lower than that required under PRC law.
+        </p>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         12. COOKIES & TRACKING
+         ════════════════════════════════════════════════════════ -->
+    <section id="cookies">
+        <h2>12. Cookies &amp; Tracking</h2>
+        <ul>
+            <li><strong>Essential cookies:</strong> We use strictly necessary cookies to ensure the proper functioning of our service (e.g., session management, authentication). These cannot be disabled.</li>
+            <li><strong>Advertising cookies:</strong> We do <strong>not</strong> use any third-party advertising or tracking cookies.</li>
+            <li><strong>Analytics cookies:</strong> <span class="placeholder">[TO BE CONFIRMED &mdash; analytics cookie policy to be determined by LK]</span></li>
+            <li><strong>Cookie management:</strong> Cookie preferences can be managed via <span class="placeholder">[PLACEHOLDER &mdash; cookie consent banner to be implemented]</span>.</li>
+        </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         13. CHILDREN'S DATA
+         ════════════════════════════════════════════════════════ -->
+    <section id="childrens-data">
+        <h2>13. Children&rsquo;s Data</h2>
+        <p>
+            The SDL-HappyClaw service is designed for business use and is not directed at individuals under the age
+            of 16. We do not knowingly collect or process personal data from children under 16.
+        </p>
+        <p>
+            If we become aware that we have inadvertently collected personal data from a child under 16, we will
+            take prompt steps to delete that data.
+        </p>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         14. CHANGES TO THIS POLICY
+         ════════════════════════════════════════════════════════ -->
+    <section id="changes">
+        <h2>14. Changes to This Policy</h2>
+        <p>
+            We may update this Privacy Policy from time to time to reflect changes in our practices, technology,
+            legal requirements, or other factors.
+        </p>
+        <p>
+            Where we make material changes, we will notify you by email or through a prominent notice within the
+            SDL-HappyClaw service prior to the change becoming effective.
+        </p>
+        <p>
+            Your continued use of the service after such notification constitutes your acceptance of the revised
+            Privacy Policy. We encourage you to review this page periodically.
+        </p>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         15. CONTACT US
+         ════════════════════════════════════════════════════════ -->
+    <section id="contact">
+        <h2>15. Contact Us</h2>
+        <p>If you have any questions about this Privacy Policy or our data practices, please contact us:</p>
+        <p>
+            <strong>OMM Ltd.</strong><br>
+            Gibraltar
+        </p>
+        <p>
+            WhatsApp: +44 7440 060028<br>
+            Email: <span class="placeholder">[PLACEHOLDER &mdash; email address to be confirmed]</span><br>
+            Website: <span class="placeholder">[PLACEHOLDER &mdash; website URL to be confirmed]</span>
+        </p>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         FOOTER
+         ════════════════════════════════════════════════════════ -->
+    <footer class="doc-footer">
+        <p>&copy; 2026 OMM Ltd. All rights reserved.</p>
+        <p>This Privacy Policy was last updated on <span class="placeholder">[TO BE CONFIRMED BY LK &mdash; date]</span>.</p>
+        <p>Document reference: <strong>SDL-HappyClaw-PP-2026-04</strong></p>
+    </footer>
+
+</div>
+
+</body>
+</html>
