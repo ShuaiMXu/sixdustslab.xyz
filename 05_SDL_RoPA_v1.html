@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Records of Processing Activities | SDL-HappyClaw</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+4:wght@0,400;0,600&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{--gd:#0a2a1f;--gm:#1e3a2f;--amber:#f5b042;--al:#fef6e0;--blue:#1a5276;--bb:#eaf2f8;--red:#7b1a1a;--slate:#1e293b;--muted:#5a6a7e;--rule:#dde3eb;--bg:#f4f6f9;--card:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);font-family:'Source Serif 4',Georgia,serif;font-size:14.5px;line-height:1.68;color:var(--slate);padding:2rem 1rem 4rem}
+.wrap{max-width:1100px;margin:0 auto;background:var(--card);border-radius:20px;box-shadow:0 12px 40px rgba(0,0,0,.08);overflow:hidden}
+.hdr{background:linear-gradient(108deg,var(--gd),var(--gm));padding:2.2rem 3rem 1.8rem}
+.badge{display:inline-flex;background:rgba(245,176,66,.18);border:1px solid rgba(245,176,66,.35);border-radius:40px;padding:.22rem .85rem;margin-bottom:.7rem}
+.badge span{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--amber);letter-spacing:.08em;text-transform:uppercase}
+.hdr h1{font-family:'Playfair Display',serif;font-size:1.9rem;color:#fff;margin-bottom:.25rem}
+.hdr p{color:rgba(255,255,255,.68);font-size:.88rem}
+.meta{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:rgba(255,255,255,.4);margin-top:.7rem;display:flex;gap:1.4rem;flex-wrap:wrap}
+.body{padding:2.2rem 3rem}
+.box{border-radius:12px;padding:1rem 1.4rem;margin:1rem 0;font-size:.92rem}
+.box.amber{background:var(--al);border-left:5px solid var(--amber)}
+.box.blue{background:var(--bb);border-left:5px solid var(--blue)}
+.bt{font-family:'JetBrains Mono',monospace;font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.35rem}
+.bt.a{color:#a0620a}.bt.b{color:var(--blue)}
+h2{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--gd);margin:2.2rem 0 .7rem;padding-bottom:.45rem;border-bottom:2px solid var(--rule);display:flex;align-items:baseline;gap:.7rem}
+h2:first-of-type{margin-top:0}
+.sn{font-family:'JetBrains Mono',monospace;font-size:.66rem;background:var(--gd);color:var(--amber);padding:.12rem .48rem;border-radius:4px}
+/* PROCESSOR ROPA RECORD CARD */
+.record{border:1.5px solid var(--rule);border-radius:14px;margin:1.5rem 0;overflow:hidden}
+.rec-hdr{background:var(--gd);padding:.7rem 1.3rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.rec-hdr h3{font-family:'Playfair Display',serif;color:#fff;font-size:.98rem;margin:0}
+.rec-hdr .rid{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--amber);background:rgba(245,176,66,.15);padding:.15rem .55rem;border-radius:8px}
+.rec-body{padding:0}
+.rec-row{display:grid;border-bottom:1px solid var(--rule)}
+.rec-row.cols-2{grid-template-columns:1fr 1fr}
+.rec-row.cols-3{grid-template-columns:1fr 1fr 1fr}
+.rec-row:last-child{border-bottom:none}
+.rec-cell{padding:.7rem 1.1rem;border-right:1px solid var(--rule)}
+.rec-cell:last-child{border-right:none}
+.rec-cell label{display:block;font-family:'JetBrains Mono',monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:.3rem}
+.rec-cell textarea,.rec-cell input,.rec-cell select{width:100%;border:1px solid var(--rule);border-radius:6px;padding:.4rem .6rem;font-family:'Source Serif 4',Georgia,serif;font-size:.88rem;color:var(--slate);background:#fafbfd;resize:vertical}
+.rec-cell textarea{min-height:60px}
+.rec-cell input:focus,.rec-cell textarea:focus{outline:none;border-color:var(--gm)}
+/* STATUS CHIPS */
+.status{font-family:'JetBrains Mono',monospace;font-size:.64rem;padding:.15rem .55rem;border-radius:10px;display:inline-block}
+.s-active{background:#edf7f0;color:#1a7a40;border:1px solid #a3d9b8}
+.s-closed{background:#f0f2f5;color:var(--muted);border:1px solid var(--rule)}
+.s-review{background:var(--al);color:#a0620a;border:1px solid #e8c47a}
+/* MASTER INDEX TABLE */
+.mt{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.85rem}
+.mt th{background:var(--gd);color:#fff;padding:.55rem .85rem;font-family:'JetBrains Mono',monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;text-align:left}
+.mt td{padding:.5rem .85rem;border-bottom:1px solid var(--rule);vertical-align:middle}
+.mt tr:nth-child(even) td{background:#f8fafc}
+hr{border:none;border-top:1px solid var(--rule);margin:1.8rem 0}
+code{font-family:'JetBrains Mono',monospace;font-size:.78em;background:#f0f2f5;padding:.1em .38em;border-radius:3px}
+.ftr{background:#f8fafc;border-top:1px solid var(--rule);padding:1rem 3rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:.67rem;color:var(--muted);font-family:'JetBrains Mono',monospace}
+.ftr strong{color:var(--gm)}
+@media(max-width:720px){.body,.hdr{padding:1.4rem}.rec-row.cols-2,.rec-row.cols-3{grid-template-columns:1fr}.rec-cell{border-right:none;border-bottom:1px solid var(--rule)}}
+@media print{body{background:#fff;padding:0}.wrap{box-shadow:none;border-radius:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hdr">
+  <div class="badge"><span>SDL-HappyClaw · Internal · Compliance Function</span></div>
+  <h1>Records of Processing Activities (RoPA)</h1>
+  <p>Article 30(2) GDPR · UK GDPR · Gibraltar GDPR — Processor Register</p>
+  <div class="meta"><span>📄 Template v1.0</span><span>📅 May 2026</span><span>⚖️ Owner: DPO</span><span>🔄 Continuous update / quarterly attestation</span></div>
+</div>
+
+<div class="body">
+
+<div class="box amber">
+  <div class="bt a">📌 Instructions</div>
+  SDL-HappyClaw acts as <strong>Data Processor</strong> for customer-controlled data and as <strong>Data Controller</strong> for its own business data (employees, prospects, partners). Complete one record per distinct processing activity. Save master as a versioned spreadsheet or database; this HTML template generates the audit-ready printed view. DPO must sign off each entry at creation and at each quarterly review.
+</div>
+
+<!-- MASTER INDEX -->
+<h2><span class="sn">A</span> Master Index — All Processing Activities</h2>
+<table class="mt">
+  <thead><tr><th>Ref</th><th>Activity Name</th><th>Role</th><th>Controller(s)</th><th>Lawful Basis</th><th>Special Cat?</th><th>Transfer?</th><th>Status</th><th>DPIA Ref</th><th>Last Review</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>PA-001</code></td>
+      <td>AI Agent — Customer Service Processing</td>
+      <td>Processor</td>
+      <td>[Customer name]</td>
+      <td>Contract (Art.6(1)(b))</td>
+      <td>No</td>
+      <td>Yes — SCCs</td>
+      <td><span class="status s-active">Active</span></td>
+      <td><code>DPIA-001</code></td>
+      <td><input type="text" style="width:90px;border:1px solid var(--rule);border-radius:4px;padding:.2rem .4rem;font-size:.82rem" placeholder="DD/MM/YYYY"></td>
+    </tr>
+    <tr>
+      <td><code>PA-002</code></td>
+      <td>Employee / Contractor HR Data</td>
+      <td>Controller</td>
+      <td>SDL-HappyClaw</td>
+      <td>Contract + Legal obligation</td>
+      <td>No</td>
+      <td>No</td>
+      <td><span class="status s-active">Active</span></td>
+      <td>N/A</td>
+      <td><input type="text" style="width:90px;border:1px solid var(--rule);border-radius:4px;padding:.2rem .4rem;font-size:.82rem" placeholder="DD/MM/YYYY"></td>
+    </tr>
+    <tr>
+      <td><code>PA-003</code></td>
+      <td>Referral Partner Management</td>
+      <td>Controller</td>
+      <td>SDL-HappyClaw</td>
+      <td>Contract + Legal obligation (AML)</td>
+      <td>No</td>
+      <td>Yes — varied</td>
+      <td><span class="status s-active">Active</span></td>
+      <td>N/A</td>
+      <td><input type="text" style="width:90px;border:1px solid var(--rule);border-radius:4px;padding:.2rem .4rem;font-size:.82rem" placeholder="DD/MM/YYYY"></td>
+    </tr>
+    <tr>
+      <td><code>PA-004</code></td>
+      <td>Website Analytics / Cookie Data</td>
+      <td>Controller</td>
+      <td>SDL-HappyClaw</td>
+      <td>Consent</td>
+      <td>No</td>
+      <td>Yes — SCCs</td>
+      <td><span class="status s-review">Review due</span></td>
+      <td>N/A</td>
+      <td><input type="text" style="width:90px;border:1px solid var(--rule);border-radius:4px;padding:.2rem .4rem;font-size:.82rem" placeholder="DD/MM/YYYY"></td>
+    </tr>
+    <tr>
+      <td><code>PA-00X</code></td>
+      <td>[Add new activity]</td>
+      <td><select style="width:90px;font-size:.82rem"><option>Processor</option><option>Controller</option><option>Joint Controller</option></select></td>
+      <td></td><td></td><td></td><td></td>
+      <td><span class="status s-active">Active</span></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- PROCESSOR RECORD TEMPLATE -->
+<h2><span class="sn">B</span> Processor Record — Article 30(2) (one per customer / processing activity)</h2>
+
+<div class="record">
+  <div class="rec-hdr">
+    <h3>Processing Activity Record — PROCESSOR ROLE</h3>
+    <span class="rid">Ref: <input type="text" style="width:90px;background:transparent;border:1px solid rgba(255,255,255,.3);border-radius:4px;color:#fff;font-family:'JetBrains Mono',monospace;font-size:.65rem;padding:.1rem .4rem" placeholder="PA-001"></span>
+  </div>
+  <div class="rec-body">
+    <div class="rec-row cols-2">
+      <div class="rec-cell"><label>Controller Name and Contact</label><textarea placeholder="Full legal name; registered address; DPO name and email"></textarea></div>
+      <div class="rec-cell"><label>SDL-HappyClaw Contact / DPO</label><textarea placeholder="Name; role; email; phone"></textarea></div>
+    </div>
+    <div class="rec-row cols-3">
+      <div class="rec-cell"><label>Activity Name</label><input type="text" placeholder="e.g. AI Agent — Customer Service Processing"></div>
+      <div class="rec-cell"><label>Date Added to RoPA</label><input type="text" placeholder="DD/MM/YYYY"></div>
+      <div class="rec-cell"><label>Status</label><select><option>Active</option><option>Closed — pending deletion</option><option>Closed — deleted DD/MM/YYYY</option></select></div>
+    </div>
+    <div class="rec-row">
+      <div class="rec-cell"><label>Categories of Processing Carried Out on Behalf of the Controller</label><textarea style="min-height:70px" placeholder="Describe each processing operation: e.g. (1) Collection of end-user chat messages via API; (2) Inference via Anthropic Claude LLM; (3) Storage of conversation logs on AWS eu-central-1; (4) Deletion of logs after [X] days per controller instruction."></textarea></div>
+    </div>
+    <div class="rec-row cols-2">
+      <div class="rec-cell"><label>Categories of Personal Data</label><textarea placeholder="e.g. Free-text messages (may contain name, contact details, account numbers, unstructured personal data); conversation metadata (timestamps, session IDs)"></textarea></div>
+      <div class="rec-cell"><label>Categories of Data Subjects</label><textarea placeholder="e.g. End-users of the controller's customer service platform; members of the public; employees of controller's clients"></textarea></div>
+    </div>
+    <div class="rec-row cols-2">
+      <div class="rec-cell"><label>Special Category Data Processed?</label><select><option>No — no special category data</option><option>Yes — health data (Art. 9(a))</option><option>Yes — biometric (Art. 9)</option><option>Yes — other — specify below</option></select></div>
+      <div class="rec-cell"><label>Special Category Detail and Legal Basis</label><input type="text" placeholder="If yes: specify category, legal basis, and SDL-HappyClaw authorisation reference"></div>
+    </div>
+    <div class="rec-row cols-3">
+      <div class="rec-cell"><label>Estimated No. of Data Subjects</label><input type="text" placeholder="e.g. up to 5,000/month"></div>
+      <div class="rec-cell"><label>Retention Period</label><input type="text" placeholder="e.g. Conversation logs: 30 days; Audit logs: 6 months; Backups: 90 days"></div>
+      <div class="rec-cell"><label>Deletion Mechanism</label><input type="text" placeholder="e.g. Automated deletion via AWS S3 lifecycle policy; Anthropic API logs: 7 days per DPA"></div>
+    </div>
+    <div class="rec-row">
+      <div class="rec-cell"><label>Sub-Processors Used (name · country · processing purpose · transfer mechanism)</label><textarea style="min-height:70px" placeholder="1. Anthropic PBC · USA (EU data: Frankfurt) · LLM inference · EU SCCs Module 2 + UK IDTA&#10;2. AWS · USA (EU data: eu-central-1) · Storage / hosting · EU SCCs + CISPE Code&#10;3. Mistral AI S.A.S. · France · Fallback LLM inference (DPA in progress — not yet active) · EU-native, no transfer mechanism required&#10;4. [Add further sub-processors]"></textarea></div>
+    </div>
+    <div class="rec-row cols-2">
+      <div class="rec-cell"><label>Third-Country Transfers?</label><select><option>Yes — see transfer mechanism below</option><option>No — all processing within EEA/UK/Gibraltar</option></select></div>
+      <div class="rec-cell"><label>Transfer Mechanism and Destination Countries</label><input type="text" placeholder="e.g. EU SCCs Module 2 (controller–processor) to Anthropic (USA); TIA ref: TIA-001-2026; AWS eu-central-1 Frankfurt (EEA residency — no transfer)"></div>
+    </div>
+    <div class="rec-row">
+      <div class="rec-cell"><label>Technical and Organisational Security Measures (Art. 32 summary)</label><textarea style="min-height:80px" placeholder="Encryption at rest (AES-256) and in transit (TLS 1.3); access controls and least-privilege; MFA for all admin access; ISO 27001 / SOC 2 certifications (Anthropic, AWS, GCP); penetration testing [frequency]; incident response plan (ref: ICP Section 5); audit logging; data minimisation and pseudonymisation where feasible; contractual security obligations on all sub-processors."></textarea></div>
+    </div>
+    <div class="rec-row cols-3">
+      <div class="rec-cell"><label>Linked DPIA Reference</label><input type="text" placeholder="e.g. DPIA-001-2026-05"></div>
+      <div class="rec-cell"><label>Controller DPA Reference</label><input type="text" placeholder="e.g. DPA-CustomerABC-v2-2026"></div>
+      <div class="rec-cell"><label>AUP Version Accepted</label><input type="text" placeholder="e.g. AUP v2.0 — accepted 01/05/2026"></div>
+    </div>
+    <div class="rec-row cols-3">
+      <div class="rec-cell"><label>Record Created By</label><input type="text" placeholder="Name / Role"></div>
+      <div class="rec-cell"><label>DPO Sign-Off Date</label><input type="text" placeholder="DD/MM/YYYY"></div>
+      <div class="rec-cell"><label>Next Review Date</label><input type="text" placeholder="DD/MM/YYYY (max quarterly)"></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTROLLER RECORD TEMPLATE -->
+<h2><span class="sn">C</span> Controller Record — Article 30(1) (SDL-HappyClaw own processing)</h2>
+
+<div class="record">
+  <div class="rec-hdr">
+    <h3>Processing Activity Record — CONTROLLER ROLE</h3>
+    <span class="rid">Ref: <input type="text" style="width:90px;background:transparent;border:1px solid rgba(255,255,255,.3);border-radius:4px;color:#fff;font-family:'JetBrains Mono',monospace;font-size:.65rem;padding:.1rem .4rem" placeholder="PA-002"></span>
+  </div>
+  <div class="rec-body">
+    <div class="rec-row cols-2">
+      <div class="rec-cell"><label>Activity Name</label><input type="text" placeholder="e.g. Employee / Contractor HR Data Processing"></div>
+      <div class="rec-cell"><label>Controller Contact / DPO</label><input type="text" placeholder="OneMore Management Ltd · DPO: [name] · [email]"></div>
+    </div>
+    <div class="rec-row cols-2">
+      <div class="rec-cell"><label>Purposes of Processing</label><textarea placeholder="e.g. (1) Employment contract management; (2) Payroll; (3) Performance management; (4) Legal compliance"></textarea></div>
+      <div class="rec-cell"><label>Lawful Basis (per purpose)</label><textarea placeholder="(1) Contract necessity (Art.6(1)(b)); (2) Legal obligation (Art.6(1)(c)); (3) Legitimate interests (Art.6(1)(f)); (4) Legal obligation"></textarea></div>
+    </div>
+    <div class="rec-row cols-2">
+      <div class="rec-cell"><label>Categories of Data Subjects</label><input type="text" placeholder="e.g. Employees; contractors; applicants"></div>
+      <div class="rec-cell"><label>Categories of Personal Data</label><textarea placeholder="e.g. Name; address; date of birth; national ID; salary; bank details; performance records; emergency contacts"></textarea></div>
+    </div>
+    <div class="rec-row cols-3">
+      <div class="rec-cell"><label>Recipients / Disclosures</label><input type="text" placeholder="e.g. Payroll provider; pension provider; HMRC; GRA (if applicable)"></div>
+      <div class="rec-cell"><label>Retention Period</label><input type="text" placeholder="e.g. Employment records: 6 years post-termination; Payroll: 6 years; Recruitment: 6 months if unsuccessful"></div>
+      <div class="rec-cell"><label>Third-Country Transfers?</label><select><option>No</option><option>Yes — specify mechanism</option></select></div>
+    </div>
+    <div class="rec-row">
+      <div class="rec-cell"><label>Technical and Organisational Measures</label><textarea placeholder="e.g. Access restricted to HR function; encrypted file storage; MFA; contractual confidentiality with payroll provider."></textarea></div>
+    </div>
+    <div class="rec-row cols-3">
+      <div class="rec-cell"><label>Record Created By</label><input type="text"></div>
+      <div class="rec-cell"><label>DPO Sign-Off Date</label><input type="text" placeholder="DD/MM/YYYY"></div>
+      <div class="rec-cell"><label>Next Review</label><input type="text" placeholder="DD/MM/YYYY"></div>
+    </div>
+  </div>
+</div>
+
+<!-- QUARTERLY ATTESTATION -->
+<h2><span class="sn">D</span> Quarterly DPO Attestation</h2>
+<div class="box blue">
+  <div class="bt b">📋 Quarterly Sign-Off Checklist</div>
+</div>
+<div class="record">
+  <div class="rec-body">
+    <div class="rec-row cols-3">
+      <div class="rec-cell"><label>Quarter / Year</label><select><option>Q1 — January 2026</option><option>Q2 — April 2026</option><option>Q3 — July 2026</option><option>Q4 — October 2026</option><option>Q1 — January 2027</option></select></div>
+      <div class="rec-cell"><label>Total Active Processing Activities</label><input type="text" placeholder="Number"></div>
+      <div class="rec-cell"><label>Activities Added This Quarter</label><input type="text" placeholder="Number + refs"></div>
+    </div>
+    <div class="rec-row cols-2">
+      <div class="rec-cell"><label>Activities Closed / Deleted This Quarter</label><input type="text" placeholder="Number + refs + deletion confirmation"></div>
+      <div class="rec-cell"><label>Transfer Mechanisms Verified Current?</label><select><option>Yes — all SCCs, IDTAs and adequacy decisions verified</option><option>No — action required (detail below)</option></select></div>
+    </div>
+    <div class="rec-row cols-2">
+      <div class="rec-cell"><label>Sub-Processor List Matches Live Integrations?</label><select><option>Yes</option><option>No — update required</option></select></div>
+      <div class="rec-cell"><label>Retention Periods Applied in Practice?</label><select><option>Yes — verified with Technical Lead</option><option>No — remediation required</option></select></div>
+    </div>
+    <div class="rec-row">
+      <div class="rec-cell"><label>Notes / Actions Required</label><textarea placeholder="Any issues identified; actions assigned; target completion dates."></textarea></div>
+    </div>
+    <div class="rec-row cols-2">
+      <div class="rec-cell"><label>DPO Signature</label><div style="border-bottom:1px solid var(--slate);height:2rem;margin-top:.3rem"></div></div>
+      <div class="rec-cell"><label>Date of Attestation</label><input type="text" placeholder="DD/MM/YYYY" style="margin-top:.5rem"></div>
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="box blue">
+  <div class="bt b">📄 Document Control</div>
+  RoPA Template v1.0 · May 2026 · Owner: DPO · Location: <code>[Internal system path]</code> · Master file is a versioned spreadsheet; this HTML generates audit-ready printed view. Retention: 5 years minimum post-closure of each activity. Update continuously; DPO attestation quarterly.
+</div>
+
+</div>
+<div class="ftr">
+  <strong>SDL-HappyClaw · OneMore Management Ltd</strong>
+  <span>RoPA Template v1.0 · May 2026 · INTERNAL — CONFIDENTIAL</span>
+  <span>© 2026 OneMore Management Ltd</span>
+</div>
+</div>
+</body>
+</html>
