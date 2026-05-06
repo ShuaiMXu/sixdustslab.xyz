@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Introduction Agreement | SDL-HappyClaw</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --green-deep:#0a2a1f; --green-mid:#1e3a2f; --green-light:#2d5240;
+    --amber:#f5b042; --amber-light:#fef6e0;
+    --blue:#1a5276; --blue-bg:#eaf2f8;
+    --red:#7b1a1a; --red-bg:#fdf0f0;
+    --slate:#1e293b; --muted:#5a6a7e; --rule:#dde3eb;
+    --body-bg:#f4f6f9; --card:#ffffff;
+    --r-lg:20px; --r-md:12px; --r-sm:8px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--body-bg);font-family:'Source Serif 4',Georgia,serif;font-size:16px;line-height:1.75;color:var(--slate);padding:2rem 1rem 4rem}
+
+  .doc-wrap{max-width:980px;margin:0 auto;background:var(--card);border-radius:var(--r-lg);box-shadow:0 16px 48px rgba(0,0,0,.08);overflow:hidden}
+
+  /* HEADER */
+  .doc-header{background:linear-gradient(108deg,var(--green-deep) 0%,var(--green-mid) 60%,var(--green-light) 100%);padding:2.8rem 3rem 2.2rem;position:relative;overflow:hidden}
+  .doc-header::before{content:'';position:absolute;top:-60px;right:-60px;width:260px;height:260px;border-radius:50%;background:rgba(245,176,66,.08)}
+  .header-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(245,176,66,.18);border:1px solid rgba(245,176,66,.35);border-radius:40px;padding:.3rem 1rem;margin-bottom:1rem}
+  .header-badge span{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--amber);letter-spacing:.08em;text-transform:uppercase}
+  .doc-header h1{font-family:'Playfair Display',serif;font-size:2.3rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:.3rem}
+  .header-sub{color:rgba(255,255,255,.72);font-size:.95rem;margin-bottom:.2rem}
+  .header-tri{margin-top:.6rem;display:flex;gap:.6rem;flex-wrap:wrap}
+  .tri-pill{font-family:'JetBrains Mono',monospace;font-size:.7rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:.2rem .8rem;color:rgba(255,255,255,.8)}
+  .header-meta{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:rgba(255,255,255,.45);margin-top:1rem;display:flex;gap:2rem;flex-wrap:wrap}
+
+  /* TOC */
+  .toc-bar{background:var(--green-deep);padding:.9rem 3rem;display:flex;gap:.5rem 1.6rem;flex-wrap:wrap;border-bottom:3px solid var(--amber)}
+  .toc-bar a{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:rgba(255,255,255,.6);text-decoration:none;text-transform:uppercase;letter-spacing:.06em;transition:color .2s}
+  .toc-bar a:hover{color:var(--amber)}
+
+  /* BODY */
+  .doc-body{padding:2.8rem 3rem}
+
+  /* SIGNATURE BLOCK */
+  .sig-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:1.5rem 0}
+  .sig-box{border:1.5px solid var(--rule);border-radius:var(--r-md);padding:1.2rem 1.4rem;background:#fafbfd}
+  .sig-box .sig-label{font-family:'JetBrains Mono',monospace;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.8rem}
+  .sig-box .sig-field{border-bottom:1px solid var(--slate);height:2rem;margin-bottom:.5rem}
+  .sig-box .sig-hint{font-size:.78rem;color:var(--muted)}
+
+  /* CALLOUTS */
+  .callout{border-radius:var(--r-md);padding:1.2rem 1.6rem;margin:1.5rem 0;font-size:.95rem}
+  .callout-amber{background:var(--amber-light);border-left:5px solid var(--amber)}
+  .callout-blue{background:var(--blue-bg);border-left:5px solid var(--blue)}
+  .callout-red{background:var(--red-bg);border-left:5px solid var(--red)}
+  .callout-green{background:#edf7f0;border-left:5px solid #27ae60}
+  .callout-title{font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem}
+  .callout-amber .callout-title{color:#a0620a}
+  .callout-blue .callout-title{color:var(--blue)}
+  .callout-red .callout-title{color:var(--red)}
+  .callout-green .callout-title{color:#1a7a40}
+
+  /* HEADINGS */
+  h2{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;color:var(--green-deep);margin:2.8rem 0 .8rem;padding-bottom:.6rem;border-bottom:2px solid var(--rule);display:flex;align-items:baseline;gap:.8rem}
+  h2:first-of-type{margin-top:0}
+  .sec-num{font-family:'JetBrains Mono',monospace;font-size:.72rem;background:var(--green-deep);color:var(--amber);padding:.15rem .55rem;border-radius:4px;flex-shrink:0}
+  h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--green-mid);margin:1.6rem 0 .5rem}
+  h4{font-family:'JetBrains Mono',monospace;font-size:.8rem;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:1.2rem 0 .4rem}
+  p{margin-bottom:.9rem}
+
+  /* LISTS */
+  ul,ol{margin:.5rem 0 .9rem 1.4rem}
+  li{margin-bottom:.4rem}
+  ul li::marker{color:var(--amber)}
+  ol li::marker{color:var(--green-mid);font-weight:600}
+  .check-list{list-style:none;margin-left:0}
+  .check-list li{padding:.45rem .8rem .45rem 2.2rem;position:relative;font-size:.94rem;margin-bottom:.3rem}
+  .check-list li::before{content:'✓';position:absolute;left:.5rem;top:.45rem;color:#27ae60;font-weight:700;font-family:'JetBrains Mono',monospace}
+  .cross-list{list-style:none;margin-left:0}
+  .cross-list li{padding:.55rem .8rem .55rem 2.4rem;position:relative;border-radius:var(--r-sm);margin-bottom:.4rem;background:#fdf8f8;border:1px solid #f0dada;font-size:.93rem}
+  .cross-list li::before{content:'✕';position:absolute;left:.8rem;top:.55rem;color:var(--red);font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.78rem}
+
+  /* COMMISSION TABLE */
+  .comm-table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.92rem}
+  .comm-table th{background:var(--green-deep);color:white;padding:.7rem 1rem;text-align:left;font-family:'JetBrains Mono',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em}
+  .comm-table td{padding:.65rem 1rem;border-bottom:1px solid var(--rule)}
+  .comm-table tr:nth-child(even) td{background:#f8fafc}
+  .comm-table tr:last-child td{border-bottom:none}
+  .comm-table .highlight{color:var(--green-mid);font-weight:600}
+
+  /* ADDENDUM */
+  .addendum{border:2px solid var(--rule);border-radius:var(--r-lg);margin:2.5rem 0;overflow:hidden}
+  .addendum-header{padding:1.2rem 1.8rem;display:flex;align-items:center;gap:1rem}
+  .addendum-header.eu{background:linear-gradient(90deg,#003399,#0055cc)}
+  .addendum-header.cn{background:linear-gradient(90deg,#8b0000,#c0392b)}
+  .addendum-header.af{background:linear-gradient(90deg,#1a5c2e,#27ae60)}
+  .addendum-flag{font-size:1.8rem}
+  .addendum-title-wrap h3{color:white;margin:0 0 .15rem;font-size:1.05rem}
+  .addendum-title-wrap p{color:rgba(255,255,255,.75);font-size:.78rem;margin:0;font-family:'JetBrains Mono',monospace}
+  .addendum-body{padding:1.8rem}
+
+  /* LANG BLOCK */
+  .lang-block{background:#f8faff;border:1px solid #c8d8f0;border-radius:var(--r-md);padding:1rem 1.4rem;margin:.8rem 0}
+  .lang-label{font-family:'JetBrains Mono',monospace;font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);margin-bottom:.4rem}
+  .lang-text{font-size:.93rem;line-height:1.65;color:var(--slate)}
+
+  /* DEF LIST */
+  dt{font-weight:600;color:var(--green-mid);margin-top:.8rem}
+  dd{margin-left:1.4rem;margin-bottom:.5rem;font-size:.94rem}
+
+  /* TIMELINE */
+  .timeline{margin:1rem 0}
+  .tl-item{display:flex;gap:1rem;margin-bottom:.8rem;align-items:flex-start}
+  .tl-dot{width:28px;height:28px;border-radius:50%;background:var(--green-deep);color:var(--amber);font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.15rem}
+  .tl-text{font-size:.93rem}
+  .tl-text strong{color:var(--green-mid)}
+
+  /* MISC */
+  hr{border:none;border-top:1px solid var(--rule);margin:2rem 0}
+  .thick-rule{border-top:3px solid var(--amber);margin:2.5rem 0}
+  code{font-family:'JetBrains Mono',monospace;font-size:.82em;background:#f0f2f5;padding:.1em .4em;border-radius:3px}
+  .fill-blank{display:inline-block;min-width:160px;border-bottom:1px solid var(--slate);margin:0 .3rem}
+
+  /* FOOTER */
+  .doc-footer{background:#f8fafc;border-top:1px solid var(--rule);padding:1.2rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;font-size:.72rem;color:var(--muted);font-family:'JetBrains Mono',monospace}
+  .footer-brand{color:var(--green-mid);font-weight:600}
+
+  @media(max-width:700px){
+    .doc-body,.doc-header{padding:1.5rem}
+    .toc-bar,.doc-footer{padding:.8rem 1.5rem}
+    h2{font-size:1.2rem}
+    .sig-grid{grid-template-columns:1fr}
+  }
+  @media print{
+    body{background:white;padding:0}
+    .doc-wrap{box-shadow:none;border-radius:0}
+    .toc-bar{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="doc-wrap">
+
+<!-- ═══════════════════════════════ HEADER -->
+<div class="doc-header">
+  <div class="header-badge"><span>SDL-HappyClaw · SixDustsLab · OneMore Management Ltd</span></div>
+  <h1>Business Introduction Agreement</h1>
+  <div class="header-sub">业务推介协议 &nbsp;·&nbsp; Acordo de Apresentação de Negócios</div>
+  <div class="header-tri">
+    <span class="tri-pill">🇬🇧 British English</span>
+    <span class="tri-pill">🇨🇳 简体中文</span>
+    <span class="tri-pill">🇵🇹🇦🇴🇲🇿 Português</span>
+  </div>
+  <div class="header-meta">
+    <span>📄 Version 1.0</span>
+    <span>📅 Effective: 1 May 2026</span>
+    <span>🔄 Review: Quarterly / trigger event</span>
+    <span>⚖️ Governing Law: Gibraltar</span>
+  </div>
+</div>
+
+<!-- TOC -->
+<nav class="toc-bar">
+  <a href="#parties">Parties</a>
+  <a href="#definitions">Definitions</a>
+  <a href="#appointment">Appointment</a>
+  <a href="#obligations">Obligations</a>
+  <a href="#commission">Commission</a>
+  <a href="#ip">IP &amp; Brand</a>
+  <a href="#data">Data</a>
+  <a href="#compliance">Compliance</a>
+  <a href="#liability">Liability</a>
+  <a href="#term">Term</a>
+  <a href="#dispute">Disputes</a>
+  <a href="#addendum-eu">EU/UK</a>
+  <a href="#addendum-cn">China</a>
+  <a href="#addendum-af">Africa</a>
+  <a href="#signatures">Signatures</a>
+</nav>
+
+<!-- ═══════════════════════════════ BODY -->
+<div class="doc-body">
+
+  <!-- PREAMBLE -->
+  <div class="callout callout-amber">
+    <div class="callout-title">📌 Nature of this Agreement</div>
+    This Agreement creates a non-exclusive, independent-contractor relationship for the introduction of prospective customers to SDL-HappyClaw. It does not create a partnership, joint venture, employment, agency, franchise or distributorship. The Introducer has no authority, express or implied, to bind SDL-HappyClaw to any contract, to make any representation on SDL-HappyClaw's behalf, or to accept any payment from a prospective customer.
+  </div>
+
+  <!-- SECTION 1: PARTIES -->
+  <h2 id="parties"><span class="sec-num">1</span> Parties</h2>
+  <p>This Business Introduction Agreement (the "<strong>Agreement</strong>") is entered into between:</p>
+
+  <div style="background:#f8fafc;border:1.5px solid var(--rule);border-radius:var(--r-md);padding:1.2rem 1.6rem;margin:1rem 0">
+    <h4 style="margin-top:0">Company (SDL-HappyClaw)</h4>
+    <p style="margin-bottom:.3rem"><strong>OneMore Management Ltd</strong> trading as <strong>SDL-HappyClaw / SixDustsLab</strong></p>
+    <p style="margin-bottom:.3rem">Registered Address: <span class="fill-blank">&nbsp;</span> Gibraltar</p>
+    <p style="margin-bottom:.3rem">Company Number: <span class="fill-blank">&nbsp;</span></p>
+    <p style="margin-bottom:0">Contact: SixDustsLab@gmail.com &nbsp;|&nbsp; +44 7440 060028</p>
+  </div>
+
+  <div style="background:#f8fafc;border:1.5px solid var(--rule);border-radius:var(--r-md);padding:1.2rem 1.6rem;margin:1rem 0">
+    <h4 style="margin-top:0">Introducer</h4>
+    <p style="margin-bottom:.3rem">Full Legal Name: <span class="fill-blank" style="min-width:260px">&nbsp;</span></p>
+    <p style="margin-bottom:.3rem">Registered / Business Address: <span class="fill-blank" style="min-width:260px">&nbsp;</span></p>
+    <p style="margin-bottom:.3rem">Company / Registration Number (if applicable): <span class="fill-blank">&nbsp;</span></p>
+    <p style="margin-bottom:.3rem">Jurisdiction of Incorporation / Residence: <span class="fill-blank">&nbsp;</span></p>
+    <p style="margin-bottom:.3rem">Primary Contact Name &amp; Title: <span class="fill-blank">&nbsp;</span></p>
+    <p style="margin-bottom:0">Email / Phone: <span class="fill-blank">&nbsp;</span></p>
+  </div>
+
+  <p>Each a "<strong>Party</strong>", together the "<strong>Parties</strong>".</p>
+
+  <!-- SECTION 2: DEFINITIONS -->
+  <h2 id="definitions"><span class="sec-num">2</span> Definitions</h2>
+  <dl>
+    <dt>"Applicable Law"</dt>
+    <dd>All laws, regulations, binding guidance, codes of practice and regulatory requirements applicable to either Party in any jurisdiction in which it operates or in which Qualified Introductions are made, including without limitation data protection law, anti-bribery and corruption law, anti-money laundering law, sanctions law, and financial services law.</dd>
+
+    <dt>"Commencement Date"</dt>
+    <dd>The date on which both Parties have signed this Agreement as recorded in the Signature Block (Section 15).</dd>
+
+    <dt>"Commission"</dt>
+    <dd>The fee payable by SDL-HappyClaw to the Introducer in respect of a Qualified Introduction, calculated in accordance with Section 5.</dd>
+
+    <dt>"Commission Period"</dt>
+    <dd>The period during which Commission is payable in respect of a Qualified Introduction, as specified in Section 5.3.</dd>
+
+    <dt>"Confidential Information"</dt>
+    <dd>All non-public information disclosed by one Party to the other in connection with this Agreement, including pricing, customer lists, technical specifications, business strategy, and the terms of this Agreement.</dd>
+
+    <dt>"Customer Contract"</dt>
+    <dd>A validly executed Master Services Agreement (or equivalent) between SDL-HappyClaw and an Introduced Customer for the provision of the SDL-HappyClaw Service.</dd>
+
+    <dt>"Effective Commission Revenue"</dt>
+    <dd>The net revenue actually received by SDL-HappyClaw from an Introduced Customer in respect of the Service, excluding VAT, withholding taxes, refunds, chargebacks, and one-time setup fees unless expressly agreed in an Order Form.</dd>
+
+    <dt>"Introduced Customer"</dt>
+    <dd>A prospective customer whose details are submitted to SDL-HappyClaw by the Introducer as part of a Qualified Introduction, who has not previously been in SDL-HappyClaw's customer relationship management system, and who executes a Customer Contract within the Registration Window.</dd>
+
+    <dt>"Introducer"</dt>
+    <dd>The party identified as Introducer in Section 1. The Introducer acts as an independent contractor and not as an agent, employee, distributor, partner, franchisee or legal representative of SDL-HappyClaw.</dd>
+
+    <dt>"Lead Registration"</dt>
+    <dd>A written or electronic submission by the Introducer to SDL-HappyClaw, using SDL-HappyClaw's prescribed Lead Registration Form, identifying a prospective customer and providing sufficient information to enable SDL-HappyClaw to assess and respond to the introduction.</dd>
+
+    <dt>"Qualified Introduction"</dt>
+    <dd>A Lead Registration that: (i) identifies a prospective customer that is not already known to SDL-HappyClaw or registered by another introducer within the preceding 12 months; (ii) is accepted in writing by SDL-HappyClaw within the Acceptance Window; (iii) results in the execution of a Customer Contract within the Registration Window; and (iv) arises from the Introducer's bona fide activity within the Permitted Scope.</dd>
+
+    <dt>"Registration Window"</dt>
+    <dd>The period of 12 months from the date on which SDL-HappyClaw accepts a Lead Registration in writing, during which a Qualified Introduction must result in a signed Customer Contract to be eligible for Commission.</dd>
+
+    <dt>"Relevant Jurisdiction"</dt>
+    <dd>Has the meaning given in the Acceptable Use Policy (AUP) and includes, without limitation, Gibraltar, the United Kingdom, all EU Member States, the People's Republic of China, Nigeria, Angola, and Mozambique.</dd>
+
+    <dt>"SDL-HappyClaw Brand Assets"</dt>
+    <dd>SDL-HappyClaw's trademarks, trade names, logos, service marks, and any other proprietary brand materials made available to the Introducer under Section 6.</dd>
+
+    <dt>"Service"</dt>
+    <dd>Has the meaning given in the SDL-HappyClaw Acceptable Use Policy as updated from time to time.</dd>
+  </dl>
+
+  <!-- SECTION 3: APPOINTMENT -->
+  <h2 id="appointment"><span class="sec-num">3</span> Appointment and Scope</h2>
+
+  <h3>3.1 Non-Exclusive Appointment</h3>
+  <p>SDL-HappyClaw appoints the Introducer on a <strong>non-exclusive</strong> basis to introduce prospective customers for the Service within the Permitted Scope set out in Schedule 1. SDL-HappyClaw retains the right to appoint other introducers, referral partners, distributors and resellers in any territory or market without restriction.</p>
+
+  <h3>3.2 Permitted Scope</h3>
+  <p>Unless otherwise specified in Schedule 1, the Permitted Scope covers introduction of prospective B2B customers in the Introducer's primary market(s) of operation. The Introducer shall not approach prospective customers outside the Permitted Scope without SDL-HappyClaw's prior written consent.</p>
+
+  <h3>3.3 No Authority to Bind</h3>
+  <p>The Introducer has no authority to:</p>
+  <ul class="cross-list">
+    <li>Enter into any contract or legally binding commitment on SDL-HappyClaw's behalf.</li>
+    <li>Make any representation, warranty or guarantee regarding the Service beyond the content of SDL-HappyClaw's published marketing materials.</li>
+    <li>Negotiate pricing, contract terms or service levels on SDL-HappyClaw's behalf.</li>
+    <li>Accept any payment from a prospective customer on SDL-HappyClaw's behalf.</li>
+    <li>Represent that the Introducer is an agent, employee, partner or legal representative of SDL-HappyClaw.</li>
+  </ul>
+
+  <h3>3.4 Acceptance Window</h3>
+  <p>Upon receipt of a Lead Registration, SDL-HappyClaw will respond in writing within <strong>5 Business Days</strong> to confirm acceptance or rejection. If SDL-HappyClaw does not respond within 5 Business Days, the Lead Registration is deemed rejected. SDL-HappyClaw may reject a Lead Registration without giving reasons.</p>
+
+  <!-- SECTION 4: INTRODUCER OBLIGATIONS -->
+  <h2 id="obligations"><span class="sec-num">4</span> Introducer Obligations</h2>
+
+  <h3>4.1 General Conduct</h3>
+  <p>The Introducer shall:</p>
+  <ul class="check-list">
+    <li>Conduct all introduction activities honestly, professionally and in good faith.</li>
+    <li>Represent the Service accurately and only using SDL-HappyClaw's current approved materials.</li>
+    <li>Immediately notify SDL-HappyClaw of any actual or potential conflict of interest.</li>
+    <li>Maintain adequate resources, expertise and authorisations to fulfil its obligations under this Agreement.</li>
+    <li>Keep SDL-HappyClaw informed of material developments in each Relevant Jurisdiction that may affect the Introducer's activities or SDL-HappyClaw's compliance obligations.</li>
+  </ul>
+
+  <h3>4.2 Regulatory Compliance</h3>
+  <p>The Introducer warrants, represents and undertakes on an ongoing basis that:</p>
+  <ul class="check-list">
+    <li>The Introducer's activities under this Agreement do not require SDL-HappyClaw to obtain any regulatory licence, registration or authorisation in any Relevant Jurisdiction.</li>
+    <li>The Introducer holds all licences, authorisations, registrations and permissions required by Applicable Law for the Introducer's own activities under this Agreement.</li>
+    <li>The Introducer will promptly notify SDL-HappyClaw if any such licence or authorisation is revoked, suspended or materially varied.</li>
+  </ul>
+
+  <h3>4.3 Anti-Bribery and Corruption</h3>
+  <p>The Introducer unconditionally undertakes to:</p>
+  <ul class="check-list">
+    <li>Comply with the UK Bribery Act 2010, the Gibraltar Crimes Act 2011 (as amended), the UK Economic Crime and Corporate Transparency Act 2023 (failure to prevent fraud, in force 1 September 2025), and all equivalent anti-corruption and anti-fraud legislation in any Relevant Jurisdiction.</li>
+    <li>Not offer, promise, give, authorise, request or accept any financial or other advantage, directly or indirectly, in connection with this Agreement or any introduction made under it, in breach of applicable anti-bribery law.</li>
+    <li>Not pay or receive any facilitation payment in connection with this Agreement.</li>
+    <li>Not engage in any act, omission or scheme that constitutes fraud or dishonest misrepresentation under Applicable Law.</li>
+    <li>Maintain adequate procedures to prevent bribery and fraud by persons associated with the Introducer, consistent with the UK Ministry of Justice Guidance on the Bribery Act 2010 (Six Principles) and the Home Office Guidance on failure to prevent fraud.</li>
+    <li>Maintain complete and accurate records of all expenditure, gifts and hospitality relating to this Agreement, available for SDL-HappyClaw's inspection on reasonable notice.</li>
+  </ul>
+
+  <div class="callout callout-red">
+    <div class="callout-title">⚠️ Gifts and Hospitality Limits</div>
+    The Introducer must obtain SDL-HappyClaw's written pre-approval before providing any gift or hospitality to a third party in connection with SDL-HappyClaw business exceeding the following thresholds: <strong>£100 / €120 / USD 125 per occasion</strong> (notification); <strong>£250 / €300 / USD 310</strong> (executive approval); <strong>£500 / €600 / USD 620</strong> (prohibited without board resolution). All gifts and hospitality must be recorded in the Introducer's register and disclosed to SDL-HappyClaw quarterly.
+  </div>
+
+  <h3>4.4 Sanctions and Export Controls</h3>
+  <p>The Introducer warrants on an ongoing basis that:</p>
+  <ul class="check-list">
+    <li>Neither the Introducer, nor its directors, officers, ultimate beneficial owners, nor (to its knowledge) any prospective customer it introduces, is designated on any applicable sanctions list, including the UK Consolidated Sanctions List, the EU Consolidated Financial Sanctions List, the UN Consolidated List, the US OFAC SDN List, or the US BIS Entity List.</li>
+    <li>The Introducer will perform sanctions screening on each prospective customer prior to Lead Registration and promptly notify SDL-HappyClaw of any match.</li>
+    <li>The Introducer will not use the Service, or cause SDL-HappyClaw to provide the Service, in any manner that would violate any applicable sanctions, export control or trade-embargo regime.</li>
+    <li>The Introducer has conducted enhanced due diligence on any prospective customer located in or connected to a jurisdiction subject to comprehensive sanctions or elevated export-control risk.</li>
+  </ul>
+
+  <div class="callout callout-amber">
+    <div class="callout-title">⚠️ Entity List Notice</div>
+    The Introducer must not introduce any prospective customer that is listed on any applicable jurisdictional sanctions list where such introduction would cause SDL-HappyClaw or its subprocessors to violate applicable laws or sanctions regulations.
+The Introducer acknowledges that the SDL-HappyClaw Service uses AI technologies originating from multiple jurisdictions, and that onboarding entities subject to sanctions may require regulatory authorization, which may be subject to a presumption of denial..
+  </div>
+
+  <h3>4.5 Anti-Money Laundering</h3>
+  <p>The Introducer shall:</p>
+  <ul class="check-list">
+    <li>Conduct customer due diligence (CDD) on each prospective customer prior to Lead Registration, including identification and verification of the legal entity, its directors and ultimate beneficial owners (25% threshold), and the source of its funds where required by Applicable Law.</li>
+    <li>Apply enhanced due diligence (EDD) to prospective customers that are politically exposed persons (PEPs), their family members or close associates, or that are located in high-risk jurisdictions as identified by FATF.</li>
+    <li>File Suspicious Activity Reports (SARs) with the Gibraltar Financial Intelligence Unit (GFIU) or the equivalent authority in the Introducer's jurisdiction if the Introducer knows or suspects that a prospective customer is engaged in money laundering or terrorist financing, and inform SDL-HappyClaw (subject to tipping-off restrictions).</li>
+    <li>Retain CDD and EDD records for a minimum of 5 years from the date of the relevant transaction or the termination of the relationship, whichever is later.</li>
+  </ul>
+
+  <h3>4.6 Reporting and Co-operation</h3>
+  <p>The Introducer shall provide SDL-HappyClaw with a written quarterly report (within 15 days of each calendar quarter-end) detailing: (i) lead-generation activity during the quarter; (ii) the pipeline of prospective customers in active discussion; (iii) any material changes to the Introducer's business, ownership or regulatory status; and (iv) a summary of gifts and hospitality incurred. SDL-HappyClaw retains audit rights exercisable on 10 Business Days' notice to verify the Introducer's compliance with this Agreement.</p>
+
+  <!-- SECTION 5: COMMISSION -->
+  <h2 id="commission"><span class="sec-num">5</span> Commission</h2>
+
+  <h3>5.1 Commission Structure</h3>
+  <table class="comm-table">
+    <thead><tr><th>Trigger</th><th>Commission Rate</th><th>Basis</th><th>Cap</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Qualified Introduction — Year 1</td>
+        <td class="highlight">15% of Effective Commission Revenue</td>
+        <td>Monthly subscription fees received in months 1–12 of Customer Contract</td>
+        <td>No cap in Year 1</td>
+      </tr>
+      <tr>
+        <td>Qualified Introduction — Year 2</td>
+        <td class="highlight">10% of Effective Commission Revenue</td>
+        <td>Monthly subscription fees received in months 13–24</td>
+        <td>Subject to tail-commission cap in Schedule 1</td>
+      </tr>
+      <tr>
+        <td>Qualified Introduction — Year 3+</td>
+        <td class="highlight">5% of Effective Commission Revenue</td>
+        <td>Monthly subscription fees received from month 25</td>
+        <td>Maximum 36-month Commission Period unless extended in Schedule 1</td>
+      </tr>
+      <tr>
+        <td>One-time setup / deployment fees</td>
+        <td class="highlight">0% (default)</td>
+        <td>Excluded unless specifically agreed in Order Form</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-blue">
+    <div class="callout-title">ℹ️ Commission Uplift</div>
+    SDL-HappyClaw may, at its sole discretion, offer enhanced commission rates for strategic introductions or target markets. Any enhanced rate must be agreed in writing by SDL-HappyClaw's authorised signatory before the relevant Lead Registration and recorded in Schedule 1.
+  </div>
+
+  <h3>5.2 Commission Calculation and Payment</h3>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot">1</div><div class="tl-text"><strong>Trigger:</strong> Customer Contract executed and first payment received by SDL-HappyClaw from the Introduced Customer.</div></div>
+    <div class="tl-item"><div class="tl-dot">2</div><div class="tl-text"><strong>Calculation:</strong> SDL-HappyClaw calculates Commission on Effective Commission Revenue actually received in each calendar month, within 15 days of month-end.</div></div>
+    <div class="tl-item"><div class="tl-dot">3</div><div class="tl-text"><strong>Statement:</strong> SDL-HappyClaw issues a Commission Statement within 20 days of each calendar month-end, showing gross revenue, any deductions, and net Commission payable.</div></div>
+    <div class="tl-item"><div class="tl-dot">4</div><div class="tl-text"><strong>Payment:</strong> Commission shall be paid in GBP or EUR within thirty (30) days of the date of the relevant Commission Statement, subject to the Introducer having submitted a valid invoice in the required format. Payment shall be made by bank transfer or other electronic funds transfer method (including via regulated payment institutions) to an account designated by the Introducer.</div></div>
+    <div class="tl-item"><div class="tl-dot">5</div><div class="tl-text"><strong>Dispute:</strong> Introducer must raise any dispute within 30 days of receiving a Commission Statement. Undisputed amounts are binding if not challenged within that period.</div></div>
+  </div>
+
+  <h3>5.3 Commission Period</h3>
+  <p>Commission is payable for the period set out in Section 5.1, commencing on the date the Introduced Customer's first payment is received by SDL-HappyClaw, subject to a maximum Commission Period of <strong>36 months</strong> unless extended by written agreement.</p>
+
+  <h3>5.4 Commission Conditions and Clawback</h3>
+  <p>Commission is subject to the following conditions:</p>
+  <ul>
+    <li>Commission is only payable while this Agreement is in force and the Introducer is not in material breach of it.</li>
+    <li>If an Introduced Customer's Customer Contract is terminated, Commission ceases from the date of termination.</li>
+    <li>If Commission has been paid in respect of revenue that is subsequently refunded or charged back, SDL-HappyClaw may deduct the over-paid amount from future Commission statements.</li>
+    <li>SDL-HappyClaw may withhold Commission pending resolution of any bona fide dispute regarding the Introducer's compliance with Section 4.</li>
+    <li><strong>Clawback:</strong> If SDL-HappyClaw discovers that a Qualified Introduction was procured in breach of Section 4 (including through bribery, fraud, misrepresentation or sanctions violation), all Commission paid in respect of that introduction becomes immediately repayable by the Introducer.</li>
+  </ul>
+
+  <h3>5.5 Taxes and Withholding</h3>
+  <p>Each Party is responsible for its own taxes on Commission received. If SDL-HappyClaw is required by Applicable Law to withhold tax on Commission payments, it will deduct the required amount and provide the Introducer with appropriate withholding tax documentation. The Introducer is responsible for obtaining any tax treaty relief or foreign-tax credits available in its jurisdiction.</p>
+
+  <h3>5.6 Commission Cap — Anomalous Payments</h3>
+  <p>No individual Commission payment shall exceed <strong>20% of the annualised first-year Effective Commission Revenue</strong> of the relevant Introduced Customer without prior written approval from SDL-HappyClaw's board. Payments exceeding this cap without board approval are voidable at SDL-HappyClaw's election.</p>
+
+  <!-- SECTION 6: IP & BRAND -->
+  <h2 id="ip"><span class="sec-num">6</span> Intellectual Property and Brand Licence</h2>
+
+  <h3>6.1 Grant of Licence</h3>
+  <p>SDL-HappyClaw grants the Introducer a <strong>non-exclusive, non-transferable, non-sublicensable, revocable, royalty-free licence</strong> to use the SDL-HappyClaw Brand Assets solely for the purpose of marketing and introducing the Service in accordance with this Agreement. This licence may be revoked by SDL-HappyClaw at any time on 5 Business Days' written notice.</p>
+
+  <h3>6.2 Brand Use Restrictions</h3>
+  <ul class="cross-list">
+    <li>Using the SDL-HappyClaw Brand Assets in any way not pre-approved in writing by SDL-HappyClaw.</li>
+    <li>Modifying, altering or creating derivative works from the SDL-HappyClaw Brand Assets.</li>
+    <li>Registering or applying to register any trademark, domain name or social media handle that incorporates the SDL-HappyClaw Brand Assets or any confusingly similar mark.</li>
+    <li>Using the SDL-HappyClaw Brand Assets after the termination or expiry of this Agreement.</li>
+    <li>Representing that any product or service other than the SDL-HappyClaw Service is endorsed, certified or provided by SDL-HappyClaw.</li>
+  </ul>
+
+  <h3>6.3 Retention of Ownership</h3>
+  <p>All intellectual property rights in the SDL-HappyClaw Brand Assets, the Service, and any materials provided by SDL-HappyClaw remain exclusively vested in SDL-HappyClaw or its licensors. The Introducer acquires no rights in any SDL-HappyClaw intellectual property other than the limited licence granted in Section 6.1.</p>
+
+  <!-- SECTION 7: DATA PROTECTION -->
+  <h2 id="data"><span class="sec-num">7</span> Data Protection</h2>
+
+  <h3>7.1 Independent Controllers</h3>
+  <p>Each Party processes personal data (including personal data of prospective customers and each Party's own employees and representatives) as an <strong>independent Data Controller</strong> in respect of its own processing activities under this Agreement. Neither Party acts as data processor for the other in respect of the introduction activities described in this Agreement, unless a separate Data Processing Agreement is executed.</p>
+
+  <h3>7.2 Introducer's Data Obligations</h3>
+  <p>The Introducer shall:</p>
+  <ul class="check-list">
+    <li>Process personal data shared with or obtained for the purposes of this Agreement only in accordance with Applicable Law and only for the purposes of performing this Agreement.</li>
+    <li>Obtain all necessary consents, provide all required privacy notices, and establish a lawful basis for processing personal data before sharing that data with SDL-HappyClaw.</li>
+    <li>Not share personal data with SDL-HappyClaw that the Introducer is not lawfully authorised to share.</li>
+    <li>Comply with all applicable data transfer requirements before transferring personal data to SDL-HappyClaw (Gibraltar) from any Relevant Jurisdiction.</li>
+    <li>Promptly notify SDL-HappyClaw of any personal data breach that affects data shared with SDL-HappyClaw, within 24 hours of becoming aware.</li>
+  </ul>
+
+  <h3>7.3 SDL-HappyClaw's Data Use</h3>
+  <p>SDL-HappyClaw will process personal data received from the Introducer (including prospective customer contact details) solely for the purposes of evaluating the Lead Registration, entering into a Customer Contract, and managing the Commission relationship. SDL-HappyClaw's Privacy Notice (available at <code>[SDL-HappyClaw website URL]/legal/privacy</code>) applies to such processing.</p>
+
+  <h3>7.4 Marketing</h3>
+  <p>Neither Party shall send marketing communications to prospective customers identified by the other Party without the relevant prospective customer's prior consent where required by Applicable Law (including UK PECR, EU ePrivacy Directive, China's Electronic Commerce Law, and Nigeria's NDPA).</p>
+
+  <!-- SECTION 8: COMPLIANCE -->
+  <h2 id="compliance"><span class="sec-num">8</span> Compliance, Training and Audit</h2>
+
+  <h3>8.1 Training</h3>
+  <p>The Introducer shall ensure that all of its employees, contractors and sub-agents involved in introduction activities under this Agreement complete, within 30 days of the Commencement Date and annually thereafter:</p>
+  <ul>
+    <li>Anti-bribery and corruption training covering the UK Bribery Act 2010 and ECCTA 2023;</li>
+    <li>Sanctions and export controls awareness training;</li>
+    <li>Data protection training appropriate to their role;</li>
+    <li>SDL-HappyClaw's AUP orientation (covering prohibited uses and the nature of the Service).</li>
+  </ul>
+  <p>Training completion records must be maintained for at least 6 years and provided to SDL-HappyClaw on request.</p>
+
+  <h3>8.2 Audit Rights</h3>
+  <p>SDL-HappyClaw may, on 10 Business Days' written notice (or immediately in the case of a reasonable suspicion of material breach), audit the Introducer's compliance with this Agreement, including inspection of: CDD/EDD records; Commission records; gifts and hospitality registers; training records; and communications with prospective customers. The Introducer shall co-operate fully with any such audit and provide access to all relevant records, systems and personnel.</p>
+
+  <h3>8.3 Sub-Contracting and Sub-Agents</h3>
+  <p>The Introducer shall not sub-contract any of its introduction activities or engage sub-agents without SDL-HappyClaw's prior written consent. Where consent is given, the Introducer remains fully liable for the acts and omissions of any sub-contractor or sub-agent as if they were its own, and must impose on them obligations equivalent to those in this Agreement.</p>
+
+  <!-- SECTION 9: CONFIDENTIALITY -->
+  <h2 id="confidentiality"><span class="sec-num">9</span> Confidentiality</h2>
+  <p>Each Party shall keep the other Party's Confidential Information strictly confidential, shall not disclose it to any third party without the disclosing Party's prior written consent (save to the extent required by Applicable Law or a binding order of a competent authority), and shall use it only for the purposes of performing this Agreement. This obligation survives the termination or expiry of this Agreement for a period of <strong>5 years</strong>.</p>
+  <p>The Introducer shall treat the existence and terms of this Agreement as Confidential Information unless and until SDL-HappyClaw consents to its disclosure.</p>
+
+  <!-- SECTION 10: LIABILITY -->
+  <h2 id="liability"><span class="sec-num">10</span> Liability and Indemnity</h2>
+
+  <h3>10.1 Liability Cap</h3>
+  <p>To the maximum extent permitted by Applicable Law, SDL-HappyClaw's aggregate liability to the Introducer under or in connection with this Agreement (whether in contract, tort, statute or otherwise) shall not exceed the total Commission paid to the Introducer in the 12 months immediately preceding the event giving rise to the claim.</p>
+
+  <h3>10.2 Excluded Losses</h3>
+  <p>To the maximum extent permitted by Applicable Law, neither Party shall be liable to the other for any indirect, consequential, special, punitive or exemplary loss, including loss of profit, loss of revenue, loss of goodwill, loss of anticipated savings or loss of business, even if that Party has been advised of the possibility of such losses.</p>
+
+  <h3>10.3 Mandatory Exclusions from Cap</h3>
+  <p>Nothing in this Agreement limits or excludes either Party's liability for: death or personal injury caused by negligence; fraud or fraudulent misrepresentation; any liability that cannot be excluded or limited under Applicable Law.</p>
+
+  <h3>10.4 Introducer Indemnity</h3>
+  <p>The Introducer shall indemnify SDL-HappyClaw against all losses, damages, costs, expenses (including reasonable legal fees), fines, penalties and regulatory sanctions arising from or in connection with:</p>
+  <ul>
+    <li>Any breach by the Introducer of this Agreement, including Sections 4.3 (ABAC), 4.4 (Sanctions) and 4.5 (AML);</li>
+    <li>Any misrepresentation made by the Introducer to a prospective customer regarding the Service;</li>
+    <li>Any act or omission of the Introducer that causes SDL-HappyClaw to breach Applicable Law;</li>
+    <li>Any regulatory investigation, fine or enforcement action directed at SDL-HappyClaw arising from the Introducer's activities.</li>
+  </ul>
+
+  <!-- SECTION 11: TERM AND TERMINATION -->
+  <h2 id="term"><span class="sec-num">11</span> Term and Termination</h2>
+
+  <h3>11.1 Initial Term</h3>
+  <p>This Agreement commences on the Commencement Date and continues for an initial term of <strong>12 months</strong>, unless terminated earlier in accordance with this Section.</p>
+
+  <h3>11.2 Automatic Renewal</h3>
+  <p>Unless either Party gives written notice of non-renewal at least <strong>30 days</strong> before the end of the then-current term, this Agreement automatically renews for successive 12-month periods on the same terms, subject to any updates notified by SDL-HappyClaw.</p>
+
+  <h3>11.3 Termination for Convenience</h3>
+  <p>Either Party may terminate this Agreement for convenience on <strong>30 days'</strong> written notice to the other Party.</p>
+
+  <h3>11.4 Termination for Cause</h3>
+  <p>Either Party may terminate this Agreement with immediate effect on written notice if the other Party:</p>
+  <ul>
+    <li>Commits a material breach of this Agreement that is incapable of remedy;</li>
+    <li>Commits a material breach that is capable of remedy and fails to remedy it within 15 Business Days of receiving written notice specifying the breach;</li>
+    <li>Becomes insolvent, enters administration, liquidation or any analogous process;</li>
+    <li>Is the subject of a sanctions designation, or a director or beneficial owner is designated.</li>
+  </ul>
+  <p>SDL-HappyClaw may additionally terminate immediately, or suspend Commission payments pending investigation, if it has reasonable grounds to suspect a breach of Sections 4.3, 4.4 or 4.5.</p>
+
+  <h3>11.5 Consequences of Termination</h3>
+  <ul>
+    <li>Upon termination, the Introducer's brand licence (Section 6.1) is immediately revoked and all Brand Assets must be returned or destroyed.</li>
+    <li>Commission accrued and payable on Introduced Customers' contracts that pre-date termination continues for the remainder of the Commission Period, unless termination is for the Introducer's material breach or sanctions/ABAC breach, in which case Commission is forfeited.</li>
+    <li>Sections 4.3, 4.4, 4.5, 9, 10.4, 11.5, 12 and 13 survive termination.</li>
+    <li>SDL-HappyClaw will delete the Introducer's personal data in accordance with its Privacy Notice, save where retention is required by Applicable Law.</li>
+  </ul>
+
+  <!-- SECTION 12: DISPUTE RESOLUTION -->
+  <h2 id="dispute"><span class="sec-num">12</span> Governing Law and Dispute Resolution</h2>
+  <p>This Agreement is governed by and construed in accordance with the laws of Gibraltar. Any dispute, controversy or claim arising out of or in connection with this Agreement, including any question regarding its existence, validity or termination, shall be referred to and finally resolved by arbitration under the UNCITRAL Arbitration Rules as in force at the date of commencement of the arbitration. The seat of arbitration shall be Gibraltar. The language of arbitration shall be English. The arbitral tribunal shall consist of a sole arbitrator appointed by agreement of the Parties, or (failing agreement within 20 days of a request) by the LCIA under its arbitrator-nomination services. Nothing in this clause prevents either Party from seeking urgent injunctive or interim relief from any court of competent jurisdiction.</p>
+
+  <!-- SECTION 13: GENERAL -->
+  <h2 id="general"><span class="sec-num">13</span> General Provisions</h2>
+
+  <h3>13.1 Entire Agreement</h3>
+  <p>This Agreement (including its Schedules and Addenda) constitutes the entire agreement between the Parties in relation to its subject matter and supersedes all prior representations, negotiations, understandings and agreements.</p>
+
+  <h3>13.2 Amendments</h3>
+  <p>SDL-HappyClaw may amend this Agreement on 30 days' written notice. The Introducer's continued participation in introduction activities after the effective date of any amendment constitutes acceptance. Amendments required by Applicable Law take effect immediately.</p>
+
+  <h3>13.3 Assignment</h3>
+  <p>The Introducer shall not assign, novate or transfer any rights or obligations under this Agreement without SDL-HappyClaw's prior written consent. SDL-HappyClaw may assign this Agreement to any group company or in connection with a merger, acquisition or sale of all or substantially all of its assets on written notice.</p>
+
+  <h3>13.4 Notices</h3>
+  <p>Notices under this Agreement must be in writing and delivered by email (with read-receipt or reply confirmation) or courier to the addresses set out in Section 1. Notices by email are deemed received on the next Business Day following transmission.</p>
+
+  <h3>13.5 Severance</h3>
+  <p>If any provision of this Agreement is found to be invalid, illegal or unenforceable in any jurisdiction, it shall be modified to the minimum extent necessary to make it valid, legal and enforceable in that jurisdiction. Its invalidity in one jurisdiction shall not affect its enforceability in any other jurisdiction. The remaining provisions shall continue in full force.</p>
+
+  <h3>13.6 Waiver</h3>
+  <p>No failure or delay by either Party to exercise any right or remedy under this Agreement constitutes a waiver of that right or remedy.</p>
+
+  <h3>13.7 Language</h3>
+  <p>This Agreement is executed in English, which is the governing language. Where a Chinese or Portuguese translation is provided, it is for reference only and the English version prevails in the event of any inconsistency, save as expressly provided in Addendum B (China) in respect of any PRC Standard Contract required under PIPL.</p>
+
+  <hr>
+
+  <!-- SCHEDULE 1 -->
+  <h2 id="schedule1"><span class="sec-num">S1</span> Schedule 1 — Commercial Terms</h2>
+  <div style="background:#f8fafc;border:1.5px solid var(--rule);border-radius:var(--r-md);padding:1.4rem 1.8rem">
+    <p><strong>Permitted Scope / Territory:</strong> <span class="fill-blank" style="min-width:300px">&nbsp;</span></p>
+    <p><strong>Target Sectors:</strong> <span class="fill-blank" style="min-width:300px">&nbsp;</span></p>
+    <p><strong>Enhanced Commission Rate (if agreed):</strong> <span class="fill-blank">&nbsp;</span>% &nbsp;| &nbsp;Approval reference: <span class="fill-blank">&nbsp;</span></p>
+    <p><strong>Commission Period:</strong> ☐ 12 months &nbsp; ☐ 24 months &nbsp; ☐ 36 months &nbsp; ☐ Other: <span class="fill-blank">&nbsp;</span></p>
+    <p><strong>Tail Commission Cap (Year 2+):</strong> GBP__ / EUR__ <span class="fill-blank">&nbsp;</span> per annum</p>
+    <p><strong>Setup Fee Commission (if agreed):</strong> <span class="fill-blank">&nbsp;</span>%</p>
+    <p><strong>Special Conditions:</strong></p>
+    <div style="border:1px solid var(--rule);border-radius:var(--r-sm);min-height:60px;padding:.5rem"></div>
+  </div>
+
+  <div class="thick-rule"></div>
+
+  <!-- ══════════════════════ ADDENDUM EU/UK -->
+  <div class="addendum" id="addendum-eu">
+    <div class="addendum-header eu">
+      <div class="addendum-flag">🇪🇺🇬🇧</div>
+      <div class="addendum-title-wrap">
+        <h3>Addendum A — European Union &amp; United Kingdom</h3>
+        <p>Supplemental terms · Effective 1 May 2026</p>
+      </div>
+    </div>
+    <div class="addendum-body">
+
+      <h4>A.1 FCA Regulated Activities — UK</h4>
+      <p>The introduction of prospective customers for a B2B AI SaaS service does not constitute a regulated activity under the Financial Services and Markets Act 2000 (FSMA) in the ordinary case. However, if the Service is used by an Introduced Customer in connection with regulated financial services, the Introducer must confirm in the Lead Registration Form whether the prospective customer is FCA-regulated and whether the introduction itself would require the Introducer to be authorised as an Appointed Representative or Introducer Appointed Representative. SDL-HappyClaw will not accept Lead Registrations that would require SDL-HappyClaw to become a principal firm without prior board approval.</p>
+
+      <h4>A.2 UK Bribery Act 2010 — Adequate Procedures Confirmation</h4>
+      <p>UK-based Introducers must confirm at onboarding and annually that they have adopted written anti-bribery procedures proportionate to the risks of their business, consistent with the Ministry of Justice Six Principles Guidance. SDL-HappyClaw will request a copy of the Introducer's ABAC policy as part of its third-party due diligence. Failure to provide adequate ABAC documentation within 20 Business Days of request entitles SDL-HappyClaw to suspend Commission payments.</p>
+
+      <h4>A.3 Economic Crime and Corporate Transparency Act 2023 — Failure to Prevent Fraud</h4>
+      <p>In force from 1 September 2025. UK Introducers must not engage in, or cause persons associated with them to engage in, any fraud that benefits SDL-HappyClaw (including misrepresentation of the Service to prospective customers, false Commission claims, or creation of false Lead Registrations). SDL-HappyClaw has adopted a Failure to Prevent Fraud Policy, a copy of which is available on request.</p>
+
+      <h4>A.4 EU General Data Protection Regulation — Independent Controllers</h4>
+      <p>Where the Introducer shares personal data of EU data subjects with SDL-HappyClaw, the Introducer must ensure it has a lawful basis for such transfer and that the transfer complies with Chapter V GDPR (EU SCCs where required). SDL-HappyClaw provides an EU Controller-to-Controller Standard Contractual Clauses schedule on request.</p>
+
+      <h4>A.5 DORA (EU Financial-Sector Clients)</h4>
+      <p>Where an Introduced Customer is an EU financial entity subject to DORA (Regulation (EU) 2022/2554), the Introducer must disclose this at Lead Registration stage so that SDL-HappyClaw can ensure that the Customer Contract contains the DORA-compliant contractual provisions required under DORA Article 30. Commission is conditional on the Introduced Customer executing a DORA-compliant annex.</p>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════ ADDENDUM CN -->
+  <div class="addendum" id="addendum-cn">
+    <div class="addendum-header cn">
+      <div class="addendum-flag">🇨🇳</div>
+      <div class="addendum-title-wrap">
+        <h3>Addendum B — People's Republic of China &nbsp;|&nbsp; 中华人民共和国补充条款</h3>
+        <p>Effective 1 May 2026 · 自2026年5月1日起生效</p>
+      </div>
+    </div>
+    <div class="addendum-body">
+
+      <div class="callout callout-red" style="margin-top:0">
+        <div class="callout-title">⚠️ 重要提示 / Critical Notice</div>
+        SDL-HappyClaw does not operate a branch, representative office or subsidiary in mainland China. Any introduction of a PRC-based prospective customer must comply with PRC anti-intermediary regulations (including the Regulations on Administration of Foreign-Invested Enterprises), and the Introducer warrants that its introduction activities do not require SDL-HappyClaw to obtain a PRC business licence or register any establishment in mainland China.
+      </div>
+
+      <h4>B.1 Sanctions and Entity List — Enhanced Obligations</h4>
+      <p>PRC-based Introducers must conduct enhanced due diligence on each prospective customer to verify that neither the entity, nor its shareholders, directors or UBOs, appear on:</p>
+      <ul>
+        <li>The US BIS Entity List, Unverified List, Military End-User List or Denied Persons List;</li>
+        <li>The OFAC SDN List or OFAC Consolidated Sanctions List;</li>
+        <li>The UK Consolidated Sanctions List or EU Consolidated Financial Sanctions List;</li>
+        <li>The UFLPA Entity List (where applicable).</li>
+      </ul>
+      <p>Introducers must re-screen each active prospective customer within 5 Business Days of any update to the above lists and immediately notify SDL-HappyClaw of any new match.</p>
+
+      <div class="lang-block">
+        <div class="lang-label">🇨🇳 中文说明 — B.1 制裁与实体清单</div>
+        <div class="lang-text">中国大陆推介方须对每位潜在客户开展强化尽职调查，核实其本身及其股东、董事、最终受益所有人均未列入美国商务部工业与安全局（BIS）实体清单、美国财政部OFAC制裁名单、英国综合制裁名单或欧盟综合金融制裁名单。推介方须在上述名单每次更新后5个工作日内对所有在谈潜在客户重新筛查，并立即通知SDL-HappyClaw任何新出现的匹配结果。</div>
+      </div>
+
+      <h4>B.2 PIPL and Data Sharing</h4>
+      <p>Any personal data of PRC natural persons shared by the Introducer with SDL-HappyClaw in connection with a Lead Registration must comply with PIPL Chapter IV. The Introducer must obtain the data subjects' separate consent for the cross-border transfer or establish another applicable legal basis, conduct a Personal Information Protection Impact Assessment (PIPIA) if required, and ensure that the transfer complies with the applicable cross-border transfer mechanism (PRC Standard Contract, Security Assessment or Certification) based on the volume thresholds in the 2024 Cross-Border Data Flow Provisions.</p>
+
+      <div class="lang-block">
+        <div class="lang-label">🇨🇳 中文说明 — B.2 个人信息保护法合规</div>
+        <div class="lang-text">推介方向SDL-HappyClaw提供业务推介时，如涉及中国境内自然人个人信息的跨境传输，须依照《个人信息保护法》第四章取得数据主体的单独同意或建立其他合法依据，并根据2024年《促进和规范数据跨境流动规定》确定的数量门槛，通过标准合同、安全评估或认证等合规机制办理跨境传输手续。</div>
+      </div>
+
+      <h4>B.3 Language and Prevailing Version</h4>
+      <p>This Addendum is provided in English and Chinese. The English version governs for all contractual purposes. Notwithstanding Section 13.7 of the main Agreement, if a PRC Standard Contract is separately required under PIPL for the cross-border transfer of personal data, that contract shall be in Chinese, governed by PRC law, and the Chinese version shall prevail for the purposes of that instrument only.</p>
+
+      <div class="lang-block">
+        <div class="lang-label">🇨🇳 中文说明 — B.3 语言效力</div>
+        <div class="lang-text">本补充条款以英文及中文两种语言提供，合同效力以英文版本为准。但依据《个人信息保护法》另行签署的《个人信息出境标准合同》，其管辖法律为中华人民共和国法律，以中文版本为准。</div>
+      </div>
+
+      <h4>B.4 Foreign Exchange Controls</h4>
+      <p>Commission payments to PRC-based Introducers are subject to PRC State Administration of Foreign Exchange (SAFE) regulations. The Introducer is responsible for all regulatory filings, tax registrations and foreign exchange approvals required for the lawful receipt of Commission payments from Gibraltar. SDL-HappyClaw will provide supporting documentation reasonably requested by the Introducer for SAFE filing purposes.</p>
+
+      <div class="lang-block">
+        <div class="lang-label">🇨🇳 中文说明 — B.4 外汇管理</div>
+        <div class="lang-text">向中国大陆推介方支付佣金须遵守国家外汇管理局（SAFE）相关规定。推介方负责办理从直布罗陀合法收取佣金所需的全部外汇登记、税务登记及外汇核准手续。SDL-HappyClaw将配合提供推介方为外汇申报目的合理要求的相关文件。</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════ ADDENDUM AFRICA -->
+  <div class="addendum" id="addendum-af">
+    <div class="addendum-header af">
+      <div class="addendum-flag">🌍</div>
+      <div class="addendum-title-wrap">
+        <h3>Addendum C — Africa (Nigeria, Angola, Mozambique)</h3>
+        <p>Adendo Africano · Effective 1 May 2026</p>
+      </div>
+    </div>
+    <div class="addendum-body">
+
+      <h3 style="margin-top:0">C.1 Nigeria</h3>
+
+      <h4>C.1.1 Nigerian Business Conduct</h4>
+      <p>Nigerian Introducers must comply with the Corrupt Practices and Other Related Offences Act (ICPC Act) 2000, the Economic and Financial Crimes Commission (EFCC) Act 2004, the Money Laundering (Prevention and Prohibition) Act 2022 (MLPPA), and all relevant CBN and SEC directives. Commissions must be paid through properly documented, traceable bank transfers; cash commission payments are prohibited.</p>
+
+      <h4>C.1.2 NDPA and Data Sharing</h4>
+      <p>Nigerian Introducers sharing personal data of Nigerian data subjects with SDL-HappyClaw must comply with the Nigeria Data Protection Act 2023 and NDPC GAID 2025. Cross-border transfer of personal data to Gibraltar requires an NDPC-approved instrument or an applicable Schedule 5 GAID mechanism. The Introducer must obtain appropriate consent or establish another lawful basis before sharing personal data.</p>
+
+      <h4>C.1.3 FATF Delisting</h4>
+      <p>Nigeria was removed from the FATF Grey List on 24 October 2025. Standard risk-based CDD applies; however, SDL-HappyClaw maintains heightened monitoring for one full FATF assessment cycle post-delisting. Introducers must notify SDL-HappyClaw immediately of any EFCC, ICPC or NDPC enforcement action involving the Introducer or a prospective customer.</p>
+
+      <h3 style="margin-top:1.8rem">C.2 Angola</h3>
+
+      <h4>C.2.1 Angolan Anti-Corruption</h4>
+      <p>Angolan Introducers must comply with the Lei n.º 3/14 de 10 de Fevereiro (Lei do Repatriamento de Capitais) and the Lei n.º 34/11 de 12 de Dezembro (Anti-Money Laundering Law, as amended). Angola remains on the FATF Grey List (confirmed February 2026 plenary). Accordingly, SDL-HappyClaw applies <strong>Enhanced Due Diligence</strong> to all Angolan Introducers as a matter of policy:</p>
+      <ul>
+        <li>Senior management approval required at onboarding and at each annual refresh;</li>
+        <li>Source of wealth and source of funds documentation required;</li>
+        <li>Quarterly file refresh and enhanced ongoing monitoring;</li>
+        <li>Commission thresholds triggering re-verification: EUR 5,000 per payment or EUR 20,000 cumulative per annum.</li>
+      </ul>
+
+      <div class="lang-block">
+        <div class="lang-label">🇵🇹 Português — C.2 Angola</div>
+        <div class="lang-text">Os Apresentadores angolanos estão sujeitos a Diligência Devida Reforçada em virtude de Angola constar da lista cinzenta do GAFI (confirmado em fevereiro de 2026). São obrigatórios: aprovação da direção na admissão e renovação anual; documentação da origem do património e dos fundos; actualização trimestral do processo; e monitorização reforçada contínua. Os pagamentos de comissões só podem ser efectuados por transferência bancária documentada e rastreável.</div>
+      </div>
+
+      <h4>C.2.2 Lei 22/11 — Data Transfer</h4>
+      <p>Angolan Introducers sharing personal data of Angolan data subjects with SDL-HappyClaw must obtain prior APD authorisation for the cross-border transfer or establish binding contractual safeguards under Lei 22/11 Articles 33–34. All consumer-facing documentation provided to Angolan prospective customers in connection with this Agreement must be in <strong>Portuguese</strong>.</p>
+
+      <h3 style="margin-top:1.8rem">C.3 Mozambique</h3>
+
+      <h4>C.3.1 Legal Framework</h4>
+      <p>Mozambican Introducers must comply with the Lei n.º 14/2013 de 12 de Agosto (Anti-Money Laundering Law), BdM Aviso 8/GBM/2021 (financial consumer data), Decree 70/2025 (Cloud Computing) and Decree 71/2025 (Data Centres) where applicable. Mozambique has no comprehensive data protection statute as at 1 May 2026; Introducers should apply GDPR-equivalent safeguards as best practice and monitor the progress of the draft Personal Data Protection Bill 2025.</p>
+
+      <div class="lang-block">
+        <div class="lang-label">🇵🇹 Português — C.3 Moçambique</div>
+        <div class="lang-text">Os Apresentadores moçambicanos devem cumprir a Lei n.º 14/2013 de 12 de Agosto (Lei de Combate ao Branqueamento de Capitais), o Aviso 8/GBM/2021 do BdM, o Decreto 70/2025 (Computação em Nuvem) e o Decreto 71/2025 (Centros de Dados). Na ausência de lei abrangente de protecção de dados, aplica-se como boa prática o padrão equivalente ao RGPD. Os Apresentadores devem acompanhar os desenvolvimentos legislativos do projecto de Lei de Protecção de Dados Pessoais de 2025.</div>
+      </div>
+
+      <h4>C.3.2 Service Resilience Acknowledgement</h4>
+      <p>Mozambican Introducers acknowledge that Mozambique has experienced government-ordered internet and social-media disruptions (October–November 2024) and that SDL-HappyClaw makes no availability commitment for third-party channel delivery during any period of sovereign channel action. Introducers must not represent SDL-HappyClaw's channel availability to prospective customers in a manner inconsistent with the Service's multi-channel SLA and force majeure provisions.</p>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════ SIGNATURE BLOCK -->
+  <h2 id="signatures"><span class="sec-num">15</span> Signatures</h2>
+
+  <div class="callout callout-blue">
+    <div class="callout-title">ℹ️ Execution</div>
+    This Agreement may be executed in counterparts, each of which shall be an original, and all of which together shall constitute one instrument. Electronic signatures (including DocuSign, Adobe Sign and equivalent platforms) are binding. By signing, each Party confirms it has read, understood and agrees to be bound by the terms of this Agreement including all Schedules and Addenda.
+  </div>
+
+  <div class="sig-grid">
+    <div class="sig-box">
+      <div class="sig-label">For and on behalf of OneMore Management Ltd (SDL-HappyClaw)</div>
+      <div class="sig-field"></div>
+      <div class="sig-hint">Authorised Signatory</div>
+      <div class="sig-field" style="margin-top:1rem"></div>
+      <div class="sig-hint">Printed Name &amp; Title</div>
+      <div class="sig-field" style="margin-top:1rem"></div>
+      <div class="sig-hint">Date (DD / MM / YYYY)</div>
+    </div>
+    <div class="sig-box">
+      <div class="sig-label">For and on behalf of the Introducer</div>
+      <div class="sig-field"></div>
+      <div class="sig-hint">Authorised Signatory</div>
+      <div class="sig-field" style="margin-top:1rem"></div>
+      <div class="sig-hint">Printed Name &amp; Title</div>
+      <div class="sig-field" style="margin-top:1rem"></div>
+      <div class="sig-hint">Date (DD / MM / YYYY)</div>
+    </div>
+  </div>
+
+  <hr>
+  <div class="callout callout-blue">
+    <div class="callout-title">📄 Document Control</div>
+    <p style="margin-bottom:.3rem">This Agreement supersedes any prior referral or introducer arrangement between the Parties. Review schedule: quarterly (January, April, July, October) or upon a material compliance event in any Relevant Jurisdiction. Next scheduled review: <strong>July 2026</strong>.</p>
+    <p style="margin-bottom:0">For questions: <strong>SixDustsLab@gmail.com</strong> &nbsp;|&nbsp; +44 7440 060028</p>
+  </div>
+
+</div><!-- /doc-body -->
+
+<div class="doc-footer">
+  <span class="footer-brand">SDL-HappyClaw · SixDustsLab · OneMore Management Ltd</span>
+  <span>Business Introduction Agreement v1.0 · 1 May 2026 · Gibraltar Law</span>
+  <span>© 2026 OneMore Management Ltd · All rights reserved</span>
+</div>
+
+</div><!-- /doc-wrap -->
+</body>
+</html>
