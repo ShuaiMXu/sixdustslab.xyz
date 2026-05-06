@@ -2,54 +2,56 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Compliance Audit Pack | SDL-HappyClaw</title>
 <style>
+:root{--font-body:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--font-heading:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--font-mono:'JetBrains Mono',monospace}body{font-family:var(--font-body)}h1,h2,h3,h4,h5,h6{font-family:var(--font-heading)}code,pre,.mono{font-family:var(--font-mono)}
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+4:wght@0,400;0,600&family=JetBrains+Mono:wght@400;500&display=swap');
 :root{--gd:#0a2a1f;--gm:#1e3a2f;--amber:#f5b042;--al:#fef6e0;--blue:#1a5276;--bb:#eaf2f8;--red:#7b1a1a;--rb:#fdf0f0;--slate:#1e293b;--muted:#5a6a7e;--rule:#dde3eb;--bg:#f4f6f9;--card:#fff}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);font-family:'Source Serif 4',Georgia,serif;font-size:14.5px;line-height:1.7;color:var(--slate);padding:2rem 1rem 4rem}
+body{background:var(--bg);font-family:var(--font-body);font-size:14.5px;line-height:1.7;color:var(--slate);padding:2rem 1rem 4rem}
 .wrap{max-width:1020px;margin:0 auto;background:var(--card);border-radius:20px;box-shadow:0 12px 40px rgba(0,0,0,.08);overflow:hidden}
 .hdr{background:linear-gradient(108deg,var(--gd),var(--gm));padding:2.4rem 3rem 2rem;position:relative;overflow:hidden}
 .hdr::before{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;border-radius:50%;background:rgba(245,176,66,.07)}
 .badge{display:inline-flex;background:rgba(245,176,66,.18);border:1px solid rgba(245,176,66,.35);border-radius:40px;padding:.22rem .85rem;margin-bottom:.7rem}
-.badge span{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--amber);letter-spacing:.08em;text-transform:uppercase}
-.hdr h1{font-family:'Playfair Display',serif;font-size:1.95rem;color:#fff;margin-bottom:.25rem}
+.badge span{font-family:var(--font-mono);font-size:.66rem;color:var(--amber);letter-spacing:.08em;text-transform:uppercase}
+.hdr h1{font-family:var(--font-heading);font-size:1.95rem;color:#fff;margin-bottom:.25rem}
 .hdr p{color:rgba(255,255,255,.68);font-size:.88rem}
-.meta{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:rgba(255,255,255,.4);margin-top:.7rem;display:flex;gap:1.4rem;flex-wrap:wrap}
+.meta{font-family:var(--font-mono);font-size:.66rem;color:rgba(255,255,255,.4);margin-top:.7rem;display:flex;gap:1.4rem;flex-wrap:wrap}
 .ver-chips{display:flex;gap:.5rem;margin-top:.7rem;flex-wrap:wrap}
-.vc{font-family:'JetBrains Mono',monospace;font-size:.65rem;padding:.2rem .7rem;border-radius:20px;border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.85)}
+.vc{font-family:var(--font-mono);font-size:.65rem;padding:.2rem .7rem;border-radius:20px;border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.85)}
 .vc.op{background:rgba(39,174,96,.25);border-color:rgba(39,174,96,.4)}
 .vc.reg{background:rgba(41,128,185,.25);border-color:rgba(41,128,185,.4)}
 .body{padding:2.4rem 3rem}
-h2{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gd);margin:2.5rem 0 .7rem;padding-bottom:.48rem;border-bottom:2px solid var(--rule);display:flex;align-items:baseline;gap:.7rem}
+h2{font-family:var(--font-heading);font-size:1.3rem;color:var(--gd);margin:2.5rem 0 .7rem;padding-bottom:.48rem;border-bottom:2px solid var(--rule);display:flex;align-items:baseline;gap:.7rem}
 h2:first-of-type{margin-top:0}
-.sn{font-family:'JetBrains Mono',monospace;font-size:.66rem;background:var(--gd);color:var(--amber);padding:.12rem .48rem;border-radius:4px}
-h3{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gm);margin:1.5rem 0 .45rem}
-h4{font-family:'JetBrains Mono',monospace;font-size:.73rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:.9rem 0 .3rem}
+.sn{font-family:var(--font-mono);font-size:.66rem;background:var(--gd);color:var(--amber);padding:.12rem .48rem;border-radius:4px}
+h3{font-family:var(--font-heading);font-size:1.05rem;color:var(--gm);margin:1.5rem 0 .45rem}
+h4{font-family:var(--font-mono);font-size:.73rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:.9rem 0 .3rem}
 p{margin-bottom:.75rem}
 .box{border-radius:12px;padding:.9rem 1.3rem;margin:.9rem 0;font-size:.92rem}
 .box.amber{background:var(--al);border-left:5px solid var(--amber)}
 .box.blue{background:var(--bb);border-left:5px solid var(--blue)}
 .box.red{background:var(--rb);border-left:5px solid var(--red)}
 .box.green{background:#edf7f0;border-left:5px solid #27ae60}
-.bt{font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.3rem}
+.bt{font-family:var(--font-mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.3rem}
 .bt.a{color:#a0620a}.bt.b{color:var(--blue)}.bt.r{color:var(--red)}.bt.g{color:#1a7a40}
 /* AUDIT CHECKLIST */
 .ac{width:100%;border-collapse:collapse;margin:.8rem 0;font-size:.86rem}
-.ac th{background:var(--gd);color:#fff;padding:.5rem .85rem;font-family:'JetBrains Mono',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:.05em;text-align:left}
+.ac th{background:var(--gd);color:#fff;padding:.5rem .85rem;font-family:var(--font-mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.05em;text-align:left}
 .ac td{padding:.48rem .85rem;border-bottom:1px solid var(--rule);vertical-align:top}
 .ac tr:nth-child(even) td{background:#f8fafc}
 .ac td:first-child{font-weight:600;color:var(--gm);white-space:nowrap;font-size:.82rem}
-.ac select{width:120px;border:1px solid var(--rule);border-radius:5px;padding:.22rem .4rem;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--slate)}
-.ac input[type="text"]{width:100%;border:1px solid var(--rule);border-radius:5px;padding:.22rem .5rem;font-family:'Source Serif 4',Georgia,serif;font-size:.83rem}
+.ac select{width:120px;border:1px solid var(--rule);border-radius:5px;padding:.22rem .4rem;font-family:var(--font-mono);font-size:.72rem;color:var(--slate)}
+.ac input[type="text"]{width:100%;border:1px solid var(--rule);border-radius:5px;padding:.22rem .5rem;font-family:var(--font-body);font-size:.83rem}
 /* EVIDENCE TABLE */
 .ev{width:100%;border-collapse:collapse;margin:.8rem 0;font-size:.85rem}
-.ev th{background:var(--gm);color:#fff;padding:.5rem .85rem;font-family:'JetBrains Mono',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:.05em;text-align:left}
+.ev th{background:var(--gm);color:#fff;padding:.5rem .85rem;font-family:var(--font-mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.05em;text-align:left}
 .ev td{padding:.48rem .85rem;border-bottom:1px solid var(--rule);vertical-align:top}
 .ev input{width:100%;border:1px solid var(--rule);border-radius:5px;padding:.2rem .45rem;font-size:.83rem}
 /* SCORE PILL */
-.score{font-family:'JetBrains Mono',monospace;font-size:.7rem;padding:.15rem .6rem;border-radius:10px;display:inline-block;font-weight:700}
+.score{font-family:var(--font-mono);font-size:.7rem;padding:.15rem .6rem;border-radius:10px;display:inline-block;font-weight:700}
 .s-y{background:#edf7f0;color:#1a7a40;border:1px solid #a3d9b8}
 .s-p{background:var(--al);color:#a0620a;border:1px solid #e8c47a}
 .s-n{background:var(--rb);color:var(--red);border:1px solid #e6b4b4}
@@ -57,16 +59,13 @@ p{margin-bottom:.75rem}
 /* SIG */
 .sig-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:1rem 0}
 .sig-box{border:1.5px solid var(--rule);border-radius:12px;padding:1rem 1.2rem;background:#fafbfd}
-.sig-box .sl{font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:.5rem}
+.sig-box .sl{font-family:var(--font-mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:.5rem}
 .sig-box .sf{border-bottom:1px solid var(--slate);height:1.8rem;margin-bottom:.35rem}
 .sig-box .sh{font-size:.77rem;color:var(--muted)}
 hr{border:none;border-top:1px solid var(--rule);margin:1.8rem 0}
 .thick{border-top:3px solid var(--amber);margin:2rem 0}
-code{font-family:'JetBrains Mono',monospace;font-size:.78em;background:#f0f2f5;padding:.1em .38em;border-radius:3px}
-.ftr{background:#f8fafc;border-top:1px solid var(--rule);padding:1rem 3rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:.67rem;color:var(--muted);font-family:'JetBrains Mono',monospace}
-.ftr strong{color:var(--gm)}
-@media(max-width:700px){.body,.hdr{padding:1.5rem}.sig-grid{grid-template-columns:1fr}}
-@media print{body{background:#fff;padding:0}.wrap{box-shadow:none;border-radius:0}}
+code{font-family:var(--font-mono);font-size:.78em;background:#f0f2f5;padding:.1em .38em;border-radius:3px}
+.ftr{background:#f8fafc;border-top:1px solid var(--rule);padding:1rem 3rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:.67rem;color:var(--muted);font-family:var(--font-mono);padding:0}.wrap{box-shadow:none;border-radius:0}}
 </style>
 </head>
 <body>
@@ -87,9 +86,9 @@ code{font-family:'JetBrains Mono',monospace;font-size:.78em;background:#f0f2f5;p
 <!-- AUDIT HEADER -->
 <h2><span class="sn">0</span> Audit Instance Details</h2>
 <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1rem 0">
-  <div><label style="font-family:'JetBrains Mono',monospace;font-size:.66rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);display:block;margin-bottom:.3rem">Audit Reference</label><input type="text" style="width:100%;border:1.5px solid var(--rule);border-radius:8px;padding:.45rem .7rem;font-size:.88rem" placeholder="AUD-Q2-2026"></div>
-  <div><label style="font-family:'JetBrains Mono',monospace;font-size:.66rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);display:block;margin-bottom:.3rem">Quarter / Period</label><select style="width:100%;border:1.5px solid var(--rule);border-radius:8px;padding:.45rem .7rem;font-size:.88rem"><option>Q1 2026 (Jan–Mar)</option><option>Q2 2026 (Apr–Jun)</option><option>Q3 2026 (Jul–Sep)</option><option>Q4 2026 (Oct–Dec)</option><option>Triggered — specify in notes</option></select></div>
-  <div><label style="font-family:'JetBrains Mono',monospace;font-size:.66rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);display:block;margin-bottom:.3rem">Audit Type</label><select style="width:100%;border:1.5px solid var(--rule);border-radius:8px;padding:.45rem .7rem;font-size:.88rem"><option>Scheduled quarterly (v1/v2)</option><option>Triggered — regulatory change</option><option>Triggered — breach / incident</option><option>Triggered — customer / SA request</option><option>Annual deep-dive (v4 format)</option></select></div>
+  <div><label style="font-family:var(--font-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);display:block;margin-bottom:.3rem">Audit Reference</label><input type="text" style="width:100%;border:1.5px solid var(--rule);border-radius:8px;padding:.45rem .7rem;font-size:.88rem" placeholder="AUD-Q2-2026"></div>
+  <div><label style="font-family:var(--font-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);display:block;margin-bottom:.3rem">Quarter / Period</label><select style="width:100%;border:1.5px solid var(--rule);border-radius:8px;padding:.45rem .7rem;font-size:.88rem"><option>Q1 2026 (Jan–Mar)</option><option>Q2 2026 (Apr–Jun)</option><option>Q3 2026 (Jul–Sep)</option><option>Q4 2026 (Oct–Dec)</option><option>Triggered — specify in notes</option></select></div>
+  <div><label style="font-family:var(--font-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);display:block;margin-bottom:.3rem">Audit Type</label><select style="width:100%;border:1.5px solid var(--rule);border-radius:8px;padding:.45rem .7rem;font-size:.88rem"><option>Scheduled quarterly (v1/v2)</option><option>Triggered — regulatory change</option><option>Triggered — breach / incident</option><option>Triggered — customer / SA request</option><option>Annual deep-dive (v4 format)</option></select></div>
 </div>
 
 <div class="box amber">
@@ -189,19 +188,19 @@ code{font-family:'JetBrains Mono',monospace;font-size:.78em;background:#f0f2f5;p
 <h2><span class="sn">F</span> Audit Summary and Actions</h2>
 <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1rem 0">
   <div style="border:1.5px solid #a3d9b8;border-radius:12px;padding:1rem;text-align:center;background:#edf7f0">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:#1a7a40;text-transform:uppercase;margin-bottom:.4rem">Compliant ✓</div>
+    <div style="font-family:var(--font-mono);font-size:.65rem;color:#1a7a40;text-transform:uppercase;margin-bottom:.4rem">Compliant ✓</div>
     <input type="text" style="width:60px;font-size:1.4rem;font-weight:700;color:#1a7a40;text-align:center;border:none;background:transparent" placeholder="0">
   </div>
   <div style="border:1.5px solid #e8c47a;border-radius:12px;padding:1rem;text-align:center;background:var(--al)">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:#a0620a;text-transform:uppercase;margin-bottom:.4rem">Partial ~</div>
+    <div style="font-family:var(--font-mono);font-size:.65rem;color:#a0620a;text-transform:uppercase;margin-bottom:.4rem">Partial ~</div>
     <input type="text" style="width:60px;font-size:1.4rem;font-weight:700;color:#a0620a;text-align:center;border:none;background:transparent" placeholder="0">
   </div>
   <div style="border:1.5px solid #e6b4b4;border-radius:12px;padding:1rem;text-align:center;background:var(--rb)">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--red);text-transform:uppercase;margin-bottom:.4rem">Non-Compliant ✗</div>
+    <div style="font-family:var(--font-mono);font-size:.65rem;color:var(--red);text-transform:uppercase;margin-bottom:.4rem">Non-Compliant ✗</div>
     <input type="text" style="width:60px;font-size:1.4rem;font-weight:700;color:var(--red);text-align:center;border:none;background:transparent" placeholder="0">
   </div>
   <div style="border:1.5px solid var(--rule);border-radius:12px;padding:1rem;text-align:center;background:#f8fafc">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--muted);text-transform:uppercase;margin-bottom:.4rem">N/A</div>
+    <div style="font-family:var(--font-mono);font-size:.65rem;color:var(--muted);text-transform:uppercase;margin-bottom:.4rem">N/A</div>
     <input type="text" style="width:60px;font-size:1.4rem;font-weight:700;color:var(--muted);text-align:center;border:none;background:transparent" placeholder="0">
   </div>
 </div>
@@ -218,7 +217,7 @@ code{font-family:'JetBrains Mono',monospace;font-size:.78em;background:#f0f2f5;p
 </table>
 
 <h4>Overall Audit Conclusion</h4>
-<select style="width:100%;border:1.5px solid var(--rule);border-radius:8px;padding:.55rem .8rem;font-family:'Source Serif 4',Georgia,serif;font-size:.92rem;margin-bottom:1rem">
+<select style="width:100%;border:1.5px solid var(--rule);border-radius:8px;padding:.55rem .8rem;font-family:var(--font-body);font-size:.92rem;margin-bottom:1rem">
   <option>Satisfactory — no material gaps; proceed to next scheduled review</option>
   <option>Satisfactory with actions — minor gaps; action plan in place; no immediate risk</option>
   <option>Requires improvement — material gaps identified; management attention required</option>
@@ -226,7 +225,7 @@ code{font-family:'JetBrains Mono',monospace;font-size:.78em;background:#f0f2f5;p
 </select>
 
 <h4>Auditor Notes</h4>
-<textarea style="width:100%;border:1.5px solid var(--rule);border-radius:8px;padding:.6rem .85rem;font-family:'Source Serif 4',Georgia,serif;font-size:.9rem;min-height:80px;resize:vertical" placeholder="Additional observations, context, or recommendations not captured above."></textarea>
+<textarea style="width:100%;border:1.5px solid var(--rule);border-radius:8px;padding:.6rem .85rem;font-family:var(--font-body);font-size:.9rem;min-height:80px;resize:vertical" placeholder="Additional observations, context, or recommendations not captured above."></textarea>
 
 <div class="sig-grid" style="margin-top:1.5rem">
   <div class="sig-box">
