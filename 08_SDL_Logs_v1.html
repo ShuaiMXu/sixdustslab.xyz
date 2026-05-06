@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compliance Logs Pack | SDL-HappyClaw</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+4:wght@0,400;0,600&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{--gd:#0a2a1f;--gm:#1e3a2f;--amber:#f5b042;--al:#fef6e0;--blue:#1a5276;--bb:#eaf2f8;--red:#7b1a1a;--rb:#fdf0f0;--slate:#1e293b;--muted:#5a6a7e;--rule:#dde3eb;--bg:#f4f6f9;--card:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);font-family:'Source Serif 4',Georgia,serif;font-size:14.5px;line-height:1.68;color:var(--slate);padding:2rem 1rem 4rem}
+.wrap{max-width:1100px;margin:0 auto;background:var(--card);border-radius:20px;box-shadow:0 12px 40px rgba(0,0,0,.08);overflow:hidden}
+.hdr{background:linear-gradient(108deg,var(--gd),var(--gm));padding:2.2rem 3rem 1.8rem}
+.badge{display:inline-flex;background:rgba(245,176,66,.18);border:1px solid rgba(245,176,66,.35);border-radius:40px;padding:.22rem .85rem;margin-bottom:.7rem}
+.badge span{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--amber);letter-spacing:.08em;text-transform:uppercase}
+.hdr h1{font-family:'Playfair Display',serif;font-size:1.9rem;color:#fff;margin-bottom:.25rem}
+.hdr p{color:rgba(255,255,255,.68);font-size:.88rem}
+.meta{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:rgba(255,255,255,.4);margin-top:.7rem;display:flex;gap:1.4rem;flex-wrap:wrap}
+.body{padding:2.2rem 3rem}
+h2{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--gd);margin:2.4rem 0 .7rem;padding-bottom:.45rem;border-bottom:2px solid var(--rule);display:flex;align-items:baseline;gap:.7rem}
+h2:first-of-type{margin-top:0}
+.sn{font-family:'JetBrains Mono',monospace;font-size:.66rem;background:var(--gd);color:var(--amber);padding:.12rem .48rem;border-radius:4px}
+.box{border-radius:12px;padding:.9rem 1.3rem;margin:.8rem 0;font-size:.91rem}
+.box.amber{background:var(--al);border-left:5px solid var(--amber)}
+.box.blue{background:var(--bb);border-left:5px solid var(--blue)}
+.box.red{background:var(--rb);border-left:5px solid var(--red)}
+.bt{font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.3rem}
+.bt.a{color:#a0620a}.bt.b{color:var(--blue)}.bt.r{color:var(--red)}
+/* LOG TABLES */
+.lt{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.84rem}
+.lt th{background:var(--gd);color:#fff;padding:.55rem .8rem;font-family:'JetBrains Mono',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:.05em;text-align:left;white-space:nowrap}
+.lt td{padding:.5rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top}
+.lt tr:nth-child(even) td{background:#f8fafc}
+.lt input,.lt select,.lt textarea{width:100%;border:1px solid var(--rule);border-radius:5px;padding:.28rem .5rem;font-family:'Source Serif 4',Georgia,serif;font-size:.82rem;color:var(--slate);background:#fafbfd;resize:vertical}
+.lt textarea{min-height:44px}
+.lt input:focus,.lt select:focus,.lt textarea:focus{outline:none;border-color:var(--gm)}
+/* STATUS PILLS */
+.pill{font-family:'JetBrains Mono',monospace;font-size:.62rem;padding:.12rem .48rem;border-radius:8px;display:inline-block;white-space:nowrap}
+.p-open{background:#fdf0f0;color:var(--red);border:1px solid #e6b4b4}
+.p-prog{background:var(--al);color:#a0620a;border:1px solid #e8c47a}
+.p-done{background:#edf7f0;color:#1a7a40;border:1px solid #a3d9b8}
+.p-na{background:#f0f2f5;color:var(--muted);border:1px solid var(--rule)}
+hr{border:none;border-top:1px solid var(--rule);margin:1.8rem 0}
+.thick{border-top:3px solid var(--amber);margin:2rem 0}
+.ftr{background:#f8fafc;border-top:1px solid var(--rule);padding:1rem 3rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:.67rem;color:var(--muted);font-family:'JetBrains Mono',monospace}
+.ftr strong{color:var(--gm)}
+code{font-family:'JetBrains Mono',monospace;font-size:.78em;background:#f0f2f5;padding:.1em .38em;border-radius:3px}
+@media(max-width:700px){.body,.hdr{padding:1.4rem}.lt{font-size:.78rem}}
+@media print{body{background:#fff;padding:0}.wrap{box-shadow:none;border-radius:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hdr">
+  <div class="badge"><span>SDL-HappyClaw · Internal · Compliance Function</span></div>
+  <h1>Compliance Logs Pack</h1>
+  <p>Training Log · Breach &amp; Incident Log · Data Subject Rights Log</p>
+  <div class="meta"><span>📄 Template v1.0</span><span>📅 May 2026</span><span>⚖️ Owner: DPO / Compliance Officer</span><span>🔄 Continuous update</span></div>
+</div>
+
+<div class="body">
+
+<!-- ═══ LOG 1: TRAINING ═══ -->
+<h2><span class="sn">1</span> Training and Awareness Log</h2>
+<div class="box amber">
+  <div class="bt a">📌 Retention: 6 years (Bribery Act adequate procedures defence). All staff, contractors and relevant referral partners must appear. Annual refresh by 31 January each year.</div>
+</div>
+<table class="lt">
+  <thead><tr><th>ID</th><th>Full Name</th><th>Role / Entity</th><th>Training Module</th><th>Delivery Method</th><th>Date Completed</th><th>Pass / Attestation</th><th>Expiry / Next Due</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td><code>TR-001</code></td><td><input type="text"></td><td><input type="text" placeholder="e.g. DPO / Staff"></td><td><select style="font-size:.8rem"><option>Data Protection Essentials</option><option>AI Literacy (EU AI Act Art.4)</option><option>Anti-Bribery &amp; Corruption</option><option>Sanctions &amp; Export Controls</option><option>Breach Response Drill</option><option>PIPL Awareness</option><option>NDPA / Lei 22/11 Awareness</option><option>AUP Orientation</option></select></td><td><select style="font-size:.8rem"><option>Online (self-paced)</option><option>In-person workshop</option><option>Webinar</option><option>Tabletop exercise</option><option>Policy read &amp; sign</option></select></td><td><input type="text" placeholder="DD/MM/YYYY"></td><td><select style="font-size:.8rem"><option>Pass</option><option>Attestation signed</option><option>Fail — retake required</option><option>Pending</option></select></td><td><input type="text" placeholder="DD/MM/YYYY"></td><td><input type="text"></td></tr>
+    <tr><td><code>TR-002</code></td><td><input type="text"></td><td><input type="text"></td><td><select style="font-size:.8rem"><option>Data Protection Essentials</option><option>AI Literacy (EU AI Act Art.4)</option><option>Anti-Bribery &amp; Corruption</option><option>Sanctions &amp; Export Controls</option><option>Breach Response Drill</option><option>PIPL Awareness</option><option>NDPA / Lei 22/11 Awareness</option><option>AUP Orientation</option></select></td><td><select style="font-size:.8rem"><option>Online (self-paced)</option><option>In-person workshop</option><option>Webinar</option><option>Tabletop exercise</option><option>Policy read &amp; sign</option></select></td><td><input type="text" placeholder="DD/MM/YYYY"></td><td><select style="font-size:.8rem"><option>Pass</option><option>Attestation signed</option><option>Fail — retake required</option><option>Pending</option></select></td><td><input type="text" placeholder="DD/MM/YYYY"></td><td><input type="text"></td></tr>
+    <tr><td><code>TR-003</code></td><td><input type="text"></td><td><input type="text"></td><td><select style="font-size:.8rem"><option>Data Protection Essentials</option><option>AI Literacy (EU AI Act Art.4)</option><option>Anti-Bribery &amp; Corruption</option><option>Sanctions &amp; Export Controls</option><option>Breach Response Drill</option><option>PIPL Awareness</option><option>NDPA / Lei 22/11 Awareness</option><option>AUP Orientation</option></select></td><td><select style="font-size:.8rem"><option>Online (self-paced)</option><option>In-person workshop</option><option>Webinar</option><option>Tabletop exercise</option><option>Policy read &amp; sign</option></select></td><td><input type="text" placeholder="DD/MM/YYYY"></td><td><select style="font-size:.8rem"><option>Pass</option><option>Attestation signed</option><option>Fail — retake required</option><option>Pending</option></select></td><td><input type="text" placeholder="DD/MM/YYYY"></td><td><input type="text"></td></tr>
+    <tr><td colspan="9" style="text-align:center;color:var(--muted);font-size:.82rem;font-style:italic;padding:.6rem">— Add rows as needed —</td></tr>
+  </tbody>
+</table>
+
+<!-- Annual Board ABAC Attestation -->
+<div class="box blue" style="margin-top:1rem">
+  <div class="bt b">📋 Annual Board ABAC Attestation</div>
+  <table class="lt" style="margin:.5rem 0 0">
+    <thead><tr><th>Year</th><th>Board Member / Director</th><th>Date Signed</th><th>Attestation Statement</th></tr></thead>
+    <tbody>
+      <tr><td><input type="text" placeholder="2026"></td><td><input type="text"></td><td><input type="text" placeholder="DD/MM/YYYY"></td><td style="font-size:.82rem;font-style:italic">"I confirm that SDL-HappyClaw maintains adequate anti-bribery and fraud-prevention procedures consistent with the UK Bribery Act 2010 Six Principles and ECCTA 2023 Home Office Guidance."</td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text" placeholder="DD/MM/YYYY"></td><td></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="thick"></div>
+
+<!-- ═══ LOG 2: BREACH ═══ -->
+<h2><span class="sn">2</span> Personal Data Breach and Incident Register</h2>
+<div class="box red">
+  <div class="bt r">🚨 Mandatory for ALL breaches — whether notified or not (Art. 33(5) GDPR). Retention: 5 years minimum. Clock starts on detection, not confirmation. See ICP Section 5 for full SOP.</div>
+</div>
+
+<table class="lt">
+  <thead><tr><th>Incident ID</th><th>Date Detected</th><th>Date Closed</th><th>Nature of Breach</th><th>Data Categories Affected</th><th>Est. No. Subjects</th><th>Jurisdictions</th><th>Risk Level</th><th>SA Notified?</th><th>Subjects Notified?</th><th>SA Notification Date(s)</th><th>DORA Report?</th><th>Root Cause</th><th>Remediation</th><th>Lessons Learned</th><th>Closed By / Date</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>INC-001</code></td>
+      <td><input type="text" placeholder="DD/MM/YYYY HH:MM"></td>
+      <td><input type="text" placeholder="DD/MM/YYYY"></td>
+      <td><select style="font-size:.8rem"><option>Confidentiality breach</option><option>Integrity breach</option><option>Availability breach</option><option>All three</option></select></td>
+      <td><input type="text" placeholder="e.g. Conversation logs — name, account refs"></td>
+      <td><input type="text" placeholder="e.g. ~50"></td>
+      <td><input type="text" placeholder="e.g. UK, EU-DE"></td>
+      <td><select style="font-size:.8rem"><option>Low — not notifiable</option><option>Medium — SA notified</option><option>High — SA + subjects notified</option></select></td>
+      <td><select style="font-size:.8rem"><option>No — risk below threshold</option><option>Yes — GRA within 72h</option><option>Yes — ICO within 72h</option><option>Yes — multiple DPAs</option><option>Yes — NDPC</option><option>Yes — APD (immediate)</option><option>Yes — CAC (24h)</option></select></td>
+      <td><select style="font-size:.8rem"><option>No — risk not high</option><option>Yes — without undue delay</option><option>N/A</option></select></td>
+      <td><input type="text" placeholder="DD/MM/YYYY per SA"></td>
+      <td><select style="font-size:.8rem"><option>No</option><option>Yes — initial 4h</option><option>Yes — intermediate 72h</option><option>Yes — final 30 days</option></select></td>
+      <td><textarea placeholder="e.g. Misconfigured API access control"></textarea></td>
+      <td><textarea placeholder="e.g. Access revoked within 2h; logs reviewed; control patched"></textarea></td>
+      <td><textarea placeholder="e.g. Enhanced access-control testing added to deployment checklist"></textarea></td>
+      <td><input type="text" placeholder="Name / DD/MM/YYYY"></td>
+    </tr>
+    <tr>
+      <td><code>INC-002</code></td>
+      <td><input type="text" placeholder="DD/MM/YYYY HH:MM"></td>
+      <td><input type="text" placeholder="DD/MM/YYYY"></td>
+      <td><select style="font-size:.8rem"><option>Confidentiality breach</option><option>Integrity breach</option><option>Availability breach</option><option>All three</option></select></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><select style="font-size:.8rem"><option>Low — not notifiable</option><option>Medium — SA notified</option><option>High — SA + subjects notified</option></select></td>
+      <td><select style="font-size:.8rem"><option>No — risk below threshold</option><option>Yes — GRA within 72h</option><option>Yes — ICO within 72h</option><option>Yes — multiple DPAs</option><option>Yes — NDPC</option><option>Yes — APD (immediate)</option><option>Yes — CAC (24h)</option></select></td>
+      <td><select style="font-size:.8rem"><option>No — risk not high</option><option>Yes — without undue delay</option><option>N/A</option></select></td>
+      <td><input type="text"></td>
+      <td><select style="font-size:.8rem"><option>No</option><option>Yes — initial 4h</option><option>Yes — intermediate 72h</option><option>Yes — final 30 days</option></select></td>
+      <td><textarea></textarea></td>
+      <td><textarea></textarea></td>
+      <td><textarea></textarea></td>
+      <td><input type="text"></td>
+    </tr>
+    <tr><td colspan="16" style="text-align:center;color:var(--muted);font-size:.82rem;font-style:italic;padding:.6rem">— Add rows as needed — all incidents must be logged regardless of notification decision —</td></tr>
+  </tbody>
+</table>
+
+<div class="thick"></div>
+
+<!-- ═══ LOG 3: DSR ═══ -->
+<h2><span class="sn">3</span> Data Subject Rights (DSR) Log</h2>
+<div class="box blue">
+  <div class="bt b">📋 Log all DSRs received. Response clock starts on receipt. Retention: 3 years. UK DUAA "stop the clock" applies from 5 Feb 2026.</div>
+</div>
+
+<table class="lt">
+  <thead><tr><th>DSR ID</th><th>Date Received</th><th>Request Type</th><th>Jurisdiction</th><th>Requester Identity Verified?</th><th>SDL-HappyClaw Role</th><th>Action Taken</th><th>Response Deadline</th><th>Date Responded</th><th>Outcome</th><th>SA Complaint?</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>DSR-001</code></td>
+      <td><input type="text" placeholder="DD/MM/YYYY"></td>
+      <td><select style="font-size:.8rem"><option>Access (Art.15)</option><option>Rectification (Art.16)</option><option>Erasure (Art.17)</option><option>Restriction (Art.18)</option><option>Portability (Art.20)</option><option>Objection (Art.21)</option><option>ADM / Contestation (Art.22 / 22A–D)</option><option>PIPL rights</option><option>NDPA rights</option><option>Angola Lei 22/11 rights</option></select></td>
+      <td><select style="font-size:.8rem"><option>Gibraltar</option><option>UK</option><option>EU</option><option>China</option><option>Nigeria</option><option>Angola</option><option>Mozambique</option><option>Other</option></select></td>
+      <td><select style="font-size:.8rem"><option>Yes — verified</option><option>Pending — clarification requested (clock stopped)</option><option>No — unable to verify; request declined</option></select></td>
+      <td><select style="font-size:.8rem"><option>Processor — redirected to controller</option><option>Controller — handled directly</option></select></td>
+      <td><textarea placeholder="e.g. Redirected to customer ABC as data controller on DD/MM/YYYY; confirmed deletion of SDL-HappyClaw-held logs on DD/MM/YYYY"></textarea></td>
+      <td><input type="text" placeholder="DD/MM/YYYY (1 month / 15 WD PRC / 20d Angola)"></td>
+      <td><input type="text" placeholder="DD/MM/YYYY"></td>
+      <td><select style="font-size:.8rem"><option>Complied in full</option><option>Complied in part — exemption applied</option><option>Refused — exemption applied</option><option>Extended (+2 months)</option><option>Pending</option></select></td>
+      <td><select style="font-size:.8rem"><option>No</option><option>Yes — SA reference:</option></select></td>
+      <td><input type="text"></td>
+    </tr>
+    <tr>
+      <td><code>DSR-002</code></td>
+      <td><input type="text" placeholder="DD/MM/YYYY"></td>
+      <td><select style="font-size:.8rem"><option>Access (Art.15)</option><option>Rectification (Art.16)</option><option>Erasure (Art.17)</option><option>Restriction (Art.18)</option><option>Portability (Art.20)</option><option>Objection (Art.21)</option><option>ADM / Contestation (Art.22 / 22A–D)</option><option>PIPL rights</option><option>NDPA rights</option><option>Angola Lei 22/11 rights</option></select></td>
+      <td><select style="font-size:.8rem"><option>Gibraltar</option><option>UK</option><option>EU</option><option>China</option><option>Nigeria</option><option>Angola</option><option>Mozambique</option><option>Other</option></select></td>
+      <td><select style="font-size:.8rem"><option>Yes — verified</option><option>Pending — clarification requested (clock stopped)</option><option>No — unable to verify; request declined</option></select></td>
+      <td><select style="font-size:.8rem"><option>Processor — redirected to controller</option><option>Controller — handled directly</option></select></td>
+      <td><textarea></textarea></td>
+      <td><input type="text" placeholder="DD/MM/YYYY"></td>
+      <td><input type="text" placeholder="DD/MM/YYYY"></td>
+      <td><select style="font-size:.8rem"><option>Complied in full</option><option>Complied in part — exemption applied</option><option>Refused — exemption applied</option><option>Extended (+2 months)</option><option>Pending</option></select></td>
+      <td><select style="font-size:.8rem"><option>No</option><option>Yes — SA reference:</option></select></td>
+      <td><input type="text"></td>
+    </tr>
+    <tr><td colspan="12" style="text-align:center;color:var(--muted);font-size:.82rem;font-style:italic;padding:.6rem">— Add rows as needed —</td></tr>
+  </tbody>
+</table>
+
+<div class="thick"></div>
+
+<!-- ═══ LOG 4: PARTNER DD ═══ -->
+<h2><span class="sn">4</span> Referral Partner Due Diligence Log</h2>
+<div class="box amber">
+  <div class="bt a">📋 One row per partner. Sanctions screening results must be documented. Retention: 5 years post-termination of relationship.</div>
+</div>
+
+<table class="lt">
+  <thead><tr><th>Partner ID</th><th>Legal Name</th><th>Jurisdiction</th><th>Risk Tier</th><th>Onboard Date</th><th>BIA Signed</th><th>UBO Verified</th><th>Sanctions Screen (date / result)</th><th>PEP Screen</th><th>Adverse Media</th><th>ABAC Training</th><th>Annual Refresh Due</th><th>Status</th><th>Approval</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>PP-001</code></td>
+      <td><input type="text"></td>
+      <td><select style="font-size:.78rem"><option>UK</option><option>EU</option><option>Gibraltar</option><option>China</option><option>Nigeria</option><option>Angola</option><option>Mozambique</option><option>Other</option></select></td>
+      <td><select style="font-size:.78rem"><option>Standard</option><option>Enhanced</option><option>High Enhanced</option></select></td>
+      <td><input type="text" placeholder="DD/MM/YYYY"></td>
+      <td><select style="font-size:.78rem"><option>Yes</option><option>Pending</option><option>No</option></select></td>
+      <td><select style="font-size:.78rem"><option>Yes — source verified</option><option>Pending</option><option>Unable — documented</option></select></td>
+      <td><input type="text" placeholder="DD/MM/YYYY · Clear / Match + action"></td>
+      <td><select style="font-size:.78rem"><option>Clear</option><option>PEP — EDD applied</option><option>Pending</option></select></td>
+      <td><select style="font-size:.78rem"><option>Clear</option><option>Issues — documented</option><option>Pending</option></select></td>
+      <td><select style="font-size:.78rem"><option>Completed</option><option>Pending</option></select></td>
+      <td><input type="text" placeholder="DD/MM/YYYY"></td>
+      <td><span class="pill p-done">Active</span></td>
+      <td><input type="text" placeholder="Name / role / date"></td>
+    </tr>
+    <tr>
+      <td><code>PP-002</code></td>
+      <td><input type="text"></td>
+      <td><select style="font-size:.78rem"><option>UK</option><option>EU</option><option>Gibraltar</option><option>China</option><option>Nigeria</option><option>Angola</option><option>Mozambique</option><option>Other</option></select></td>
+      <td><select style="font-size:.78rem"><option>Standard</option><option>Enhanced</option><option>High Enhanced</option></select></td>
+      <td><input type="text" placeholder="DD/MM/YYYY"></td>
+      <td><select style="font-size:.78rem"><option>Yes</option><option>Pending</option><option>No</option></select></td>
+      <td><select style="font-size:.78rem"><option>Yes — source verified</option><option>Pending</option><option>Unable — documented</option></select></td>
+      <td><input type="text" placeholder="DD/MM/YYYY · Clear / Match + action"></td>
+      <td><select style="font-size:.78rem"><option>Clear</option><option>PEP — EDD applied</option><option>Pending</option></select></td>
+      <td><select style="font-size:.78rem"><option>Clear</option><option>Issues — documented</option><option>Pending</option></select></td>
+      <td><select style="font-size:.78rem"><option>Completed</option><option>Pending</option></select></td>
+      <td><input type="text" placeholder="DD/MM/YYYY"></td>
+      <td><span class="pill p-prog">Pending</span></td>
+      <td><input type="text"></td>
+    </tr>
+    <tr><td colspan="14" style="text-align:center;color:var(--muted);font-size:.82rem;font-style:italic;padding:.6rem">— Add rows as needed —</td></tr>
+  </tbody>
+</table>
+
+<hr>
+<div class="box blue">
+  <div class="bt b">📄 Document Control</div>
+  Compliance Logs Pack v1.0 · May 2026 · Owner: DPO (Logs 1–3) / Compliance Officer (Log 4) · Location: <code>[Internal system path]</code> · Retention: Training Log 6 years · Breach Log 5 years · DSR Log 3 years · Partner DD Log 5 years post-termination.
+</div>
+</div>
+<div class="ftr">
+  <strong>SDL-HappyClaw · OneMore Management Ltd</strong>
+  <span>Compliance Logs Pack v1.0 · May 2026 · INTERNAL — CONFIDENTIAL</span>
+  <span>© 2026 OneMore Management Ltd</span>
+</div>
+</div>
+</body>
+</html>
