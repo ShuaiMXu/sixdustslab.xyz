@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>SDL-HappyClaw Ambassador Toolkit | English + Português</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0f4f9;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            color: #0a1c2f;
+            padding: 2rem 1rem;
+        }
+
+        .lang-bar {
+            max-width: 1280px;
+            margin: 0 auto 1rem auto;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        .lang-btn {
+            background: white;
+            border: 1px solid #cbd5e1;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+            color: #1f3b32;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .lang-btn.active {
+            background: #1e3a2f;
+            color: white;
+            border-color: #1e3a2f;
+        }
+
+        .document {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        .hero {
+            background: linear-gradient(105deg, #0a2a1f 0%, #1e3a2f 100%);
+            color: white;
+            padding: 2rem 2rem;
+            border-bottom: 5px solid #f5b042;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            opacity: 0.85;
+            max-width: 700px;
+        }
+
+        .content {
+            padding: 2rem 2rem 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 2rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+            color: #0e2b24;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+            color: #1c4d3a;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e9edf2;
+            border-radius: 24px;
+            padding: 1.2rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            transition: all 0.1s ease;
+        }
+
+        .card strong {
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #1e5a47;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .data-table th {
+            background-color: #f0f4f9;
+            text-align: left;
+            padding: 12px 16px;
+            font-weight: 600;
+            border-bottom: 1px solid #dce3ec;
+        }
+
+        .data-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #eef2f8;
+            vertical-align: top;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .insight-block {
+            background: #fef6e0;
+            border-left: 5px solid #f5b042;
+            padding: 1rem 1.5rem;
+            border-radius: 20px;
+            margin: 1rem 0;
+        }
+
+        .note-box {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border: 1px solid #e2edf2;
+            font-size: 0.85rem;
+        }
+
+        .footer-legal {
+            font-size: 0.7rem;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            color: #6c7a91;
+        }
+
+        .lang-container {
+            display: none;
+        }
+
+        .lang-container.active-lang {
+            display: block;
+        }
+
+        @media (max-width: 700px) {
+            .content {
+                padding: 1.5rem;
+            }
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            .data-table th, .data-table td {
+                padding: 8px 10px;
+            }
+        }
+
+        .badge {
+            background: #eef2ff;
+            border-radius: 30px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+            color: #1e5a47;
+        }
+    </style>
+</head>
+<body>
+<div class="lang-bar">
+    <button class="lang-btn active" data-lang="en">🇬🇧 English (UK)</button>
+    <button class="lang-btn" data-lang="pt">🇵🇹 Português</button>
+</div>
+
+<!-- English (UK) version -->
+<div id="lang-en" class="lang-container active-lang">
+    <div class="document">
+        <div class="hero">
+            <h1>SDL-HappyClaw Ambassador Toolkit</h1>
+            <p>Training materials, CRM template, sales scripts, FAQ & coaching plan – everything you need to start promoting SDL-HappyClaw in Portuguese‑speaking markets.</p>
+        </div>
+        <div class="content">
+            <!-- 1. Training materials -->
+            <h2>📘 1. Training Materials (PDF + text guides)</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <strong>What is SDL-HappyClaw?</strong>
+                    <p>SDL-HappyClaw is an AI employee that works 24/7. It answers customer questions, qualifies leads, books appointments, updates CRM, and more – automatically. Connects to WhatsApp, Telegram, email, and website chat.</p>
+                </div>
+                <div class="card">
+                    <strong>Who needs SDL-HappyClaw?</strong>
+                    <ul style="margin-left: 1rem; margin-top: 0.3rem;">
+                        <li>Small e‑commerce shops with many messages</li>
+                        <li>Real estate agents (repeated questions)</li>
+                        <li>Schools / training centres</li>
+                        <li>Import/export businesses</li>
+                        <li>Any business that wants to save time on customer service</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <strong>How it works</strong>
+                    <ol style="margin-left: 1rem; margin-top: 0.3rem;">
+                        <li>We set it up on a server (cloud or yours)</li>
+                        <li>We connect your channels (WhatsApp, Telegram, etc.)</li>
+                        <li>We install the automations (“Skills”) you need</li>
+                        <li>You go live – the AI works for you</li>
+                        <li>We manage updates and support</li>
+                    </ol>
+                </div>
+                <div class="card">
+                    <strong>Pricing (simple overview)</strong>
+                    <p><strong>Solo</strong> – €29/month + your own Claude AI account (~€185/month)<br>
+                    <strong>Team</strong> – €79/month + your own Claude AI account<br>
+                    <strong>Business All‑In</strong> – €349/month (AI account included)<br>
+                    One‑time setup fee from €1,950 (cloud deployment)</p>
+                </div>
+            </div>
+            <div class="insight-block">
+                <strong>💬 What can you tell a customer?</strong><br>
+                “SDL-HappyClaw answers your WhatsApp and Telegram messages automatically – even at night. It handles 80% of customer questions without you lifting a finger. You only need to speak to the AI in plain English (or Portuguese) to tell it what to do.”
+            </div>
+            <div class="note-box">
+                <strong>🌍 Why is this good for Angola / Portugal / Brazil?</strong><br>
+                Many businesses use WhatsApp as their main sales channel. They lose customers when they reply too slowly. SDL-HappyClaw gives instant replies in Portuguese, 24/7.
+            </div>
+
+            <!-- 2. CRM spreadsheet template -->
+            <h2>📊 2. Simple CRM Spreadsheet</h2>
+            <p>Use this column structure in Google Sheets or Excel to track your leads. Share the sheet with me weekly.</p>
+            <div class="data-table" style="overflow-x: auto;">
+                <table style="min-width: 700px;">
+                    <thead><tr><th>Date Added</th><th>Business Name</th><th>Industry</th><th>Contact Person</th><th>WhatsApp/Phone</th><th>Email</th><th>Source</th><th>Message Sent?</th><th>Date of First Contact</th><th>They Replied?</th><th>Interest Level</th><th>Follow‑up Date</th><th>Notes</th></tr></thead>
+                    <tbody><tr><td colspan="13" style="text-align:center; color:#6c7a91;">Add one row per potential customer</td></tr></tbody>
+                </table>
+            </div>
+            <div class="note-box">
+                <strong>Instructions:</strong> Fill one row per lead. Update “They Replied?” and “Interest Level” (High/Medium/Low) after each conversation. Share the sheet with me (read‑only or edit access) every week.
+            </div>
+
+            <!-- 3. Portuguese script & FAQ (English version here but script is PT) -->
+            <h2>📞 3. Portuguese‑Language Pitch Script & FAQ</h2>
+            <h3>Sales Script (for WhatsApp / Telegram)</h3>
+            <div class="insight-block" style="background:#eef2fa;">
+                <p><strong>First message (introduction):</strong><br>
+                “Olá [Nome do contato], tudo bem?<br>
+                Meu nome é [Seu nome] e trabalho com automação de atendimento para empresas.<br>
+                Notei que a [Nome da empresa] recebe muitas mensagens de clientes pelo WhatsApp. Quanto tempo você gasta por dia respondendo perguntas repetidas?<br>
+                Tenho uma solução simples: um assistente de IA chamado SDL-HappyClaw. Ele responde automaticamente os clientes 24 horas por dia, em português, e só te avisa quando é realmente necessário.<br>
+                Você tem 5 minutos para eu te mostrar como funciona? Posso enviar um exemplo prático.”</p>
+                <p><strong>Answer to “How much does it cost?”</strong><br>
+                “O SDL-HappyClaw tem planos a partir de €29 por mês (mais o custo da conta de IA, cerca de €185). Temos também um plano completo por €349/mês que já inclui tudo. Além disso, há uma taxa única de configuração a partir de €1.950. Posso pedir uma demonstração gratuita para o seu negócio.”</p>
+                <p><strong>Answer to “Do I need technical skills?”</strong><br>
+                “Não, você não precisa saber programação. Tudo se configura com instruções em português simples – como se estivesse explicando para um novo funcionário. Nós ajudamos na instalação.”</p>
+            </div>
+            <h3>Frequently Asked Questions (Portuguese)</h3>
+            <div class="data-table">
+                <table>
+                    <thead><tr><th>Question</th><th>Answer</th></tr></thead>
+                    <tbody>
+                        <tr><td>O SDL-HappyClaw funciona em português?</td><td>Sim, completamente. Entende e responde em português de Portugal, Brasil e Angola.</td></tr>
+                        <tr><td>Preciso de um servidor?</td><td>Não. Nós podemos hospedar na nuvem para você. Você só precisa de acesso à internet.</td></tr>
+                        <tr><td>Quanto tempo leva para começar?</td><td>Entre 5 a 10 dias úteis após a confirmação do pedido.</td></tr>
+                        <tr><td>E se a IA não souber responder?</td><td>Ela encaminha a mensagem para você com todo o contexto. Você responde apenas os casos complicados.</td></tr>
+                        <tr><td>Como mudo o que a IA diz?</td><td>Você edita as instruções em texto simples a qualquer momento – como dar uma nova ordem a um funcionário.</td></tr>
+                        <tr><td>Há contrato de fidelidade?</td><td>Não. O plano mensal pode ser cancelado a qualquer momento. A taxa única de configuração não é reembolsável após a ativação.</td></tr>
+                        <tr><td>Posso testar antes de pagar?</td><td>Oferecemos uma chamada de demonstração gratuita de 30 minutos para o seu caso específico.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 4. Coaching calls -->
+            <h2>🎧 4. Regular 30‑Min Coaching Calls</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <strong>Frequency</strong>
+                    <p>Once per week (or once every two weeks depending on activity).</p>
+                </div>
+                <div class="card">
+                    <strong>Platform</strong>
+                    <p>WhatsApp voice call or Telegram voice call (your choice).</p>
+                </div>
+                <div class="card">
+                    <strong>Agenda template</strong>
+                    <ul style="margin-left: 1rem;">
+                        <li>0‑5 min: Quick check‑in (new leads, replies)</li>
+                        <li>5‑15 min: Review one specific lead – role‑play</li>
+                        <li>15‑25 min: Answer questions about features / pricing / objections</li>
+                        <li>25‑30 min: Set goals for next week</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="note-box">
+                <strong>How to prepare:</strong> Update the CRM sheet before each call. List 1‑2 specific problems you faced. I will give honest feedback and provide new materials when needed.<br>
+                <strong>Commitment:</strong> You must actively use the CRM, attempt at least 10 new contacts per week, and attend calls regularly. Missing two calls without notice pauses the coaching.
+            </div>
+            <div class="insight-block">
+                💬 <strong>WhatsApp group for quick questions</strong><br>
+                I will create a small WhatsApp group (just you and me) for quick questions outside scheduled calls. I will reply within 24 hours.
+            </div>
+
+            <div class="footer-legal">
+                SDL-HappyClaw Ambassador Toolkit – Provided by [Your Name]<br>
+                For internal use only. Commission model: 10% of first year’s monthly fee per customer (subject to adjustment by SDL-HappyClaw at any time).<br><br>
+                SDL-HappyClaw is a product of <strong>OneMore Management Ltd</strong> (OMM Ltd.), Company No. <strong>118069</strong>, registered in Gibraltar. Governed by Gibraltar law.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Portuguese version -->
+<div id="lang-pt" class="lang-container">
+    <div class="document">
+        <div class="hero">
+            <h1>Kit do Embaixador SDL-HappyClaw</h1>
+            <p>Materiais de treinamento, modelo de CRM, scripts de vendas, FAQ e plano de coaching – tudo para começar a promover o SDL-HappyClaw nos mercados de língua portuguesa.</p>
+        </div>
+        <div class="content">
+            <h2>📘 1. Materiais de Treinamento (PDF + guias textuais)</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <strong>O que é o SDL-HappyClaw?</strong>
+                    <p>O SDL-HappyClaw é um funcionário de IA que trabalha 24/7. Ele responde perguntas, qualifica leads, marca compromissos, atualiza o CRM e muito mais – tudo automaticamente. Conecta-se ao WhatsApp, Telegram, e-mail e chat do site.</p>
+                </div>
+                <div class="card">
+                    <strong>Quem precisa do SDL-HappyClaw?</strong>
+                    <ul style="margin-left: 1rem; margin-top: 0.3rem;">
+                        <li>Lojas de e‑commerce com muitas mensagens</li>
+                        <li>Corretores de imóveis (perguntas repetidas)</li>
+                        <li>Escolas / centros de treinamento</li>
+                        <li>Empresas de importação/exportação</li>
+                        <li>Qualquer negócio que queira economizar tempo no atendimento</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <strong>Como funciona</strong>
+                    <ol style="margin-left: 1rem; margin-top: 0.3rem;">
+                        <li>Instalamos o SDL-HappyClaw num servidor (nuvem ou seu)</li>
+                        <li>Conectamos os seus canais (WhatsApp, Telegram, etc.)</li>
+                        <li>Instalamos as automações (“Skills”) que você precisa</li>
+                        <li>Você entra no ar – a IA trabalha para você</li>
+                        <li>Nós gerenciamos atualizações e suporte</li>
+                    </ol>
+                </div>
+                <div class="card">
+                    <strong>Preços (visão simples)</strong>
+                    <p><strong>Solo</strong> – €29/mês + sua conta Claude AI (~€185/mês)<br>
+                    <strong>Team</strong> – €79/mês + sua conta Claude AI<br>
+                    <strong>Business All‑In</strong> – €349/mês (conta AI incluída)<br>
+                    Taxa única de configuração a partir de €1.950 (implantação em nuvem)</p>
+                </div>
+            </div>
+            <div class="insight-block">
+                <strong>💬 O que você pode dizer a um cliente?</strong><br>
+                “O SDL-HappyClaw responde às suas mensagens do WhatsApp e Telegram automaticamente – mesmo à noite. Ele resolve 80% das perguntas dos seus clientes sem que você precise fazer nada. Você só precisa falar com a IA em português simples para dizer o que ela deve fazer.”
+            </div>
+            <div class="note-box">
+                <strong>🌍 Por que isso é bom para Angola / Portugal / Brasil?</strong><br>
+                Muitas empresas usam o WhatsApp como principal canal de vendas. Perdem clientes quando respondem devagar. O SDL-HappyClaw dá respostas instantâneas em português, 24 horas por dia.
+            </div>
+
+            <h2>📊 2. Planilha CRM Simples</h2>
+            <p>Use esta estrutura de colunas no Google Sheets ou Excel para acompanhar seus leads. Compartilhe a planilha comigo semanalmente.</p>
+            <div class="data-table" style="overflow-x: auto;">
+                <table style="min-width: 700px;">
+                    <thead><tr><th>Data adicionado</th><th>Nome da empresa</th><th>Setor</th><th>Pessoa de contato</th><th>WhatsApp/Telefone</th><th>E‑mail</th><th>Fonte</th><th>Mensagem enviada?</th><th>Data do 1º contato</th><th>Responderam?</th><th>Nível de interesse</th><th>Próximo follow‑up</th><th>Notas</th></tr></thead>
+                    <tbody><tr><td colspan="13" style="text-align:center; color:#6c7a91;">Adicione uma linha por cliente potencial</td></tr></tbody>
+                </table>
+            </div>
+            <div class="note-box">
+                <strong>Instruções:</strong> Preencha uma linha por lead. Actualize “Responderam?” e “Nível de interesse” (Alto/Médio/Baixo) após cada conversa. Compartilhe a planilha comigo (só leitura ou edição) todas as semanas.
+            </div>
+
+            <h2>📞 3. Script de Vendas em Português & FAQ</h2>
+            <h3>Script de Vendas (para WhatsApp / Telegram)</h3>
+            <div class="insight-block" style="background:#eef2fa;">
+                <p><strong>Primeira mensagem (introdução):</strong><br>
+                “Olá [Nome do contato], tudo bem?<br>
+                Meu nome é [Seu nome] e trabalho com automação de atendimento para empresas.<br>
+                Notei que a [Nome da empresa] recebe muitas mensagens de clientes pelo WhatsApp. Quanto tempo você gasta por dia respondendo perguntas repetidas?<br>
+                Tenho uma solução simples: um assistente de IA chamado SDL-HappyClaw. Ele responde automaticamente os clientes 24 horas por dia, em português, e só te avisa quando é realmente necessário.<br>
+                Você tem 5 minutos para eu te mostrar como funciona? Posso enviar um exemplo prático.”</p>
+                <p><strong>Resposta a “Quanto custa?”</strong><br>
+                “O SDL-HappyClaw tem planos a partir de €29 por mês (mais o custo da conta de IA, cerca de €185). Temos também um plano completo por €349/mês que já inclui tudo. Além disso, há uma taxa única de configuração a partir de €1.950. Posso pedir uma demonstração gratuita para o seu negócio.”</p>
+                <p><strong>Resposta a “Preciso de conhecimentos técnicos?”</strong><br>
+                “Não, você não precisa saber programação. Tudo se configura com instruções em português simples – como se estivesse explicando para um novo funcionário. Nós ajudamos na instalação.”</p>
+            </div>
+            <h3>Perguntas Frequentes (FAQ)</h3>
+            <div class="data-table">
+                <table>
+                    <thead><tr><th>Pergunta</th><th>Resposta</th></tr></thead>
+                    <tbody>
+                        <tr><td>O SDL-HappyClaw funciona em português?</td><td>Sim, completamente. Entende e responde em português de Portugal, Brasil e Angola.</td></tr>
+                        <tr><td>Preciso de um servidor?</td><td>Não. Nós podemos hospedar na nuvem para você. Você só precisa de acesso à internet.</td></tr>
+                        <tr><td>Quanto tempo leva para começar a funcionar?</td><td>Entre 5 a 10 dias úteis após a confirmação do pedido.</td></tr>
+                        <tr><td>E se a IA não souber responder?</td><td>Ela encaminha a mensagem para você com todo o contexto. Você responde apenas os casos complicados.</td></tr>
+                        <tr><td>Como mudo o que a IA diz?</td><td>Você edita as instruções em texto simples a qualquer momento – como dar uma nova ordem a um funcionário.</td></tr>
+                        <tr><td>Há contrato de fidelidade?</td><td>Não. O plano mensal pode ser cancelado a qualquer momento. A taxa única de configuração não é reembolsável após a ativação.</td></tr>
+                        <tr><td>Posso testar antes de pagar?</td><td>Oferecemos uma chamada de demonstração gratuita de 30 minutos para o seu caso específico.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>🎧 4. Sessões Regulares de Coaching (30 min)</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <strong>Frequência</strong>
+                    <p>Uma vez por semana (ou quinzenal, dependendo da atividade).</p>
+                </div>
+                <div class="card">
+                    <strong>Plataforma</strong>
+                    <p>Chamada de voz pelo WhatsApp ou Telegram (você escolhe).</p>
+                </div>
+                <div class="card">
+                    <strong>Modelo de agenda</strong>
+                    <ul style="margin-left: 1rem;">
+                        <li>0‑5 min: Check‑in rápido (novos leads, respostas)</li>
+                        <li>5‑15 min: Analisar um lead específico – simulação</li>
+                        <li>15‑25 min: Responder dúvidas sobre funcionalidades / preços / objeções</li>
+                        <li>25‑30 min: Definir metas para a próxima semana</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="note-box">
+                <strong>Como se preparar:</strong> Actualize a planilha CRM antes de cada chamada. Liste 1‑2 problemas específicos que enfrentou. Darei feedback honesto e fornecerei novos materiais quando necessário.<br>
+                <strong>Compromisso:</strong> Você deve usar activamente o CRM, tentar pelo menos 10 novos contactos por semana e comparecer às chamadas regularmente. Faltar a duas chamadas sem aviso pausa o coaching.
+            </div>
+            <div class="insight-block">
+                💬 <strong>Grupo de WhatsApp para perguntas rápidas</strong><br>
+                Criarei um pequeno grupo de WhatsApp (só você e eu) para perguntas fora das chamadas agendadas. Responderei dentro de 24 horas.
+            </div>
+
+            <div class="footer-legal">
+                Kit do Embaixador SDL-HappyClaw – Fornecido por [Seu Nome]<br>
+                Uso interno apenas. Modelo de comissão: 10% da taxa mensal do primeiro ano por cliente (sujeito a ajuste pelo SDL-HappyClaw a qualquer momento).<br><br>
+                O SDL-HappyClaw é um produto da <strong>OneMore Management Ltd</strong> (OMM Ltd.), Empresa Nº <strong>118069</strong>, registada em Gibraltar. Regido pelo direito de Gibraltar.
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const enDiv = document.getElementById('lang-en');
+    const ptDiv = document.getElementById('lang-pt');
+    const btns = document.querySelectorAll('.lang-btn');
+    function setLanguage(lang) {
+        if (lang === 'en') {
+            enDiv.classList.add('active-lang');
+            ptDiv.classList.remove('active-lang');
+            btns.forEach(btn => {
+                if (btn.dataset.lang === 'en') btn.classList.add('active');
+                else btn.classList.remove('active');
+            });
+        } else {
+            enDiv.classList.remove('active-lang');
+            ptDiv.classList.add('active-lang');
+            btns.forEach(btn => {
+                if (btn.dataset.lang === 'pt') btn.classList.add('active');
+                else btn.classList.remove('active');
+            });
+        }
+    }
+    btns.forEach(btn => {
+        btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+    });
+</script>
+</body>
+</html>
