@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Claude 那 422 行被泄露的设计哲学</title>
+</head>
+<body style="font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;color:#0a1f3d;background:#f1f3f5;max-width:680px;margin:0 auto;padding:32px 20px;line-height:1.75;font-size:16px;">
+
+<!-- ============ 标题区 ============ -->
+<header style="margin-bottom:48px">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.2em;color:rgba(10,31,61,0.5);text-transform:uppercase;margin-bottom:16px">
+    SHAKA · 设计观察 · 2026.04
+  </div>
+  <h1 style="font-family:'Noto Serif SC',serif;font-size:34px;font-weight:800;color:#0a1f3d;line-height:1.25;margin:0 0 16px 0;letter-spacing:-0.01em">
+    Claude 那 422 行被泄露的设计哲学
+  </h1>
+  <p style="font-size:18px;color:rgba(10,31,61,0.7);font-weight:400;margin:0;line-height:1.5">
+    AI 时代的设计护城河,比 Figma 想得更深一层。
+  </p>
+  <div style="height:2px;background:#0a1f3d;width:64px;margin-top:24px"></div>
+</header>
+
+<!-- 开篇 Callout -->
+<section style="padding:24px 28px;background:rgba(10,31,61,0.04);border-left:4px solid #0a1f3d;margin:32px 0;border-radius:0 8px 8px 0">
+  <p style="font-family:'Noto Serif SC',serif;font-size:19px;line-height:1.7;color:#0a1f3d;font-weight:600;margin:0 0 12px 0">
+    "比 Claude Design 这个产品更值钱的,是它把'如何做好设计'翻译成了 400 多行可执行规则的能力。"
+  </p>
+  <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.05em;color:rgba(10,31,61,0.6);margin:0;text-transform:uppercase">— 一个写设计 Skill 的人</p>
+</section>
+
+<p>最近一个 GitHub 仓库 <code style="font-family:'IBM Plex Mono',monospace;font-size:14px;background:rgba(10,31,61,0.06);padding:2px 6px;border-radius:4px">CL4R1T4S</code> 泄露了 Anthropic Claude Design 的系统提示词,标题党们说有 422 行——具体行数我没数,但读完只想说一句:</p>
+
+<p><strong style="color:#0a1f3d">人们都在看产品,我看的是这份 prompt 本身。</strong></p>
+
+<p>因为它揭示了一件比 Claude Design 火不火更重要的事:<strong>AI 时代,设计的护城河长什么样。</strong></p>
+
+<!-- ============ SECTION 01 ============ -->
+<header style="margin:64px 0 32px 0">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.15em;color:rgba(10,31,61,0.5);text-transform:uppercase;margin-bottom:12px">
+    SECTION 01 · IGNITION
+  </div>
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:26px;font-weight:700;color:#0a1f3d;margin:0;line-height:1.3">
+    引爆点不在 Claude Design 本身
+  </h2>
+  <div style="height:2px;background:#0a1f3d;width:48px;margin-top:12px"></div>
+</header>
+
+<p>这事的时间线是这样的——</p>
+
+<p>Claude Design 上线那一周,Figma 股价跌了一波,设计圈炸了:终于有一个能"看懂设计哲学"的 AI 工具,而不是再多一个"复刻 UI 的玩具"。</p>
+
+<p>然后 GitHub 上有人把它的系统提示词扒了出来,完整贴在一个 Markdown 文件里。</p>
+
+<p>看完那份 prompt 的人都意识到:</p>
+
+<section style="padding:24px 28px;background:rgba(10,31,61,0.04);border-left:4px solid #0a1f3d;margin:32px 0;border-radius:0 8px 8px 0">
+  <p style="font-family:'Noto Serif SC',serif;font-size:18px;line-height:1.7;color:#0a1f3d;font-weight:600;margin:0">
+    Claude Design 这个产品迟早会被对手抄超,但它把"美学"翻译成"可执行规则"的能力——这才是真正的护城河。
+  </p>
+</section>
+
+<p>泄露版里有一段话尤其值得贴出来——这是整份 prompt 的灵魂:</p>
+
+<section style="padding:20px 24px;background:rgba(10,31,61,0.06);margin:24px 0;border-radius:8px">
+  <p style="font-family:'IBM Plex Mono',monospace;font-size:14px;line-height:1.7;color:#0a1f3d;margin:0;font-style:italic">
+    "You tend to converge toward generic, 'on distribution' outputs. In frontend design, this creates what users call the <strong style="font-style:normal;color:#0a1f3d">'AI slop'</strong> aesthetic. Avoid this: make creative, distinctive frontends that surprise and delight."
+  </p>
+</section>
+
+<p>翻译过来:</p>
+
+<p><strong style="color:#0a1f3d">"你倾向于塌缩到平庸的中位数。在前端设计里,这种现象被用户叫做 AI slop(AI 泔水)。避免这个,做出有创意、有辨识度、能让人惊喜的前端。"</strong></p>
+
+<p>这段话最反直觉的不是"避免平庸"——所有设计文档都这么说。而是 Anthropic <strong>承认了大模型的统计本性</strong>:在没有约束的情况下,模型默认会输出训练数据的高频中位数。</p>
+
+<p>用"slop"(泔水)这个相当不客气的词命名这个失败模式,然后把"对抗 slop"明明白白写进操作守则——这就是这份 prompt 的写作姿态。</p>
+
+<!-- ============ SECTION 02 ============ -->
+<header style="margin:64px 0 32px 0">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.15em;color:rgba(10,31,61,0.5);text-transform:uppercase;margin-bottom:12px">
+    SECTION 02 · UNPACKED
+  </div>
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:26px;font-weight:700;color:#0a1f3d;margin:0;line-height:1.3">
+    拆开 422 行 · 六条核心哲学
+  </h2>
+  <div style="height:2px;background:#0a1f3d;width:48px;margin-top:12px"></div>
+</header>
+
+<p>整份 prompt 我读了两遍,提炼出 <strong>6 条核心哲学</strong>。每一条都是"模型默认会怎么烂 → 我们用什么具体规则把它扳回来"——一份完整的<strong>反塌缩工具箱</strong>。</p>
+
+<table width="100%" cellpadding="0" cellspacing="0" style="margin:32px 0">
+
+<!-- 哲学 1 -->
+<tr style="border-top:1px solid rgba(10,31,61,0.15)">
+  <td width="80" style="padding:24px 0;vertical-align:top;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#0a1f3d;font-weight:700">01</td>
+  <td style="padding:24px 12px;vertical-align:top">
+    <div style="font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:#0a1f3d;margin-bottom:10px">承认 AI 是统计塌缩,然后和它对抗</div>
+    <div style="color:rgba(10,31,61,0.85);line-height:1.7;font-size:15px">
+      整份 prompt 没有假装 AI 是创意天才,反而承认 <em>"defaults to safe choices unless explicitly encouraged otherwise"</em>。结构是反的——每章都是"它默认会塌缩到哪 → 用什么规则扳回来"。
+      <br><br>
+      <strong style="color:#0a1f3d">启示:</strong>写 Skill / Agent 时,第一性问题是"它默认会怎么平庸",不是"它能做什么"。
+    </div>
+  </td>
+</tr>
+
+<!-- 哲学 2 -->
+<tr style="border-top:1px solid rgba(10,31,61,0.15)">
+  <td style="padding:24px 0;vertical-align:top;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#0a1f3d;font-weight:700">02</td>
+  <td style="padding:24px 12px;vertical-align:top">
+    <div style="font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:#0a1f3d;margin-bottom:10px">把"美学"拆成四个调音旋钮</div>
+    <div style="color:rgba(10,31,61,0.85);line-height:1.7;font-size:15px">
+      不是一句"做得好看点",而是<strong>字体 / 颜色 / 动效 / 背景</strong>四个独立维度,每个都给"避免清单 + 推荐清单 + 对比原则"。
+      <br><br>
+      字体:<em>"Never use: Inter, Roboto, Open Sans, Lato, default system fonts"</em>。
+      <br>
+      颜色:<em>"Avoid clichéd color schemes (particularly purple gradients on white backgrounds)"</em>。
+      <br><br>
+      <strong style="color:#0a1f3d">启示:</strong>审美的 SOP 化是可能的——前提是把"风格"拆成可机读的维度。
+    </div>
+  </td>
+</tr>
+
+<!-- 哲学 3 -->
+<tr style="border-top:1px solid rgba(10,31,61,0.15)">
+  <td style="padding:24px 0;vertical-align:top;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#0a1f3d;font-weight:700">03</td>
+  <td style="padding:24px 12px;vertical-align:top">
+    <div style="font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:#0a1f3d;margin-bottom:10px">高对比 / 极端 / 大跨度,优于均匀</div>
+    <div style="color:rgba(10,31,61,0.85);line-height:1.7;font-size:15px">
+      <em>"Use extremes: 100/200 weight vs 800/900, not 400 vs 600. Size jumps of 3x+, not 1.5x."</em>
+      <br><br>
+      字重要么 100 要么 900,别用 400 vs 600。字号跳 3 倍,别跳 1.5 倍。颜色要主导色 + 锐利点缀,别均匀分布。
+      <br><br>
+      <strong style="color:#0a1f3d">启示:</strong>平庸 = 中位数。差异 = 极端。
+    </div>
+  </td>
+</tr>
+
+<!-- 哲学 4 -->
+<tr style="border-top:1px solid rgba(10,31,61,0.15)">
+  <td style="padding:24px 0;vertical-align:top;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#0a1f3d;font-weight:700">04</td>
+  <td style="padding:24px 12px;vertical-align:top">
+    <div style="font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:#0a1f3d;margin-bottom:10px">设计上下文优先于设计灵感</div>
+    <div style="color:rgba(10,31,61,0.85);line-height:1.7;font-size:15px">
+      模型被要求<strong>先吃代码 / 读现存 design system / 找不到组件就主动问用户要</strong>,而不是凭空捏造。"原创"建立在"先理解既有约束"之上。
+      <br><br>
+      官方原话: <em>"Claude is better at recreating or editing interfaces based on code, rather than screenshots."</em>
+      <br><br>
+      <strong style="color:#0a1f3d">启示:</strong>好的 AI 设计师 ≠ 灵感生成器。好的 AI 设计师 = 上下文吸收器。
+    </div>
+  </td>
+</tr>
+
+<!-- 哲学 5 -->
+<tr style="border-top:1px solid rgba(10,31,61,0.15)">
+  <td style="padding:24px 0;vertical-align:top;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#0a1f3d;font-weight:700">05</td>
+  <td style="padding:24px 12px;vertical-align:top">
+    <div style="font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:#0a1f3d;margin-bottom:10px">自检是默认动作,不是可选项</div>
+    <div style="color:rgba(10,31,61,0.85);line-height:1.7;font-size:15px">
+      Claude Design 内置了一个 <code style="font-family:'IBM Plex Mono',monospace;font-size:13px;background:rgba(10,31,61,0.06);padding:2px 6px;border-radius:4px">fork_verifier_agent</code>:模型完成 → 派一个后台子 agent 截图 + 探针检查布局 → 报告。
+      <br><br>
+      这不是"如果有时间检查一下",而是<strong>每次任务的强制环节</strong>。
+      <br><br>
+      <strong style="color:#0a1f3d">启示:</strong>Agent 的可靠性来自架构层强制的自检环路,不是来自模型本身能力。
+    </div>
+  </td>
+</tr>
+
+<!-- 哲学 6 -->
+<tr style="border-top:1px solid rgba(10,31,61,0.15);border-bottom:1px solid rgba(10,31,61,0.15)">
+  <td style="padding:24px 0;vertical-align:top;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#0a1f3d;font-weight:700">06</td>
+  <td style="padding:24px 12px;vertical-align:top">
+    <div style="font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:#0a1f3d;margin-bottom:10px">伦理是操作步骤,不是抽象原则</div>
+    <div style="color:rgba(10,31,61,0.85);line-height:1.7;font-size:15px">
+      被要求复刻其他公司 UI 时,Claude 会拒绝——除非用户的<strong>邮箱域名</strong>能证明他来自那家公司。绕开方式: 理解用户真正想构建什么,然后帮他做尊重 IP 的原创设计。
+      <br><br>
+      <strong style="color:#0a1f3d">启示:</strong>伦理可以是<strong>用邮箱域名做硬性 gate</strong> + <strong>明确转化路径</strong>这种具体动作,不一定是抽象口号。
+    </div>
+  </td>
+</tr>
+
+</table>
+
+<!-- ============ SECTION 03 ============ -->
+<header style="margin:64px 0 32px 0">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.15em;color:rgba(10,31,61,0.5);text-transform:uppercase;margin-bottom:12px">
+    SECTION 03 · ISOMORPHISM
+  </div>
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:26px;font-weight:700;color:#0a1f3d;margin:0;line-height:1.3">
+    巧合的是,我们也走在同一条路上
+  </h2>
+  <div style="height:2px;background:#0a1f3d;width:48px;margin-top:12px"></div>
+</header>
+
+<p>读完那 6 条哲学,我有种奇妙的<strong>"似曾相识"</strong>感。</p>
+
+<p>因为我所在的设计团队最近正在做一个项目——把<strong>某 App 的设计 wiki 升级到 AI 时代真正能用的活系统</strong>。背景是这样的:</p>
+
+<p>这个 App 是多业务线共生的超级平台,不同业务线各自做自己的内容卡片,导致用户跨业务线时心智断裂——同一种"内容物种",在 A 场景看到和 B 场景看到长得不一样,体验割裂。</p>
+
+<p>我们花了一段时间做了一个具体场景的样本——把"内容卡片"从混乱状态梳理成有结构的设计语言。结果发现:</p>
+
+<section style="padding:24px 28px;background:rgba(10,31,61,0.04);border-left:4px solid #0a1f3d;margin:32px 0;border-radius:0 8px 8px 0">
+  <p style="font-family:'Noto Serif SC',serif;font-size:18px;line-height:1.7;color:#0a1f3d;font-weight:600;margin:0">
+    我们独立得到的方法论,和 Claude Design 那 422 行系统提示词里的哲学,几乎是同构的。
+  </p>
+</section>
+
+<p>对照表如下:</p>
+
+<table width="100%" cellpadding="0" cellspacing="0" style="margin:32px 0;border-top:2px solid #0a1f3d">
+
+<tr style="border-bottom:1px solid rgba(10,31,61,0.15)">
+  <td width="50%" style="padding:14px 12px 14px 0;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:rgba(10,31,61,0.5);text-transform:uppercase;font-weight:600">CLAUDE DESIGN SYS PROMPT</td>
+  <td width="50%" style="padding:14px 0 14px 12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:rgba(10,31,61,0.5);text-transform:uppercase;font-weight:600">我们的实践</td>
+</tr>
+
+<tr style="border-bottom:1px solid rgba(10,31,61,0.1)">
+  <td style="padding:18px 12px 18px 0;vertical-align:top;color:rgba(10,31,61,0.85);line-height:1.6;font-size:15px">9 个 aesthetic family<br>(Editorial / Terminal / Cinematic Dark / Glass-Soft Futurism ...)</td>
+  <td style="padding:18px 0 18px 12px;vertical-align:top;color:#0a1f3d;line-height:1.6;font-size:15px;font-weight:600">5 大业务家族<br>(同样的"家族识别"哲学,只是按业务功能纵切)</td>
+</tr>
+
+<tr style="border-bottom:1px solid rgba(10,31,61,0.1)">
+  <td style="padding:18px 12px 18px 0;vertical-align:top;color:rgba(10,31,61,0.85);line-height:1.6;font-size:15px">每个 family 的"底部不变量"锚定身份</td>
+  <td style="padding:18px 0 18px 12px;vertical-align:top;color:#0a1f3d;line-height:1.6;font-size:15px;font-weight:600">家族 DNA 由底部不变量锚定<br>(我们的 L1-5 核心规约)</td>
+</tr>
+
+<tr style="border-bottom:1px solid rgba(10,31,61,0.1)">
+  <td style="padding:18px 12px 18px 0;vertical-align:top;color:rgba(10,31,61,0.85);line-height:1.6;font-size:15px">反"AI slop"——避免塌缩到平均值</td>
+  <td style="padding:18px 0 18px 12px;vertical-align:top;color:#0a1f3d;line-height:1.6;font-size:15px;font-weight:600">观察不是判决<br>抗的也是设计师塌缩到中位数</td>
+</tr>
+
+<tr style="border-bottom:1px solid rgba(10,31,61,0.1)">
+  <td style="padding:18px 12px 18px 0;vertical-align:top;color:rgba(10,31,61,0.85);line-height:1.6;font-size:15px">CSS 变量绑死品牌色<br>不发明新色</td>
+  <td style="padding:18px 0 18px 12px;vertical-align:top;color:#0a1f3d;line-height:1.6;font-size:15px;font-weight:600">原则 8:动态数据不作家族识别硬条件<br>不要凭空发明判定信号</td>
+</tr>
+
+<tr style="border-bottom:1px solid rgba(10,31,61,0.1)">
+  <td style="padding:18px 12px 18px 0;vertical-align:top;color:rgba(10,31,61,0.85);line-height:1.6;font-size:15px">fork_verifier_agent 自检环路</td>
+  <td style="padding:18px 0 18px 12px;vertical-align:top;color:#0a1f3d;line-height:1.6;font-size:15px;font-weight:600">PE 模板里的自检清单<br>子 agent 独立评分防自欺</td>
+</tr>
+
+<tr style="border-bottom:2px solid #0a1f3d">
+  <td style="padding:18px 12px 18px 0;vertical-align:top;color:rgba(10,31,61,0.85);line-height:1.6;font-size:15px">Skill 是 ~400 token 可挂载上下文</td>
+  <td style="padding:18px 0 18px 12px;vertical-align:top;color:#0a1f3d;line-height:1.6;font-size:15px;font-weight:600">把样本做成开源 Skill<br>跨 agent 可复用</td>
+</tr>
+
+</table>
+
+<p><strong style="color:#0a1f3d">这不是巧合。</strong></p>
+
+<p>这是 AI 时代企业级设计系统的<strong>必然形态</strong>——把设计师直觉解码成 family + 规则 + 自检流程。任何一个团队,只要认真做"AI 时代的设计治理",最后都会得出几乎一样的架构。</p>
+
+<p>你可以从 Claude Design 的 prompt 倒推,我们从一个具体场景的失败样本正推,殊途同归。</p>
+
+<!-- ============ SECTION 04 ============ -->
+<header style="margin:64px 0 32px 0">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.15em;color:rgba(10,31,61,0.5);text-transform:uppercase;margin-bottom:12px">
+    SECTION 04 · ACTION
+  </div>
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:26px;font-weight:700;color:#0a1f3d;margin:0;line-height:1.3">
+    中文团队如何写自己的 422 行
+  </h2>
+  <div style="height:2px;background:#0a1f3d;width:48px;margin-top:12px"></div>
+</header>
+
+<p>读完 Claude Design 的 sys prompt + 对照我们自己的实践,有 5 个具体动作可以落地——这是中文团队<strong>写自己 422 行的清单</strong>:</p>
+
+<table width="100%" cellpadding="0" cellspacing="0" style="margin:32px 0">
+
+<tr style="border-top:1px solid rgba(10,31,61,0.15)">
+  <td width="80" style="padding:20px 0;vertical-align:top;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#0a1f3d;font-weight:700">A1</td>
+  <td style="padding:20px 12px;vertical-align:top">
+    <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;color:#0a1f3d;margin-bottom:8px">写一份"反塌缩清单"</div>
+    <div style="color:rgba(10,31,61,0.85);line-height:1.7;font-size:14px">
+      列出"AI 在你这个行业最常犯的平庸错"——比如紫色渐变、Inter 字体、卡片圆角全 8px、shadow 叠 3 层。把这些显式写成"绝对不要做"清单,放进每次任务的执行约束里。
+    </div>
+  </td>
+</tr>
+
+<tr style="border-top:1px solid rgba(10,31,61,0.15)">
+  <td style="padding:20px 0;vertical-align:top;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#0a1f3d;font-weight:700">A2</td>
+  <td style="padding:20px 12px;vertical-align:top">
+    <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;color:#0a1f3d;margin-bottom:8px">设计上下文先行</div>
+    <div style="color:rgba(10,31,61,0.85);line-height:1.7;font-size:14px">
+      Skill 在分析新输入前,<strong>强制先扫一遍同业务线已存在的家族基线</strong>。这相当于 Claude 的"先吃 code 而非 screenshot"。
+    </div>
+  </td>
+</tr>
+
+<tr style="border-top:1px solid rgba(10,31,61,0.15)">
+  <td style="padding:20px 0;vertical-align:top;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#0a1f3d;font-weight:700">A3</td>
+  <td style="padding:20px 12px;vertical-align:top">
+    <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;color:#0a1f3d;margin-bottom:8px">双阶段验证</div>
+    <div style="color:rgba(10,31,61,0.85);line-height:1.7;font-size:14px">
+      产出报告 + 派一个对抗 agent 用挑刺视角再扫一遍——"是否硬塞了不存在的差异?是否漏掉了真正反常的样式?"。同一个反自欺哲学,可以拓展到任何专项 Skill。
+    </div>
+  </td>
+</tr>
+
+<tr style="border-top:1px solid rgba(10,31,61,0.15)">
+  <td style="padding:20px 0;vertical-align:top;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#0a1f3d;font-weight:700">A4</td>
+  <td style="padding:20px 12px;vertical-align:top">
+    <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;color:#0a1f3d;margin-bottom:8px">Tweaks 协议对应物</div>
+    <div style="color:rgba(10,31,61,0.85);line-height:1.7;font-size:14px">
+      Claude Design 让用户在原型里直接圈选+微调,而不是来回打字。中文团队的对应物可以是:让设计师在卡片图上"圈选疑问区域→自动展开 Skill 解释",而不是看完静态报告再翻规范。
+    </div>
+  </td>
+</tr>
+
+<tr style="border-top:1px solid rgba(10,31,61,0.15);border-bottom:1px solid rgba(10,31,61,0.15)">
+  <td style="padding:20px 0;vertical-align:top;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#0a1f3d;font-weight:700">A5</td>
+  <td style="padding:20px 12px;vertical-align:top">
+    <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:700;color:#0a1f3d;margin-bottom:8px">把"伦理"翻译成操作步骤</div>
+    <div style="color:rgba(10,31,61,0.85);line-height:1.7;font-size:14px">
+      跨业务线借鉴的 gate 流程——不是禁止借鉴,而是规定借鉴需要走"原型理解 → 抽象 token → 重新具象"。把"尊重"做成具体动作,不留口号空间。
+    </div>
+  </td>
+</tr>
+
+</table>
+
+<!-- ============ SECTION 05 ============ -->
+<header style="margin:64px 0 32px 0">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.15em;color:rgba(10,31,61,0.5);text-transform:uppercase;margin-bottom:12px">
+    SECTION 05 · MOAT
+  </div>
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:26px;font-weight:700;color:#0a1f3d;margin:0;line-height:1.3">
+    AI 时代设计的真正护城河
+  </h2>
+  <div style="height:2px;background:#0a1f3d;width:48px;margin-top:12px"></div>
+</header>
+
+<p>Figma 这一波不是"做得不好"。是它的护城河被重新定义了。</p>
+
+<p>原来 Figma 的护城河是<strong>用户习惯 + 协作网络</strong>。当自然语言成为交互界面时,这两层都可以被绕过——用户可以直接告诉 AI"做一个登录页面",不需要先学怎么用 Figma。</p>
+
+<p>所以问题变成了:<strong>AI 时代的设计护城河,到底在哪一层?</strong></p>
+
+<table width="100%" cellpadding="0" cellspacing="0" style="margin:32px 0">
+  <tr>
+    <td width="33%" style="vertical-align:top;padding:20px 8px 20px 0;border-top:2px solid #0a1f3d">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#0a1f3d;letter-spacing:0.1em;margin-bottom:12px;font-weight:700">第 ① 层</div>
+      <div style="font-family:'Noto Serif SC',serif;font-size:16px;font-weight:600;color:#0a1f3d;line-height:1.4;margin-bottom:8px">应用层<br>(脆弱)</div>
+      <div style="font-size:13px;color:rgba(10,31,61,0.7);line-height:1.6">设计工具、生成模型壳子。一旦更强的工具出现,直接被替换。</div>
+    </td>
+    <td width="33%" style="vertical-align:top;padding:20px 8px;border-top:2px solid #0a1f3d">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#0a1f3d;letter-spacing:0.1em;margin-bottom:12px;font-weight:700">第 ② 层</div>
+      <div style="font-family:'Noto Serif SC',serif;font-size:16px;font-weight:600;color:#0a1f3d;line-height:1.4;margin-bottom:8px">模型层<br>(巨头垄断)</div>
+      <div style="font-size:13px;color:rgba(10,31,61,0.7);line-height:1.6">大模型本身。Anthropic / OpenAI / Google 的战场,一般团队进不去。</div>
+    </td>
+    <td width="33%" style="vertical-align:top;padding:20px 0 20px 8px;border-top:2px solid #0a1f3d">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#0a1f3d;letter-spacing:0.1em;margin-bottom:12px;font-weight:700">第 ③ 层</div>
+      <div style="font-family:'Noto Serif SC',serif;font-size:16px;font-weight:600;color:#0a1f3d;line-height:1.4;margin-bottom:8px">能源算力<br>(NVIDIA)</div>
+      <div style="font-size:13px;color:rgba(10,31,61,0.7);line-height:1.6">GPU、电力、数据中心。设计团队跟这层完全无关。</div>
+    </td>
+  </tr>
+</table>
+
+<p>设计团队既上不了第 ② 第 ③ 层,又不能困在被随时替换的第 ① 层。那真正的位置在哪?</p>
+
+<p>读完 Claude Design 的 422 行后,我想清楚了一件事:</p>
+
+<section style="padding:32px 32px;background:linear-gradient(135deg,rgba(10,31,61,0.95),rgba(10,31,61,0.85));margin:40px 0;border-radius:12px">
+  <p style="font-family:'Noto Serif SC',serif;font-size:22px;line-height:1.5;color:#f1f3f5;font-weight:700;margin:0">
+    AI 时代设计的真正护城河,<br>不在生成能力,<br>在反塌缩规则的工程化。
+  </p>
+  <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.15em;color:rgba(241,243,245,0.6);margin:20px 0 0 0;text-transform:uppercase">— THE REAL MOAT</p>
+</section>
+
+<p>大模型公司战的是"模型有多强"。设计团队战的应该是<strong>"我能不能把我的设计判断,翻译成模型可执行的规则"</strong>。</p>
+
+<p>Claude Design 那 422 行就是这种能力的范本——Anthropic 在用一个产品 demo,展示他们对"设计哲学如何工程化"的理解。这种理解本身,比那个产品值钱得多。</p>
+
+<!-- ============ SECTION 06 ============ -->
+<header style="margin:64px 0 32px 0">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.15em;color:rgba(10,31,61,0.5);text-transform:uppercase;margin-bottom:12px">
+    SECTION 06 · UPGRADE
+  </div>
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:26px;font-weight:700;color:#0a1f3d;margin:0;line-height:1.3">
+    给设计师的两个建议
+  </h2>
+  <div style="height:2px;background:#0a1f3d;width:48px;margin-top:12px"></div>
+</header>
+
+<p>这阵子很多人在讨论"AI 会不会替代设计师"。这是个错误的提问。</p>
+
+<p>正确的问题是:<strong>设计师有没有把自己的判断升级为可被 AI 执行的资产?</strong></p>
+
+<p>给同行两个具体动作:</p>
+
+<table width="100%" cellpadding="0" cellspacing="0" style="margin:32px 0">
+  <tr>
+    <td width="50%" style="vertical-align:top;padding:24px 16px 24px 0;border-top:1px solid rgba(10,31,61,0.2)">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#0a1f3d;font-weight:700;margin-bottom:14px">建议 ①</div>
+      <div style="font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:#0a1f3d;line-height:1.4;margin-bottom:12px">把你的设计判断写成规则</div>
+      <div style="color:rgba(10,31,61,0.85);line-height:1.7;font-size:14px">
+        从最熟悉的一个组件开始——把它的"什么时候用、什么时候不用、关键不变量是什么、变体边界在哪"明确写成 100 行(不需要 422)。
+        <br><br>
+        <em style="color:rgba(10,31,61,0.7)">不写下来 = 那条规则不存在,也就不能被复用、不能被 AI 消费、不能成为团队资产。</em>
+      </div>
+    </td>
+    <td width="50%" style="vertical-align:top;padding:24px 0 24px 16px;border-top:1px solid rgba(10,31,61,0.2)">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#0a1f3d;font-weight:700;margin-bottom:14px">建议 ②</div>
+      <div style="font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:#0a1f3d;line-height:1.4;margin-bottom:12px">找一个具体场景跑通治理样本</div>
+      <div style="color:rgba(10,31,61,0.85);line-height:1.7;font-size:14px">
+        不要从"建一套设计系统"开始,从"治理一个具体组件"开始。把 family 识别、规则定义、自检流程跑通一次。
+        <br><br>
+        <em style="color:rgba(10,31,61,0.7)">小样跑通后,才有资格谈推广。否则你做的就是 PPT,不是基建。</em>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<!-- 结尾 Callout -->
+<section style="padding:32px 32px;background:rgba(10,31,61,0.04);border-left:4px solid #0a1f3d;margin:48px 0;border-radius:0 8px 8px 0">
+  <p style="font-family:'Noto Serif SC',serif;font-size:21px;line-height:1.6;color:#0a1f3d;font-weight:700;margin:0 0 16px 0">
+    好的 AI 设计师,不是灵感生成器。<br>是上下文吸收器 + 自检环路。
+  </p>
+  <p style="font-size:15px;color:rgba(10,31,61,0.75);margin:0;line-height:1.7">
+    Claude 那 422 行系统提示词揭示的,就是这件事——<strong>把"如何做好设计"翻译成 AI 可执行的规则,本身就是 AI 时代最深的护城河。</strong>
+  </p>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer style="margin-top:64px;padding-top:32px;border-top:1px solid rgba(10,31,61,0.15)">
+  <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.05em;color:rgba(10,31,61,0.6);line-height:1.7;margin:0 0 16px 0">
+    本文素材来源:Anthropic 官方 cookbook(<a href="https://platform.claude.com/cookbook/coding-prompting-for-frontend-aesthetics" style="color:#0a1f3d;text-decoration:underline">platform.claude.com/cookbook</a>)、CL4R1T4S 仓库泄露的 Claude Design 系统提示词、awesome-claude-design 社区资料。
+  </p>
+  <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:rgba(10,31,61,0.5);text-transform:uppercase;margin:0">
+    SHAKA · 设计观察 · 2026.04 · 转载请联系
+  </p>
+</footer>
+
+</body>
+</html>
