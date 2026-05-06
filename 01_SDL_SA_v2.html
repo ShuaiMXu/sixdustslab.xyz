@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SDL-HappyClaw AI Agent Service Agreement | SDL-HappyClaw AI 智能体服务协议</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{
+  --gd:#0a2a1f;--gm:#1e3a2f;--gl:#2d5240;
+  --amber:#f5b042;--al:#fef6e0;
+  --blue:#1a5276;--bb:#eaf2f8;
+  --red:#7b1a1a;--rb:#fdf0f0;
+  --slate:#1e293b;--muted:#5a6a7e;--rule:#dde3eb;
+  --bg:#f4f6f9;--card:#fff;
+  --r-lg:20px;--r-md:12px;--r-sm:8px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);font-family:"Source Serif 4",Georgia,serif;font-size:15px;line-height:1.78;color:var(--slate);padding:2rem 1rem 5rem}
+.wrap{max-width:1020px;margin:0 auto;background:var(--card);border-radius:var(--r-lg);box-shadow:0 16px 48px rgba(0,0,0,.09);overflow:hidden}
+
+/* HEADER */
+.hdr{background:linear-gradient(108deg,var(--gd) 0%,var(--gm) 60%,var(--gl) 100%);padding:2.8rem 3rem 2.4rem;position:relative;overflow:hidden}
+.hdr::before{content:"";position:absolute;top:-70px;right:-70px;width:280px;height:280px;border-radius:50%;background:rgba(245,176,66,.07)}
+.badge{display:inline-flex;background:rgba(245,176,66,.18);border:1px solid rgba(245,176,66,.35);border-radius:40px;padding:.28rem .95rem;margin-bottom:.9rem}
+.badge span{font-family:"JetBrains Mono",monospace;font-size:.68rem;color:var(--amber);letter-spacing:.08em;text-transform:uppercase}
+.hdr h1{font-family:"Playfair Display",serif;font-size:2.1rem;color:#fff;line-height:1.18;margin-bottom:.35rem}
+.hdr .sub{color:rgba(255,255,255,.7);font-size:.9rem;margin-bottom:.18rem}
+.hdr .sub-cn{color:rgba(255,255,255,.58);font-size:.85rem}
+.hdr-meta{font-family:"JetBrains Mono",monospace;font-size:.68rem;color:rgba(255,255,255,.42);margin-top:1rem;display:flex;gap:1.8rem;flex-wrap:wrap}
+.cn-note{font-family:"JetBrains Mono",monospace;font-size:.64rem;background:rgba(245,176,66,.12);border:1px solid rgba(245,176,66,.25);border-radius:8px;padding:.3rem .8rem;margin-top:.8rem;color:rgba(255,255,255,.65);display:inline-block}
+
+/* TOC */
+.toc{background:var(--gd);padding:.85rem 3rem;display:flex;gap:.4rem 1.4rem;flex-wrap:wrap;border-bottom:3px solid var(--amber)}
+.toc a{font-family:"JetBrains Mono",monospace;font-size:.64rem;color:rgba(255,255,255,.58);text-decoration:none;text-transform:uppercase;letter-spacing:.06em;transition:color .2s}
+.toc a:hover{color:var(--amber)}
+
+/* BODY */
+.body{padding:2.8rem 3rem}
+
+/* HEADINGS */
+h2{font-family:"Playfair Display",serif;font-size:1.38rem;color:var(--gd);margin:2.8rem 0 .8rem;padding-bottom:.55rem;border-bottom:2px solid var(--rule);display:flex;align-items:baseline;gap:.8rem}
+h2:first-of-type{margin-top:0}
+.sn{font-family:"JetBrains Mono",monospace;font-size:.68rem;background:var(--gd);color:var(--amber);padding:.13rem .52rem;border-radius:4px;flex-shrink:0}
+h3{font-family:"Playfair Display",serif;font-size:1.08rem;color:var(--gm);margin:1.6rem 0 .5rem}
+h4{font-family:"JetBrains Mono",monospace;font-size:.74rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:.95rem 0 .38rem}
+p{margin-bottom:.88rem}
+
+/* BILINGUAL PARAS */
+.bi{margin-bottom:1rem}
+.bi .en{margin-bottom:.18rem}
+.bi .cn{color:#3a5a4a;font-size:.92rem;padding-left:1.2rem;border-left:3px solid rgba(245,176,66,.3)}
+
+/* CALLOUTS */
+.box{border-radius:var(--r-md);padding:1.1rem 1.5rem;margin:1.3rem 0;font-size:.93rem}
+.box-amber{background:var(--al);border-left:5px solid var(--amber)}
+.box-blue{background:var(--bb);border-left:5px solid var(--blue)}
+.box-red{background:var(--rb);border-left:5px solid var(--red)}
+.box-green{background:#edf7f0;border-left:5px solid #27ae60}
+.box-slate{background:#f1f4f8;border-left:5px solid var(--muted)}
+.bt{font-family:"JetBrains Mono",monospace;font-size:.67rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4rem}
+.bt-a{color:#a0620a}.bt-b{color:var(--blue)}.bt-r{color:var(--red)}.bt-g{color:#1a7a40}.bt-s{color:var(--muted)}
+
+/* TABLES */
+.t{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.88rem}
+.t th{background:var(--gd);color:#fff;padding:.6rem .9rem;font-family:"JetBrains Mono",monospace;font-size:.63rem;text-transform:uppercase;letter-spacing:.05em;text-align:left}
+.t td{padding:.58rem .9rem;border-bottom:1px solid var(--rule);vertical-align:top}
+.t tr:nth-child(even) td{background:#f8fafc}
+.t input{width:100%;border:1px solid var(--rule);border-radius:6px;padding:.3rem .5rem;font-size:.87rem;background:#fafbfd}
+.t select{width:100%;border:1px solid var(--rule);border-radius:6px;padding:.28rem .45rem;font-size:.83rem;background:#fafbfd}
+.chk{width:18px;height:18px;border:1.5px solid var(--rule);border-radius:4px;display:inline-block;vertical-align:middle}
+
+/* ANNEX BANDS */
+.annex-band{background:linear-gradient(90deg,var(--gd),var(--gm));color:#fff;padding:1rem 3rem;margin:0 -3rem;display:flex;align-items:center;gap:.8rem}
+.annex-band h2{font-family:"Playfair Display",serif;font-size:1.2rem;color:#fff;border:none;padding:0;margin:0}
+.annex-num{font-family:"JetBrains Mono",monospace;font-size:.7rem;background:var(--amber);color:var(--gd);padding:.15rem .6rem;border-radius:10px;font-weight:700}
+
+/* JURISDICTION ADDENDUM */
+.jur{border:2px solid var(--rule);border-radius:var(--r-lg);margin:2rem 0;overflow:hidden}
+.jur-hdr{padding:1rem 1.6rem;display:flex;align-items:center;gap:.9rem}
+.jur-hdr.uk{background:linear-gradient(90deg,#012169,#CF142B)}
+.jur-hdr.eu{background:linear-gradient(90deg,#003399,#0055cc)}
+.jur-hdr.cn{background:linear-gradient(90deg,#8b0000,#c0392b)}
+.jur-hdr.ng{background:linear-gradient(90deg,#008751,#006400)}
+.jur-hdr.ao{background:linear-gradient(90deg,#cc0000,#000)}
+.jur-hdr.mz{background:linear-gradient(90deg,#009A44,#000)}
+.jur-flag{font-size:1.8rem}
+.jur-title h3{color:#fff;margin:0 0 .1rem;font-size:1rem}
+.jur-title p{color:rgba(255,255,255,.72);font-size:.75rem;margin:0;font-family:"JetBrains Mono",monospace}
+.jur-body{padding:1.6rem}
+.jur-body h4{color:var(--slate)}
+
+/* PLAN SELECTOR */
+.plan-card{border:1.5px solid var(--rule);border-radius:var(--r-md);padding:1rem 1.3rem;background:#fafbfd;margin-bottom:.8rem}
+.plan-card.featured{border-color:var(--amber);background:var(--al)}
+.plan-name{font-family:"Playfair Display",serif;font-size:1rem;color:var(--gm);font-weight:600}
+.plan-price{font-family:"JetBrains Mono",monospace;font-size:1.1rem;color:var(--gd);font-weight:700}
+.plan-sub{font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--muted)}
+
+/* SIG */
+.sig-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin:1.5rem 0}
+.sig-box{border:1.5px solid var(--rule);border-radius:var(--r-md);padding:1.2rem 1.4rem;background:#fafbfd}
+.sig-label{font-family:"JetBrains Mono",monospace;font-size:.66rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:.7rem}
+.sig-line{border-bottom:1px solid var(--slate);height:2rem;margin-bottom:.4rem}
+.sig-hint{font-size:.78rem;color:var(--muted)}
+
+/* MISC */
+hr{border:none;border-top:1px solid var(--rule);margin:2rem 0}
+.thick{border-top:3px solid var(--amber);margin:2.5rem 0}
+code{font-family:"JetBrains Mono",monospace;font-size:.8em;background:#f0f2f5;padding:.1em .4em;border-radius:3px}
+ul{margin:.5rem 0 .9rem 1.3rem}
+li{margin-bottom:.38rem}
+li::marker{color:var(--amber)}
+ol{margin:.5rem 0 .9rem 1.4rem}
+ol li::marker{color:var(--gm);font-weight:600}
+
+/* FOOTER */
+.ftr{background:#f8fafc;border-top:1px solid var(--rule);padding:1.1rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;font-size:.68rem;color:var(--muted);font-family:"JetBrains Mono",monospace}
+.ftr strong{color:var(--gm)}
+
+@media(max-width:700px){
+  .body,.hdr{padding:1.5rem}
+  .toc,.ftr{padding:.8rem 1.5rem}
+  h2{font-size:1.18rem}
+  .sig-grid{grid-template-columns:1fr}
+  .annex-band{margin:0 -1.5rem;padding:1rem 1.5rem}
+}
+@media print{body{background:#fff;padding:0}.wrap{box-shadow:none;border-radius:0}.toc{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="badge"><span>OneMore Management Ltd · SDL-HappyClaw · SixDustsLab</span></div>
+  <h1>SDL-HappyClaw AI Agent Service Agreement</h1>
+  <div class="sub">SDL-HappyClaw AI 智能体服务协议</div>
+  <div class="sub-cn">Acordo de Prestação do Serviço SDL-HappyClaw AI Agent</div>
+  <div class="cn-note">⚖️ Governing law: Gibraltar · 管辖法律：直布罗陀 · Direito aplicável: Gibraltar &nbsp;|&nbsp; English prevails · 英文版本优先 · Versão inglesa prevalece</div>
+  <div class="hdr-meta">
+    <span>📄 Version 2.0</span>
+    <span>📅 Effective: 1 May 2026</span>
+    <span>🔄 Review: Quarterly / trigger event</span>
+    <span>Contract No.: HC-<span style="opacity:.5">[Year]-[No.]</span></span>
+  </div>
+</div>
+
+<!-- TOC -->
+<nav class="toc">
+  <a href="#parties">Parties</a>
+  <a href="#definitions">Definitions</a>
+  <a href="#plan">Service Plan</a>
+  <a href="#fees">Fees</a>
+  <a href="#delivery">Delivery</a>
+  <a href="#data">Data Protection</a>
+  <a href="#ai-transparency">AI Transparency</a>
+  <a href="#aup">Acceptable Use</a>
+  <a href="#sla">Service Level</a>
+  <a href="#ip">IP</a>
+  <a href="#liability">Liability</a>
+  <a href="#term">Term</a>
+  <a href="#fm">Force Majeure</a>
+  <a href="#governing">Governing Law</a>
+  <a href="#general">General</a>
+  <a href="#annex1">DPA</a>
+  <a href="#annex2">SLA</a>
+  <a href="#annex3">Jurisdiction Addenda</a>
+  <a href="#annex4">Pricing Schedule</a>
+  <a href="#signatures">Signatures</a>
+</nav>
+
+<div class="body">
+
+<!-- PREAMBLE -->
+<div class="box box-amber">
+  <div class="bt bt-a">📌 About SDL-HappyClaw</div>
+  SDL-HappyClaw is operated by <strong>OneMore Management Ltd</strong>, incorporated in Gibraltar (Company No. <span style="opacity:.5">[___]</span>). Gibraltar applies a data protection regime substantially equivalent to the EU General Data Protection Regulation under the Data Protection Act 2004 (No. 3 of 2004) and the Gibraltar GDPR, supervised by the Gibraltar Regulatory Authority (GRA). SDL-HappyClaw maintains compliance with the applicable laws of each jurisdiction in which its clients and their end-users are located (<em>Jurisdictional Compliance First</em>), with the Gibraltar regulatory framework providing the governing legal baseline. This positions SDL-HappyClaw to serve clients under UK, EU, Chinese, and African regulatory frameworks while maintaining the regulatory certainty of a well-established European jurisdiction.
+  <br><br>
+  <span style="font-size:.85rem;color:#5a6a7e">本协议由直布罗陀注册公司 OneMore Management Ltd（公司编号[___]）运营的 SDL-HappyClaw 提供。直布罗陀实行与欧盟GDPR实质等同的数据保护制度，并受直布罗陀监管局（GRA）监督。SDL-HappyClaw以各客户及其终端用户所在司法管辖区的适用法律合规为首要原则（"司法管辖区合规优先"），以直布罗陀法律框架为合同管辖基准。</span>
+</div>
+
+<div class="box box-blue">
+  <div class="bt bt-b">⚠️ DORA Notice — DORA声明</div>
+  <strong>This Agreement is not a DORA-compliant ICT third-party service agreement</strong> for the purposes of Regulation (EU) 2022/2554 (Digital Operational Resilience Act). Customers that are EU financial entities required to comply with DORA must request SDL-HappyClaw's separate <em>DORA Enterprise Agreement</em> before deploying the Service in connection with functions that constitute or support critical or important functions. Contact: SixDustsLab@gmail.com.<br><br>
+  <span style="font-size:.85rem;color:var(--blue)">本协议不构成《欧盟数字运营韧性法》(DORA, Regulation (EU) 2022/2554)下的ICT第三方服务合规协议。如客户为须遵守DORA的欧盟金融实体，须在将本服务用于关键或重要职能前，另行申请SDL-HappyClaw的《DORA企业专项协议》。</span>
+</div>
+
+<!-- SECTION 1: PARTIES -->
+<h2 id="parties"><span class="sn">1</span> Parties / 当事方</h2>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:1rem 0">
+  <div class="box box-slate" style="margin:0">
+    <div class="bt bt-s">Party A — Customer / 甲方（客户）</div>
+    <p style="margin:.4rem 0 .25rem"><strong>Full Legal Name / 全称：</strong><span style="border-bottom:1px solid var(--slate);display:inline-block;min-width:200px">&nbsp;</span></p>
+    <p style="margin:.25rem 0"><strong>Registered Address / 注册地址：</strong><span style="border-bottom:1px solid var(--slate);display:inline-block;min-width:200px">&nbsp;</span></p>
+    <p style="margin:.25rem 0"><strong>Contact / 联系人：</strong><span style="border-bottom:1px solid var(--slate);display:inline-block;min-width:160px">&nbsp;</span></p>
+    <p style="margin:.25rem 0 0"><strong>Email / Phone：</strong><span style="border-bottom:1px solid var(--slate);display:inline-block;min-width:160px">&nbsp;</span></p>
+  </div>
+  <div class="box box-slate" style="margin:0">
+    <div class="bt bt-s">Party B — Provider / 乙方（服务提供方）</div>
+    <p style="margin:.4rem 0 .25rem"><strong>Name:</strong> OneMore Management Ltd t/a SDL-HappyClaw / SixDustsLab</p>
+    <p style="margin:.25rem 0"><strong>Incorporated:</strong> Gibraltar</p>
+    <p style="margin:.25rem 0"><strong>Reg. No.:</strong> <span style="opacity:.6">[___]</span></p>
+    <p style="margin:.25rem 0"><strong>Email:</strong> SixDustsLab@gmail.com</p>
+    <p style="margin:.25rem 0 0"><strong>WhatsApp/Telegram (non-PRC):</strong> +44 7440 060028</p>
+  </div>
+</div>
+
+<!-- SECTION 2: DEFINITIONS -->
+<h2 id="definitions"><span class="sn">2</span> Definitions / 定义</h2>
+
+<table class="t">
+  <thead><tr><th>Term / 术语</th><th>Definition / 定义</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>"Agreement"</strong></td>
+      <td>This SDL-HappyClaw AI Agent Service Agreement including all Annexes (DPA, SLA, Jurisdiction Addenda, Pricing Schedule) and the Acceptable Use Policy incorporated herein.<br><em style="font-size:.85rem;color:#3a5a4a">本协议，包含所有附件（数据处理协议、SLA、司法管辖区附录、定价表）及本协议引用的可接受使用政策。</em></td>
+    </tr>
+    <tr>
+      <td><strong>"Service" / "服务"</strong></td>
+      <td>The SDL-HappyClaw AI Agent Service — an AI-powered automation and intelligent agent system provided by Party B, encompassing deployment, configuration, operation, maintenance, technical support, and Automation Skills. The Service utilises AI model inference, cloud infrastructure, and messaging channel integrations sourced from technology providers as listed in SDL-HappyClaw's current Sub-Processor List (<code>[URL]/sub-processors</code>).<br><em style="font-size:.85rem;color:#3a5a4a">SDL-HappyClaw AI 智能体服务——乙方提供的AI驱动的自动化与智能体系统，涵盖部署、配置、运营、维护、技术支持及自动化技能，并利用乙方当前子处理者清单所列技术供应商提供的AI推理、云基础设施及消息渠道集成服务。</em></td>
+    </tr>
+    <tr>
+      <td><strong>"AI Account" / "AI账户"</strong></td>
+      <td>The subscription to the AI model provider's service required to enable the Service (currently Claude Max as offered by Anthropic PBC). Depending on the selected AI Account Management Mode in the Pricing Schedule, the Customer maintains this subscription directly with the provider, or SDL-HappyClaw manages it on the Customer's behalf.<br><em style="font-size:.85rem;color:#3a5a4a">启用本服务所需的AI模型供应商订阅（目前为Anthropic PBC提供的Claude Max）。根据定价表所选AI账户管理模式，客户可直接向供应商维护订阅，或由乙方代为管理。</em></td>
+    </tr>
+    <tr>
+      <td><strong>"AI System"</strong></td>
+      <td>The AI-powered software component of the Service, which processes natural-language inputs and generates outputs using one or more AI model inference services sourced from SDL-HappyClaw's approved technology providers (details in Sub-Processor List).</td>
+    </tr>
+    <tr>
+      <td><strong>"Automation Skill" / "自动化技能"</strong></td>
+      <td>A specific automation workflow module developed and deployed for the Customer's particular business use case.<br><em style="font-size:.85rem;color:#3a5a4a">根据客户具体业务需求开发并部署的自动化工作流模块。</em></td>
+    </tr>
+    <tr>
+      <td><strong>"Customer Data" / "客户数据"</strong></td>
+      <td>All information, including personal data and end-user data, processed through the Service by or on behalf of Party A.<br><em style="font-size:.85rem;color:#3a5a4a">甲方通过或委托本服务处理的所有信息，包括个人数据及终端用户数据。</em></td>
+    </tr>
+    <tr>
+      <td><strong>"Relevant Jurisdiction"</strong></td>
+      <td>Any jurisdiction in which Party A, its end-users, or the Service is established, located, directed, or to which data transfers are made, including without limitation Gibraltar, the United Kingdom, EU Member States, the People's Republic of China, Nigeria, Angola, and Mozambique.</td>
+    </tr>
+    <tr>
+      <td><strong>"Upstream Services"</strong></td>
+      <td>AI model inference, cloud hosting, messaging channel APIs, and other third-party technology services on which the Service relies, as supplied to SDL-HappyClaw by its technology providers on AS-IS/AS-AVAILABLE terms.</td>
+    </tr>
+    <tr>
+      <td><strong>"AUP"</strong></td>
+      <td>SDL-HappyClaw's Acceptable Use Policy (current version at <code>[URL]/legal/aup</code>), incorporated into this Agreement by reference.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- SECTION 3: SERVICE PLAN -->
+<h2 id="plan"><span class="sn">3</span> Service Plan Selection / 服务方案选择</h2>
+<p>Party A selects the following plan (tick as applicable). Full technical specifications and pricing details are set out in Annex IV (Pricing Schedule).</p>
+<p class="cn" style="color:#3a5a4a;font-size:.9rem;border-left:3px solid rgba(245,176,66,.3);padding-left:1rem">甲方选择以下方案（请勾选）。完整技术规格及定价详见附件四（定价表）。</p>
+
+<table class="t">
+  <thead><tr><th>Plan / 方案</th><th>Monthly Platform Fee</th><th>AI Account</th><th>Key Inclusions</th><th>Select / 选择</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>Solo</strong></td>
+      <td>€29/month</td>
+      <td>Customer's own Claude Max (~€185/mo direct to Anthropic)</td>
+      <td>1 user · 1 channel · 5 Skills</td>
+      <td><span class="chk"></span></td>
+    </tr>
+    <tr style="background:#f8fafc">
+      <td><strong>Team</strong> <span style="font-family:'JetBrains Mono',monospace;font-size:.65rem;background:var(--amber);color:var(--gd);padding:.1rem .4rem;border-radius:6px">Most Popular</span></td>
+      <td>€79/month</td>
+      <td>Customer's own Claude Max (~€185/mo direct to Anthropic)</td>
+      <td>5 users · 3 channels · Unlimited Skills</td>
+      <td><span class="chk"></span></td>
+    </tr>
+    <tr>
+      <td><strong>Business All-In</strong></td>
+      <td>€349/month</td>
+      <td>AI access included — managed by SDL-HappyClaw</td>
+      <td>10 users · 5 channels · Unlimited Skills · 99% SLA*</td>
+      <td><span class="chk"></span></td>
+    </tr>
+    <tr>
+      <td><strong>Enterprise</strong></td>
+      <td>On application</td>
+      <td>On application</td>
+      <td>Custom configuration · DORA contract available separately</td>
+      <td><span class="chk"></span></td>
+    </tr>
+  </tbody>
+</table>
+<p style="font-size:.83rem;color:var(--muted)">* SLA 99% applies to SDL-HappyClaw-controlled service components only. AI model availability and third-party channel availability are subject to upstream supplier AS-IS terms. See Annex II (SLA) for full two-tier availability framework.<br><em>*99%的SLA仅适用于SDL-HappyClaw可控服务组件。AI模型可用性及第三方渠道可用性须遵循上游供应商"按现状"条款。详见附件二（SLA）双层可用性框架。</em></p>
+
+<h4>Deployment Option / 部署选项（One-time fee / 一次性费用）</h4>
+<table class="t">
+  <thead><tr><th>Option / 选项</th><th>One-time Fee</th><th>Description</th><th>Select</th></tr></thead>
+  <tbody>
+    <tr><td>Cloud — Customer provides server</td><td>€1,950</td><td>SDL-HappyClaw deploys on Customer-provided cloud server</td><td><span class="chk"></span></td></tr>
+    <tr><td>Cloud — SDL-HappyClaw includes server (Year 1)</td><td>€2,950</td><td>Dedicated cloud server included for first year</td><td><span class="chk"></span></td></tr>
+    <tr><td>On-premises — SDL-HappyClaw provides AI access</td><td>€9,800</td><td>Deployed on Customer's own infrastructure; SDL-HappyClaw manages AI account</td><td><span class="chk"></span></td></tr>
+    <tr><td>On-premises — Customer owns AI account</td><td>€19,500</td><td>Full independence; Customer maintains own Claude Max account directly with Anthropic</td><td><span class="chk"></span></td></tr>
+  </tbody>
+</table>
+
+<h4>AI Account Management Mode (Solo/Team) / AI账户管理模式（仅Solo/Team）</h4>
+<table class="t">
+  <thead><tr><th>Mode</th><th>Monthly Fee</th><th>Description</th><th>Select</th></tr></thead>
+  <tbody>
+    <tr><td>Mode A — Self-supply</td><td>€12/HPC</td><td>Customer manages own Claude Max account directly with Anthropic</td><td><span class="chk"></span></td></tr>
+    <tr><td>Mode B — Managed</td><td>€25/HPC</td><td>SDL-HappyClaw manages AI account on Customer's behalf; Customer bears account risk</td><td><span class="chk"></span></td></tr>
+    <tr><td>Mode C — Full SLA</td><td>€45/HPC</td><td>SDL-HappyClaw manages account with 48-hour fault resolution commitment; backup account switchover</td><td><span class="chk"></span></td></tr>
+  </tbody>
+</table>
+
+<!-- SECTION 4: FEES -->
+<h2 id="fees"><span class="sn">4</span> Fees and Payment / 费用与支付</h2>
+
+<div class="bi">
+  <div class="en"><strong>4.1 One-time Setup Fee.</strong> 50% payable within 3 Business Days of signing; remaining 50% payable upon acceptance under Article 5.</div>
+  <div class="cn">一次性设置费：签署后3个工作日内支付50%；验收后支付余款50%。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>4.2 Monthly Platform Fee.</strong> Due on the 1st day of each calendar month, payable in advance.</div>
+  <div class="cn">月度平台费：每月1日前预付。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>4.3 AI Account Cost.</strong> The AI Account subscription (Claude Max or equivalent) is a separate cost payable directly by Party A to the AI model provider, or to Party B under the selected Management Mode. Party B does not mark up AI Account pass-through costs. All fees are set out in Annex IV (Pricing Schedule).</div>
+  <div class="cn">AI账户费用（Claude Max或同等产品）须由甲方直接向AI模型供应商支付，或按所选管理模式向乙方支付。乙方不对AI账户转付费用加价。所有费用详见附件四（定价表）。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>4.4 Payment Method.</strong> Bank wire transfer in EUR to Party B's designated account. Details on invoice.</div>
+  <div class="cn">支付方式：欧元银行电汇至乙方指定账户，详见发票。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>4.5 Late Payment.</strong> Payments overdue by more than 15 days: SDL-HappyClaw may suspend the Service without liability. Payments overdue by more than 30 days: SDL-HappyClaw may terminate this Agreement on written notice and claim liquidated damages of 20% of the total fees remaining in the current contract term, which the parties agree represents a genuine pre-estimate of loss (and not a penalty) given SDL-HappyClaw's sub-processor commitments, AI account obligations, and deployment costs.</div>
+  <div class="cn">逾期超过15天：乙方可暂停服务且不承担责任。逾期超过30天：乙方可书面通知解除合同，并要求支付当前合同期内剩余费用总额20%的违约金。双方确认该违约金为对损失的合理预估（非惩罚性），鉴于乙方的子处理者承诺、AI账户义务及部署成本。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>4.6 Price Review.</strong> SDL-HappyClaw may revise fees annually with 60 days' written notice. If any Upstream Service provider increases its prices materially, SDL-HappyClaw may pass through the increase with 30 days' notice; Party A may terminate on 30 days' notice if it does not accept the increase.</div>
+  <div class="cn">定价审查：乙方可提前60天书面通知，每年对费用进行调整。如上游服务供应商大幅涨价，乙方可提前30天通知转嫁涨价；甲方如不接受，可提前30天书面通知终止合同。</div>
+</div>
+
+<!-- SECTION 5: DELIVERY -->
+<h2 id="delivery"><span class="sn">5</span> Delivery and Acceptance / 交付与验收</h2>
+<div class="bi">
+  <div class="en"><strong>5.1</strong> Delivery within 5–10 Business Days of receipt of initial payment, subject to Customer providing required access and information.</div>
+  <div class="cn">在收到首期款项后5-10个工作日内交付，以客户提供所需访问权限和信息为前提。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>5.2</strong> Acceptance criteria: Service operates the core functions of the selected plan; operations manual provided. Party A shall complete acceptance within 5 Business Days of notification; silence constitutes acceptance.</div>
+  <div class="cn">验收标准：服务运行所选方案的核心功能；提供操作手册。甲方应在收到通知后5个工作日内完成验收；逾期不回复视为通过。</div>
+</div>
+
+<!-- SECTION 6: DATA PROTECTION -->
+<h2 id="data"><span class="sn">6</span> Data Protection and Privacy / 数据保护与隐私</h2>
+<div class="bi">
+  <div class="en"><strong>6.1 Roles.</strong> Party A is the Data Controller; Party B is the Data Processor. The terms of Annex I (Data Processing Agreement) and, where applicable, the EU Standard Contractual Clauses (Module 2: Controller to Processor) govern all processing of personal data under this Agreement.</div>
+  <div class="cn">角色：甲方为数据控制者；乙方为数据处理者。附件一（数据处理协议）及（如适用）欧盟标准合同条款（模块二：控制者向处理者传输）适用于本协议下的所有个人数据处理。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>6.2 Jurisdictional Compliance First.</strong> Compliance with the applicable data protection laws of each Relevant Jurisdiction is the primary obligation. The jurisdiction-specific data protection requirements applicable to Party A's location and end-user base are set out in Annex III (Jurisdiction Addenda). Party A is responsible for ensuring it has a lawful basis for all personal data processing and for complying with local-law requirements applicable to its sector and geography.</div>
+  <div class="cn">司法管辖区合规优先：遵守各相关司法管辖区适用的数据保护法律是首要义务。甲方所在地及终端用户群适用的特定司法管辖区数据保护要求详见附件三（司法管辖区附录）。甲方负责确保其所有个人数据处理具有合法依据，并遵守其所在行业和地区适用的当地法律要求。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>6.3 Forward-Looking Gibraltar Provision.</strong> The Parties acknowledge that the regulatory relationship between Gibraltar and the European Union is subject to ongoing treaty negotiations (including the draft Treaty of Gibraltar, COM(2026) 91 final/2, published February 2026). SDL-HappyClaw will update its data transfer mechanisms and compliance framework as and when any such treaty enters into force or produces de facto regulatory effect, giving Party A not less than 30 days' advance notice of any consequential changes to this Agreement or its Annexes. This Agreement is designed to remain compliant with foreseeable changes to Gibraltar's regulatory status.</div>
+  <div class="cn">直布罗陀前瞻性条款：双方确认，直布罗陀与欧盟之间的监管关系正处于持续条约谈判中（包括2026年2月公布的《直布罗陀条约》草案，COM(2026) 91 final/2）。如该等条约生效或产生事实上的监管影响，乙方将更新其数据传输机制及合规框架，并提前不少于30天书面通知甲方本协议或附件的相应变更。本协议旨在适应直布罗陀监管地位的可预见变化。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>6.4 Sub-processors.</strong> SDL-HappyClaw's current sub-processor list is published at <code>[URL]/sub-processors</code>. SDL-HappyClaw will provide 30 days' advance written notice before adding or replacing any sub-processor. Party A may object on reasonable data-protection grounds within that period.</div>
+  <div class="cn">子处理者：乙方当前子处理者清单发布于<code>[URL]/sub-processors</code>。乙方在新增或更换子处理者前，将提前30天书面通知。甲方可在该期间内基于合理的数据保护理由提出异议。</div>
+</div>
+
+<!-- SECTION 7: AI TRANSPARENCY -->
+<h2 id="ai-transparency"><span class="sn">7</span> AI Transparency Obligations / AI透明度义务</h2>
+<div class="bi">
+  <div class="en"><strong>7.1 Deployer Disclosure Obligation.</strong> Party A (as Deployer) must ensure that its end-users are informed, in a clear, prominent, and timely manner, that they are interacting with an AI system and not a human being. This obligation applies at the commencement of each interaction session and in the language used by the end-user. This obligation is mandatory under the EU AI Act (Article 50, applicable from 2 August 2026), the CAC Generative AI Interim Measures (Article 9), and the Nigeria NDPA GAID 2025.</div>
+  <div class="cn">部署方披露义务：甲方（作为部署方）必须确保以清晰、醒目且及时的方式告知其终端用户，其正在与AI系统而非真人进行交互。该义务须在每次交互会话开始时，以终端用户使用的语言履行。该义务依据EU AI Act第50条（自2026年8月2日起适用）、CAC生成式AI暂行措施第9条及尼日利亚NDPA GAID 2025具有强制性。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>7.2 AI-Generated Content Labelling.</strong> Where the Service generates synthetic content for publication or onward distribution, Party A must ensure explicit human-readable labelling and, from 2 August 2026, machine-readable marking per the EU AI Act Article 50(2) Code of Practice. For PRC deployments, AI Labelling Measures (GB 45438-2025, effective 1 September 2025) apply.</div>
+  <div class="cn">AI生成内容标注：如本服务生成用于发布或传播的合成内容，甲方须确保明确的人类可读标注，并自2026年8月2日起按EU AI Act第50(2)条实施规范进行机器可读标注。对于中国部署，适用《生成式人工智能生成内容标识办法》（GB 45438-2025，自2025年9月1日起生效）。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>7.3 High-Risk Use Cases.</strong> Party A must obtain SDL-HappyClaw's prior written authorisation before deploying the Service for any use case listed as High-Risk in the AUP (including employment screening, creditworthiness assessment, insurance pricing, public benefit eligibility, and essential services access). The AUP is incorporated into this Agreement by reference.</div>
+  <div class="cn">高风险使用场景：甲方在将本服务用于可接受使用政策（AUP）中列明的任何高风险使用场景（包括雇佣筛选、信用评估、保险定价、公共福利资格评定及基本服务准入）前，须取得乙方书面事先授权。AUP以引用方式并入本协议。</div>
+</div>
+
+<!-- SECTION 8: AUP -->
+<h2 id="aup"><span class="sn">8</span> Acceptable Use / 可接受使用</h2>
+<div class="bi">
+  <div class="en"><strong>8.1</strong> Party A's use of the Service is subject at all times to SDL-HappyClaw's Acceptable Use Policy (AUP), current version at <code>[URL]/legal/aup</code>. The AUP forms an integral part of this Agreement. Party A must flow down AUP obligations to its end-users through binding terms no less restrictive than the AUP.</div>
+  <div class="cn">甲方使用本服务须始终遵守SDL-HappyClaw的可接受使用政策（AUP），当前版本见<code>[URL]/legal/aup</code>。AUP为本协议不可分割的组成部分。甲方须通过约束力不低于AUP的条款，将AUP义务向下传导至其终端用户。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>8.2</strong> The Service incorporates AI models provided by third-party suppliers whose usage policies are incorporated into the AUP. Party A must not use the Service in any manner that would cause SDL-HappyClaw or its technology providers to breach their applicable usage policies.</div>
+  <div class="cn">本服务包含第三方供应商提供的AI模型，其使用政策已并入AUP。甲方不得以任何可能导致乙方或其技术提供商违反适用使用政策的方式使用本服务。</div>
+</div>
+
+<!-- SECTION 9: SLA -->
+<h2 id="sla"><span class="sn">9</span> Service Level and Support / 服务等级与支持</h2>
+<div class="bi">
+  <div class="en"><strong>9.1 Two-Tier Availability Framework.</strong> The Service operates on a two-tier availability basis:</div>
+  <div class="cn">双层可用性框架：本服务采用双层可用性机制：</div>
+</div>
+<ul>
+  <li><strong>Tier A — SDL-HappyClaw-Controlled Components:</strong> The orchestration layer, Skills, configuration, and SDL-HappyClaw-operated infrastructure. Best-efforts 99% monthly availability; Service Credits apply for Tier A downtime per Annex II. <em style="font-size:.85rem;color:#3a5a4a">（A层—SDL-HappyClaw可控组件：编排层、技能、配置及乙方运营的基础设施。尽力实现月度99%可用性；按附件二计算服务补偿。）</em></li>
+  <li><strong>Tier B — Upstream Services:</strong> AI model inference, cloud infrastructure, and third-party messaging channel APIs. Provided AS-IS/AS-AVAILABLE on back-to-back terms with SDL-HappyClaw's upstream technology providers. No separate availability commitment; Tier B unavailability does not trigger Service Credits. <em style="font-size:.85rem;color:#3a5a4a">（B层—上游服务：AI推理、云基础设施及第三方消息渠道API。按与上游技术提供商的背靠背条款，以"按现状/按可用状态"提供。不提供单独可用性承诺；B层不可用不触发服务补偿。）</em></li>
+</ul>
+<div class="bi">
+  <div class="en"><strong>9.2 AS-IS / AS-AVAILABLE.</strong> To the extent the Service relies on Upstream Services, those components are provided on an AS-IS, AS-AVAILABLE basis consistent with the terms under which SDL-HappyClaw receives such Upstream Services. SDL-HappyClaw makes no warranty in respect of Upstream Services beyond what its technology providers warrant to SDL-HappyClaw on a back-to-back basis. All service credits, uptime commitments, and SLA guarantees from SDL-HappyClaw in respect of Upstream Services are limited to those received from the relevant upstream provider. Full SLA details are set out in Annex II.</div>
+  <div class="cn">按现状/按可用状态：在本服务依赖上游服务的范围内，相关组件按乙方接受上游服务的条款，以"按现状、按可用状态"提供。乙方对上游服务的保证不超过其技术供应商背靠背向其提供的保证。乙方就上游服务提供的所有服务补偿、可用性承诺及SLA保证，均以相关上游供应商向乙方提供的内容为限。SLA全部详情见附件二。</div>
+</div>
+
+<!-- SECTION 10: IP -->
+<h2 id="ip"><span class="sn">10</span> Intellectual Property / 知识产权</h2>
+<div class="bi">
+  <div class="en"><strong>10.1</strong> Party B retains all IP rights in the SDL-HappyClaw AI Agent Service, its underlying systems, and all generic Automation Skills.</div>
+  <div class="cn">乙方保留SDL-HappyClaw AI智能体服务、其底层系统及所有通用自动化技能的全部知识产权。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>10.2</strong> Party A retains all IP rights in Customer Data and its business rules and processes.</div>
+  <div class="cn">甲方保留客户数据及其业务规则和流程的全部知识产权。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>10.3</strong> Party B grants Party A a non-exclusive, non-transferable, non-sublicensable licence to use the Service during the term of this Agreement for Party A's internal business purposes only.</div>
+  <div class="cn">乙方授予甲方在本协议有效期内，仅用于甲方内部业务目的的非排他性、不可转让、不可再授权的使用许可。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>10.4</strong> Party A must not use the Service to train, fine-tune, or distil a competing AI model or product without SDL-HappyClaw's prior written consent.</div>
+  <div class="cn">未经乙方事先书面同意，甲方不得利用本服务训练、微调或蒸馏竞争性AI模型或产品。</div>
+</div>
+
+<!-- SECTION 11: CONFIDENTIALITY -->
+<h2 id="confidentiality"><span class="sn">11</span> Confidentiality / 保密</h2>
+<div class="bi">
+  <div class="en">Each Party shall keep the other Party's Confidential Information strictly confidential, use it only for the purposes of this Agreement, and not disclose it to any third party without prior written consent (save as required by Applicable Law). This obligation survives termination for 5 years.</div>
+  <div class="cn">各方应对对方的保密信息严格保密，仅用于履行本协议，且未经事先书面同意不得向第三方披露（法律强制要求除外）。该义务在协议终止后存续5年。</div>
+</div>
+
+<!-- SECTION 12: LIABILITY -->
+<h2 id="liability"><span class="sn">12</span> Liability and Indemnity / 责任与赔偿</h2>
+<div class="bi">
+  <div class="en"><strong>12.1 Liability Cap.</strong> To the maximum extent permitted by Applicable Law, each Party's aggregate liability to the other under or in connection with this Agreement shall not exceed the total fees paid by Party A in the 12 months immediately preceding the event giving rise to the claim. This cap shall not apply to: (a) death or personal injury caused by negligence; (b) fraud or fraudulent misrepresentation; (c) any liability that cannot be limited under Applicable Law.</div>
+  <div class="cn">责任上限：在适用法律允许的最大范围内，各方在本协议项下的累计赔偿责任不超过索赔事件发生前12个月甲方已支付的总费用。以下情形不适用该上限：(a)过失导致的人身伤亡；(b)欺诈或欺诈性失实陈述；(c)适用法律不允许限制的责任。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>12.2 Upstream Service Liability.</strong> SDL-HappyClaw's liability in respect of any failure, unavailability, or degradation of Upstream Services (including AI model inference unavailability, cloud provider outages, and messaging channel failures) is limited to the equivalent liability that SDL-HappyClaw is entitled to recover from the relevant upstream technology provider. SDL-HappyClaw will use commercially reasonable efforts to pursue upstream provider liability on Party A's behalf where a credible claim exists.</div>
+  <div class="cn">上游服务责任：乙方就上游服务（包括AI推理不可用、云提供商故障及消息渠道故障）的任何失效、不可用或降级所承担的责任，以乙方有权向相关上游技术提供商追偿的等额责任为限。如存在合理索赔依据，乙方将尽商业合理努力代甲方向上游提供商追索责任。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>12.3 Excluded Losses.</strong> Neither Party shall be liable for indirect, consequential, special, punitive, or exemplary losses, including loss of profit, revenue, goodwill, anticipated savings, or business opportunity, even if advised of the possibility.</div>
+  <div class="cn">排除的损失：任何一方均不对间接、衍生性、特殊、惩罚性或示范性损失承担责任，包括利润损失、收入损失、商誉损失、预期节省损失或商业机会损失，即使已被告知该等损失可能发生。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>12.4 Party A Indemnity.</strong> Party A shall indemnify SDL-HappyClaw against all losses, fines, penalties, and costs arising from: (a) Party A's failure to comply with this Agreement, the AUP, or Applicable Law; (b) any misuse of the Service by Party A or its end-users; (c) Party A's failure to obtain required consents or lawful bases for processing personal data; (d) any regulatory enforcement action against SDL-HappyClaw arising from Party A's deployment or use.</div>
+  <div class="cn">甲方赔偿：甲方应就以下情形赔偿乙方因此遭受的全部损失、罚款、处罚及费用：(a)甲方违反本协议、AUP或适用法律；(b)甲方或其终端用户滥用本服务；(c)甲方未取得处理个人数据所需的同意或合法依据；(d)因甲方部署或使用导致的针对乙方的监管执法行动。</div>
+</div>
+
+<!-- SECTION 13: TERM -->
+<h2 id="term"><span class="sn">13</span> Term and Termination / 合同期限与终止</h2>
+<div class="bi">
+  <div class="en"><strong>13.1</strong> Initial term: 12 months from the date of acceptance under Article 5. Automatically renews for successive 12-month periods unless either Party gives 30 days' written notice of non-renewal before the end of the then-current term.</div>
+  <div class="cn">初始期限：自第5条验收之日起12个月。除非任何一方在当前合同期届满前30天书面通知不续期，否则自动续签12个月。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>13.2 Termination for Cause.</strong> Either Party may terminate immediately on written notice if the other Party: (a) commits a material breach not cured within 15 Business Days of notice; (b) becomes insolvent or enters an insolvency process; (c) is the subject of a sanctions designation. SDL-HappyClaw may additionally suspend or terminate immediately if continued provision would violate Applicable Law or export controls in any Relevant Jurisdiction.</div>
+  <div class="cn">因违约终止：如另一方：(a)在书面通知后15个工作日内未纠正重大违约；(b)资不抵债或进入破产程序；(c)受到制裁，则任何一方可书面即时通知终止合同。如继续提供服务将违反任何相关司法管辖区的适用法律或出口管制，乙方还可即时暂停或终止服务。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>13.3 Post-Termination.</strong> Within 30 days of termination: SDL-HappyClaw will provide Customer Data export in standard format; Customer Data will be deleted from SDL-HappyClaw's systems (save as required by Applicable Law). The licence under Article 10.3 terminates immediately.</div>
+  <div class="cn">终止后事宜：终止后30天内，乙方将以标准格式提供客户数据导出；客户数据将从乙方系统中删除（法律要求保留的除外）。第10.3条授权立即终止。</div>
+</div>
+
+<!-- SECTION 14: FORCE MAJEURE -->
+<h2 id="fm"><span class="sn">14</span> Force Majeure / 不可抗力</h2>
+<div class="bi">
+  <div class="en"><strong>14.1</strong> Neither Party shall be liable for delay or failure to perform any obligation under this Agreement to the extent that such delay or failure is caused by a Force Majeure Event. A "<strong>Force Majeure Event</strong>" means any event beyond a Party's reasonable control, including without limitation:</div>
+  <div class="cn">如任何义务的履行延迟或无法履行是由"不可抗力事件"造成的，任何一方均不承担违约责任。"不可抗力事件"指超出一方合理控制范围的任何事件，包括但不限于：</div>
+</div>
+<ul>
+  <li>Unavailability, degradation, modification, or suspension of any AI model inference service, cloud infrastructure, or API provided by an Upstream Service provider; <em style="font-size:.85rem;color:#3a5a4a">上游服务提供商提供的AI推理服务、云基础设施或API不可用、降级、变更或暂停；</em></li>
+  <li>Government-ordered restriction, suspension, blocking, or removal of any messaging channel or internet service in any Relevant Jurisdiction, including without limitation platform bans and internet shutdowns; <em style="font-size:.85rem;color:#3a5a4a">任何相关司法管辖区政府命令的消息渠道或互联网服务限制、暂停、封锁或下架，包括平台封禁及互联网中断；</em></li>
+  <li>Sanctions designations, export control actions, or trade embargoes affecting SDL-HappyClaw's technology providers or supply chain; <em style="font-size:.85rem;color:#3a5a4a">影响乙方技术提供商或供应链的制裁指定、出口管制行动或贸易禁运；</em></li>
+  <li>Change of law, regulation, or binding regulatory guidance in any Relevant Jurisdiction that materially affects SDL-HappyClaw's ability to provide the Service; <em style="font-size:.85rem;color:#3a5a4a">任何相关司法管辖区法律、法规或具约束力的监管指引变更，实质影响乙方提供服务的能力；</em></li>
+  <li>Cyberattack, denial-of-service attack, or critical infrastructure failure not caused by SDL-HappyClaw's negligence; <em style="font-size:.85rem;color:#3a5a4a">非因乙方过失造成的网络攻击、拒绝服务攻击或关键基础设施故障；</em></li>
+  <li>Pandemic, natural disaster, war, civil unrest, or act of terrorism. <em style="font-size:.85rem;color:#3a5a4a">疫情、自然灾害、战争、内乱或恐怖主义行为。</em></li>
+</ul>
+<div class="bi">
+  <div class="en"><strong>14.2</strong> The affected Party shall notify the other Party as soon as reasonably practicable. If the Force Majeure Event continues for more than 60 days, either Party may terminate this Agreement on 14 days' written notice without liability.</div>
+  <div class="cn">受影响方应尽快通知另一方。如不可抗力事件持续超过60天，任何一方可提前14天书面通知终止本协议，且不承担责任。</div>
+</div>
+
+<!-- SECTION 15: GOVERNING LAW -->
+<h2 id="governing"><span class="sn">15</span> Governing Law and Dispute Resolution / 管辖法律与争议解决</h2>
+<div class="bi">
+  <div class="en"><strong>15.1 Governing Law.</strong> This Agreement is governed by and construed in accordance with the laws of Gibraltar, without prejudice to the mandatory provisions of Applicable Law in any Relevant Jurisdiction that cannot be excluded by contract.</div>
+  <div class="cn">管辖法律：本协议受直布罗陀法律管辖并依其解释，但不影响任何相关司法管辖区不可通过合同排除的强制性适用法律规定。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>15.2 Dispute Resolution.</strong> Any dispute, controversy, or claim arising out of or in connection with this Agreement (including its existence, validity, or termination) shall be finally resolved by arbitration under the UNCITRAL Arbitration Rules as in force at the date of commencement of the arbitration. The seat of arbitration shall be Gibraltar. The language of arbitration shall be English. The arbitral tribunal shall consist of a sole arbitrator appointed by agreement of the Parties, or failing agreement within 20 days of a request, by the LCIA under its Arbitrator Nomination Services. The arbitral award shall be final and binding. Nothing in this clause prevents either Party from seeking urgent injunctive or interim relief from any court of competent jurisdiction.</div>
+  <div class="cn">争议解决：因本协议（包括其存在、效力或终止）引起的或与之相关的任何争议、纠纷或索赔，应在仲裁开始之日起适用UNCITRAL仲裁规则，以仲裁方式最终解决。仲裁地为直布罗陀，仲裁语言为英文。仲裁庭由双方协议指定一名仲裁员，如申请后20天内未能达成一致，则由LCIA通过其仲裁员提名服务指定。仲裁裁决为终局，对双方具有约束力。本条款不妨碍任何一方向有管辖权的法院申请紧急禁令救济或临时措施。</div>
+</div>
+
+<!-- SECTION 16: GENERAL -->
+<h2 id="general"><span class="sn">16</span> General Provisions / 其他条款</h2>
+<div class="bi">
+  <div class="en"><strong>16.1 Entire Agreement.</strong> This Agreement (including all Annexes) constitutes the entire agreement between the Parties and supersedes all prior representations, negotiations, and agreements relating to its subject matter.</div>
+  <div class="cn">完整协议：本协议（含所有附件）构成双方就其主题事项达成的完整协议，并取代所有先前陈述、谈判及协议。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>16.2 Amendments.</strong> SDL-HappyClaw may amend this Agreement on 30 days' written notice for standard updates, and immediately where required by Applicable Law, regulatory direction, or mandatory upstream supplier policy change. Party A may terminate on 30 days' notice if it objects to a standard update.</div>
+  <div class="cn">修订：乙方可提前30天书面通知对本协议进行标准更新，如适用法律、监管指令或上游供应商强制性政策变更要求，则即时生效。甲方如不同意标准更新，可提前30天通知终止合同。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>16.3 Assignment.</strong> Party A may not assign this Agreement without SDL-HappyClaw's prior written consent. SDL-HappyClaw may assign to any group company or in connection with a merger, acquisition, or sale of assets on written notice.</div>
+  <div class="cn">转让：未经乙方书面同意，甲方不得转让本协议。乙方可书面通知将本协议转让给集团公司，或在合并、收购或资产出售时转让。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>16.4 Severance.</strong> If any provision is invalid or unenforceable in any jurisdiction, it shall be modified to the minimum extent necessary to make it valid in that jurisdiction; invalidity in one jurisdiction does not affect enforceability in another.</div>
+  <div class="cn">可分割性：如任何条款在任何司法管辖区无效或不可执行，应进行最低限度的修改使其在该司法管辖区有效；在某一司法管辖区无效不影响其在其他司法管辖区的可执行性。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>16.5 Language.</strong> This Agreement is executed in English and Chinese. In the event of any inconsistency between language versions, the English version prevails for all purposes, except that any PRC Standard Contract (个人信息出境标准合同) separately required under PIPL shall be governed by PRC law and the Chinese version of that instrument shall prevail for its purposes only.</div>
+  <div class="cn">语言：本协议以中英文书就。如各语言版本存在不一致，以英文版本为准，但依据PIPL另行签署的《个人信息出境标准合同》以中文版本为准，适用中国法律。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>16.6 Notices.</strong> Notices under this Agreement must be in writing and delivered by email (with read-receipt or reply confirmation). Notices are deemed received on the next Business Day following transmission.</div>
+  <div class="cn">通知：本协议下的通知须以书面形式通过电子邮件发送（附已读或回复确认）。通知在发送后下一个工作日视为已送达。</div>
+</div>
+<div class="bi">
+  <div class="en"><strong>16.7 Compliance with Applicable Law.</strong> This Agreement is designed to be adaptable to the applicable laws of each Relevant Jurisdiction. Each Party is responsible for compliance with the laws applicable to its own activities. Where any provision of this Agreement conflicts with a mandatory provision of Applicable Law in a Relevant Jurisdiction, the mandatory provision prevails to the minimum extent necessary, and the remainder of the Agreement continues in full force.</div>
+  <div class="cn">适用法律合规：本协议旨在适应各相关司法管辖区的适用法律。各方负责遵守各自活动适用的法律。如本协议任何条款与相关司法管辖区强制性适用法律存在冲突，强制性规定在最低必要范围内优先适用，协议其余条款继续完全有效。</div>
+</div>
+
+<div class="thick"></div>
+
+<!-- ═══════ ANNEX I: DPA ═══════ -->
+<div class="annex-band" id="annex1">
+  <span class="annex-num">Annex I</span>
+  <h2>Data Processing Agreement (DPA) + EU SCCs / 数据处理协议 + 欧盟标准合同条款</h2>
+</div>
+<br>
+<div class="box box-blue" style="margin-top:1rem">
+  <div class="bt bt-b">📌 Status / 地位</div>
+  This Annex forms an integral part of the Agreement. The English version prevails. This DPA incorporates the EU Standard Contractual Clauses (Module 2: Controller to Processor) under Commission Implementing Decision (EU) 2021/914, which apply automatically where Party A is established in an EU Member State.
+  <br><em style="font-size:.85rem;color:var(--blue)">本附件为协议不可分割的组成部分。以英文版本为准。本DPA纳入欧盟委员会实施决定2021/914/EU下的欧盟标准合同条款（模块二：控制者向处理者传输），当甲方在欧盟成员国注册时自动适用。</em>
+</div>
+
+<h3>Processing Description / 处理活动描述</h3>
+<table class="t">
+  <thead><tr><th>Item / 项目</th><th>Detail / 内容</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Purpose / 目的</strong></td><td>Provision of the SDL-HappyClaw AI Agent Service / 提供SDL-HappyClaw AI智能体服务</td></tr>
+    <tr><td><strong>Nature / 类型</strong></td><td>Collection, storage, processing, analysis, transmission, deletion / 收集、存储、处理、分析、传输、删除</td></tr>
+    <tr><td><strong>Data Categories / 数据类型</strong></td><td>Names, contact details, chat logs, order/transaction information, enquiry content (and any other personal data submitted by Party A's end-users) / 姓名、联系方式、聊天记录、订单/交易信息、查询内容（及甲方终端用户提交的其他个人数据）</td></tr>
+    <tr><td><strong>Data Subjects / 数据主体</strong></td><td>Party A's end-customers and end-users / 甲方的终端客户及终端用户</td></tr>
+    <tr><td><strong>Retention / 保留期</strong></td><td>During contract term and deleted within 30 days after termination (save audit logs: 12 months; legal holds: per Applicable Law) / 合同有效期内，终止后30天内删除（审计日志：12个月；法律留存：依适用法律）</td></tr>
+    <tr><td><strong>Sub-processors / 子处理者</strong></td><td>As listed in SDL-HappyClaw's current Sub-Processor List at <code>[URL]/sub-processors</code> (updated with 30 days' advance notice) / 详见乙方当前子处理者清单（提前30天通知更新）</td></tr>
+    <tr><td><strong>Transfer Mechanism (EU) / 传输机制（欧盟）</strong></td><td>EU SCCs Module 2 + Transfer Impact Assessment (TIA) on file / 欧盟SCCs模块二 + 存档传输影响评估</td></tr>
+  </tbody>
+</table>
+
+<h3>Data Processor Obligations / 数据处理者义务</h3>
+<ul>
+  <li>Process personal data only on Party A's documented instructions / 仅按甲方书面指令处理个人数据</li>
+  <li>Implement technical and organisational security measures per Appendix 1 / 按附录1实施技术和组织安全措施</li>
+  <li>Notify Party A of a personal data breach without undue delay and within 24 hours of confirmation / 在确认后24小时内及时通知甲方数据泄露事件</li>
+  <li>Delete or return Customer Data within 30 days of termination / 在终止后30天内删除或返还客户数据</li>
+  <li>Assist Party A in responding to data subject rights requests / 协助甲方回应数据主体权利请求</li>
+  <li>Maintain Records of Processing Activities per Article 30 GDPR / 按GDPR第30条维护处理活动记录</li>
+</ul>
+
+<h3>Appendix 1 — Technical and Organisational Security Measures / 附录1 — 技术与组织安全措施</h3>
+<ul>
+  <li>Encryption in transit: TLS 1.3 minimum / 传输加密：最低TLS 1.3</li>
+  <li>Encryption at rest: AES-256 with key isolation / 静态加密：AES-256，密钥隔离</li>
+  <li>Role-based least-privilege access control with MFA / 基于角色的最小权限访问控制，含MFA</li>
+  <li>Audit logs retained 12 months / 审计日志保留12个月</li>
+  <li>Annual penetration testing / 每年渗透测试</li>
+  <li>ISO 27001 / SOC 2 certifications maintained by upstream cloud infrastructure providers / 上游云基础设施提供商持有ISO 27001/SOC 2认证</li>
+  <li>Incident response plan with P1 4-hour resolution target / 包含P1四小时解决目标的事件响应计划</li>
+</ul>
+
+<h3>EU SCCs Module 2 — Key Provisions / 欧盟SCCs模块二 — 关键条款</h3>
+<p style="font-size:.88rem">Applicable where Party A is established in an EU Member State. The Parties adopt the EU SCCs (Module 2: Controller to Processor) under Commission Implementing Decision (EU) 2021/914. Key clause references: Clause 8 (data security — see Appendix 1); Clause 9 (sub-processors — general authorisation + 30-day objection right); Clause 13 (supervisory authority — authority of Party A's EU Member State); Clause 17 (governing law — law of an EU Member State where Party A is established); Clause 18 (disputes — courts of Party A's EU Member State).</p>
+<p style="font-size:.85rem;color:#3a5a4a">当甲方在欧盟成员国注册时适用。双方采纳欧盟委员会实施决定2021/914/EU下的标准合同条款（模块二：控制者向处理者传输）。主要条款：第8条（数据安全，见附录1）；第9条（子处理者，通用授权+30天反对权）；第13条（监管机构，甲方所在欧盟成员国的主管机构）；第17条（管辖法律，甲方所在欧盟成员国法律）；第18条（争议，甲方所在欧盟成员国法院）。</p>
+
+<div class="box box-amber" style="margin-top:1rem">
+  <div class="bt bt-a">📌 PRC Standard Contract / 中国标准合同</div>
+  Where Party A is established in the PRC or transfers personal data of PRC nationals outside mainland China, the parties shall separately execute the CAC-template Personal Information Outbound Transfer Standard Contract (个人信息出境标准合同), which is governed by PRC law and in which the Chinese version prevails. SDL-HappyClaw provides a blank template on request. After execution, Party A must file with the provincial CAC within 10 working days.
+  <br><em style="font-size:.85rem">如甲方在中国大陆注册，或将中国自然人个人信息传输至境外，双方须另行签署网信办模板《个人信息出境标准合同》，适用中华人民共和国法律，以中文版本为准。签署后甲方须在10个工作日内向省级网信部门备案。</em>
+</div>
+
+<div class="thick"></div>
+
+<!-- ═══════ ANNEX II: SLA ═══════ -->
+<div class="annex-band" id="annex2">
+  <span class="annex-num">Annex II</span>
+  <h2>Service Level Agreement (SLA) / 服务等级协议</h2>
+</div>
+<br>
+
+<div class="box box-blue" style="margin-top:1rem">
+  <div class="bt bt-b">ℹ️ Two-Tier Framework / 双层框架</div>
+  This SLA operates on a two-tier basis. <strong>Tier A</strong> (SDL-HappyClaw-controlled components) carries binding uptime commitments and Service Credits. <strong>Tier B</strong> (Upstream Services including AI model inference and third-party channels) is provided AS-IS/AS-AVAILABLE on back-to-back terms; Tier B unavailability does not trigger Service Credits.
+  <br><em style="font-size:.85rem;color:var(--blue)">本SLA采用双层架构。A层（SDL-HappyClaw可控组件）承担具有约束力的可用性承诺及服务补偿。B层（上游服务，包括AI推理及第三方渠道）按背靠背AS-IS/AS-AVAILABLE条款提供；B层不可用不触发服务补偿。</em>
+</div>
+
+<h3>Definitions / 定义</h3>
+<table class="t">
+  <thead><tr><th>Term</th><th>Definition</th></tr></thead>
+  <tbody>
+    <tr><td>Service Availability (Tier A)</td><td>% of time in a calendar month that SDL-HappyClaw-controlled components can process requests. Formula: (Total time − Unavailable Time) / Total time × 100%</td></tr>
+    <tr><td>Unavailable Time (Tier A)</td><td>Time when Tier A components are completely unable to process requests due to SDL-HappyClaw's fault (excluding Exclusions below)</td></tr>
+    <tr><td>Scheduled Maintenance</td><td>Maintenance notified 72 hours in advance; max 4 hours/month; not counted as Unavailable Time</td></tr>
+    <tr><td>P1 Incident</td><td>Complete Tier A system outage affecting all users</td></tr>
+    <tr><td>P2 Incident</td><td>Partial Tier A outage; core messaging operational</td></tr>
+    <tr><td>P3 Incident</td><td>Non-critical Tier A feature failure</td></tr>
+  </tbody>
+</table>
+
+<h3>Availability Targets / 可用性目标</h3>
+<table class="t">
+  <thead><tr><th>Plan</th><th>Tier A Monthly Target</th><th>Tier B (AI + Channels)</th></tr></thead>
+  <tbody>
+    <tr><td>Solo / Team</td><td>Best-efforts (no contractual commitment)</td><td>AS-IS from upstream suppliers</td></tr>
+    <tr><td>Business All-In / Mode C</td><td><strong>99% monthly</strong></td><td>AS-IS from upstream suppliers; backup model switching on best-efforts basis</td></tr>
+  </tbody>
+</table>
+
+<h3>Exclusions from Unavailable Time / 不可用时间的除外情形</h3>
+<ul>
+  <li>Scheduled maintenance (72h advance notice) / 计划内维护</li>
+  <li>Customer-caused faults / 客户操作导致的故障</li>
+  <li><strong>Any Tier B / Upstream Service failure</strong> (AI model unavailability, cloud provider outage, messaging channel failure) / 任何B层/上游服务故障（AI推理不可用、云提供商故障、消息渠道故障）</li>
+  <li>Force Majeure Events per Article 14 / 第14条不可抗力事件</li>
+  <li>Customer AI Account quota exhaustion, suspension, or policy violation / 客户AI账户配额耗尽、暂停或违规</li>
+  <li>Sovereign channel blocking / 政府命令的渠道封锁</li>
+</ul>
+
+<h3>Service Credits (Business All-In / Mode C only) / 服务补偿</h3>
+<table class="t">
+  <thead><tr><th>Monthly Tier A Availability</th><th>Credit (% of monthly platform fee)</th></tr></thead>
+  <tbody>
+    <tr><td>98.00% – 98.99%</td><td>10%</td></tr>
+    <tr><td>97.00% – 97.99%</td><td>20%</td></tr>
+    <tr><td>96.00% – 96.99%</td><td>30%</td></tr>
+    <tr><td>Below 96.00%</td><td>50%</td></tr>
+  </tbody>
+</table>
+<p style="font-size:.84rem;color:var(--muted)">Credits are applied to the next month's invoice. No cash refund. Total credits capped at 50% of monthly platform fee. Claim must be submitted in writing by the 5th day of the following month; SDL-HappyClaw will verify within 5 Business Days. Credits are the sole remedy for availability failures. SDL-HappyClaw's aggregate liability for Service Credits in any 12-month period shall not exceed the liability cap in Article 12.1.</p>
+
+<h3>Incident Response / 故障响应</h3>
+<table class="t">
+  <thead><tr><th>Level</th><th>Response</th><th>Update Frequency</th><th>Resolution Target*</th></tr></thead>
+  <tbody>
+    <tr><td>P1</td><td>15 minutes</td><td>Every 30 minutes</td><td>4 hours</td></tr>
+    <tr><td>P2</td><td>1 hour</td><td>Every 4 hours</td><td>24 hours</td></tr>
+    <tr><td>P3</td><td>4 hours</td><td>Daily</td><td>7 Business Days</td></tr>
+  </tbody>
+</table>
+<p style="font-size:.83rem;color:var(--muted)">*Resolution targets are internal operational metrics. They do not constitute contractual SLA commitments and do not trigger Service Credits. Only Tier A availability targets trigger Service Credits.</p>
+
+<div class="thick"></div>
+
+<!-- ═══════ ANNEX III: JURISDICTION ADDENDA ═══════ -->
+<div class="annex-band" id="annex3">
+  <span class="annex-num">Annex III</span>
+  <h2>Jurisdiction-Specific Addenda / 司法管辖区专项附录</h2>
+</div>
+<br>
+<p style="margin-top:1rem;margin-bottom:1.5rem;font-size:.92rem;color:var(--muted)">The following addenda apply to Party A where it is established in, or directs the Service at end-users in, the specified jurisdiction. Where multiple addenda apply, all apply cumulatively. In the event of conflict between an addendum and the main Agreement body, the addendum prevails to the minimum extent necessary to achieve local-law compliance.</p>
+
+<!-- UK -->
+<div class="jur">
+  <div class="jur-hdr uk">
+    <span class="jur-flag">🇬🇧</span>
+    <div class="jur-title"><h3>Addendum A — United Kingdom</h3><p>UK GDPR · Data (Use and Access) Act 2025 · UK Bribery Act 2010</p></div>
+  </div>
+  <div class="jur-body">
+    <h4>A.1 UK GDPR — Automated Decision-Making (Arts. 22A–22D, in force 5 February 2026)</h4>
+    <p>Solely-automated decisions with significant effects on UK data subjects are now prima facie permitted for non-special-category data under the Data (Use and Access) Act 2025, subject to mandatory safeguards: notification; right to make representations; human review on request; contestation. The prohibition on automated decisions involving special-category data is retained (Art. 22B(1) UK GDPR). Party A deploying the Service for UK data subjects must implement these safeguards.</p>
+    <h4>A.2 UK GDPR Article 27 Representative</h4>
+    <p>SDL-HappyClaw has appointed (or is in the process of appointing) a UK Article 27 representative. Details are published at <code>[URL]/legal/representatives</code>. UK data subjects and the ICO may direct enquiries to that representative.</p>
+    <h4>A.3 Data Transfer — UK to Gibraltar</h4>
+    <p>The UK treats Gibraltar as adequate for data transfer purposes. No IDTA, UK Addendum, or transfer risk assessment is required for transfers of UK personal data to SDL-HappyClaw (Gibraltar).</p>
+    <h4>A.4 DORA Notice</h4>
+    <p>This Agreement is not a DORA-compliant agreement. UK-regulated financial entities with DORA obligations should contact SDL-HappyClaw for the DORA Enterprise Agreement.</p>
+    <h4>A.5 UK Bribery Act 2010</h4>
+    <p>Where Party A introduces business to SDL-HappyClaw or engages any sub-agent, both Parties confirm their compliance with the UK Bribery Act 2010 and the Economic Crime and Corporate Transparency Act 2023 (failure to prevent fraud provisions, in force 1 September 2025).</p>
+  </div>
+</div>
+
+<!-- EU -->
+<div class="jur">
+  <div class="jur-hdr eu">
+    <span class="jur-flag">🇪🇺</span>
+    <div class="jur-title"><h3>Addendum B — European Union</h3><p>EU GDPR · EU AI Act · DORA</p></div>
+  </div>
+  <div class="jur-body">
+    <h4>B.1 Data Transfer — EU to Gibraltar</h4>
+    <p>Gibraltar is a third country for EU GDPR purposes (no EU adequacy decision as at the effective date of this Agreement). Transfers are governed by EU SCCs Module 2 + Transfer Impact Assessment (on file). SDL-HappyClaw will update this mechanism if the draft UK-EU Treaty on Gibraltar (COM(2026) 91 final/2) enters into force and produces adequacy-equivalent effect, giving Party A 30 days' advance notice.</p>
+    <h4>B.2 EU GDPR Article 27 Representative</h4>
+    <p>SDL-HappyClaw has appointed (or is in the process of appointing) an EU Article 27 representative in a Member State where most EU data subjects are located. Details at <code>[URL]/legal/representatives</code>.</p>
+    <h4>B.3 EU AI Act — Prohibited Practices (in force 2 February 2025)</h4>
+    <p>The absolute prohibitions in the AUP (Section 4.1) give effect to EU AI Act Article 5. Party A confirms it will not deploy the Service for any prohibited practice, including social scoring, real-time remote biometric identification, emotion recognition in the workplace, or biometric categorisation by sensitive attributes.</p>
+    <h4>B.4 EU AI Act — Transparency (Article 50, from 2 August 2026)</h4>
+    <p>From 2 August 2026, Party A as Deployer must ensure EU end-users are informed they are interacting with an AI system (Article 50(1)). AI-generated synthetic content must carry machine-readable marking per the Commission Code of Practice on AI-Generated Content. This obligation supplements Article 7 of this Agreement.</p>
+    <h4>B.5 DORA — Non-Applicable Statement</h4>
+    <p>This Agreement does not satisfy the requirements of DORA Article 30 for ICT third-party service agreements with EU financial entities. EU financial entities subject to DORA must request and execute SDL-HappyClaw's separate DORA Enterprise Agreement before using the Service in connection with critical or important functions.</p>
+    <h4>B.6 Gibraltar Treaty Forward-Looking Provision</h4>
+    <p>The Parties acknowledge that the draft Treaty of Gibraltar (COM(2026) 91 final/2, published February 2026) may, when ratified and applied, affect Gibraltar's status under EU data protection law, including cross-border data transfer requirements. SDL-HappyClaw will adapt the data transfer mechanisms in this Agreement accordingly, at no additional cost to Party A, giving 30 days' advance notice.</p>
+  </div>
+</div>
+
+<!-- CHINA -->
+<div class="jur">
+  <div class="jur-hdr cn">
+    <span class="jur-flag">🇨🇳</span>
+    <div class="jur-title"><h3>Addendum C — People's Republic of China / 中华人民共和国</h3><p>PIPL · CAC Measures · AI Labelling · Cross-Border Data Transfer</p></div>
+  </div>
+  <div class="jur-body">
+    <h4>C.1 Channels / 渠道</h4>
+    <p>WhatsApp and Telegram are not available in mainland China. Service delivery for PRC end-users is via WeChat (微信), DingTalk International (钉钉), web widget, and REST API only. Party A must not represent unavailable channels as part of the Service for PRC deployments.</p>
+    <p style="color:#3a5a4a;font-size:.88rem">WhatsApp和Telegram在中国大陆不可用。面向中国大陆终端用户的服务通过微信、钉钉（国际版）、网页组件及REST API提供。甲方不得将不可用渠道作为中国部署的服务内容进行宣传。</p>
+    <h4>C.2 PIPL — Cross-Border Transfer / 个人信息出境</h4>
+    <p>Where Party A transfers personal information of PRC nationals to SDL-HappyClaw (Gibraltar), Party A must comply with one of the following mechanisms under the Provisions on Promoting and Regulating Cross-Border Data Flows (2024): (a) CAC Security Assessment (≥1M individuals or sensitive PI ≥10,000); (b) PRC Standard Contract filed with provincial CAC within 10 working days; (c) PI Protection Certification (GB/T 46068-2025); or (d) Article 5(1) contractual necessity exemption (B2C direct contracts only). SDL-HappyClaw provides a blank Standard Contract template on request.</p>
+    <h4>C.3 AI Labelling / AI标注</h4>
+    <p>For PRC-directed deployments, all AI-generated content must carry explicit (human-readable) and implicit (machine-readable metadata) labels per the CAC AI Labelling Measures (GB 45438-2025, effective 1 September 2025). Party A is responsible for ensuring explicit labels are displayed to PRC end-users.</p>
+    <h4>C.4 PIPL Article 24 — Automated Decisions / 自动化决策</h4>
+    <p>Party A must ensure transparency of automated decision-making, prohibit algorithmic price discrimination, and provide PRC data subjects with the right to refuse significant automated decisions and request human review. Response within 15 working days.</p>
+    <h4>C.5 Language / 语言</h4>
+    <p>The English version of this Agreement prevails. The PRC Standard Contract (if separately required) is governed by PRC law and the Chinese version of that instrument prevails.</p>
+  </div>
+</div>
+
+<!-- NIGERIA -->
+<div class="jur">
+  <div class="jur-hdr ng">
+    <span class="jur-flag">🇳🇬</span>
+    <div class="jur-title"><h3>Addendum D — Nigeria</h3><p>NDPA 2023 · GAID 2025 (effective 19 September 2025)</p></div>
+  </div>
+  <div class="jur-body">
+    <h4>D.1 Automated Decision-Making (NDPA s.37)</h4>
+    <p>Party A must ensure Nigerian data subjects have the right not to be subject to decisions based solely on automated processing that produce legal or similarly significant effects. Human review, contestation mechanisms, and meaningful explanation must be available. DPIAs are mandatory for any AI deployment affecting personal data (GAID Article 28).</p>
+    <h4>D.2 Cross-Border Transfer</h4>
+    <p>Transfers of personal data of Nigerian data subjects to SDL-HappyClaw (Gibraltar) require an NDPC-approved instrument or applicable Schedule 5 GAID transfer mechanism. Party A is responsible for its own NDPC registration and annual Compliance Audit Return (due 31 March each year for DCPMIs).</p>
+    <h4>D.3 Sectoral Requirements</h4>
+    <p>Party A operating in financial services (CBN-regulated), capital markets (SEC Nigeria), or consumer lending (FCCPC) must ensure compliance with sector-specific AI and automated decision-making restrictions. SDL-HappyClaw does not guarantee compliance with sector-specific Nigerian regulations — Party A is solely responsible.</p>
+    <h4>D.4 FATF Delisting</h4>
+    <p>Nigeria was removed from the FATF Grey List on 24 October 2025. Standard risk-based due diligence applies to Nigerian counterparties.</p>
+  </div>
+</div>
+
+<!-- ANGOLA -->
+<div class="jur">
+  <div class="jur-hdr ao">
+    <span class="jur-flag">🇦🇴</span>
+    <div class="jur-title"><h3>Addendum E — Angola</h3><p>Lei n.º 22/11 de 17 de Junho · APD · FATF Grey List</p></div>
+  </div>
+  <div class="jur-body">
+    <h4>E.1 Decisões Automatizadas / Automated Decisions (Art. 29, Lei 22/11)</h4>
+    <p>Decisions taken exclusively on the basis of automated processing that assess aspects of a person's professional capacity, creditworthiness, reliability, or behaviour are prohibited under Lei 22/11 Article 29, save with APD prior authorisation or contractual necessity with safeguards. Party A must obtain APD prior authorisation before using the Service for any such automated decision-making.</p>
+    <p style="color:#3a5a4a;font-size:.88rem">依据Lei 22/11第29条，仅基于自动化处理做出的评估个人职业能力、信用、可信度或行为的决定，须事先取得APD授权或在具有保障措施的合同必要性前提下方可进行。甲方须在将本服务用于此类自动化决策前取得APD事先授权。</p>
+    <h4>E.2 Cross-Border Transfer / 数据跨境传输</h4>
+    <p>Transfers of Angolan personal data to Gibraltar require APD prior authorisation under Lei 22/11 Articles 33–34. SDL-HappyClaw provides a binding contractual safeguards template in Portuguese and English on request.</p>
+    <h4>E.3 Language / 语言要求</h4>
+    <p>All consumer-facing privacy notices, AI transparency disclosures, and data subject rights information for Angolan end-users must be provided in <strong>Portuguese (Português)</strong>. SDL-HappyClaw's Portuguese-language privacy notice template is available at <code>[URL]/legal/privacy-notices</code>.</p>
+    <h4>E.4 FATF Grey List</h4>
+    <p>Angola remains on the FATF Grey List (confirmed February 2026). Enhanced due diligence applies to Angolan counterparties per SDL-HappyClaw's Business Introduction Agreement and internal compliance procedures.</p>
+  </div>
+</div>
+
+<!-- MOZAMBIQUE -->
+<div class="jur">
+  <div class="jur-hdr mz">
+    <span class="jur-flag">🇲🇿</span>
+    <div class="jur-title"><h3>Addendum F — Mozambique</h3><p>Constitution · Lei 3/2017 · Decrees 70-71/2025 · Malabo Convention</p></div>
+  </div>
+  <div class="jur-body">
+    <h4>F.1 Legal Framework</h4>
+    <p>Mozambique has no comprehensive data protection statute in force as at the effective date of this Agreement. Applicable obligations derive from the Constitution of Mozambique (Articles 41 and 71), Lei das Transacções Electrónicas (Lei 3/2017), Lei do Trabalho (Lei 13/2023) for employee data, BdM Aviso 8/GBM/2021 for financial consumer data, and Decree 70/2025 (Cloud Computing) and Decree 71/2025 (Data Centres), effective 31 December 2025. SDL-HappyClaw will update this Addendum within 90 days of the Mozambique Personal Data Protection Bill entering into force.</p>
+    <h4>F.2 Channel Resilience</h4>
+    <p>Mozambique has experienced government-ordered internet and social media disruptions (October–November 2024). SDL-HappyClaw makes no availability commitment for third-party channel delivery (WhatsApp, Telegram) during any period of sovereign channel action in Mozambique. Service via web widget and REST API is unaffected by messaging channel blocks.</p>
+    <h4>F.3 Language / Língua</h4>
+    <p>Consumer-facing privacy information, AI transparency disclosures, and regulatory communications for Mozambican authorities must be provided in <strong>Portuguese (Português)</strong>.</p>
+    <h4>F.4 Forward-Looking Provision</h4>
+    <p>Upon enactment of the Mozambique Personal Data Protection Bill, SDL-HappyClaw will review and update this Addendum within 90 days. Party A is encouraged to monitor legislative developments through INTIC.</p>
+  </div>
+</div>
+
+<div class="thick"></div>
+
+<!-- ═══════ ANNEX IV: PRICING SCHEDULE ═══════ -->
+<div class="annex-band" id="annex4">
+  <span class="annex-num">Annex IV</span>
+  <h2>Pricing Schedule / Order Form / 定价表·订单</h2>
+</div>
+<br>
+<div class="box box-amber" style="margin-top:1rem">
+  <div class="bt bt-a">📌 This Schedule forms part of the Agreement. All prices in EUR. Valid for 30 days from the date of this Agreement. Prices exclude applicable taxes. AI Account costs (Claude Max, etc.) are pass-through at zero markup where managed by SDL-HappyClaw on Party A's behalf.</div>
+</div>
+
+<h3>Selected Service Configuration / 选定服务配置</h3>
+<table class="t">
+  <thead><tr><th>Item</th><th>Description</th><th>Selected / Agreed</th><th>Fee</th></tr></thead>
+  <tbody>
+    <tr><td>Monthly Plan</td><td>Solo / Team / Business All-In / Enterprise</td><td><input type="text" placeholder="e.g. Team"></td><td><input type="text" placeholder="€79/month"></td></tr>
+    <tr><td>Deployment Option</td><td>Cloud (client server) / Cloud (SDL-HappyClaw server incl.) / On-premises (managed AI) / On-premises (client AI)</td><td><input type="text" placeholder="e.g. Cloud — SDL-HappyClaw server"></td><td><input type="text" placeholder="€2,950 one-time"></td></tr>
+    <tr><td>AI Account Mode (Solo/Team)</td><td>Mode A (self-supply) / Mode B (managed) / Mode C (full SLA)</td><td><input type="text" placeholder="e.g. Mode B"></td><td><input type="text" placeholder="€25/HPC/month"></td></tr>
+    <tr><td>AI Account (Claude Max)</td><td>Pass-through at zero markup. Customer pays Anthropic directly (Mode A) or SDL-HappyClaw manages (Mode B/C). Current Claude Max pricing: see claude.ai/pricing.</td><td><input type="text" placeholder="Mode A: direct / Mode B: managed"></td><td><input type="text" placeholder="~€185/month (pass-through)"></td></tr>
+    <tr><td>No. of HPC Instances</td><td>Number of AI instances (affects volume discounts)</td><td><input type="text" placeholder="e.g. 1"></td><td>—</td></tr>
+    <tr><td>Volume Discount</td><td>2-3 HPC: 10% · 4-10 HPC: 15% · 10+ HPC: 25%</td><td><input type="text" placeholder="e.g. N/A (1 HPC)"></td><td><input type="text" placeholder="e.g. N/A"></td></tr>
+    <tr><td>Prepayment Discount</td><td>Quarterly: 5% · Annual: 15% (stackable)</td><td><input type="text" placeholder="e.g. Annual"></td><td><input type="text" placeholder="e.g. -15%"></td></tr>
+  </tbody>
+</table>
+
+<h3>Fee Summary / 费用汇总</h3>
+<table class="t">
+  <thead><tr><th>Cost Item</th><th>Frequency</th><th>Amount (EUR)</th></tr></thead>
+  <tbody>
+    <tr><td>One-time Setup / Deployment Fee</td><td>Once</td><td><input type="text" placeholder="€____"></td></tr>
+    <tr><td>Monthly Platform Fee</td><td>Monthly</td><td><input type="text" placeholder="€____/month"></td></tr>
+    <tr><td>AI Account Management Fee (if Mode B or C)</td><td>Monthly</td><td><input type="text" placeholder="€____/month"></td></tr>
+    <tr><td>AI Account Subscription (Claude Max) — pass-through</td><td>Monthly</td><td><input type="text" placeholder="~€185/month (Party A pays Anthropic directly in Mode A)"></td></tr>
+    <tr style="background:#f8fafc"><td><strong>Estimated Year 1 Total (excl. AI Account in Mode A)</strong></td><td></td><td><input type="text" placeholder="€____ (Setup + 12 × Monthly)"></td></tr>
+  </tbody>
+</table>
+
+<h3>Optional Add-Ons / 可选附加服务</h3>
+<table class="t">
+  <thead><tr><th>Service</th><th>From</th><th>Selected</th></tr></thead>
+  <tbody>
+    <tr><td>Custom Automation Skill (bespoke workflow)</td><td>€650</td><td><span class="chk"></span></td></tr>
+    <tr><td>New Messaging Channel Integration</td><td>€1,100</td><td><span class="chk"></span></td></tr>
+    <tr><td>Single Sign-On (SAML 2.0 / OIDC)</td><td>€3,200</td><td><span class="chk"></span></td></tr>
+    <tr><td>Annual Maintenance Plan</td><td>€5,800/year</td><td><span class="chk"></span></td></tr>
+    <tr><td>Emergency Support (per incident)</td><td>€450</td><td><span class="chk"></span></td></tr>
+    <tr><td>Migration from legacy platform</td><td>€2,200</td><td><span class="chk"></span></td></tr>
+  </tbody>
+</table>
+
+<h3>About Claude Max / 关于Claude Max</h3>
+<div class="box box-slate">
+  <div class="bt bt-s">Understanding the AI Account Requirement / 了解AI账户要求</div>
+  <p style="margin-bottom:.5rem">The SDL-HappyClaw AI Agent Service requires an active AI account with an AI model provider to function. Think of it this way: <em>SDL-HappyClaw is the smartphone — Claude Max is your data and minutes plan.</em> The platform without an AI account is like a phone without a SIM.</p>
+  <p style="margin-bottom:.5rem">The current recommended AI account is <strong>Claude Max</strong>, offered by Anthropic PBC at <code>claude.ai/pricing</code>. SDL-HappyClaw does not mark up AI account costs and passes them through at zero uplift where it manages the account on your behalf (Modes B and C).</p>
+  <p style="font-size:.85rem;color:var(--muted);margin-bottom:0">AI account availability, pricing, and terms are determined solely by Anthropic PBC and are subject to change. SDL-HappyClaw accepts no liability for changes to AI account pricing or availability made by Anthropic. In the event that the recommended AI model provider changes (e.g. due to service discontinuation, pricing changes, or regulatory requirements), SDL-HappyClaw will notify Party A at least 30 days in advance and identify a suitable alternative.</p>
+  <p style="margin-top:.6rem;font-size:.85rem;color:#3a5a4a">SDL-HappyClaw AI智能体服务运行需要活跃的AI供应商账户。可以这样理解：SDL-HappyClaw是智能手机，Claude Max是您的流量和通话套餐。没有AI账户的平台就像没有SIM卡的手机。当前推荐的AI账户为Anthropic PBC提供的Claude Max（见claude.ai/pricing）。乙方不对AI账户费用加价，在代为管理账户时（B、C模式）按零加价传递费用。</p>
+</div>
+
+<div class="thick"></div>
+
+<!-- SIGNATURES -->
+<h2 id="signatures"><span class="sn">Sign</span> Signatures / 签署</h2>
+<div class="box box-blue">
+  <div class="bt bt-b">ℹ️ Execution / 签署方式</div>
+  This Agreement (including all Annexes) may be executed in counterparts. Electronic signatures (DocuSign, Adobe Sign, or equivalent) are binding. By signing, each Party confirms it has read, understood, and agrees to be bound by this Agreement in its entirety, including all Annexes and the AUP incorporated by reference.
+  <br><em style="font-size:.85rem;color:var(--blue)">本协议（含所有附件）可分别签署。电子签名（DocuSign、Adobe Sign或同等平台）具有约束力。签署即表示各方已阅读、理解并同意受本协议全部条款约束，包括所有附件及以引用方式并入的AUP。</em>
+</div>
+
+<div class="sig-grid">
+  <div class="sig-box">
+    <div class="sig-label">Party A — Customer / 甲方（客户）</div>
+    <div class="sig-line"></div><div class="sig-hint">Authorised Signatory / 授权签字人</div>
+    <div class="sig-line" style="margin-top:1rem"></div><div class="sig-hint">Printed Name &amp; Title / 姓名及职务</div>
+    <div class="sig-line" style="margin-top:1rem"></div><div class="sig-hint">Date / 日期 (DD/MM/YYYY)</div>
+    <div class="sig-line" style="margin-top:1rem"></div><div class="sig-hint">Company Seal (if applicable) / 公司盖章（如适用）</div>
+  </div>
+  <div class="sig-box">
+    <div class="sig-label">Party B — SDL-HappyClaw (OneMore Management Ltd)</div>
+    <div class="sig-line"></div><div class="sig-hint">Authorised Signatory / 授权签字人</div>
+    <div class="sig-line" style="margin-top:1rem"></div><div class="sig-hint">Printed Name &amp; Title / 姓名及职务</div>
+    <div class="sig-line" style="margin-top:1rem"></div><div class="sig-hint">Date / 日期 (DD/MM/YYYY)</div>
+    <div class="sig-line" style="margin-top:1rem"></div><div class="sig-hint">Company Seal / 公司盖章</div>
+  </div>
+</div>
+
+<hr>
+<div class="box box-blue" style="margin-top:1rem">
+  <div class="bt bt-b">📄 Document Control / 文件管理</div>
+  Agreement v2.0 · Effective 1 May 2026 · Supersedes all prior service agreements · Review: quarterly or on trigger event · Next scheduled review: August 2026 (EU AI Act Art. 50 deadline) · Contact: SixDustsLab@gmail.com · +44 7440 060028 (non-PRC)
+</div>
+
+</div><!-- /body -->
+
+<div class="ftr">
+  <strong>SDL-HappyClaw AI Agent Service · OneMore Management Ltd · Gibraltar</strong>
+  <span>Service Agreement v2.0 · 1 May 2026 · Gibraltar Law</span>
+  <span>© 2026 OneMore Management Ltd · All rights reserved · CONFIDENTIAL</span>
+</div>
+</div><!-- /wrap -->
+</body>
+</html>
