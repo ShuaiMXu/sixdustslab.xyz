@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming Soon — SDL-HappyClaw by SixDustsLab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0c0e;
+    --bg-card: #13141a;
+    --text: #e9eaec;
+    --text-dim: #8a8d93;
+    --accent: #bcd9ff;
+    --accent-dim: rgba(188, 217, 255, 0.12);
+    --border: rgba(255, 255, 255, 0.06);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 560px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Logo area */
+  .logo {
+    margin-bottom: 3rem;
+  }
+
+  .logo-mark {
+    font-family: 'Geist', system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 0.75rem;
+  }
+
+  .logo-name {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+
+  .logo-name span {
+    color: var(--accent);
+  }
+
+  .divider {
+    width: 48px;
+    height: 1px;
+    background: var(--accent);
+    opacity: 0.4;
+    margin: 0 auto 3rem;
+  }
+
+  /* Heading */
+  h1 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 3.5rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+  }
+
+  .subtitle {
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--text-dim);
+    max-width: 420px;
+    margin: 0 auto 3rem;
+    line-height: 1.65;
+  }
+
+  /* Contact card */
+  .contact-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-card h2 {
+    font-family: 'Geist', system-ui, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 1.25rem;
+  }
+
+  .contact-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .contact-links li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 10px;
+    background: var(--accent-dim);
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background 0.2s ease, transform 0.15s ease;
+  }
+
+  .contact-links li a:hover {
+    background: rgba(188, 217, 255, 0.18);
+    transform: translateY(-1px);
+  }
+
+  .contact-links li a .label {
+    font-family: 'Geist', system-ui, sans-serif;
+    color: var(--text-dim);
+    font-weight: 400;
+    font-size: 0.85rem;
+    margin-right: 0.25rem;
+  }
+
+  .contact-links li a .value {
+    font-family: 'Geist', system-ui, sans-serif;
+  }
+
+  /* Back link */
+  .back-link {
+    display: inline-block;
+    margin-bottom: 3rem;
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: color 0.2s ease;
+  }
+
+  .back-link:hover {
+    color: var(--accent);
+  }
+
+  .back-link .arrow {
+    margin-right: 0.35rem;
+    transition: transform 0.2s ease;
+    display: inline-block;
+  }
+
+  .back-link:hover .arrow {
+    transform: translateX(-3px);
+  }
+
+  /* Footer */
+  footer {
+    color: var(--text-dim);
+    font-size: 0.78rem;
+    font-weight: 400;
+    opacity: 0.6;
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    body {
+      padding: 1.5rem 1rem;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+    }
+
+    .logo-name {
+      font-size: 1.6rem;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+    }
+
+    .contact-card {
+      padding: 1.5rem;
+    }
+
+    .contact-links li a {
+      flex-direction: column;
+      gap: 0.2rem;
+      padding: 0.85rem 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="logo">
+    <div class="logo-mark">SixDustsLab</div>
+    <div class="logo-name">SDL-<span>HappyClaw</span></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h1>Coming Soon</h1>
+
+  <p class="subtitle">We're building something great. This page will be available shortly.</p>
+
+  <div class="contact-card">
+    <h2>In the meantime, get in touch</h2>
+    <ul class="contact-links">
+      <li>
+        <a href="mailto:SixDustsLab@gmail.com">
+          <span class="label">Email</span>
+          <span class="value">SixDustsLab@gmail.com</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://wa.me/447440060028" target="_blank" rel="noopener">
+          <span class="label">WhatsApp</span>
+          <span class="value">+44 7440 060028</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://t.me/+447440060028" target="_blank" rel="noopener">
+          <span class="label">Telegram</span>
+          <span class="value">+44 7440 060028</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <a href="https://sixdustslab.xyz" class="back-link"><span class="arrow">&larr;</span> Back to sixdustslab.xyz</a>
+
+  <footer>&copy; 2026 OneMore Management Ltd. &middot; Gibraltar</footer>
+
+</div>
+
+</body>
+</html>
