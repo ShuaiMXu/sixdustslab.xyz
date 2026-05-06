@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Acceptable Use Policy | SDL-HappyClaw AI Agent Service</title>
 <style>
+:root{--font-body:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--font-heading:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--font-mono:'JetBrains Mono',monospace}body{font-family:var(--font-body)}h1,h2,h3,h4,h5,h6{font-family:var(--font-heading)}code,pre,.mono{font-family:var(--font-mono)}
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
 
   :root {
@@ -32,7 +34,7 @@
 
   body {
     background: var(--body-bg);
-    font-family: 'Source Serif 4', Georgia, serif;
+    font-family:var(--font-body);
     font-size: 16px;
     line-height: 1.75;
     color: var(--slate);
@@ -82,9 +84,9 @@
     padding: 0.3rem 1rem;
     margin-bottom: 1rem;
   }
-  .header-badge span { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--amber); letter-spacing: 0.08em; text-transform: uppercase; }
+  .header-badge span { font-family:var(--font-mono); font-size: 0.72rem; color: var(--amber); letter-spacing: 0.08em; text-transform: uppercase; }
   .doc-header h1 {
-    font-family: 'Playfair Display', serif;
+    font-family:var(--font-heading);
     font-size: 2.4rem;
     font-weight: 700;
     color: #ffffff;
@@ -92,7 +94,7 @@
     margin-bottom: 0.5rem;
   }
   .header-sub { color: rgba(255,255,255,0.72); font-size: 1rem; margin-bottom: 0.3rem; }
-  .header-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: rgba(255,255,255,0.45); margin-top: 1rem; display: flex; gap: 2rem; flex-wrap: wrap; }
+  .header-meta { font-family:var(--font-mono); font-size: 0.75rem; color: rgba(255,255,255,0.45); margin-top: 1rem; display: flex; gap: 2rem; flex-wrap: wrap; }
   .header-meta span { display: flex; align-items: center; gap: 0.4rem; }
 
   /* ── NAVIGATION (TOC) ── */
@@ -105,7 +107,7 @@
     border-bottom: 3px solid var(--amber);
   }
   .toc-bar a {
-    font-family: 'JetBrains Mono', monospace;
+    font-family:var(--font-mono);
     font-size: 0.7rem;
     color: rgba(255,255,255,0.6);
     text-decoration: none;
@@ -129,7 +131,7 @@
   .callout-blue  { background: var(--blue-note-bg); border-left: 5px solid var(--blue-note); }
   .callout-red   { background: var(--red-warn-bg); border-left: 5px solid var(--red-warn); }
   .callout-green { background: #edf7f0; border-left: 5px solid #27ae60; }
-  .callout-title { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .callout-title { font-family:var(--font-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem; }
   .callout-amber .callout-title { color: #a0620a; }
   .callout-blue  .callout-title { color: var(--blue-note); }
   .callout-red   .callout-title { color: var(--red-warn); }
@@ -139,7 +141,7 @@
   .section-anchor { scroll-margin-top: 1rem; }
 
   h2 {
-    font-family: 'Playfair Display', serif;
+    font-family:var(--font-heading);
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--green-deep);
@@ -152,7 +154,7 @@
   }
   h2:first-of-type { margin-top: 0; }
   .sec-num {
-    font-family: 'JetBrains Mono', monospace;
+    font-family:var(--font-mono);
     font-size: 0.75rem;
     background: var(--green-deep);
     color: var(--amber);
@@ -162,7 +164,7 @@
   }
 
   h3 {
-    font-family: 'Playfair Display', serif;
+    font-family:var(--font-heading);
     font-size: 1.15rem;
     font-weight: 600;
     color: var(--green-mid);
@@ -170,7 +172,7 @@
   }
 
   h4 {
-    font-family: 'JetBrains Mono', monospace;
+    font-family:var(--font-mono);
     font-size: 0.82rem;
     font-weight: 500;
     color: var(--muted);
@@ -205,7 +207,7 @@
     top: 0.6rem;
     color: var(--red-warn);
     font-weight: 700;
-    font-family: 'JetBrains Mono', monospace;
+    font-family:var(--font-mono);
     font-size: 0.8rem;
   }
   .prohibited-list li strong { color: var(--red-warn); }
@@ -225,7 +227,7 @@
     top: 0.5rem;
     color: #27ae60;
     font-weight: 700;
-    font-family: 'JetBrains Mono', monospace;
+    font-family:var(--font-mono);
   }
 
   /* ── ADDENDUM SECTIONS ── */
@@ -246,7 +248,7 @@
   .addendum-header.af   { background: linear-gradient(90deg, #1a5c2e 0%, #27ae60 100%); }
   .addendum-flag { font-size: 1.8rem; }
   .addendum-title-wrap h3 { color: white; margin: 0 0 0.15rem; font-size: 1.1rem; }
-  .addendum-title-wrap p  { color: rgba(255,255,255,0.75); font-size: 0.82rem; margin: 0; font-family: 'JetBrains Mono', monospace; }
+  .addendum-title-wrap p  { color: rgba(255,255,255,0.75); font-size: 0.82rem; margin: 0; font-family:var(--font-mono); }
   .addendum-body { padding: 1.8rem; }
   .addendum-body h4 { color: var(--slate); margin-top: 1rem; }
 
@@ -263,7 +265,7 @@
     padding: 1rem 1.2rem;
     background: #fafbfd;
   }
-  .penalty-card .juris { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.3rem; }
+  .penalty-card .juris { font-family:var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.3rem; }
   .penalty-card .amount { font-size: 1.05rem; font-weight: 600; color: var(--red-warn); margin-bottom: 0.2rem; }
   .penalty-card .basis { font-size: 0.82rem; color: var(--muted); }
 
@@ -285,10 +287,10 @@
   }
   .saving-clause ol { counter-reset: sc; list-style: none; margin-left: 0; }
   .saving-clause ol li { counter-increment: sc; padding-left: 2.2rem; position: relative; margin-bottom: 0.7rem; font-size: 0.94rem; }
-  .saving-clause ol li::before { content: counter(sc, upper-alpha) '.'; position: absolute; left: 0; font-family: 'JetBrains Mono', monospace; font-weight: 600; color: #3a5fc0; font-size: 0.82rem; top: 0.1rem; }
+  .saving-clause ol li::before { content: counter(sc, upper-alpha) '.'; position: absolute; left: 0; font-family:var(--font-mono); font-weight: 600; color: #3a5fc0; font-size: 0.82rem; top: 0.1rem; }
 
   /* ── INLINE CODE ── */
-  code { font-family: 'JetBrains Mono', monospace; font-size: 0.82em; background: #f0f2f5; padding: 0.1em 0.4em; border-radius: 3px; }
+  code { font-family:var(--font-mono); font-size: 0.82em; background: #f0f2f5; padding: 0.1em 0.4em; border-radius: 3px; }
 
   /* ── FOOTER ── */
   .doc-footer {
@@ -302,7 +304,7 @@
     gap: 0.5rem;
     font-size: 0.75rem;
     color: var(--muted);
-    font-family: 'JetBrains Mono', monospace;
+    font-family:var(--font-mono);
   }
   .footer-brand { color: var(--green-mid); font-weight: 600; }
 
@@ -319,7 +321,7 @@
   /* ── LANGUAGE TABS ── */
   .lang-tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
   .lang-tab {
-    font-family: 'JetBrains Mono', monospace;
+    font-family:var(--font-mono);
     font-size: 0.7rem;
     padding: 0.25rem 0.8rem;
     border-radius: 20px;
@@ -334,7 +336,7 @@
 
   /* ── VERSION CHIP ── */
   .version-chip {
-    font-family: 'JetBrains Mono', monospace;
+    font-family:var(--font-mono);
     font-size: 0.68rem;
     background: var(--amber);
     color: var(--green-deep);
