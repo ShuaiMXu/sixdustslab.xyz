@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acceptable Use Policy | SDL-HappyClaw AI Agent Service</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --green-deep:   #0a2a1f;
+    --green-mid:    #1e3a2f;
+    --green-light:  #2d5240;
+    --amber:        #f5b042;
+    --amber-light:  #fef6e0;
+    --amber-border: #f5b042;
+    --blue-note:    #1a5276;
+    --blue-note-bg: #eaf2f8;
+    --red-warn:     #7b1a1a;
+    --red-warn-bg:  #fdf0f0;
+    --slate:        #1e293b;
+    --muted:        #5a6a7e;
+    --rule:         #dde3eb;
+    --body-bg:      #f4f6f9;
+    --card-bg:      #ffffff;
+    --radius-lg:    20px;
+    --radius-md:    12px;
+    --radius-sm:    8px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--body-bg);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--slate);
+    padding: 2rem 1rem 4rem;
+  }
+
+  /* ── DOCUMENT WRAPPER ── */
+  .doc-wrap {
+    max-width: 980px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+
+  /* ── HEADER ── */
+  .doc-header {
+    background: linear-gradient(108deg, var(--green-deep) 0%, var(--green-mid) 60%, var(--green-light) 100%);
+    padding: 2.8rem 3rem 2.2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .doc-header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: rgba(245,176,66,0.08);
+  }
+  .doc-header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 40%;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+  }
+  .header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(245,176,66,0.18);
+    border: 1px solid rgba(245,176,66,0.35);
+    border-radius: 40px;
+    padding: 0.3rem 1rem;
+    margin-bottom: 1rem;
+  }
+  .header-badge span { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--amber); letter-spacing: 0.08em; text-transform: uppercase; }
+  .doc-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+  .header-sub { color: rgba(255,255,255,0.72); font-size: 1rem; margin-bottom: 0.3rem; }
+  .header-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: rgba(255,255,255,0.45); margin-top: 1rem; display: flex; gap: 2rem; flex-wrap: wrap; }
+  .header-meta span { display: flex; align-items: center; gap: 0.4rem; }
+
+  /* ── NAVIGATION (TOC) ── */
+  .toc-bar {
+    background: var(--green-deep);
+    padding: 0.9rem 3rem;
+    display: flex;
+    gap: 0.5rem 1.8rem;
+    flex-wrap: wrap;
+    border-bottom: 3px solid var(--amber);
+  }
+  .toc-bar a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transition: color 0.2s;
+  }
+  .toc-bar a:hover { color: var(--amber); }
+
+  /* ── CONTENT ── */
+  .doc-body { padding: 2.8rem 3rem; }
+
+  /* ── CALLOUT BOXES ── */
+  .callout {
+    border-radius: var(--radius-md);
+    padding: 1.2rem 1.6rem;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+  }
+  .callout-amber { background: var(--amber-light); border-left: 5px solid var(--amber); }
+  .callout-blue  { background: var(--blue-note-bg); border-left: 5px solid var(--blue-note); }
+  .callout-red   { background: var(--red-warn-bg); border-left: 5px solid var(--red-warn); }
+  .callout-green { background: #edf7f0; border-left: 5px solid #27ae60; }
+  .callout-title { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .callout-amber .callout-title { color: #a0620a; }
+  .callout-blue  .callout-title { color: var(--blue-note); }
+  .callout-red   .callout-title { color: var(--red-warn); }
+  .callout-green .callout-title { color: #1a7a40; }
+
+  /* ── SECTION HEADINGS ── */
+  .section-anchor { scroll-margin-top: 1rem; }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--green-deep);
+    margin: 2.8rem 0 0.8rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--rule);
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+  }
+  h2:first-of-type { margin-top: 0; }
+  .sec-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    background: var(--green-deep);
+    color: var(--amber);
+    padding: 0.15rem 0.55rem;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--green-mid);
+    margin: 1.6rem 0 0.5rem;
+  }
+
+  h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 1.2rem 0 0.4rem;
+  }
+
+  p { margin-bottom: 0.9rem; }
+
+  /* ── LISTS ── */
+  ul, ol { margin: 0.6rem 0 1rem 1.4rem; }
+  li { margin-bottom: 0.45rem; }
+  ul li::marker { color: var(--amber); }
+  ol li::marker { color: var(--green-mid); font-weight: 600; }
+
+  /* Prohibited use items get red markers */
+  .prohibited-list { list-style: none; margin-left: 0; }
+  .prohibited-list li {
+    padding: 0.6rem 0.8rem 0.6rem 2.6rem;
+    position: relative;
+    border-radius: var(--radius-sm);
+    margin-bottom: 0.4rem;
+    background: #fdf8f8;
+    border: 1px solid #f0dada;
+    font-size: 0.95rem;
+  }
+  .prohibited-list li::before {
+    content: '✕';
+    position: absolute;
+    left: 0.8rem;
+    top: 0.6rem;
+    color: var(--red-warn);
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+  }
+  .prohibited-list li strong { color: var(--red-warn); }
+
+  /* Permitted items */
+  .permitted-list { list-style: none; margin-left: 0; }
+  .permitted-list li {
+    padding: 0.5rem 0.8rem 0.5rem 2.4rem;
+    position: relative;
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+  }
+  .permitted-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0.5rem;
+    top: 0.5rem;
+    color: #27ae60;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ── ADDENDUM SECTIONS ── */
+  .addendum {
+    border: 2px solid var(--rule);
+    border-radius: var(--radius-lg);
+    margin: 2.5rem 0;
+    overflow: hidden;
+  }
+  .addendum-header {
+    padding: 1.2rem 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .addendum-header.eu   { background: linear-gradient(90deg, #003399 0%, #0055cc 100%); }
+  .addendum-header.cn   { background: linear-gradient(90deg, #8b0000 0%, #c0392b 100%); }
+  .addendum-header.af   { background: linear-gradient(90deg, #1a5c2e 0%, #27ae60 100%); }
+  .addendum-flag { font-size: 1.8rem; }
+  .addendum-title-wrap h3 { color: white; margin: 0 0 0.15rem; font-size: 1.1rem; }
+  .addendum-title-wrap p  { color: rgba(255,255,255,0.75); font-size: 0.82rem; margin: 0; font-family: 'JetBrains Mono', monospace; }
+  .addendum-body { padding: 1.8rem; }
+  .addendum-body h4 { color: var(--slate); margin-top: 1rem; }
+
+  /* ── PENALTY TABLE ── */
+  .penalty-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  .penalty-card {
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.2rem;
+    background: #fafbfd;
+  }
+  .penalty-card .juris { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.3rem; }
+  .penalty-card .amount { font-size: 1.05rem; font-weight: 600; color: var(--red-warn); margin-bottom: 0.2rem; }
+  .penalty-card .basis { font-size: 0.82rem; color: var(--muted); }
+
+  /* ── DIVIDERS ── */
+  hr { border: none; border-top: 1px solid var(--rule); margin: 2rem 0; }
+  .thick-rule { border-top: 3px solid var(--amber); margin: 2.5rem 0; }
+
+  /* ── DEFINITION TERM ── */
+  dt { font-weight: 600; color: var(--green-mid); margin-top: 0.8rem; }
+  dd { margin-left: 1.4rem; margin-bottom: 0.5rem; font-size: 0.95rem; }
+
+  /* ── SAVING CLAUSE BOX ── */
+  .saving-clause {
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%);
+    border: 1.5px solid #a8c0f0;
+    border-radius: var(--radius-md);
+    padding: 1.4rem 1.8rem;
+    margin: 1.5rem 0;
+  }
+  .saving-clause ol { counter-reset: sc; list-style: none; margin-left: 0; }
+  .saving-clause ol li { counter-increment: sc; padding-left: 2.2rem; position: relative; margin-bottom: 0.7rem; font-size: 0.94rem; }
+  .saving-clause ol li::before { content: counter(sc, upper-alpha) '.'; position: absolute; left: 0; font-family: 'JetBrains Mono', monospace; font-weight: 600; color: #3a5fc0; font-size: 0.82rem; top: 0.1rem; }
+
+  /* ── INLINE CODE ── */
+  code { font-family: 'JetBrains Mono', monospace; font-size: 0.82em; background: #f0f2f5; padding: 0.1em 0.4em; border-radius: 3px; }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    background: #f8fafc;
+    border-top: 1px solid var(--rule);
+    padding: 1.2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .footer-brand { color: var(--green-mid); font-weight: 600; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .doc-body, .doc-header { padding: 1.5rem; }
+    .toc-bar { padding: 0.8rem 1.5rem; }
+    .doc-footer { padding: 1rem 1.5rem; }
+    h2 { font-size: 1.3rem; }
+    .penalty-grid { grid-template-columns: 1fr; }
+    .header-meta { gap: 1rem; }
+  }
+
+  /* ── LANGUAGE TABS ── */
+  .lang-tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+  .lang-tab {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.8rem;
+    border-radius: 20px;
+    border: 1px solid var(--rule);
+    background: white;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+  .lang-tab.active { background: var(--green-deep); color: var(--amber); border-color: var(--green-deep); }
+
+  /* ── VERSION CHIP ── */
+  .version-chip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    background: var(--amber);
+    color: var(--green-deep);
+    font-weight: 600;
+    padding: 0.15rem 0.6rem;
+    border-radius: 10px;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: white; padding: 0; }
+    .doc-wrap { box-shadow: none; border-radius: 0; }
+    .toc-bar { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="doc-wrap">
+
+  <!-- ══════════════════════════════════════════════════════════ HEADER -->
+  <div class="doc-header">
+    <div class="header-badge"><span>SDL-HappyClaw · SixDustsLab · OneMore Management Ltd</span></div>
+    <h1>Acceptable Use Policy</h1>
+    <div class="header-sub">Universal Base · Governing use of the SDL-HappyClaw AI Agent Service</div>
+    <div class="header-meta">
+      <span>📄 Version 2.0</span>
+      <span>📅 Effective: 1 May 2026</span>
+      <span>🔄 Review: Quarterly or on trigger event</span>
+      <span>⚖️ Governing Law: Gibraltar</span>
+    </div>
+  </div>
+
+  <!-- TOC -->
+  <nav class="toc-bar">
+    <a href="#applicability">Applicability</a>
+    <a href="#definitions">Definitions</a>
+    <a href="#prohibited">Prohibited Conduct</a>
+    <a href="#ai-prohibited">AI Prohibited Uses</a>
+    <a href="#transparency">AI Transparency</a>
+    <a href="#adm">Automated Decisions</a>
+    <a href="#data">Data Protection</a>
+    <a href="#saving">Jurisdictional Compliance</a>
+    <a href="#enforcement">Enforcement</a>
+    <a href="#acceptance">Acceptance</a>
+    <a href="#addendum-eu">EU/UK Addendum</a>
+    <a href="#addendum-cn">China Addendum</a>
+    <a href="#addendum-af">Africa Addendum</a>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════════════════ BODY -->
+  <div class="doc-body">
+
+    <div class="callout callout-amber">
+      <div class="callout-title">📌 Scope of Application</div>
+      This Acceptable Use Policy ("AUP") applies to all users, customers, deployer-customers, referral partners and authorised third parties ("Users") accessing or using the SDL-HappyClaw AI Agent Service (the "Service"), including self-hosted, cloud-managed and API-integrated deployments. By accessing or using the Service, Users agree to comply with this AUP in its entirety, including any jurisdiction-specific Addendum applicable to them. In the event of conflict between this AUP and any Addendum, the Addendum prevails to the minimum extent necessary to achieve local-law compliance.
+    </div>
+
+    <!-- ── SECTION 1: DEFINITIONS ── -->
+    <h2 id="definitions" class="section-anchor"><span class="sec-num">1</span> Definitions</h2>
+    <p>In this AUP, the following terms have the meanings given below unless the context requires otherwise.</p>
+    <dl>
+      <dt>"AI System"</dt><dd>The SDL-HappyClaw AI Agent system and any integrated AI model (including Anthropic Claude (primary) and other technology providers as listed in SDL-HappyClaw's current Sub-Processor List ([URL]/sub-processors)) used to provide the Service.</dd>
+      <dt>"Automated Decision"</dt><dd>A decision made with no or only nominal human involvement, based solely or predominantly on automated processing of personal data, that produces legal effects on or similarly significantly affects a natural person.</dd>
+      <dt>"Customer Data"</dt><dd>All information, including personal data and end-user data, that a User submits to or processes through the Service.</dd>
+      <dt>"Deployer"</dt><dd>A User that deploys the Service to its own end-users or customers.</dd>
+      <dt>"Foundational Upstream Policies"</dt><dd>Anthropic's Usage Policy and Commercial Terms of Service, as updated from time to time, which Users are required to observe as a condition of using the Service.</dd>
+      <dt>"High-Risk Application"</dt><dd>Any use case listed in Section 4 of this AUP or in any applicable jurisdiction-specific Addendum as requiring prior written authorisation from SDL-HappyClaw.</dd>
+      <dt>"Personal Data"</dt><dd>Any information relating to an identified or identifiable natural person, as defined under the applicable data protection law of the relevant jurisdiction.</dd>
+      <dt>"Relevant Jurisdiction"</dt><dd>Any jurisdiction in which a User or its end-users are established, located or to which the Service is directed, being (without limitation) Gibraltar, the United Kingdom, any European Union member state, the People's Republic of China, Nigeria, Angola, and Mozambique.</dd>
+      <dt>"Service"</dt><dd>The SDL-HappyClaw AI Agent system, including all deployment modes, channels (WhatsApp, WeChat, DingTalk, Telegram, web widget, REST API), Skills, integrations, sub-processors and associated technical support.</dd>
+    </dl>
+
+    <!-- ── SECTION 2: GENERAL PROHIBITED CONDUCT ── -->
+    <h2 id="prohibited" class="section-anchor"><span class="sec-num">2</span> Prohibited Conduct — General</h2>
+    <p>Users shall not use the Service in any manner that is unlawful, non-compliant, deceptive or that infringes the rights of any person. The following activities are expressly prohibited:</p>
+    <ul class="prohibited-list">
+      <li>Sending unsolicited or unauthorised communications, including spam or commercial communications without the required consent, in violation of applicable electronic communications or marketing laws.</li>
+      <li>Harassment, abuse, intimidation, stalking, threatening behaviour, or dissemination of harmful, defamatory, hateful or discriminatory content.</li>
+      <li>Fraud, misrepresentation, phishing, identity theft or any other deceptive practice.</li>
+      <li>Impersonation of any individual, entity, government body or regulatory authority without authorisation.</li>
+      <li>Unauthorised access to, scraping, extraction or processing of personal data or confidential information.</li>
+      <li>Processing of personal data without a lawful basis or in breach of applicable data protection law, including without limitation failure to obtain required consent, failure to honour data subject rights, or failure to implement adequate technical and organisational measures.</li>
+      <li>Generating, distributing or facilitating content that depicts, promotes or enables child sexual abuse or exploitation.</li>
+      <li>Creating, deploying or facilitating weapons of mass destruction, critical-infrastructure attacks, or offensive cyber operations.</li>
+      <li>Prompt injection, adversarial attacks, jailbreaking or any technique intended to circumvent the Service's safety, filtering or policy controls.</li>
+      <li>Using outputs of the Service to train, fine-tune or distil a competing AI model without SDL-HappyClaw's prior written consent.</li>
+      <li>Any activity that violates applicable local, national or international laws or regulations in any Relevant Jurisdiction where the Service is used or directed.</li>
+    </ul>
+
+    <!-- ── SECTION 3: FOUNDATIONAL UPSTREAM POLICY FLOW-DOWN ── -->
+    <h2 id="upstream" class="section-anchor"><span class="sec-num">3</span> Foundational Upstream Policy Obligations</h2>
+    <p>The Service is powered in part by third-party AI models, including Anthropic's Claude API. Users acknowledge that:</p>
+    <ul>
+      <li>Anthropic's <strong>Usage Policy</strong> and <strong>Commercial Terms of Service</strong> (the "Foundational Upstream Policies") govern permitted uses of the underlying AI model and are incorporated into this AUP by reference.</li>
+      <li>Deployers must flow down the Foundational Upstream Policies to their own end-users through binding end-user terms that are no less restrictive than this AUP.</li>
+      <li>Any use of the Service that would cause SDL-HappyClaw or Anthropic to breach the Foundational Upstream Policies is prohibited.</li>
+      <li>SDL-HappyClaw may update this AUP <strong>immediately and without advance notice</strong> where required to give effect to an amendment to the Foundational Upstream Policies or to comply with a regulatory direction.</li>
+    </ul>
+
+    <!-- ── SECTION 4: AI-SPECIFIC PROHIBITED USES ── -->
+    <h2 id="ai-prohibited" class="section-anchor"><span class="sec-num">4</span> AI-Specific Prohibited Uses</h2>
+
+    <div class="callout callout-red">
+      <div class="callout-title">⚠️ Absolute Prohibitions — No Exceptions</div>
+      The following uses are prohibited globally regardless of any regulatory permission, customer instruction or contractual provision. These prohibitions reflect absolute bars under international and multi-jurisdictional law. They cannot be overridden by any jurisdiction-specific Addendum, contractual arrangement or User consent.
+    </div>
+
+    <h3>4.1 Categorically Prohibited AI Practices</h3>
+    <p>Users shall not use, configure, integrate or deploy the Service as an AI system for the following purposes:</p>
+    <ul class="prohibited-list">
+      <li><strong>Subliminal or manipulative techniques:</strong> Deploying techniques that operate below the threshold of conscious awareness, or that exploit psychological weaknesses, cognitive biases or vulnerabilities of specific groups (including by reason of age, disability, socio-economic situation or emotional state), with the objective or effect of materially distorting behaviour in a manner that causes or is likely to cause significant harm.</li>
+      <li><strong>Social scoring of natural persons:</strong> Evaluating or classifying natural persons based on their social behaviour or personal characteristics for the purpose of producing a social score that results in detrimental treatment of those persons in social contexts unrelated to the context in which the data was originally generated, or that is disproportionate to the seriousness of their behaviour.</li>
+      <li><strong>Real-time remote biometric identification in publicly accessible spaces:</strong> Using the Service for real-time remote biometric identification of natural persons in publicly accessible spaces, save in jurisdictions and circumstances where this is expressly authorised by applicable law and prior written authorisation has been obtained from SDL-HappyClaw.</li>
+      <li><strong>Biometric categorisation by sensitive attributes:</strong> Categorising natural persons on the basis of biometric data to deduce or infer their race, ethnic origin, political opinion, religious or philosophical belief, trade union membership, sex life or sexual orientation, save where required by law and expressly authorised.</li>
+      <li><strong>Emotion recognition in the workplace or educational settings:</strong> Inferring the emotions of natural persons in the course of their employment, in educational establishments or in any regulated setting where emotion inference is prohibited or restricted by applicable law.</li>
+      <li><strong>Untargeted facial image scraping:</strong> Creating or expanding facial recognition databases by scraping facial images from the internet or closed-circuit television systems without the explicit and informed consent of the data subjects.</li>
+      <li><strong>Predictive policing based solely on profiling:</strong> Making risk assessments or predictions about natural persons for law-enforcement purposes based solely on profiling or personality-trait inference, without reference to objective and verifiable evidence of past criminal behaviour.</li>
+      <li><strong>Content harmful to minors:</strong> Generating, facilitating or distributing content that sexually exploits, grooms, solicits, or otherwise harms persons under 18 years of age.</li>
+    </ul>
+
+    <h3>4.2 High-Risk Applications Requiring Prior Written Authorisation</h3>
+    <p>Users must obtain SDL-HappyClaw's <strong>prior written authorisation</strong> before deploying the Service for any of the following High-Risk Applications. Authorisation requests must be accompanied by a completed Data Protection Impact Assessment (and, where required, a Fundamental Rights Impact Assessment) and a description of the proposed human-oversight controls.</p>
+    <ul class="prohibited-list">
+      <li><strong>Employment screening and worker management:</strong> Using the Service as a determinative or significant input in decisions relating to recruitment, shortlisting, interview selection, appraisal, promotion, demotion, disciplinary action, termination or management of workers or job applicants, including automated CV screening, psychometric assessment or performance monitoring that produces significant effects on individual workers.</li>
+      <li><strong>Creditworthiness assessment and credit scoring:</strong> Deploying the Service to assess the creditworthiness of natural persons or small entities, to make or materially influence decisions regarding the grant, refusal, pricing or terms of credit, save where the User holds the requisite regulatory authorisation in each Relevant Jurisdiction and has implemented all required human-oversight, contestation and explanation mechanisms.</li>
+      <li><strong>Insurance risk assessment and pricing:</strong> Using the Service to assess the risk profile of natural persons for the purposes of life, health, motor or other insurance underwriting, or to calculate premiums that are binding on those persons, save with prior SDL-HappyClaw authorisation and compliance with all applicable sectoral regulations.</li>
+      <li><strong>Public benefit and social services eligibility:</strong> Deploying the Service to assess, determine or influence eligibility for state or public benefit programmes, social housing, social care services or other public services, or to rank or prioritise individuals for access to such services.</li>
+      <li><strong>Essential services access:</strong> Using the Service to screen, rank or determine access to utilities (energy, water, telecommunications), healthcare services, emergency services, educational enrolment or financial services that constitute essential services under applicable law.</li>
+      <li><strong>Consequential legal or similarly significant decisions:</strong> Using the Service as the sole or determinative basis for any other decision that produces legal effects on a natural person, or affects that person in a manner that is similarly significant in terms of their life circumstances, opportunities, rights or freedoms.</li>
+    </ul>
+
+    <div class="callout callout-blue">
+      <div class="callout-title">ℹ️ Permitted Incidental Uses</div>
+      The restrictions in Section 4.2 do not prohibit the Service being used to <em>assist</em> human decision-makers who retain genuine decision-making authority and accountability. A human reviewer who uses the Service as one non-determinative source of information, retains full discretion to override the Service's output, and is required to record and explain their decision independently of the Service's output does not constitute a prohibited use under this Section.
+    </div>
+
+    <!-- ── SECTION 5: AI TRANSPARENCY ── -->
+    <h2 id="transparency" class="section-anchor"><span class="sec-num">5</span> AI Transparency Obligations</h2>
+
+    <h3>5.1 Duty to Disclose AI Interaction</h3>
+    <p>Deployers that make the Service available to natural persons (end-users) must ensure that those end-users are informed, in a clear, timely and conspicuous manner, that they are interacting with an AI system and not a human being. This disclosure must be made:</p>
+    <ul>
+      <li>At or before the commencement of each interaction session;</li>
+      <li>In the language used by the end-user;</li>
+      <li>In a manner that is accessible to persons with disabilities;</li>
+      <li>Without being buried in general terms and conditions or privacy notices.</li>
+    </ul>
+    <p>Where a Deployer's business model legitimately requires the AI persona not to be disclosed (e.g., human-like customer service), the Deployer must obtain SDL-HappyClaw's prior written agreement and confirm that disclosure is required and lawfully achieved at the level of the Deployer's own terms of service.</p>
+
+    <h3>5.2 AI-Generated Content Labelling</h3>
+    <p>Where the Service generates synthetic content (including text, images, audio, video or any combination thereof) for publication or onward distribution, Deployers must ensure that such content is labelled:</p>
+    <ul>
+      <li><strong>Explicitly</strong> (in a human-readable form perceptible to the average reader or viewer); and</li>
+      <li><strong>Implicitly</strong> (in a machine-readable form embedded in the content's metadata or provenance data);</li>
+    </ul>
+    <p>in accordance with any applicable mandatory standard, including the EU AI Act Article 50(2) machine-readable marking requirements (effective 2 August 2026), China's AI Labelling Measures (GB 45438-2025, effective 1 September 2025), and any equivalent standard adopted in a Relevant Jurisdiction.</p>
+
+    <h3>5.3 Deepfake and Impersonation Disclosure</h3>
+    <p>Deployers shall not use the Service to generate content that depicts real natural persons in a realistic manner in situations they have not participated in, unless a clear and prominent disclosure of the AI-generated nature of the content is displayed at all times, and unless the depicted person has given explicit and informed consent where required by law.</p>
+
+    <!-- ── SECTION 6: AUTOMATED DECISION-MAKING ── -->
+    <h2 id="adm" class="section-anchor"><span class="sec-num">6</span> Automated Decision-Making — User Obligations</h2>
+    <p>Where a Deployer uses the Service in a context that involves or could involve Automated Decisions (including decisions with partially automated inputs from the Service), the Deployer must:</p>
+    <ul>
+      <li><strong>Notify</strong> affected natural persons of the fact of Automated Decision-making, the logic involved, and the significance and envisaged consequences for them, at the point of data collection and at the time of any decision;</li>
+      <li><strong>Provide for meaningful human review</strong> of any Automated Decision that produces legal or similarly significant effects, ensuring that the reviewing human has sufficient information, authority and time to genuinely consider and, where appropriate, override the decision;</li>
+      <li><strong>Ensure contestation rights:</strong> that affected persons can express their view, contest the outcome, and receive a substantive response from a human decision-maker within a reasonable time;</li>
+      <li>Conduct and maintain a <strong>Data Protection Impact Assessment</strong> (and, where applicable, a Fundamental Rights Impact Assessment) before deployment;</li>
+      <li>Comply with all sector-specific regulatory requirements applicable to Automated Decisions in each Relevant Jurisdiction, including those set out in the jurisdiction-specific Addenda to this AUP.</li>
+    </ul>
+
+    <!-- ── SECTION 7: DATA PROTECTION ── -->
+    <h2 id="data" class="section-anchor"><span class="sec-num">7</span> Data Protection and Privacy Obligations</h2>
+    <h3>7.1 Controller/Processor Roles</h3>
+    <p>Where Users process personal data using the Service:</p>
+    <ul>
+      <li>Users act as <strong>Data Controllers</strong> and are solely responsible for establishing and maintaining a lawful basis for processing under applicable data protection law.</li>
+      <li>SDL-HappyClaw acts as <strong>Data Processor</strong>, processing Customer Data solely on documented instructions from the User pursuant to the applicable Data Processing Agreement.</li>
+    </ul>
+    <h3>7.2 Special Category Data</h3>
+    <p>Users must not submit or process special category personal data (including health, biometric, genetic, racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, sex life or sexual orientation data) or equivalent sensitive categories under applicable law (including sensitive personal information under China's PIPL) through the Service unless:</p>
+    <ul>
+      <li>SDL-HappyClaw has given express written authorisation under the applicable Data Processing Agreement; and</li>
+      <li>a valid legal basis for processing such data exists under applicable law, including (where required) explicit consent of each affected data subject.</li>
+    </ul>
+    <h3>7.3 Data Subject Rights</h3>
+    <p>Users are solely responsible for implementing processes to honour data subject rights (including rights of access, rectification, erasure, restriction, portability, objection and rights related to Automated Decision-making) within the timeframes required by applicable law.</p>
+    <h3>7.4 Data Breach</h3>
+    <p>SDL-HappyClaw will notify Users of a personal data breach affecting Customer Data without undue delay, and in any event within 24 hours of confirmation. Users are responsible for their own statutory notification obligations to supervisory authorities and data subjects within the timeframes required in each Relevant Jurisdiction.</p>
+    <h3>7.5 Sub-processors</h3>
+    <p>SDL-HappyClaw maintains a public list of sub-processors at <code>[SDL-HappyClaw website URL]/sub-processors</code>. SDL-HappyClaw will provide 30 days' advance written notice before adding or replacing a sub-processor. Users may object on reasonable data-protection grounds within that period.</p>
+
+    <!-- ── SECTION 8: JURISDICTIONAL COMPLIANCE SAVING CLAUSE ── -->
+    <h2 id="saving" class="section-anchor"><span class="sec-num">8</span> Jurisdictional Compliance — Allocation of Responsibility</h2>
+
+    <div class="saving-clause">
+      <p style="margin-bottom:1rem;font-size:0.94rem;">The following sub-clauses are individually severable. Invalidity or unenforceability of any sub-clause in a particular jurisdiction does not affect its operation in any other jurisdiction or the validity of the remaining sub-clauses.</p>
+      <ol>
+        <li><strong>Split compliance covenant.</strong> SDL-HappyClaw shall comply with all laws applicable to the provision of the Service (including as data processor). Each User shall comply with all laws applicable to their use of the Service and to the activities of their end-users, including all applicable data protection, AI, consumer, employment, financial services and sector-specific laws in each Relevant Jurisdiction in which the User or its end-users operate or are located.</li>
+        <li><strong>User responsibility for local-law compliance.</strong> Users acknowledge that SDL-HappyClaw is a Gibraltar-incorporated entity that cannot guarantee in-country compliance for each Relevant Jurisdiction. Each User is solely responsible for: (i) obtaining all regulatory licences, registrations, filings and authorisations required for their use of the Service in each Relevant Jurisdiction; (ii) complying with all local-law requirements that apply by reason of the User's location, sector, or the nature of the User's processing activities; and (iii) maintaining records and documentation required by local law, including registrations with local supervisory authorities.</li>
+        <li><strong>AUP incorporation and updates.</strong> This AUP (including all Addenda) is incorporated into the User's agreement with SDL-HappyClaw. SDL-HappyClaw may update this AUP on 30 days' advance notice for standard updates, and immediately and without advance notice where an update is required to comply with a mandatory legal obligation, regulatory direction, court order, or amendment to the Foundational Upstream Policies. Continued use of the Service after the effective date of any update constitutes acceptance.</li>
+        <li><strong>Graduated response to illegality.</strong> If performance of any obligation under the User's agreement with SDL-HappyClaw becomes unlawful, or would subject SDL-HappyClaw to material regulatory risk or disproportionate cost in any jurisdiction, SDL-HappyClaw may, to the minimum extent reasonably necessary: suspend access to the Service for affected Users or territories; modify the Service or its terms; require the User to implement additional technical or contractual measures; or, if no lesser measure is sufficient, terminate the agreement on written notice.</li>
+        <li><strong>Export controls and sanctions.</strong> Users warrant that neither they nor their directors, officers, beneficial owners or customers are the subject of applicable sanctions, export restrictions or trade embargoes. Users shall not use the Service in a manner that causes SDL-HappyClaw or any sub-processor to violate any applicable export control law or sanctions regime, including UK SAMLA, EU Regulation 833/2014 (as amended), US OFAC/BIS regulations, or Gibraltar's Sanctions Act 2019. For clarity, Users are solely responsible for compliance with export controls applicable to their own downstream use of the Service.</li>
+        <li><strong>Data transfer addenda.</strong> Cross-border transfers of personal data to SDL-HappyClaw shall be governed by the applicable transfer mechanism set out in the Data Processing Agreement (including EU SCCs Module 2, UK IDTA, and/or the jurisdiction-specific data transfer addenda for China, Nigeria, Angola and Mozambique). Pending execution of any applicable addendum, Users located in or transferring data from a jurisdiction for which no transfer mechanism has yet been agreed shall not transfer personal data to SDL-HappyClaw from that jurisdiction.</li>
+        <li><strong>Asymmetric indemnity.</strong> Each User shall indemnify and hold SDL-HappyClaw harmless from and against any regulatory fines, penalties, claims, losses or costs arising from the User's failure to comply with applicable local law, this AUP, or any Addendum. SDL-HappyClaw's indemnity obligations (if any) are set out in the applicable Master Services Agreement and exclude losses arising from User non-compliance or High-Risk Application use without prior authorisation.</li>
+        <li><strong>Severance and reformation.</strong> If any provision of this AUP (including any Addendum) is found to be invalid, illegal or unenforceable in any jurisdiction: (i) it shall be modified to the minimum extent necessary to make it valid, legal and enforceable in that jurisdiction; (ii) its invalidity in that jurisdiction shall not affect its validity or enforceability in any other jurisdiction; and (iii) the remaining provisions of this AUP shall continue in full force and effect.</li>
+        <li><strong>Order of precedence.</strong> In the event of conflict between this AUP and other SDL-HappyClaw documents, the following order of precedence applies (highest first): applicable Data Processing Agreement → jurisdiction-specific Addendum → Master Services Agreement or Order Form → this AUP base text → Foundational Upstream Policies (as incorporated).</li>
+        <li><strong>Governing law and dispute resolution.</strong> This AUP is governed by and construed in accordance with the laws of Gibraltar. Disputes arising out of or in connection with this AUP shall be resolved by arbitration under the UNCITRAL Arbitration Rules, seated in Gibraltar, conducted in the English language, before a sole arbitrator appointed by agreement or (failing agreement) by the LCIA. Nothing in this clause prevents either party from seeking urgent injunctive or interim relief from any court of competent jurisdiction.</li>
+        <li><strong>Force majeure — legal change.</strong> Neither party shall be liable for failure to perform any obligation under this AUP to the extent that such failure is caused by a force majeure event, which expressly includes: a change of law or regulatory requirement in any Relevant Jurisdiction; a sovereign channel action (including blocking, throttling or mandated removal of any communication channel by a government authority); failure or suspension of any third-party platform (including underlying AI model providers) not caused by SDL-HappyClaw; or any act of God, pandemic, war, or critical infrastructure failure.</li>
+      </ol>
+    </div>
+
+    <!-- ── SECTION 9: ENFORCEMENT ── -->
+    <h2 id="enforcement" class="section-anchor"><span class="sec-num">9</span> Enforcement and Remedies</h2>
+    <p>SDL-HappyClaw monitors usage for compliance with this AUP and reserves the right to apply proportionate enforcement measures, including:</p>
+    <ul>
+      <li>Rate limiting, throttling or temporary suspension of access;</li>
+      <li>Restriction or revocation of specific features, channels or API access;</li>
+      <li>Termination of the agreement for material breach, on written notice with a 15-day cure period (save where the breach is incapable of cure, in which case immediate termination applies);</li>
+      <li>Notification to competent supervisory or regulatory authorities where required under applicable law;</li>
+      <li>Pursuing any other remedy available under applicable law or the Master Services Agreement.</li>
+    </ul>
+
+    <div class="callout callout-amber">
+      <div class="callout-title">⚠️ Penalty Exposure — Regulatory Overview</div>
+      Non-compliance with this AUP may expose Users to regulatory action in applicable jurisdictions. The following illustrates headline penalty ranges (not SDL-HappyClaw liability):
+      <div class="penalty-grid" style="margin-top:0.8rem;">
+        <div class="penalty-card"><div class="juris">EU — AI Act Art. 99(3)</div><div class="amount">€35m or 7% global turnover</div><div class="basis">Prohibited practices (Art. 5)</div></div>
+        <div class="penalty-card"><div class="juris">EU / Gibraltar — GDPR Art. 83(5)</div><div class="amount">€20m / £17.5m or 4% global turnover</div><div class="basis">Unlawful processing, ADM breaches</div></div>
+        <div class="penalty-card"><div class="juris">UK — UK GDPR / DUAA</div><div class="amount">£17.5m or 4% global turnover</div><div class="basis">Upper tier; PECR now at same level</div></div>
+        <div class="penalty-card"><div class="juris">China — PIPL Art. 66</div><div class="amount">RMB 50m or 5% of preceding-year turnover</div><div class="basis">Serious violation; 10% personal liability</div></div>
+        <div class="penalty-card"><div class="juris">Nigeria — NDPA 2023</div><div class="amount">NGN 10m or 2% of revenue</div><div class="basis">DCPMI tier</div></div>
+        <div class="penalty-card"><div class="juris">Angola — Lei 22/11</div><div class="amount">Up to USD 525,000 (precedent)</div><div class="basis">APD enforcement decisions</div></div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 10: ACCEPTANCE ── -->
+    <h2 id="acceptance" class="section-anchor"><span class="sec-num">10</span> User Acceptance and Auditability</h2>
+    <ul>
+      <li>Users must accept this AUP through a binding click-through or countersignature mechanism at the time of onboarding.</li>
+      <li>SDL-HappyClaw maintains version-controlled acceptance records, including User identity, timestamp, IP address and AUP version accepted.</li>
+      <li>Material updates will be communicated at least 30 days in advance (or immediately where legally required). Continued use of the Service following the effective date of an update constitutes acceptance.</li>
+      <li>Enterprise Users may be subject to audit rights, including the obligation to demonstrate compliance with this AUP and applicable law upon reasonable written request, subject to reasonable confidentiality protections.</li>
+      <li>SDL-HappyClaw reviews this AUP on a quarterly basis and following any material compliance event in a Relevant Jurisdiction, whichever is sooner.</li>
+    </ul>
+
+    <div class="thick-rule"></div>
+
+    <!-- ══════════════════════════════════════════════════════════ ADDENDUM EU/UK -->
+    <div class="addendum" id="addendum-eu">
+      <div class="addendum-header eu">
+        <div class="addendum-flag">🇪🇺🇬🇧</div>
+        <div class="addendum-title-wrap">
+          <h3>Addendum A — European Union &amp; United Kingdom</h3>
+          <p>Supplemental obligations for EU Member States and the United Kingdom · Effective 1 May 2026</p>
+        </div>
+      </div>
+      <div class="addendum-body">
+        <div class="callout callout-blue" style="margin-top:0">
+          <div class="callout-title">📌 Applicability</div>
+          This Addendum applies to any User established in, processing data originating from, or directing the Service at natural persons located in: any EU Member State; England, Wales, Scotland or Northern Ireland; or Gibraltar (which mirrors EU obligations). In the event of conflict between this Addendum and the Universal Base AUP, this Addendum prevails to the minimum extent required to achieve compliance.
+        </div>
+
+        <h4>A.1 EU AI Act — Prohibited Practices (Art. 5, in force 2 February 2025)</h4>
+        <p>The absolute prohibitions in Section 4.1 of the Universal Base AUP give effect to Article 5 of Regulation (EU) 2024/1689 (the "EU AI Act"). For EU-deployed instances, the following additional specificity applies: the prohibition on social scoring extends to evaluations conducted by or on behalf of public authorities. The prohibition on biometric categorisation extends to any AI system regardless of whether it operates in real time.</p>
+
+        <h4>A.2 EU AI Act — High-Risk Applications (Annex III, from 2 August 2026)</h4>
+        <p>EU Deployers must not use the Service for any application listed in Annex III of the EU AI Act (including employment and worker management, creditworthiness, life and health insurance pricing, public benefit eligibility, and essential services access) unless:</p>
+        <ul>
+          <li>prior written authorisation from SDL-HappyClaw has been obtained;</li>
+          <li>a <strong>Fundamental Rights Impact Assessment (FRIA)</strong> under EU AI Act Article 27 has been completed and made available to SDL-HappyClaw on request; and</li>
+          <li>all Article 14 human-oversight obligations and Article 13 transparency obligations are in place.</li>
+        </ul>
+
+        <h4>A.3 EU AI Act — Transparency Obligations (Art. 50, from 2 August 2026)</h4>
+        <p>All EU Deployers must, from 2 August 2026, ensure that end-users interacting with the Service are informed that they are communicating with an AI system (unless the context makes this obvious). Machine-readable labelling of AI-generated synthetic content is mandatory in accordance with the Commission's Code of Practice on AI-Generated Content. These obligations supplement Section 5 of the Universal Base AUP.</p>
+
+        <h4>A.4 GDPR — Automated Individual Decision-Making (Art. 22)</h4>
+        <p>For EU users, Article 22 EU GDPR continues to prohibit solely-automated decisions producing legal or similarly significant effects on natural persons, except where: (a) necessary for a contract; (b) authorised by EU or Member State law with appropriate safeguards; or (c) based on explicit consent. All three exceptions require Deployers to ensure human review on request, the right to express one's view and to contest the decision, and a meaningful explanation of the decision. The CJEU judgment in <em>C-203/22 Dun &amp; Bradstreet Austria</em> (2025) requires that the explanation be specific to the individual, not a general description of the algorithm.</p>
+
+        <h4>A.5 UK GDPR / Data (Use and Access) Act 2025 — Automated Decision-Making (Arts. 22A–22D, in force 5 February 2026)</h4>
+        <p>For UK users, the DUAA reformed the UK automated-decision-making regime with effect from 5 February 2026. Solely-automated significant decisions are now prima facie permitted for non-special-category data, subject to the following mandatory safeguards imposed by Articles 22A–22C UK GDPR:</p>
+        <ul>
+          <li>Notification to the data subject at the earliest practicable opportunity that a solely-automated decision has been or will be made;</li>
+          <li>A right for the data subject to make representations regarding the decision;</li>
+          <li>A right to obtain meaningful human review of the decision on request;</li>
+          <li>A right to contest the outcome of the decision.</li>
+        </ul>
+        <p>The prohibition on solely-automated decisions involving <strong>special-category data</strong> is retained under Article 22B(1) UK GDPR, except where authorised by law or explicit consent with equivalent safeguards. UK Deployers in the employment, credit, insurance, healthcare and public-service sectors should note the ICO's 31 March 2026 Report on Automated Decision-Making in Recruitment and the ICO's ongoing ADM and profiling consultation (closing 29 May 2026).</p>
+
+        <h4>A.6 Article 27 EU GDPR — EU Representative</h4>
+        <p>SDL-HappyClaw has appointed (or is required to appoint) a representative in the European Union under Article 27 EU GDPR. EU data subjects and supervisory authorities may address enquiries to that representative. Details are published at <code>[SDL-HappyClaw website URL]/legal/representatives</code>.</p>
+
+        <h4>A.7 Article 27 UK GDPR — UK Representative</h4>
+        <p>SDL-HappyClaw has appointed (or is required to appoint) a representative in the United Kingdom under Article 27 UK GDPR. UK data subjects and the ICO may address enquiries to that representative. Details are published at <code>[SDL-HappyClaw website URL]/legal/representatives</code>.</p>
+
+        <h4>A.8 EU SCCs and Data Transfers</h4>
+        <p>Transfers of EU personal data to SDL-HappyClaw (established in Gibraltar, a third country for EU GDPR purposes) are governed by EU Standard Contractual Clauses (Module 2: controller to processor) under Commission Implementing Decision (EU) 2021/914, supplemented by a Transfer Impact Assessment. Transfers to the United Kingdom are covered by the EU adequacy decision for the UK, renewed December 2025, valid to 27 December 2031.</p>
+
+        <h4>A.9 Digital Operational Resilience Act (DORA, Regulation (EU) 2022/2554)</h4>
+        <p>DORA applies directly to EU financial entities from 17 January 2025. Where SDL-HappyClaw's Service supports critical or important functions of an EU financial entity, the contractual arrangement must contain the minimum provisions set out in DORA Article 30. SDL-HappyClaw offers a DORA-compliant annex on request. The SLA for EU financial-entity clients is set out in the applicable Order Form and DORA Annex, and supersedes the standard SLA in the Order Form.</p>
+
+        <h4>A.10 UK Bribery Act 2010 — Referral Partners</h4>
+        <p>Referral partners operating in or from the United Kingdom are associated persons of SDL-HappyClaw for the purposes of the Bribery Act 2010, section 7. All referral partners must comply with SDL-HappyClaw's Anti-Bribery and Corruption Policy and the Referral Partner Agreement, and must not offer, promise, give, request or accept any financial or other advantage in connection with the introduction of business to SDL-HappyClaw.</p>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════ ADDENDUM CN -->
+    <div class="addendum" id="addendum-cn">
+      <div class="addendum-header cn">
+        <div class="addendum-flag">🇨🇳</div>
+        <div class="addendum-title-wrap">
+          <h3>Addendum B — People's Republic of China</h3>
+          <p>中国大陆适用补充条款 · Effective 1 May 2026</p>
+        </div>
+      </div>
+      <div class="addendum-body">
+
+        <div class="callout callout-red" style="margin-top:0">
+          <div class="callout-title">⚠️ Critical Notice — Channel and Model Restrictions</div>
+          WhatsApp and Telegram are blocked in mainland China and must not be referenced or used as service-delivery channels for PRC-based users. Only WeChat (微信), DingTalk (钉钉国际版), Feishu (飞书), web widget and REST API are supported for mainland deployments. Anthropic Claude API is not available in mainland China under Anthropic's Supported Regions Policy; PRC deployments must use a domestically compliant AI model (such as a domestically compliant AI supplier for the relevant transaction where not Entity-Listed) or an alternative on SDL-HappyClaw's approved model list.
+        </div>
+
+        <h4>B.1 PIPL — Automated Decision-Making (Art. 24)</h4>
+        <p>In accordance with Article 24 of the Personal Information Protection Law (PIPL, effective 1 November 2021), PRC Deployers using the Service in connection with personal information processing that involves automated decision-making must:</p>
+        <ul>
+          <li>Ensure that decision-making is transparent and the outcome is fair and impartial;</li>
+          <li>Prohibit unreasonable differential treatment of individuals in transaction prices or other transaction terms based on individual behaviour characteristics (i.e., prohibit "big data swindling");</li>
+          <li>Provide individuals with a mechanism to refuse solely-automated significant decisions and to request human review;</li>
+          <li>Provide a convenient means to exercise individual rights and respond within 15 working days.</li>
+        </ul>
+
+        <h4>B.2 Generative AI Interim Measures (生成式人工智能服务管理暂行办法, effective 15 August 2023)</h4>
+        <p>Where the Service generates content directed at PRC users through an interface with "public-opinion attributes or social-mobilisation capabilities", PRC Deployers are subject to the Generative AI Interim Measures and must:</p>
+        <ul class="prohibited-list">
+          <li>Not generate content that subverts state power, undermines national unity, incites ethnic hatred, promotes terrorism or extremism, disseminates false information, or is otherwise prohibited under PRC law.</li>
+          <li>Not generate content that infringes intellectual property rights or personal rights of third parties.</li>
+          <li>Not generate content involving the sexual exploitation of minors.</li>
+        </ul>
+        <p>PRC Deployers are responsible for conducting security self-assessments and, where required, filing with the Cyberspace Administration of China (CAC) and relevant provincial authorities prior to service launch. SDL-HappyClaw does not provide CAC filing services.</p>
+
+        <h4>B.3 Algorithm Recommendation Provisions (互联网信息服务算法推荐管理规定, effective 1 March 2022)</h4>
+        <p>Where the Service is configured to present personalised content or recommendations to PRC users based on their behaviour or characteristics, PRC Deployers must: (i) file the algorithm with the CAC within 10 working days of launch; (ii) provide users with a visible option to disable personalised recommendations; (iii) protect the lawful rights of platform workers under Article 20; and (iv) not use algorithms to induce excessive consumption or create addiction.</p>
+
+        <h4>B.4 AI-Generated Content Labelling (生成式人工智能生成内容标识办法 / GB 45438-2025, effective 1 September 2025)</h4>
+        <p>All AI-generated content produced by the Service and directed at PRC users must carry both an explicit label (in a form perceptible to the average user) and an implicit label (metadata / provenance data) in accordance with the CAC AI Labelling Measures and the mandatory national standard GB 45438-2025. SDL-HappyClaw will use commercially reasonable efforts to embed implicit labels in Service outputs; PRC Deployers are responsible for ensuring that explicit labels are displayed to end-users.</p>
+
+        <h4>B.5 Cross-Border Data Transfers — PIPL</h4>
+        <p>PRC Deployers who transfer personal information outside mainland China must ensure that the transfer complies with one of the following mechanisms under PIPL Chapter IV and the Provisions on Promoting and Regulating Cross-Border Data Flows (effective 22 March 2024):</p>
+        <ul>
+          <li><strong>CAC Security Assessment</strong> (mandatory where 1,000,000+ individuals' data transferred annually, or sensitive PI of 10,000+ individuals, or important data is involved);</li>
+          <li><strong>PRC Standard Contract (个人信息出境标准合同)</strong> (where 100,000–999,999 non-sensitive individuals or fewer than 10,000 sensitive individuals): the Standard Contract must be filed with the provincial CAC within 10 working days of execution;</li>
+          <li><strong>PI Protection Certification</strong> by an accredited body under GB/T 46068-2025 (effective 1 March 2026); or</li>
+          <li><strong>Contractual-necessity exemption</strong> under Article 5(1) of the 2024 Cross-Border Data Flow Provisions, where directly necessary to perform a cross-border purchasing contract to which the individual is a party.</li>
+        </ul>
+        <p>SDL-HappyClaw provides a PRC Standard Contract template on request. PRC Deployers are responsible for their own CAC filings and PI Protection Impact Assessment (PIPIA) documentation.</p>
+
+        <h4>B.6 Language Primacy</h4>
+        <p>Notwithstanding Section 8(J) of the Universal Base AUP (Gibraltar governing law), for the PRC Standard Contract (个人信息出境标准合同) only, PRC law governs and the Chinese-language version of that contract prevails over any English translation, as required by the Measures for Standard Contracts for Personal Information Export. All other documents in this Addendum are governed by Gibraltar law; the English version prevails.</p>
+
+        <h4>B.7 PIPL Article 53 — Designated Representative</h4>
+        <p>SDL-HappyClaw is required to appoint a designated representative in mainland China under PIPL Article 53. The name, address and contact details of SDL-HappyClaw's China representative are published at <code>[SDL-HappyClaw website URL]/legal/representatives</code>. PRC data subjects and the CAC may address rights requests and enquiries to that representative.</p>
+
+        <h4>B.8 Employment-Related Restrictions (China)</h4>
+        <p>PRC Deployers must not use the Service to conduct algorithmic scoring, ranking or selection of workers or job applicants in a manner that violates the Labour Contract Law (劳动合同法) or the MOHRSS platform-worker protections under the Algorithm Recommendation Provisions (Article 20). Any AI-assisted HR process must provide workers with a mechanism to contest outcomes.</p>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════ ADDENDUM AFRICA -->
+    <div class="addendum" id="addendum-af">
+      <div class="addendum-header af">
+        <div class="addendum-flag">🌍</div>
+        <div class="addendum-title-wrap">
+          <h3>Addendum C — Africa (Nigeria, Angola, Mozambique)</h3>
+          <p>Adendo Africano · Supplemento Africano · Effective 1 May 2026</p>
+        </div>
+      </div>
+      <div class="addendum-body">
+
+        <div class="callout callout-green" style="margin-top:0">
+          <div class="callout-title">📌 Applicability and Languages</div>
+          This Addendum applies to any User established in, or directing the Service at natural persons located in, Nigeria, Angola or Mozambique. Where Users operate in Angola or Mozambique, consumer-facing privacy notices, terms of service and communications with data subjects must be provided in Portuguese as the official language. Contract documents between commercial parties may be in English unless local law requires Portuguese.
+        </div>
+
+        <h3 style="margin-top:1.2rem;">C.1 Nigeria</h3>
+
+        <h4>C.1.1 Nigeria Data Protection Act 2023 (NDPA) — Automated Decision-Making (s. 37)</h4>
+        <p>Nigerian Users must comply with NDPA 2023 Section 37, which provides that data subjects have the right not to be subject to decisions based solely on automated processing of personal data (including profiling) that produce legal or similarly significant effects. The exceptions (contractual necessity, legal authorisation, explicit consent) mirror GDPR Article 22 and require equivalent safeguards including human review, contestation rights and a meaningful explanation. The NDPC GAID 2025, in force 19 September 2025, makes Data Protection Impact Assessments mandatory for any AI deployment affecting personal data.</p>
+
+        <h4>C.1.2 Sectoral Restrictions</h4>
+        <ul class="prohibited-list">
+          <li><strong>Financial services:</strong> Deployers that are registered with the Central Bank of Nigeria (CBN) must not use the Service as the sole basis for credit-scoring decisions. CBN AML Baseline Standards (March 2026) require annual independent model validation for any AI/ML system used in AML monitoring.</li>
+          <li><strong>Capital markets:</strong> Deployers that are regulated by the SEC Nigeria must not offer automated investment advice or robo-advisory services through the Service without SEC registration under the 2021 Robo-Advisory Rules.</li>
+          <li><strong>Consumer lending:</strong> Deployers using the Service for algorithmic consumer credit decisions must comply with the FCCPC Digital Consumer Lending Guidelines 2025.</li>
+        </ul>
+
+        <h4>C.1.3 NDPC Registration and Filing</h4>
+        <p>Nigerian Users or Users processing the personal data of Nigerian data subjects at scale must: (i) assess whether they qualify as a Data Controller/Processor of Major Importance (DCPMI) under GAID 2025; (ii) if so, register with the NDPC; and (iii) file annual Compliance Audit Returns by 31 March each year through a licensed Data Protection Compliance Organisation (DPCO). SDL-HappyClaw does not provide NDPC registration or DPCO services.</p>
+
+        <h4>C.1.4 Cross-Border Data Transfers — Nigeria</h4>
+        <p>Transfers of personal data of Nigerian data subjects to SDL-HappyClaw (Gibraltar) require an NDPC-approved instrument, NDPC authorisation, explicit consent, or a Schedule 5 GAID transfer mechanism. SDL-HappyClaw provides a Nigeria-specific data transfer schedule on request.</p>
+
+        <h3 style="margin-top:1.8rem;">C.2 Angola</h3>
+
+        <h4>C.2.1 Lei n.º 22/11 de 17 de Junho — Decisões Automatizadas (Art. 29) / Automated Decisions</h4>
+        <p>Under Article 29 of Angola's Lei 22/11, decisions taken exclusively on the basis of automated processing that assess aspects of a person's professional capacity, creditworthiness, reliability or behaviour are prohibited, save where: (a) necessary for the performance of a contract (with safeguards allowing the data subject to challenge the decision); or (b) authorised in advance by the Agência de Protecção de Dados (APD). Angolan Deployers must obtain APD prior authorisation before using the Service for any automated decision-making within the scope of Article 29.</p>
+
+        <h4>C.2.2 Additional Prohibited Uses — Angola</h4>
+        <ul class="prohibited-list">
+          <li>Processing of health data, biometric data or data concerning trade union membership without explicit consent and APD notification.</li>
+          <li>Surveillance of employees beyond what is permitted under Lei 12/23 de 27 de dezembro (Angola Labour Law 2024), including remote monitoring without written prior notice to workers.</li>
+          <li>Processing of personal data of minors without explicit parental consent.</li>
+        </ul>
+
+        <h4>C.2.3 Cross-Border Data Transfers — Angola</h4>
+        <p>Transfers of Angolan personal data to a non-adequate jurisdiction (which includes Gibraltar) require: (i) prior APD authorisation under Lei 22/11 Articles 33–34; and (ii) binding contractual safeguards ensuring a standard of protection substantially equivalent to Lei 22/11. SDL-HappyClaw provides an Angola-specific data transfer schedule (in Portuguese and English) on request.</p>
+
+        <h4>C.2.4 Breach Notification — Angola</h4>
+        <p>In light of APD Circular 02/APD/2024 (December 2024), Angolan Users must notify the APD and affected data subjects immediately upon becoming aware of a personal data breach. SDL-HappyClaw will notify Users within 24 hours of confirming a breach affecting Angolan Customer Data.</p>
+
+        <h4>C.2.5 Language Requirement</h4>
+        <p>All consumer-facing privacy notices, data subject rights information, and AI transparency disclosures for Angolan end-users must be provided in <strong>Portuguese</strong>. SDL-HappyClaw's Portuguese-language Privacy Notice template is available at <code>[SDL-HappyClaw website URL]/legal/privacy-notices</code>.</p>
+
+        <h3 style="margin-top:1.8rem;">C.3 Mozambique</h3>
+
+        <h4>C.3.1 Legal Framework (April 2026)</h4>
+        <p>Mozambique has no comprehensive data protection statute in force as at the effective date of this AUP. Applicable obligations derive from: Constitution of the Republic of Mozambique Articles 41 and 71 (privacy and dignity); Lei das Transacções Electrónicas (Lei 3/2017); Lei do Trabalho (Lei 13/2023) Articles 8–9 (employee data and remote-monitoring notice); BdM Aviso 8/GBM/2021 (financial consumer data); Decree 70/2025 (Cloud Computing) and Decree 71/2025 (Data Centres), both effective 31 December 2025; and the AU Malabo Convention (ratified by Mozambique 2019). The draft Personal Data Protection Bill 2025 remains in pre-parliamentary review; SDL-HappyClaw will update this Addendum upon enactment.</p>
+
+        <h4>C.3.2 Service-Delivery Resilience — Mozambique</h4>
+        <p>Users directing the Service at Mozambican end-users acknowledge that Mozambique has experienced government-ordered blocking of social media platforms and internet disruptions following political events (most recently October–November 2024). SDL-HappyClaw makes no availability commitment for third-party channel delivery (WhatsApp, Telegram) during any period of sovereign channel action in Mozambique. Service delivery via web widget and REST API is not subject to the same channel-blocking risk. Users deploying the Service in Mozambique should maintain an alternative communication channel as a contingency.</p>
+
+        <h4>C.3.3 Financial Services</h4>
+        <p>Users that are regulated by the Banco de Moçambique (BdM) must comply with BdM Aviso 8/GBM/2021 when processing financial consumer data through the Service, and must notify BdM of any outsourcing of customer-facing functions to a third-party AI provider in accordance with BdM ICT risk-reporting requirements.</p>
+
+        <h4>C.3.4 Language Requirement</h4>
+        <p>Consumer-facing privacy information, AI transparency disclosures, and contractual communications with Mozambican authorities and regulatory bodies must be provided in <strong>Portuguese</strong>. Commercial contracts between entities may be in English or Portuguese by agreement.</p>
+
+        <h4>C.3.5 Forward-Looking Compliance</h4>
+        <p>Upon enactment of the Mozambique Personal Data Protection Bill, SDL-HappyClaw will review and update this Addendum within 90 days. Mozambican Users are encouraged to monitor legislative developments through INTIC (Instituto Nacional de Tecnologias de Informação e Comunicação) and to engage local counsel in advance of the new law's implementation date.</p>
+
+      </div>
+    </div>
+
+    <!-- ── DOCUMENT CONTROL ── -->
+    <hr>
+    <div class="callout callout-blue">
+      <div class="callout-title">📄 Document Control</div>
+      <p style="margin-bottom:0.4rem;">This AUP forms an integral part of the SDL-HappyClaw Service Agreement and supersedes AUP Version 1.0 (April 2026). SDL-HappyClaw reserves the right to update this policy with reasonable notice, or immediately where required by law. The review schedule is quarterly (January, April, July, October) or upon a material compliance event in any Relevant Jurisdiction, whichever is sooner.</p>
+      <p style="margin-bottom:0.4rem;"><strong>Next scheduled review:</strong> July 2026 &nbsp;|&nbsp; <strong>Critical horizon:</strong> EU AI Act Art. 50 / Annex III obligations — <strong>2 August 2026</strong></p>
+      <p style="margin-bottom:0">For questions, to report violations or to request prior authorisation for High-Risk Applications: <strong>SixDustsLab@gmail.com</strong> &nbsp;|&nbsp; WhatsApp/Telegram (non-PRC): <strong>+44 7440 060028</strong></p>
+    </div>
+
+  </div><!-- /doc-body -->
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <span class="footer-brand">SDL-HappyClaw · SixDustsLab · OneMore Management Ltd</span>
+    <span>AUP v2.1 · Effective 1 May 2026 · Gibraltar Law · AI Agent Service (previously SDL-HappyClaw AI Agent Service)</span>
+    <span>© 2026 OneMore Management Ltd · All rights reserved</span>
+  </div>
+
+</div><!-- /doc-wrap -->
+</body>
+</html>
