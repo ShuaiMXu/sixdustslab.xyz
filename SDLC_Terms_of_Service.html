@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDL-HappyClaw &mdash; Terms of Service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        /* ── Reset & Variables ─────────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg:           #0b0c0e;
+            --bg-panel:     #111418;
+            --bg-aup:       #0f1216;
+            --border:       #1d2127;
+            --text:         #e9eaec;
+            --text-muted:   #8b8f96;
+            --accent:       #bcd9ff;
+            --accent-dim:   #6a9fd8;
+            --heading:      #ffffff;
+            --placeholder:  #e8443a;
+            --placeholder-bg: rgba(232,68,58,0.12);
+            --placeholder-border: rgba(232,68,58,0.35);
+            --max-width:    1200px;
+            --font-body:    'Geist', system-ui, -apple-system, sans-serif;
+            --font-mono:    'Geist Mono', 'Fira Code', monospace;
+            --font-serif:   'Instrument Serif', Georgia, serif;
+        }
+
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.78;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::selection { background: rgba(188,217,255,0.25); }
+
+        a { color: var(--accent); text-decoration: none; transition: color 0.15s; }
+        a:hover { color: #dfeeff; text-decoration: underline; }
+
+        /* ── Page Wrapper ─────────────────────────────────────── */
+        .page-wrapper {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 2.5rem 2rem 4rem;
+        }
+
+        /* ── Language Toggle Bar ──────────────────────────────── */
+        .lang-bar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .lang-bar label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-right: 0.25rem;
+        }
+
+        .lang-btn {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover { border-color: var(--accent-dim); color: var(--text); }
+
+        .lang-btn.active {
+            background: rgba(188,217,255,0.1);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* ── Header ───────────────────────────────────────────── */
+        .doc-header {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .doc-header h1 {
+            font-family: var(--font-serif);
+            font-size: 2.4rem;
+            font-weight: 400;
+            color: var(--heading);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .doc-header .meta {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+
+        .doc-header .meta span {
+            display: inline-block;
+            margin-right: 1.75rem;
+        }
+
+        .doc-header .preamble {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text);
+            max-width: 800px;
+        }
+
+        .doc-header .preamble p { margin-bottom: 0.75rem; }
+
+        .doc-header .preamble .lang-note {
+            font-size: 0.88rem;
+            color: var(--accent-dim);
+            font-style: italic;
+        }
+
+        /* ── Table of Contents ────────────────────────────────── */
+        .toc {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .toc h2 {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .toc ol {
+            list-style: none;
+            padding: 0;
+            columns: 2;
+            column-gap: 2rem;
+        }
+
+        .toc li {
+            margin-bottom: 0.35rem;
+            font-size: 0.92rem;
+            break-inside: avoid;
+        }
+
+        .toc li a {
+            color: var(--accent);
+            display: inline-block;
+            padding: 0.1rem 0;
+        }
+
+        .toc li a:hover { color: #dfeeff; }
+
+        .toc li .sec-num {
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            margin-right: 0.4rem;
+        }
+
+        /* ── Bilingual Columns ────────────────────────────────── */
+        .bilingual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .col-en, .col-zh { min-width: 0; }
+
+        .col-zh {
+            color: var(--text-muted);
+            border-left: 1px solid var(--border);
+            padding-left: 2.5rem;
+        }
+
+        .col-zh .zh-label {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent-dim);
+            background: rgba(188,217,255,0.08);
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            margin-bottom: 0.75rem;
+        }
+
+        /* ── Section Styling ──────────────────────────────────── */
+        .section {
+            margin-bottom: 3rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section:last-child { border-bottom: none; }
+
+        .section-heading {
+            font-family: var(--font-serif);
+            font-size: 1.55rem;
+            font-weight: 400;
+            color: var(--heading);
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.005em;
+        }
+
+        .section-heading .sec-num {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--accent-dim);
+            margin-right: 0.5rem;
+        }
+
+        .section p, .section li {
+            font-size: 0.95rem;
+            margin-bottom: 0.65rem;
+        }
+
+        .section ul, .section ol {
+            padding-left: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .section ul { list-style: disc; }
+
+        .section li { padding-left: 0.25rem; }
+
+        .subsection-heading {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--heading);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .section strong { color: var(--heading); font-weight: 600; }
+
+        /* ── AUP Special Styling ──────────────────────────────── */
+        .section-aup {
+            background: var(--bg-aup);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2rem 2.25rem;
+            margin-left: -0.5rem;
+            margin-right: -0.5rem;
+        }
+
+        .section-aup .aup-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            background: rgba(188,217,255,0.1);
+            border: 1px solid rgba(188,217,255,0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        /* ── Placeholder / Discussion Point Boxes ─────────────── */
+        .placeholder-box {
+            background: var(--placeholder-bg);
+            border: 1px solid var(--placeholder-border);
+            border-left: 3px solid var(--placeholder);
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            color: #f0a8a3;
+        }
+
+        .placeholder-box strong {
+            color: var(--placeholder);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.25rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .placeholder-box code {
+            background: rgba(232,68,58,0.15);
+            padding: 0.1rem 0.35rem;
+            border-radius: 3px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+        }
+
+        /* ── Footer ───────────────────────────────────────────── */
+        .doc-footer {
+            border-top: 2px solid var(--border);
+            padding-top: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .doc-footer p { margin-bottom: 0.4rem; }
+
+        .doc-footer .doc-ref {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--accent-dim);
+        }
+
+        /* ── Responsive ───────────────────────────────────────── */
+        @media (max-width: 768px) {
+            .page-wrapper { padding: 1.5rem 1rem 3rem; }
+
+            .doc-header h1 { font-size: 1.8rem; }
+
+            .toc ol { columns: 1; }
+
+            .bilingual {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .col-zh {
+                border-left: none;
+                padding-left: 0;
+                border-top: 1px dashed var(--border);
+                padding-top: 1.25rem;
+                margin-top: 1.25rem;
+            }
+
+            .section-aup {
+                margin-left: 0;
+                margin-right: 0;
+                padding: 1.25rem 1rem;
+            }
+
+            /* On mobile, hide ZH by default and show via toggle */
+            body.mobile-en-only .col-zh { display: none; }
+            body.mobile-zh-only .col-en { display: none; }
+            body.mobile-zh-only .col-zh {
+                color: var(--text);
+                border-left: none;
+                padding-left: 0;
+                border-top: none;
+                padding-top: 0;
+                margin-top: 0;
+            }
+        }
+
+        /* ── Print Styles ─────────────────────────────────────── */
+        @media print {
+            :root {
+                --bg: #ffffff;
+                --bg-panel: #f5f5f5;
+                --bg-aup: #f9f9f9;
+                --border: #cccccc;
+                --text: #111111;
+                --text-muted: #555555;
+                --accent: #1a5fa0;
+                --accent-dim: #2a6fb0;
+                --heading: #000000;
+                --placeholder: #cc0000;
+                --placeholder-bg: #fff0f0;
+                --placeholder-border: #ffcccc;
+            }
+
+            body {
+                background: white;
+                color: #111;
+                font-size: 11pt;
+                line-height: 1.6;
+                padding: 0;
+            }
+
+            .page-wrapper { max-width: 100%; padding: 0; }
+
+            .lang-bar { display: none; }
+
+            .bilingual { gap: 1.5rem; }
+
+            .col-zh {
+                border-left-color: #ccc;
+                color: #444;
+            }
+
+            .section { break-inside: avoid; }
+
+            .toc { break-inside: avoid; }
+
+            a { color: #1a5fa0; text-decoration: underline; }
+
+            .section-aup { border-color: #999; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- ── Language Toggle ──────────────────────────────────── -->
+    <div class="lang-bar">
+        <label>Display:</label>
+        <button class="lang-btn active" data-mode="both" onclick="setLang('both')">EN + 中文</button>
+        <button class="lang-btn" data-mode="en" onclick="setLang('en')">English</button>
+        <button class="lang-btn" data-mode="zh" onclick="setLang('zh')">中文</button>
+    </div>
+
+    <!-- ── Header ──────────────────────────────────────────── -->
+    <header class="doc-header">
+        <h1>SDL-HappyClaw &mdash; Terms of Service</h1>
+        <div class="meta">
+            <span>Effective date: <strong>23 April 2026</strong></span>
+            <span>Last updated: 23 April 2026</span>
+        </div>
+        <div class="preamble">
+            <div class="bilingual">
+                <div class="col-en">
+                    <p>By accessing or using this website and the SDL-HappyClaw service, you agree to be bound by these Terms. If you do not agree, please do not use the service.</p>
+                    <p class="lang-note">English is the governing language of these Terms. The Chinese translation is provided for convenience only; in the event of any conflict, the English version shall prevail.</p>
+                </div>
+                <div class="col-zh">
+                    <span class="zh-label">中文参考译本</span>
+                    <p>访问或使用本网站及 SDL-HappyClaw 服务即表示您同意受本条款的约束。如您不同意，请勿使用本服务。</p>
+                    <p class="lang-note">本条款以英文版本为准，中文译本仅供参考；如中英文版本存在歧义，以英文版本为准。</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ── Table of Contents ───────────────────────────────── -->
+    <nav class="toc" aria-label="Table of Contents">
+        <h2>Table of Contents &middot; 目录</h2>
+        <ol>
+            <li><a href="#s1"><span class="sec-num">1.</span> About Us &middot; 关于我们</a></li>
+            <li><a href="#s2"><span class="sec-num">2.</span> Service Description &middot; 服务描述</a></li>
+            <li><a href="#s3"><span class="sec-num">3.</span> Eligibility &middot; 使用资格</a></li>
+            <li><a href="#s4"><span class="sec-num">4.</span> Acceptable Use Policy &middot; 可接受使用政策</a></li>
+            <li><a href="#s5"><span class="sec-num">5.</span> Trial and Invitation Codes &middot; 试用与邀请码</a></li>
+            <li><a href="#s6"><span class="sec-num">6.</span> Intellectual Property &middot; 知识产权</a></li>
+            <li><a href="#s7"><span class="sec-num">7.</span> Payment, Refunds, and Cancellation &middot; 付款、退款与取消</a></li>
+            <li><a href="#s8"><span class="sec-num">8.</span> Disclaimer of Warranties &middot; 免责声明</a></li>
+            <li><a href="#s9"><span class="sec-num">9.</span> Limitation of Liability &middot; 责任限制</a></li>
+            <li><a href="#s10"><span class="sec-num">10.</span> Third-Party Services &middot; 第三方服务</a></li>
+            <li><a href="#s11"><span class="sec-num">11.</span> Privacy &middot; 隐私</a></li>
+            <li><a href="#s12"><span class="sec-num">12.</span> Governing Law and Jurisdiction &middot; 适用法律与管辖</a></li>
+            <li><a href="#s13"><span class="sec-num">13.</span> Changes to These Terms &middot; 条款修改</a></li>
+            <li><a href="#s14"><span class="sec-num">14.</span> Severability &middot; 可分割性</a></li>
+            <li><a href="#s15"><span class="sec-num">15.</span> Entire Agreement &middot; 完整协议</a></li>
+            <li><a href="#s16"><span class="sec-num">16.</span> Contact Us &middot; 联系我们</a></li>
+        </ol>
+    </nav>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 1 — About Us
+         ══════════════════════════════════════════════════════ -->
+    <section class="section" id="s1">
+        <h2 class="section-heading"><span class="sec-num">1.</span> About Us</h2>
+        <div class="bilingual">
+            <div class="col-en">
+                <p>OneMore Management Limited ("<strong>OMM</strong>", "<strong>we</strong>", "<strong>us</strong>", "<strong>our</strong>"), a company incorporated in Gibraltar (Company No. 118069), registered at 57/63 Line Wall Road, Gibraltar, GX11 1AA, operates the SDL-HappyClaw AI employee service and the website <a href="https://sixdustslab.xyz">sixdustslab.xyz</a>.</p>
+                <p>Contact: <a href="mailto:SixDustsLab@gmail.com">SixDustsLab@gmail.com</a> &middot; WhatsApp/Telegram: <a href="https://wa.me/447440060028">+44 7440 060028</a></p>
+            </div>
+            <div class="col-zh">
+                <span class="zh-label">中文</span>
+                <p>OneMore Management Limited（以下简称"<strong>OMM</strong>"、"<strong>我们</strong>"、"<strong>我方</strong>"），系一家于直布罗陀注册成立的公司（公司编号：118069），注册地址为 57/63 Line Wall Road, Gibraltar, GX11 1AA，运营 SDL-HappyClaw 人工智能员工服务及网站 <a href="https://sixdustslab.xyz">sixdustslab.xyz</a>。</p>
+                <p>联系方式：<a href="mailto:SixDustsLab@gmail.com">SixDustsLab@gmail.com</a> &middot; WhatsApp/Telegram：<a href="https://wa.me/447440060028">+44 7440 060028</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 2 — Service Description
+         ══════════════════════════════════════════════════════ -->
+    <section class="section" id="s2">
+        <h2 class="section-heading"><span class="sec-num">2.</span> Service Description</h2>
+        <div class="bilingual">
+            <div class="col-en">
+                <p>SDL-HappyClaw is an AI-powered employee agent that automates business communications, customer service, lead qualification, appointment scheduling, document processing, and other operational workflows across messaging channels including WhatsApp, Telegram, Slack, and email.</p>
+                <p>These Terms govern your use of the website and provide a general framework for the service. Detailed terms for paid services are set out in the Service Agreement ("<strong>SA</strong>") executed between OMM and the Customer.</p>
+            </div>
+            <div class="col-zh">
+                <span class="zh-label">中文</span>
+                <p>SDL-HappyClaw 是一款由人工智能驱动的员工代理，能够在 WhatsApp、Telegram、Slack 和电子邮件等消息渠道上自动化处理商业通信、客户服务、潜在客户筛选、预约安排、文档处理及其他运营工作流程。</p>
+                <p>本条款规范您对本网站的使用，并为本服务提供总体框架。有偿服务的详细条款载于 OMM 与客户之间签署的服务协议（以下简称"<strong>SA</strong>"）中。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 3 — Eligibility
+         ══════════════════════════════════════════════════════ -->
+    <section class="section" id="s3">
+        <h2 class="section-heading"><span class="sec-num">3.</span> Eligibility</h2>
+        <div class="bilingual">
+            <div class="col-en">
+                <p>The service is currently available to <strong>business customers only</strong>. This service is not directed at, and does not accept, individual consumers. By using the service, you represent and warrant that:</p>
+                <ol type="a">
+                    <li>You are at least <strong>18 years of age</strong>;</li>
+                    <li>You have the legal capacity and authority to enter into a binding agreement on behalf of a business;</li>
+                    <li>You are acting on behalf of a business, trade, or profession &mdash; not as a consumer within the meaning of the Consumer Rights Act 2015 (UK), the European Directive 2011/83/EU on consumer rights, or any equivalent consumer protection legislation in Gibraltar;</li>
+                    <li>All registration information you provide is accurate and complete.</li>
+                </ol>
+                <p>As a business-to-business (B2B) service, the consumer protection provisions of the EU Consumer Rights Directive (including the 14-day right of withdrawal for distance contracts) do not apply. If you are an individual consumer, you may not use this service.</p>
+            </div>
+            <div class="col-zh">
+                <span class="zh-label">中文</span>
+                <p>本服务目前<strong>仅面向企业客户</strong>。本服务不面向且不接受个人消费者。使用本服务即表示您声明并保证：</p>
+                <ol type="a">
+                    <li>您已年满<strong>18 周岁</strong>；</li>
+                    <li>您具有代表企业签订具有约束力协议的法律行为能力和授权；</li>
+                    <li>您代表企业、商业机构或专业机构行事 — 而非《2015 年英国消费者权利法》、欧盟消费者权利指令 2011/83/EU 或直布罗陀任何同等消费者保护法规所定义的消费者；</li>
+                    <li>您提供的所有注册信息均真实、准确且完整。</li>
+                </ol>
+                <p>作为企业对企业（B2B）服务，欧盟消费者权利指令中的消费者保护条款（包括远程合同的 14 天无理由退订权）不适用。如您为个人消费者，不得使用本服务。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 4 — Acceptable Use Policy
+         ══════════════════════════════════════════════════════ -->
+    <section class="section" id="s4">
+        <h2 class="section-heading"><span class="sec-num">4.</span> Acceptable Use Policy</h2>
+        <div class="section-aup">
+            <span class="aup-badge">Standalone Policy &middot; 独立政策</span>
+            <div class="bilingual">
+                <div class="col-en">
+                    <p>The following Acceptable Use Policy ("<strong>AUP</strong>") applies to all users of the SDL-HappyClaw service and website, whether paying or non-paying.</p>
+
+                    <!-- 4.1 -->
+                    <h3 class="subsection-heading">4.1 Prohibited Conduct</h3>
+                    <p>Users shall not use the service in any manner that is unlawful, non-compliant, or infringes on the rights of others. Prohibited activities include:</p>
+                    <ul>
+                        <li>Sending unsolicited or unauthorised communications, including spam, in violation of applicable electronic communications laws</li>
+                        <li>Harassment, abuse, or dissemination of harmful or discriminatory content</li>
+                        <li>Fraud, misrepresentation, phishing, or deceptive practices</li>
+                        <li>Impersonation of any individual or entity without authorisation</li>
+                        <li>Unauthorised access, scraping, extraction, or processing of personal data or confidential information</li>
+                        <li>Processing of personal data in a manner that violates the General Data Protection Regulation (GDPR), including lack of lawful basis, inadequate consent, or failure to respect data subject rights</li>
+                        <li>Any activity that violates applicable local, national, or international laws or regulations in the jurisdictions where the service is used or deployed</li>
+                    </ul>
+
+                    <!-- 4.2 -->
+                    <h3 class="subsection-heading">4.2 Data Protection and Privacy Obligations</h3>
+                    <p>Where users process personal data using the service:</p>
+                    <ul>
+                        <li>Users act as Data Controllers and are responsible for establishing a lawful basis for processing under the GDPR</li>
+                        <li>The provider acts as a Data Processor, processing data solely on documented instructions from the user</li>
+                        <li>Users must not submit or process special category data (e.g., health, biometric, or sensitive personal data) unless explicitly authorised under the Service Agreement</li>
+                        <li>Users must implement appropriate technical and organisational measures to ensure data protection compliance</li>
+                        <li>Users are responsible for honouring data subject rights (access, rectification, erasure, etc.)</li>
+                    </ul>
+
+                    <!-- 4.3 -->
+                    <h3 class="subsection-heading">4.3 Enforcement and Remedies</h3>
+                    <p>OMM maintains the right to monitor usage for compliance and may apply proportionate enforcement actions, including:</p>
+                    <ul>
+                        <li>Throttling, rate limiting, or temporary suspension of services</li>
+                        <li>Restriction or revocation of specific features or API access</li>
+                        <li>Termination of the agreement for material breach</li>
+                        <li>Notification to competent supervisory authorities where required under the GDPR or other applicable laws</li>
+                        <li>Enterprise customers may be subject to additional contractual remedies as defined in Master Service Agreements or Data Processing Agreements</li>
+                    </ul>
+
+                    <!-- 4.4 -->
+                    <h3 class="subsection-heading">4.4 User Acceptance and Auditability</h3>
+                    <ul>
+                        <li>Paid users must accept the AUP through a binding click-through agreement during onboarding</li>
+                        <li>OMM maintains version-controlled records of acceptance, including timestamps and policy versions</li>
+                        <li>Material updates to the AUP will be communicated in advance; continued use or explicit re-acceptance constitutes agreement</li>
+                        <li>Enterprise customers may be subject to audit rights, including the ability to demonstrate compliance upon reasonable request</li>
+                    </ul>
+
+                    <!-- 4.5 -->
+                    <h3 class="subsection-heading">4.5 Compliance Alignment</h3>
+                    <p>This AUP is designed to align with:</p>
+                    <ul>
+                        <li>General Data Protection Regulation (GDPR)</li>
+                        <li>Standard enterprise SaaS frameworks (MSA, DPA, SLA structures)</li>
+                        <li>Industry expectations for security, accountability, and responsible AI usage</li>
+                    </ul>
+                </div>
+                <div class="col-zh">
+                    <span class="zh-label">中文</span>
+                    <p>以下可接受使用政策（以下简称"<strong>AUP</strong>"）适用于 SDL-HappyClaw 服务及网站的所有用户，无论是否为付费用户。</p>
+
+                    <!-- 4.1 -->
+                    <h3 class="subsection-heading">4.1 禁止行为</h3>
+                    <p>用户不得以任何非法、不合规或侵犯他人权利的方式使用本服务。禁止的活动包括：</p>
+                    <ul>
+                        <li>违反适用的电子通信法律，发送未经请求或未经授权的通信，包括垃圾信息</li>
+                        <li>骚扰、滥用或传播有害或歧视性内容</li>
+                        <li>欺诈、虚假陈述、网络钓鱼或其他欺骗性行为</li>
+                        <li>未经授权冒充任何个人或实体</li>
+                        <li>未经授权访问、抓取、提取或处理个人数据或机密信息</li>
+                        <li>以违反《通用数据保护条例》（GDPR）的方式处理个人数据，包括缺乏合法依据、同意不充分或未尊重数据主体权利</li>
+                        <li>任何违反服务使用或部署所在司法管辖区适用的地方、国家或国际法律法规的活动</li>
+                    </ul>
+
+                    <!-- 4.2 -->
+                    <h3 class="subsection-heading">4.2 数据保护与隐私义务</h3>
+                    <p>用户在使用本服务处理个人数据时：</p>
+                    <ul>
+                        <li>用户作为数据控制者，有责任根据 GDPR 确定处理的合法依据</li>
+                        <li>服务提供方作为数据处理者，仅根据用户的书面指示处理数据</li>
+                        <li>除非在服务协议中明确授权，用户不得提交或处理特殊类别数据（如健康、生物特征或敏感个人数据）</li>
+                        <li>用户须实施适当的技术和组织措施，确保数据保护合规</li>
+                        <li>用户有责任尊重数据主体权利（访问权、更正权、删除权等）</li>
+                    </ul>
+
+                    <!-- 4.3 -->
+                    <h3 class="subsection-heading">4.3 执行与救济</h3>
+                    <p>OMM 保留监控使用情况以确保合规的权利，并可采取适当的执行措施，包括：</p>
+                    <ul>
+                        <li>限流、速率限制或临时暂停服务</li>
+                        <li>限制或撤销特定功能或 API 访问权限</li>
+                        <li>因重大违约终止协议</li>
+                        <li>根据 GDPR 或其他适用法律的要求，向主管监管机构发出通知</li>
+                        <li>企业客户可能受到主服务协议或数据处理协议中规定的额外合同救济</li>
+                    </ul>
+
+                    <!-- 4.4 -->
+                    <h3 class="subsection-heading">4.4 用户接受与可审计性</h3>
+                    <ul>
+                        <li>付费用户须在入驻过程中通过具有约束力的点击式协议接受本 AUP</li>
+                        <li>OMM 保留版本控制的接受记录，包括时间戳和政策版本</li>
+                        <li>AUP 的重大更新将提前通知；继续使用或明确重新接受即构成同意</li>
+                        <li>企业客户可能须承担审计权义务，包括在合理要求时证明其合规性</li>
+                    </ul>
+
+                    <!-- 4.5 -->
+                    <h3 class="subsection-heading">4.5 合规对标</h3>
+                    <p>本 AUP 旨在与以下标准保持一致：</p>
+                    <ul>
+                        <li>《通用数据保护条例》（GDPR）</li>
+                        <li>标准企业 SaaS 框架（MSA、DPA、SLA 架构）</li>
+                        <li>行业对安全性、问责制和负责任 AI 使用的期望</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 5 — Trial and Invitation Codes
+         ══════════════════════════════════════════════════════ -->
+    <section class="section" id="s5">
+        <h2 class="section-heading"><span class="sec-num">5.</span> Trial and Invitation Codes</h2>
+        <div class="bilingual">
+            <div class="col-en">
+                <ol type="a">
+                    <li>OMM may from time to time issue trial access or invitation codes ("<strong>Trial Codes</strong>") at its sole discretion.</li>
+                    <li>Trial Codes are subject to the following limitations:
+                        <ul>
+                            <li><strong>Time limit:</strong> 7 calendar days from the date of activation.</li>
+                            <li><strong>Usage limit:</strong> Fair use &mdash; OMM reserves the right to throttle or restrict usage that exceeds reasonable trial-level volumes at its sole discretion.</li>
+                            <li><strong>Feature limit:</strong> Access is restricted to features designated as visible or available during the trial period. Certain Skills, channels, or administrative functions may be excluded.</li>
+                        </ul>
+                    </li>
+                    <li>Trial Codes are non-transferable and may not be sold, shared, or published without OMM's prior written consent.</li>
+                    <li>OMM reserves the right to revoke any Trial Code at any time without notice.</li>
+                    <li>Trial use is subject to the full AUP (<a href="#s4">Section 4</a>) and all other provisions of these Terms.</li>
+                    <li>Upon expiry of a Trial Code, access will automatically cease and all trial data will be permanently deleted. OMM will not retain any Customer data, configurations, or conversation histories created during the trial period. If the user wishes to continue, they must enter into a paid Service Agreement and begin a fresh deployment.</li>
+                </ol>
+            </div>
+            <div class="col-zh">
+                <span class="zh-label">中文</span>
+                <ol type="a">
+                    <li>OMM 可不时自行决定发放试用访问或邀请码（以下简称"<strong>试用码</strong>"）。</li>
+                    <li>试用码受以下限制约束：
+                        <ul>
+                            <li><strong>时间限制：</strong>自激活之日起 7 个日历日。</li>
+                            <li><strong>使用限制：</strong>合理使用 — OMM 保留自行决定对超出合理试用级用量的使用进行限流或限制的权利。</li>
+                            <li><strong>功能限制：</strong>仅可访问试用期间指定为可见或可用的功能。部分技能、渠道或管理功能可能被排除。</li>
+                        </ul>
+                    </li>
+                    <li>试用码不可转让，未经 OMM 事先书面同意，不得出售、分享或公开发布。</li>
+                    <li>OMM 保留随时撤销任何试用码的权利，且无须事先通知。</li>
+                    <li>试用使用须遵守完整的 AUP（<a href="#s4">第 4 条</a>）及本条款的所有其他规定。</li>
+                    <li>试用码到期后，访问权限将自动终止，且所有试用数据将被永久删除。OMM 不会保留试用期间创建的任何客户数据、配置或对话历史。如用户希望继续使用，须签订付费服务协议并重新部署。</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 6 — Intellectual Property
+         ══════════════════════════════════════════════════════ -->
+    <section class="section" id="s6">
+        <h2 class="section-heading"><span class="sec-num">6.</span> Intellectual Property</h2>
+        <div class="bilingual">
+            <div class="col-en">
+                <ol type="a">
+                    <li>All content on the website &mdash; including text, graphics, logos, page layouts, and software &mdash; is the property of OMM or its licensors and is protected by copyright, trademark, and other intellectual property laws.</li>
+                    <li>You may not reproduce, distribute, modify, or create derivative works from any website content without our prior written consent.</li>
+                    <li>"SDL-HappyClaw", "SixDustsLab", "HappyClaw", and associated logos are trademarks of OMM. Use without permission is prohibited.</li>
+                    <li>Customer data processed through the service remains the Customer's property at all times. OMM does not acquire any ownership rights over Customer data.</li>
+                    <li>OMM does not use Customer conversation data to train AI models.</li>
+                </ol>
+            </div>
+            <div class="col-zh">
+                <span class="zh-label">中文</span>
+                <ol type="a">
+                    <li>本网站上的所有内容 — 包括文本、图形、标识、页面布局和软件 — 均为 OMM 或其许可方的财产，受版权、商标及其他知识产权法律保护。</li>
+                    <li>未经我方事先书面同意，您不得复制、分发、修改网站内容或据此创作衍生作品。</li>
+                    <li>"SDL-HappyClaw"、"SixDustsLab"、"HappyClaw"及相关标识均为 OMM 的商标。未经许可使用即属违规。</li>
+                    <li>通过本服务处理的客户数据始终归客户所有。OMM 不对客户数据取得任何所有权。</li>
+                    <li>OMM 不会使用客户的对话数据训练人工智能模型。</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 7 — Payment, Refunds, and Cancellation
+         ══════════════════════════════════════════════════════ -->
+    <section class="section" id="s7">
+        <h2 class="section-heading"><span class="sec-num">7.</span> Payment, Refunds, and Cancellation</h2>
+        <div class="bilingual">
+            <div class="col-en">
+                <!-- 7.1 -->
+                <h3 class="subsection-heading">7.1 Fees</h3>
+                <p>The service comprises two fee components:</p>
+                <ul>
+                    <li><strong>Deployment fee</strong> (one-time): covers server setup, configuration, testing, and delivery.</li>
+                    <li><strong>Monthly platform fee</strong>: covers ongoing infrastructure, maintenance, support, and management.</li>
+                </ul>
+                <p>Exact fees are set out in the Service Agreement and Pricing Guide.</p>
+
+                <!-- 7.2 -->
+                <h3 class="subsection-heading">7.2 Deployment Fee &mdash; Non-Refundable</h3>
+                <p>The deployment fee represents actual costs incurred by OMM in provisioning, configuring, and delivering the service to the Customer's specification, including but not limited to server setup, software installation, channel configuration, Skill deployment, testing, and delivery of the operations manual. As such, the deployment fee is <strong>non-refundable</strong> once deployment has commenced, irrespective of whether the Customer subsequently cancels the service.</p>
+                <p>This position is consistent with the principles of the Supply of Goods and Services Act 1982 (as applied to Gibraltar), whereby a service provider is entitled to recover the reasonable cost of services performed prior to cancellation, and with the common-law principle that costs actually incurred in the performance of a contract are not subject to restitution where the service has been substantially performed.</p>
+
+                <!-- 7.3 -->
+                <h3 class="subsection-heading">7.3 Monthly Fee &mdash; Refund Policy</h3>
+                <p>As this service is offered exclusively to business customers (see <a href="#s3">Section 3</a>), the provisions of the EU Consumer Rights Directive 2011/83/EU &mdash; including the 14-day right of withdrawal for distance and off-premises contracts &mdash; do not apply. The following B2B refund policy applies instead:</p>
+                <ol type="a">
+                    <li>If the Customer's usage in the billing month exceeds <strong>20% of the monthly allowance</strong>, <strong>no refund</strong> of the monthly platform fee is available for that month.</li>
+                    <li>If the Customer has used the service for more than <strong>7 calendar days</strong> in the billing month, <strong>no refund</strong> of the monthly platform fee is available for that month.</li>
+                    <li>If neither (a) nor (b) applies &mdash; i.e., usage is at or below 20% of the monthly allowance <strong>and</strong> the service has been used for 7 calendar days or fewer &mdash; a refund of <strong>50% of that month's platform fee</strong> will be issued upon written request.</li>
+                    <li>Refund requests must be submitted in writing to <a href="mailto:SixDustsLab@gmail.com">SixDustsLab@gmail.com</a> within <strong>14 days</strong> of the end of the billing month in question. Late requests will not be entertained.</li>
+                    <li>AI subscription costs (e.g., Claude Code Max, GLM Coding Pro) paid directly by the Customer to third-party providers (Anthropic, Zhipu AI) are <strong>not refundable by OMM</strong>. The Customer should refer to the respective provider's terms for any refund eligibility.</li>
+                    <li>Refunds, where applicable, will be processed within 30 days of receipt of a valid written request and returned via the original payment method.</li>
+                </ol>
+
+                <!-- 7.4 -->
+                <h3 class="subsection-heading">7.4 Cancellation</h3>
+                <p>Customers may cancel their subscription at any time by providing 30 days' written notice, as specified in the Service Agreement. Data export is available for 30 days following termination.</p>
+            </div>
+            <div class="col-zh">
+                <span class="zh-label">中文</span>
+                <!-- 7.1 -->
+                <h3 class="subsection-heading">7.1 费用</h3>
+                <p>本服务包含两项费用组成部分：</p>
+                <ul>
+                    <li><strong>部署费</strong>（一次性）：涵盖服务器搭建、配置、测试及交付。</li>
+                    <li><strong>月度平台费</strong>：涵盖持续的基础设施、维护、支持及管理。</li>
+                </ul>
+                <p>具体费用载于服务协议及定价指南中。</p>
+
+                <!-- 7.2 -->
+                <h3 class="subsection-heading">7.2 部署费 &mdash; 不可退还</h3>
+                <p>部署费代表 OMM 根据客户规格进行配置、搭建和交付服务所实际产生的成本，包括但不限于服务器搭建、软件安装、渠道配置、技能部署、测试及运维手册交付。因此，一旦部署开始，部署费<strong>不予退还</strong>，无论客户此后是否取消服务。</p>
+                <p>本立场符合《1982 年商品与服务供应法》（适用于直布罗陀）的原则，即服务提供方有权收回取消前已履行服务的合理成本，亦符合普通法原则，即合同履行中实际发生的成本在服务已实质性履行的情况下不予返还。</p>
+
+                <!-- 7.3 -->
+                <h3 class="subsection-heading">7.3 月度费用 &mdash; 退款政策</h3>
+                <p>鉴于本服务仅面向企业客户（见<a href="#s3">第 3 条</a>），欧盟消费者权利指令 2011/83/EU 的规定 — 包括远程及场外合同 14 天无理由退订权 — 不适用。以下 B2B 退款政策适用：</p>
+                <ol type="a">
+                    <li>如客户在计费月内的使用量超过<strong>月度配额的 20%</strong>，则该月月度平台费<strong>不予退款</strong>。</li>
+                    <li>如客户在计费月内使用本服务超过 <strong>7 个日历日</strong>，则该月月度平台费<strong>不予退款</strong>。</li>
+                    <li>如 (a) 和 (b) 均不适用 — 即使用量在月度配额的 20% 及以下<strong>且</strong>使用天数不超过 7 个日历日 — 则在收到书面申请后，将退还该月平台费的 <strong>50%</strong>。</li>
+                    <li>退款申请须在相关计费月结束后 <strong>14 天内</strong>以书面形式提交至 <a href="mailto:SixDustsLab@gmail.com">SixDustsLab@gmail.com</a>。逾期申请将不予受理。</li>
+                    <li>客户直接向第三方提供商（Anthropic、智谱 AI）支付的 AI 订阅费用（如 Claude Code Max、GLM Coding Pro）<strong>不在 OMM 退款范围内</strong>。客户应参照各提供商的条款确认退款资格。</li>
+                    <li>退款（如适用）将在收到有效书面申请后 30 天内处理，并按原支付方式退回。</li>
+                </ol>
+
+                <!-- 7.4 -->
+                <h3 class="subsection-heading">7.4 取消</h3>
+                <p>客户可随时通过提前 30 天书面通知取消订阅，具体规定见服务协议。终止后 30 天内可进行数据导出。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 8 — Disclaimer of Warranties
+         ══════════════════════════════════════════════════════ -->
+    <section class="section" id="s8">
+        <h2 class="section-heading"><span class="sec-num">8.</span> Disclaimer of Warranties</h2>
+        <div class="bilingual">
+            <div class="col-en">
+                <ol type="a">
+                    <li>The website and service are provided "as is" and "as available" without warranties of any kind, whether express or implied.</li>
+                    <li>OMM does not warrant that the service will be uninterrupted, error-free, or free from harmful components.</li>
+                    <li>Information on this website is for general informational purposes only and does not constitute legal, financial, tax, or professional advice.</li>
+                    <li>While SDL-HappyClaw uses advanced AI models (Claude, GLM), AI-generated outputs may contain inaccuracies. Customers are responsible for reviewing and verifying all outputs before acting upon them.</li>
+                </ol>
+            </div>
+            <div class="col-zh">
+                <span class="zh-label">中文</span>
+                <ol type="a">
+                    <li>本网站和服务按"现状"和"可用"基础提供，不作任何明示或默示的保证。</li>
+                    <li>OMM 不保证本服务将不间断运行、无错误或不含有害组件。</li>
+                    <li>本网站上的信息仅供一般参考之用，不构成法律、财务、税务或专业建议。</li>
+                    <li>尽管 SDL-HappyClaw 使用先进的人工智能模型（Claude、GLM），但 AI 生成的输出可能存在不准确之处。客户有责任在依据输出结果采取行动前对其进行审查和核实。</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 9 — Limitation of Liability
+         ══════════════════════════════════════════════════════ -->
+    <section class="section" id="s9">
+        <h2 class="section-heading"><span class="sec-num">9.</span> Limitation of Liability</h2>
+        <div class="bilingual">
+            <div class="col-en">
+                <ol type="a">
+                    <li>To the maximum extent permitted by the laws of Gibraltar, OMM's total aggregate liability arising from or in connection with these Terms or the service shall not exceed the total fees paid by the Customer in the 12 months preceding the claim.</li>
+                    <li>OMM shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of profits, data, or business opportunities.</li>
+                    <li>Nothing in these Terms excludes or limits liability for death or personal injury caused by negligence, fraud or fraudulent misrepresentation, or any other liability that cannot be excluded or limited under the laws of Gibraltar.</li>
+                </ol>
+            </div>
+            <div class="col-zh">
+                <span class="zh-label">中文</span>
+                <ol type="a">
+                    <li>在直布罗陀法律允许的最大范围内，OMM 因本条款或本服务产生的或与之相关的全部累计责任不得超过客户在索赔前 12 个月内支付的总费用。</li>
+                    <li>OMM 不对任何间接的、附带的、特殊的、后果性的或惩罚性的损害承担责任，包括利润损失、数据丢失或商业机会损失。</li>
+                    <li>本条款中的任何规定均不排除或限制因过失造成的人身伤亡、欺诈或欺诈性虚假陈述，或直布罗陀法律不允许排除或限制的其他责任。</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 10 — Third-Party Services
+         ══════════════════════════════════════════════════════ -->
+    <section class="section" id="s10">
+        <h2 class="section-heading"><span class="sec-num">10.</span> Third-Party Services</h2>
+        <div class="bilingual">
+            <div class="col-en">
+                <ol type="a">
+                    <li>The service integrates with third-party platforms (WhatsApp, Telegram, Slack, etc.) and AI providers (Anthropic, Zhipu AI). Your use of these services is governed by their respective terms and policies.</li>
+                    <li>OMM is not responsible for the availability, accuracy, or conduct of any third-party service.</li>
+                    <li>Links to third-party websites on this site are provided for convenience. OMM does not endorse or assume responsibility for their content.</li>
+                </ol>
+            </div>
+            <div class="col-zh">
+                <span class="zh-label">中文</span>
+                <ol type="a">
+                    <li>本服务与第三方平台（WhatsApp、Telegram、Slack 等）及人工智能提供商（Anthropic、智谱 AI）集成。您对这些服务的使用受其各自条款和政策的约束。</li>
+                    <li>OMM 对任何第三方服务的可用性、准确性或行为不承担责任。</li>
+                    <li>本网站上的第三方网站链接仅为方便起见而提供。OMM 不认可其内容，亦不对其承担责任。</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 11 — Privacy
+         ══════════════════════════════════════════════════════ -->
+    <section class="section" id="s11">
+        <h2 class="section-heading"><span class="sec-num">11.</span> Privacy</h2>
+        <div class="bilingual">
+            <div class="col-en">
+                <p>Your use of the service is also governed by our Privacy Policy, available at <a href="https://sixdustslab.xyz/privacy">sixdustslab.xyz/privacy</a>. Please review it carefully.</p>
+            </div>
+            <div class="col-zh">
+                <span class="zh-label">中文</span>
+                <p>您对本服务的使用同时受我们的隐私政策约束，隐私政策可在 <a href="https://sixdustslab.xyz/privacy">sixdustslab.xyz/privacy</a> 查阅。请仔细阅读。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 12 — Governing Law and Jurisdiction
+         ══════════════════════════════════════════════════════ -->
+    <section class="section" id="s12">
+        <h2 class="section-heading"><span class="sec-num">12.</span> Governing Law and Jurisdiction</h2>
+        <div class="bilingual">
+            <div class="col-en">
+                <ol type="a">
+                    <li>These Terms are governed by and construed in accordance with the laws of Gibraltar.</li>
+                    <li>Any disputes arising from or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts of Gibraltar.</li>
+                    <li>Notwithstanding the foregoing, OMM may seek injunctive or other equitable relief in any court of competent jurisdiction to protect its intellectual property rights.</li>
+                </ol>
+            </div>
+            <div class="col-zh">
+                <span class="zh-label">中文</span>
+                <ol type="a">
+                    <li>本条款受直布罗陀法律管辖并据其解释。</li>
+                    <li>因本条款引起的或与之相关的任何争议应提交直布罗陀法院专属管辖。</li>
+                    <li>尽管有上述规定，OMM 可在任何有管辖权的法院寻求禁令或其他衡平法救济，以保护其知识产权。</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 13 — Changes to These Terms
+         ══════════════════════════════════════════════════════ -->
+    <section class="section" id="s13">
+        <h2 class="section-heading"><span class="sec-num">13.</span> Changes to These Terms</h2>
+        <div class="bilingual">
+            <div class="col-en">
+                <ol type="a">
+                    <li>OMM may update these Terms from time to time. Material changes will be posted on this page with an updated "Last updated" date.</li>
+                    <li>Your continued use of the website or service after any changes constitutes acceptance of the revised Terms.</li>
+                    <li>If you do not agree with any changes, you should discontinue use of the service and contact us to discuss.</li>
+                </ol>
+            </div>
+            <div class="col-zh">
+                <span class="zh-label">中文</span>
+                <ol type="a">
+                    <li>OMM 可不时更新本条款。重大变更将在本页面发布，并更新"最后更新"日期。</li>
+                    <li>任何变更后您继续使用本网站或服务即构成对修订后条款的接受。</li>
+                    <li>如您不同意任何变更，应停止使用本服务并与我们联系讨论。</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 14 — Severability
+         ══════════════════════════════════════════════════════ -->
+    <section class="section" id="s14">
+        <h2 class="section-heading"><span class="sec-num">14.</span> Severability</h2>
+        <div class="bilingual">
+            <div class="col-en">
+                <p>If any provision of these Terms is found to be invalid or unenforceable by a court of competent jurisdiction, the remaining provisions shall continue in full force and effect.</p>
+            </div>
+            <div class="col-zh">
+                <span class="zh-label">中文</span>
+                <p>如本条款的任何条款被有管辖权的法院认定为无效或不可执行，其余条款将继续完全有效。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 15 — Entire Agreement
+         ══════════════════════════════════════════════════════ -->
+    <section class="section" id="s15">
+        <h2 class="section-heading"><span class="sec-num">15.</span> Entire Agreement</h2>
+        <div class="bilingual">
+            <div class="col-en">
+                <p>These Terms, together with the Privacy Policy, AUP, and (for paying customers) the Service Agreement, constitute the entire agreement between you and OMM regarding the use of the website and service.</p>
+            </div>
+            <div class="col-zh">
+                <span class="zh-label">中文</span>
+                <p>本条款连同隐私政策、可接受使用政策（AUP）以及（对于付费客户）服务协议，构成您与 OMM 之间就使用本网站和服务达成的完整协议。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 16 — Contact Us
+         ══════════════════════════════════════════════════════ -->
+    <section class="section" id="s16">
+        <h2 class="section-heading"><span class="sec-num">16.</span> Contact Us</h2>
+        <div class="bilingual">
+            <div class="col-en">
+                <p><strong>OneMore Management Limited</strong><br>
+                57/63 Line Wall Road, Gibraltar, GX11 1AA<br>
+                Company No. 118069</p>
+                <p>Email: <a href="mailto:SixDustsLab@gmail.com">SixDustsLab@gmail.com</a><br>
+                WhatsApp / Telegram: <a href="https://wa.me/447440060028">+44 7440 060028</a><br>
+                Website: <a href="https://sixdustslab.xyz">sixdustslab.xyz</a></p>
+            </div>
+            <div class="col-zh">
+                <span class="zh-label">中文</span>
+                <p><strong>OneMore Management Limited</strong><br>
+                57/63 Line Wall Road, Gibraltar, GX11 1AA<br>
+                公司编号：118069</p>
+                <p>电子邮件：<a href="mailto:SixDustsLab@gmail.com">SixDustsLab@gmail.com</a><br>
+                WhatsApp / Telegram：<a href="https://wa.me/447440060028">+44 7440 060028</a><br>
+                网站：<a href="https://sixdustslab.xyz">sixdustslab.xyz</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Footer ──────────────────────────────────────────── -->
+    <footer class="doc-footer">
+        <p>&copy; 2026 OneMore Management Ltd. All rights reserved.</p>
+        <p class="doc-ref">SDL-HappyClaw-ToS-2026-04</p>
+        <p>The English version of these Terms is the legally binding version. 中文翻译仅供参考。</p>
+    </footer>
+
+</div><!-- /.page-wrapper -->
+
+<script>
+(function () {
+    'use strict';
+
+    /**
+     * Language toggle: both | en | zh
+     * - "both": show all .col-en and .col-zh (default, desktop)
+     * - "en":   hide .col-zh, show .col-en full width
+     * - "zh":   hide .col-en, show .col-zh full width with primary text colour
+     */
+    function setLang(mode) {
+        var allEn = document.querySelectorAll('.col-en');
+        var allZh = document.querySelectorAll('.col-zh');
+        var grids = document.querySelectorAll('.bilingual');
+        var buttons = document.querySelectorAll('.lang-btn');
+
+        // Update button states
+        buttons.forEach(function (btn) {
+            btn.classList.toggle('active', btn.getAttribute('data-mode') === mode);
+        });
+
+        if (mode === 'both') {
+            allEn.forEach(function (el) { el.style.display = ''; });
+            allZh.forEach(function (el) {
+                el.style.display = '';
+                el.style.color = '';
+                el.style.borderLeft = '';
+                el.style.paddingLeft = '';
+            });
+            grids.forEach(function (g) { g.style.gridTemplateColumns = '1fr 1fr'; });
+        } else if (mode === 'en') {
+            allEn.forEach(function (el) { el.style.display = ''; });
+            allZh.forEach(function (el) { el.style.display = 'none'; });
+            grids.forEach(function (g) { g.style.gridTemplateColumns = '1fr'; });
+        } else if (mode === 'zh') {
+            allEn.forEach(function (el) { el.style.display = 'none'; });
+            allZh.forEach(function (el) {
+                el.style.display = '';
+                el.style.color = 'var(--text)';
+                el.style.borderLeft = 'none';
+                el.style.paddingLeft = '0';
+            });
+            grids.forEach(function (g) { g.style.gridTemplateColumns = '1fr'; });
+        }
+
+        // Persist preference
+        try { localStorage.setItem('sdl-tos-lang', mode); } catch (e) {}
+    }
+
+    // Expose globally for inline onclick handlers
+    window.setLang = setLang;
+
+    // Restore preference on load
+    try {
+        var saved = localStorage.getItem('sdl-tos-lang');
+        if (saved && (saved === 'en' || saved === 'zh' || saved === 'both')) {
+            setLang(saved);
+        }
+    } catch (e) {}
+})();
+</script>
+</body>
+</html>
