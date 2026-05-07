@@ -978,6 +978,20 @@
       if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}
     });
   });
+
+  // cookie consent banner
+  (function(){
+    if(localStorage.getItem('sdl-cookie-consent')) return;
+    var b=document.createElement('div');
+    b.id='cookie-banner';
+    b.style.cssText='position:fixed;bottom:0;left:0;right:0;z-index:999;background:var(--panel);border-top:1px solid var(--line);padding:16px 28px;display:flex;align-items:center;justify-content:center;gap:16px;font-size:13px;color:var(--ink-2);flex-wrap:wrap';
+    b.innerHTML='This site uses only essential cookies to function. We do not use tracking or advertising cookies. <a href="/privacy#cookies" style="color:var(--accent);text-decoration:underline">Cookie Policy</a> <button id="cookie-accept" style="padding:8px 16px;border-radius:8px;background:var(--accent);color:#0b0c0e;font-weight:600;font-size:13px;border:none;cursor:pointer">Accept</button>';
+    document.body.appendChild(b);
+    document.getElementById('cookie-accept').onclick=function(){
+      localStorage.setItem('sdl-cookie-consent','accepted');
+      b.remove();
+    };
+  })();
 </script>
 </body>
 </html>
