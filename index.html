@@ -279,6 +279,8 @@
   .setup .d{font-size:12px;color:var(--ink-3);margin-top:8px;line-height:1.5}
 
   /* ——— CTA ——— */
+  .case-card{display:block;border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--panel);text-decoration:none;color:inherit;transition:border-color .2s,transform .15s;cursor:pointer;position:relative;z-index:1}
+  .case-card:hover{border-color:var(--accent);transform:translateY(-2px)}
   .cta-big{border:1px solid var(--line);border-radius:20px;background:
     radial-gradient(600px 300px at 15% 20%, rgba(215,255,58,.1), transparent 60%),
     radial-gradient(500px 300px at 85% 80%, rgba(124,196,255,.06), transparent 60%),
@@ -839,55 +841,55 @@
     <h2 class="sec" style="margin-bottom:40px">Real businesses, <em>real results.</em></h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px">
 
-      <a href="/case-studies/jnow" style="display:block;border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--panel);text-decoration:none;color:inherit;transition:border-color .2s">
+      <a class="case-card" href="/case-studies/jnow">
         <div style="font-family:var(--font-mono);font-size:11px;color:var(--ink-4);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">Content Creation</div>
         <h3 style="font-size:18px;font-weight:500;margin:0 0 8px">JNow YouTube Production</h3>
         <p style="font-size:14px;color:var(--ink-2);line-height:1.5;margin:0">AI-powered content scheduling and audience engagement for a YouTube creator.</p>
       </a>
 
-      <a href="/case-studies/restaurant" style="display:block;border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--panel);text-decoration:none;color:inherit;transition:border-color .2s">
+      <a class="case-card" href="/case-studies/restaurant">
         <div style="font-family:var(--font-mono);font-size:11px;color:var(--ink-4);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">Hospitality</div>
         <h3 style="font-size:18px;font-weight:500;margin:0 0 8px">Restaurant Automation</h3>
         <p style="font-size:14px;color:var(--ink-2);line-height:1.5;margin:0">Reservation handling, multilingual menu queries, and review management.</p>
       </a>
 
-      <a href="/case-studies/restaurant-bar" style="display:block;border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--panel);text-decoration:none;color:inherit;transition:border-color .2s">
+      <a class="case-card" href="/case-studies/restaurant-bar">
         <div style="font-family:var(--font-mono);font-size:11px;color:var(--ink-4);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">Hospitality · DE/EN</div>
         <h3 style="font-size:18px;font-weight:500;margin:0 0 8px">Restaurant & Bar</h3>
         <p style="font-size:14px;color:var(--ink-2);line-height:1.5;margin:0">Bilingual guest communication and event booking for a German bar.</p>
       </a>
 
-      <a href="/case-studies/cafe" style="display:block;border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--panel);text-decoration:none;color:inherit;transition:border-color .2s">
+      <a class="case-card" href="/case-studies/cafe">
         <div style="font-family:var(--font-mono);font-size:11px;color:var(--ink-4);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">Hospitality · 中文</div>
         <h3 style="font-size:18px;font-weight:500;margin:0 0 8px">Café 智能客服</h3>
         <p style="font-size:14px;color:var(--ink-2);line-height:1.5;margin:0">中文咖啡店全流程自动化：点单、预约、会员管理。</p>
       </a>
 
-      <a href="/case-studies/retail-marketing" style="display:block;border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--panel);text-decoration:none;color:inherit;transition:border-color .2s">
+      <a class="case-card" href="/case-studies/retail-marketing">
         <div style="font-family:var(--font-mono);font-size:11px;color:var(--ink-4);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">Retail</div>
         <h3 style="font-size:18px;font-weight:500;margin:0 0 8px">Retail Marketing Suite</h3>
         <p style="font-size:14px;color:var(--ink-2);line-height:1.5;margin:0">Poster generation, social media campaigns, and catalogue management.</p>
       </a>
 
-      <a href="/case-studies/hospitality" style="display:block;border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--panel);text-decoration:none;color:inherit;transition:border-color .2s">
+      <a class="case-card" href="/case-studies/hospitality">
         <div style="font-family:var(--font-mono);font-size:11px;color:var(--ink-4);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">Hospitality · Multi-lang</div>
         <h3 style="font-size:18px;font-weight:500;margin:0 0 8px">Hotel ZH/EN/PT/AR</h3>
         <p style="font-size:14px;color:var(--ink-2);line-height:1.5;margin:0">Four-language guest service for an international hotel chain.</p>
       </a>
 
-      <a href="/case-studies/live-translator" style="display:block;border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--panel);text-decoration:none;color:inherit;transition:border-color .2s">
+      <a class="case-card" href="/case-studies/live-translator">
         <div style="font-family:var(--font-mono);font-size:11px;color:var(--ink-4);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">Translation</div>
         <h3 style="font-size:18px;font-weight:500;margin:0 0 8px">Live Translator PT/EN</h3>
         <p style="font-size:14px;color:var(--ink-2);line-height:1.5;margin:0">Real-time Portuguese-English translation powered by Deepgram + MyMemory.</p>
       </a>
 
-      <a href="/case-studies/design-philosophy" style="display:block;border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--panel);text-decoration:none;color:inherit;transition:border-color .2s">
+      <a class="case-card" href="/case-studies/design-philosophy">
         <div style="font-family:var(--font-mono);font-size:11px;color:var(--ink-4);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">Insight · 中文</div>
         <h3 style="font-size:18px;font-weight:500;margin:0 0 8px">Claude 设计哲学</h3>
         <p style="font-size:14px;color:var(--ink-2);line-height:1.5;margin:0">422 行泄露文档解读：AI 时代的设计护城河。</p>
       </a>
 
-      <a href="/case-studies/fishing-shop" style="display:block;border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--panel);text-decoration:none;color:inherit;transition:border-color .2s">
+      <a class="case-card" href="/case-studies/fishing-shop">
         <div style="font-family:var(--font-mono);font-size:11px;color:var(--ink-4);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">Retail</div>
         <h3 style="font-size:18px;font-weight:500;margin:0 0 8px">Fishing Shop</h3>
         <p style="font-size:14px;color:var(--ink-2);line-height:1.5;margin:0">Product recommendations and seasonal campaign automation.</p>
